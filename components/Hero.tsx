@@ -4,24 +4,54 @@ const BADGES = [
   { icon: Clock, title: "24/7 Support", sub: "Always Available" },
   { icon: ShieldCheck, title: "100% Quality", sub: "Guaranteed" },
   { icon: Globe, title: "Fast Delivery", sub: "On Time, Every Time" },
-  { icon: Refresh, title: "Unlimited Revisions", sub: "Until You're Satisfied" },
+  {
+    icon: Refresh,
+    title: "Unlimited Revisions",
+    sub: "Until You're Satisfied",
+  },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white hero-radial">
-      {/* Subtle red corner glow */}
+    <section
+      className="relative overflow-hidden bg-white"
+      style={{
+        backgroundImage: 'url("/images/HeroMain.png")',
+        backgroundSize: "contain",
+        backgroundPosition: "center right",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Readability overlay: white ONLY on the left ~45% where text sits.
+          Right half shows the image crisp, with no wash.
+          This avoids the "blurry" look caused by an all-over white wash. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
+        }}
       />
+      {/* Mobile: text wraps full-width so we need a slightly stronger left wash,
+          but keep right side clear. Use the same gradient — it already fades to 0. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
+        className="absolute inset-0 z-0 lg:hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.85) 100%)",
+        }}
       />
 
-      {/* Extra bottom padding (pb-40 lg:pb-48) so the Features bar can overlap into it without covering badges */}
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pt-16 pb-40 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-24 lg:pb-48 lg:px-8">
+      {/* Subtle red corner glow (kept for the premium feel) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
+      />
+
+      {/* Extra bottom padding so the Features bar can overlap into the hero */}
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 pt-16 pb-40 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-24 lg:pb-48 lg:px-8">
         {/* Left: copy + CTAs + badges */}
         <div className="flex flex-col items-start">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e]">
@@ -31,10 +61,12 @@ export default function Hero() {
 
           <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
             Precision Digitizing <br className="hidden sm:block" />
-            <span className="text-[#c8102e]">Crafted for Premium Embroidery</span>
+            <span className="text-[#c8102e]">
+              Crafted for Premium Embroidery
+            </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-[#6b7280] sm:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-[#1a1a1a]/80 sm:text-lg">
             We transform artwork into flawless embroidery files with exceptional
             stitch quality, fast turnaround and professional support trusted by
             clients worldwide.
@@ -68,7 +100,9 @@ export default function Hero() {
                   <b.icon className="h-5 w-5" />
                 </span>
                 <div className="leading-tight">
-                  <div className="text-xs font-bold text-[#1a1a1a]">{b.title}</div>
+                  <div className="text-xs font-bold text-[#1a1a1a]">
+                    {b.title}
+                  </div>
                   <div className="text-[10px] text-[#6b7280]">{b.sub}</div>
                 </div>
               </div>
@@ -76,32 +110,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: hero image as CSS background (full image visible, no cropping) */}
-        <div className="relative order-first lg:order-last">
-          <div
-            className="relative w-full overflow-hidden rounded-2xl border border-[#e5e7eb] bg-[#f5f5f5] shadow-xl"
-            style={{
-              backgroundImage: 'url("/images/HeroMain.png")',
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              /* Use the image's natural aspect ratio (1271x832) so it fills the box perfectly */
-              aspectRatio: "1271 / 832",
-            }}
-          >
-            {/* Floating "5000+ Completed Projects" badge — lifted above so the overlap doesn't cover it */}
-            <div className="absolute -bottom-5 -left-3 sm:left-6 z-30 rounded-xl bg-white px-5 py-3 shadow-lg ring-1 ring-[#e5e7eb]">
-              <div className="text-2xl font-extrabold text-[#c8102e] font-display">5000+</div>
-              <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
-                Completed Projects
-              </div>
+        {/* Right column is now empty — the image is the section background.
+            We keep the floating "5000+ Completed Projects" stat badge here so it
+            sits over the image area on desktop. */}
+        <div className="relative hidden lg:block">
+          <div className="absolute bottom-0 right-0 z-20 rounded-xl bg-white px-5 py-3 shadow-lg ring-1 ring-[#e5e7eb]">
+            <div className="text-2xl font-extrabold text-[#c8102e] font-display">
+              5000+
             </div>
-
-            {/* Decorative red dot top-right */}
-            <div
-              aria-hidden
-              className="absolute -top-4 -right-4 z-30 h-16 w-16 rounded-2xl bg-[#c8102e] shadow-lg"
-            />
+            <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
+              Completed Projects
+            </div>
           </div>
         </div>
       </div>
