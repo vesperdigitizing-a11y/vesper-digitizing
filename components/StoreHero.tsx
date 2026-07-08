@@ -1,10 +1,25 @@
-import { ArrowRight, Star, Download, BadgeCheck, ShieldCheck, Lock } from "./icons";
+import {
+  ArrowRight,
+  Download,
+  BadgeCheck,
+  ShieldCheck,
+  Lock,
+  Star,
+  User,
+} from "./icons";
 
 const FEATURE_BADGES = [
-  { icon: Download, label: "Instant Download" },
-  { icon: BadgeCheck, label: "Commercial Use" },
-  { icon: ShieldCheck, label: "Premium Quality" },
-  { icon: Lock, label: "Secure Payment" },
+  { icon: Download, label: "Instant Download", sub: "After Purchase" },
+  { icon: BadgeCheck, label: "Commercial Use", sub: "Included" },
+  { icon: ShieldCheck, label: "Premium Quality", sub: "Tested Designs" },
+  { icon: Lock, label: "Secure Payment", sub: "100% Safe" },
+];
+
+const AVATAR_COLORS = [
+  "bg-[#9ca3af]",
+  "bg-[#6b7280]",
+  "bg-[#1a1a1a]",
+  "bg-[#c8102e]",
 ];
 
 export default function StoreHero() {
@@ -12,7 +27,7 @@ export default function StoreHero() {
     <section
       className="relative overflow-hidden bg-white"
       style={{
-        backgroundImage: 'url("/images/storeHeroRating.png")',
+        backgroundImage: 'url("/images/storeHero.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -26,7 +41,7 @@ export default function StoreHero() {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.55) 65%, rgba(255,255,255,0.35) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
         }}
       />
       {/* Mobile: stronger vertical wash */}
@@ -45,7 +60,7 @@ export default function StoreHero() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
             Premium Embroidery Design Store
           </span>
@@ -78,43 +93,55 @@ export default function StoreHero() {
             </a>
           </div>
 
-          {/* Feature badges */}
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {/* Feature badges — grid-cols-4 keeps all four in a single line at every width */}
+          <div className="mt-8 grid grid-cols-4 gap-x-3 sm:gap-x-5">
             {FEATURE_BADGES.map((b) => (
               <div
                 key={b.label}
-                className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white/90 px-3 py-2.5 backdrop-blur-sm"
+                className="flex min-w-0 items-start gap-1.5 sm:gap-2.5"
               >
-                <b.icon className="h-5 w-5 shrink-0 text-[#c8102e]" />
-                <span className="text-[11px] font-semibold text-[#1a1a1a]">
-                  {b.label}
-                </span>
+                <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
+                <div className="min-w-0 leading-tight">
+                  <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                    {b.label}
+                  </div>
+                  <div className="text-[9px] leading-snug text-[#6b7280] sm:text-[11px]">
+                    {b.sub}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Rating badge — floating over the right side of the background image */}
-        <div className="mt-8 flex justify-start lg:absolute lg:bottom-16 lg:right-12 lg:mt-0">
-          <div className="flex items-center gap-3 rounded-xl bg-white/95 px-5 py-4 shadow-lg ring-1 ring-[#e5e7eb] backdrop-blur-sm">
-            <div>
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 text-[#c8102e]" />
-                ))}
-              </div>
-              <div className="mt-1 text-xs font-semibold text-[#1a1a1a]">
-                4.9/5 Rating
-              </div>
+        {/* Happy customers badge — floats over the right side of the background image */}
+        <div className="mt-8 flex justify-start lg:absolute lg:right-[-20px] lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
+          <div className="w-56 rounded-xl bg-white/95 px-5 py-4 shadow-lg ring-1 ring-[#e5e7eb] backdrop-blur-sm">
+            <div className="font-display text-2xl font-extrabold text-[#c8102e]">
+              5000+
             </div>
-            <div className="h-10 w-px bg-[#e5e7eb]" />
-            <div>
-              <div className="font-display text-2xl font-extrabold text-[#c8102e]">
-                5000+
-              </div>
-              <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
-                Happy Customers
-              </div>
+            <div className="text-sm font-medium text-[#1a1a1a]">
+              Happy Customers
+            </div>
+
+            <div className="mt-3 flex -space-x-2">
+              {AVATAR_COLORS.map((c, i) => (
+                <span
+                  key={i}
+                  className={`flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-white ${c}`}
+                >
+                  <User className="h-4 w-4 text-white" />
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-3 text-sm font-bold text-[#1a1a1a]">
+              4.9/5 Rating
+            </div>
+            <div className="mt-1 flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 text-[#f5a623]" />
+              ))}
             </div>
           </div>
         </div>
