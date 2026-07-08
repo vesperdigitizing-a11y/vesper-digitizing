@@ -77,19 +77,18 @@ export default function ServicesHero() {
             </a>
           </div>
 
-          {/* Badges row */}
-          <div className="mt-8 grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
+          {/* Badges row — grid-cols-4 keeps all four in a single line at every width */}
+          <div className="mt-8 grid w-full grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-5">
             {BADGES.map((b) => (
-              <div
-                key={b.title}
-                className="flex items-start gap-3 rounded-lg border border-[#e5e7eb] bg-white p-3 shadow-sm"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
-                  <b.icon className="h-5 w-5" />
-                </span>
-                <div className="leading-tight">
-                  <div className="text-xs font-bold text-[#1a1a1a]">{b.title}</div>
-                  <div className="text-[10px] text-[#6b7280]">{b.sub}</div>
+              <div key={b.title} className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+                <b.icon className="h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
+                <div className="min-w-0 leading-tight">
+                  <div className="truncate text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                    {b.title}
+                  </div>
+                  <div className="truncate text-[9px] text-[#6b7280] sm:text-[11px]">
+                    {b.sub}
+                  </div>
                 </div>
               </div>
             ))}

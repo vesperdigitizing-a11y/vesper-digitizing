@@ -4,13 +4,17 @@ const BADGES = [
   { icon: Clock, title: "24/7 Support", sub: "Always Available" },
   { icon: ShieldCheck, title: "100% Quality", sub: "Guaranteed" },
   { icon: Globe, title: "Fast Delivery", sub: "On Time, Every Time" },
-  { icon: Refresh, title: "Unlimited Revisions", sub: "Until You're Satisfied" },
+  {
+    icon: Refresh,
+    title: "Unlimited Revisions",
+    sub: "Until You're Satisfied",
+  },
 ];
 
 export default function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-white pb-10"
       style={{
         backgroundImage: 'url("/images/HeroMain.png")',
         backgroundSize: "cover",
@@ -47,7 +51,7 @@ export default function Hero() {
 
       {/* Reduced padding: pt-12 pb-28 on mobile, lg:pt-16 lg:pb-32 on desktop.
           Still leaves room for the Features bar (-mt-24) to overlap the bottom edge. */}
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 pt-12 pb-28 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-32 lg:px-8">
+      <div className="relative z-10 mx-auto grid items-center gap-8 px-4 pt-12 pb-28 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-32 lg:px-8">
         {/* Left: copy + CTAs + badges */}
         <div className="flex flex-col items-start">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e]">
@@ -57,7 +61,9 @@ export default function Hero() {
 
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
             Precision Digitizing <br className="hidden sm:block" />
-            <span className="text-[#c8102e]">Crafted for Premium Embroidery</span>
+            <span className="text-[#c8102e]">
+              Crafted for Premium Embroidery
+            </span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/80 sm:text-lg">
@@ -83,14 +89,21 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Badges row */}
-          <div className="mt-8 flex w-full flex-wrap gap-x-7 gap-y-4">
+          {/* Badges row — grid-cols-4 keeps all four in a single line at every width */}
+          <div className="mt-8 grid w-full grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-0">
             {BADGES.map((b) => (
-              <div key={b.title} className="flex items-center gap-2.5">
-                <b.icon className="h-5 w-5 shrink-0 text-[#c8102e]" />
-                <div className="leading-tight">
-                  <div className="text-xs font-bold text-[#1a1a1a] sm:text-sm">{b.title}</div>
-                  <div className="text-[11px] text-[#6b7280]">{b.sub}</div>
+              <div
+                key={b.title}
+                className="flex min-w-0 items-center gap-1.5 sm:gap-2"
+              >
+                <b.icon className="h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
+                <div className="min-w-0 leading-tight">
+                  <div className="truncate text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                    {b.title}
+                  </div>
+                  <div className="truncate text-[9px] text-[#6b7280] sm:text-[11px]">
+                    {b.sub}
+                  </div>
                 </div>
               </div>
             ))}
@@ -102,7 +115,9 @@ export default function Hero() {
             sits over the image area on desktop. */}
         <div className="relative hidden lg:block">
           <div className="absolute bottom-0 right-0 z-20 rounded-xl bg-white px-5 py-3 shadow-lg ring-1 ring-[#e5e7eb]">
-            <div className="text-2xl font-extrabold text-[#c8102e] font-display">5000+</div>
+            <div className="text-2xl font-extrabold text-[#c8102e] font-display">
+              5000+
+            </div>
             <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
               Completed Projects
             </div>
