@@ -2,25 +2,77 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --vesper-red: #c8102e;
+  --vesper-red-dark: #a30d24;
+  --vesper-dark: #1a1a1a;
+  --vesper-gray: #6b7280;
+  --vesper-light-gray: #f5f5f5;
+  --vesper-border: #e5e7eb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-vesper-red: var(--vesper-red);
+  --color-vesper-red-dark: var(--vesper-red-dark);
+  --color-vesper-dark: var(--vesper-dark);
+  --color-vesper-gray: var(--vesper-gray);
+  --color-vesper-light: var(--vesper-light-gray);
+  --color-vesper-border: var(--vesper-border);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Custom utility classes */
+.font-display {
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Marquee animation for any horizontal scrollers */
+@keyframes vesper-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: vesper-marquee 30s linear infinite;
+}
+
+/* Subtle red glow used on hero */
+.hero-radial {
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(200, 16, 46, 0.06), transparent 50%),
+    radial-gradient(circle at 0% 80%, rgba(200, 16, 46, 0.04), transparent 45%);
+}
+
+/* Dotted grid background for empty image placeholders */
+.placeholder-grid {
+  background-color: #f5f5f5;
+  background-image:
+    linear-gradient(45deg, #e5e7eb 25%, transparent 25%),
+    linear-gradient(-45deg, #e5e7eb 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e5e7eb 75%),
+    linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* Hide scrollbar for filter tabs row */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

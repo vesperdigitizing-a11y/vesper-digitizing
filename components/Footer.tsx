@@ -1,0 +1,202 @@
+import Logo from "./Logo";
+import {
+  Mail,
+  Phone,
+  Clock,
+  Facebook,
+  Twitter,
+  Instagram,
+  ArrowRight,
+} from "./icons";
+
+const QUICK_LINKS = [
+  { label: "Home", href: "#" },
+  { label: "About Us", href: "#about" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Store", href: "#store" },
+  { label: "Contact Us", href: "#contact" },
+];
+
+const SERVICES = [
+  "Left Chest Logos",
+  "Cap Digitizing",
+  "Jacket Back",
+  "3D Puff Digitizing",
+  "Applique Digitizing",
+  "Patch Digitizing",
+  "Vector Conversion",
+  "Custom Embroidery",
+];
+
+const HELP_LINKS = [
+  "FAQs",
+  "How It Works",
+  "Payment Methods",
+  "Shipping & Delivery",
+  "Return Policy",
+  "Privacy Policy",
+  "Terms & Conditions",
+];
+
+export default function Footer() {
+  return (
+    <footer id="contact" className="bg-[#1a1a1a] text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
+          {/* Brand + tagline + socials */}
+          <div className="lg:col-span-1">
+            <Logo size={44} theme="light" />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
+              We provide premium quality digitizing services with fast delivery
+              and unbeatable customer support.
+            </p>
+            <div className="mt-6 flex items-center gap-3">
+              {[Facebook, Twitter, Instagram].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  aria-label="Social link"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-[#c8102e]"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              Quick Links
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {QUICK_LINKS.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-white/70 transition-colors hover:text-[#c8102e]"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              Services
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {SERVICES.map((s) => (
+                <li key={s}>
+                  <a
+                    href="#services"
+                    className="text-sm text-white/70 transition-colors hover:text-[#c8102e]"
+                  >
+                    {s}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Help & Support */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              Help &amp; Support
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {HELP_LINKS.map((l) => (
+                <li key={l}>
+                  <a
+                    href="#"
+                    className="text-sm text-white/70 transition-colors hover:text-[#c8102e]"
+                  >
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Us + Newsletter */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              Contact Us
+            </h3>
+            <ul className="mt-5 space-y-3 text-sm text-white/70">
+              <li className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e]" />
+                <a
+                  href="mailto:support@vesperdigitizing.com"
+                  className="transition-colors hover:text-[#c8102e]"
+                >
+                  support@vesperdigitizing.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e]" />
+                <span>
+                  <a href="tel:+11234567890" className="block transition-colors hover:text-[#c8102e]">
+                    +1 (123) 456-7890
+                  </a>
+                  <a href="tel:+11234561234" className="block transition-colors hover:text-[#c8102e]">
+                    +1 (123) 456-1234
+                  </a>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e]" />
+                <span>
+                  Mon - Sat: 9:00 AM - 7:00 PM
+                  <br />
+                  Sunday: Closed
+                </span>
+              </li>
+            </ul>
+
+            <div className="mt-6">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+                Newsletter
+              </div>
+              <p className="mt-3 text-xs text-white/70">
+                Subscribe to get updates and exclusive offers.
+              </p>
+              <form
+                className="mt-3 flex gap-2"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  aria-label="Your email"
+                  className="h-10 w-full min-w-0 rounded-md border border-white/15 bg-white/5 px-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-[#c8102e]"
+                />
+                <button
+                  type="submit"
+                  className="inline-flex h-10 shrink-0 items-center justify-center rounded-md bg-[#c8102e] px-4 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#a30d24]"
+                >
+                  Submit
+                  <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
+          <p className="text-xs text-white/60">
+            © 2024 Vesper Digitizing. All Rights Reserved.
+          </p>
+          <div className="flex items-center gap-5 text-xs text-white/60">
+            <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
+            <a href="#" className="transition-colors hover:text-white">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
