@@ -1,3 +1,4 @@
+"use client";
 import Logo from "./Logo";
 import {
   Mail,
@@ -139,10 +140,16 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e]" />
                 <span>
-                  <a href="tel:+11234567890" className="block transition-colors hover:text-[#c8102e]">
+                  <a
+                    href="tel:+11234567890"
+                    className="block transition-colors hover:text-[#c8102e]"
+                  >
                     +1 (123) 456-7890
                   </a>
-                  <a href="tel:+11234561234" className="block transition-colors hover:text-[#c8102e]">
+                  <a
+                    href="tel:+11234561234"
+                    className="block transition-colors hover:text-[#c8102e]"
+                  >
                     +1 (123) 456-1234
                   </a>
                 </span>
@@ -192,8 +199,12 @@ export default function Footer() {
             © 2024 Vesper Digitizing. All Rights Reserved.
           </p>
           <div className="flex items-center gap-5 text-xs text-white/60">
-            <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
-            <a href="#" className="transition-colors hover:text-white">Terms &amp; Conditions</a>
+            <a href="#" className="transition-colors hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="#" className="transition-colors hover:text-white">
+              Terms &amp; Conditions
+            </a>
           </div>
         </div>
       </div>

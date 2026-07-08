@@ -280,6 +280,22 @@ export const MapPin = (props: IconProps) => (
   </svg>
 );
 
+
+export const Tag = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+    <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+  </svg>
+);
+
+export const Linkedin = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 /** Mapping helpers for service / feature / step / stat icons. */
 export type IconName =
   | "shirt"
@@ -302,7 +318,9 @@ export type IconName =
   | "upload"
   | "search"
   | "send"
-  | "smile";
+  | "smile"
+  | "tag"
+  | "linkedin";
 
 export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   shirt: Shirt,
@@ -326,4 +344,6 @@ export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   search: Search,
   send: Send,
   smile: Smile,
+  tag: Tag,
+  linkedin: Linkedin,
 };

@@ -1,51 +1,59 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./Logo";
 import { ArrowRight, Cart, Menu } from "./icons";
 
 const NAV = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Store", href: "#store" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Store", href: "/store" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e5e7eb] bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 md:h-20">
         {/* Logo */}
-        <a href="#" aria-label="Vesper Digitizing home" className="flex items-center">
+        <Link href="/" aria-label="Vesper Digitizing home" className="flex items-center">
           <Logo size={40} />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
           {NAV.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-[#1a1a1a] transition-colors hover:text-[#c8102e]"
+              className={`text-sm font-medium transition-colors hover:text-[#c8102e] ${
+                isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Right actions */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <a
-            href="#quote"
+          <Link
+            href="/contact"
             className="group inline-flex h-10 items-center gap-2 rounded-md bg-[#c8102e] px-4 sm:px-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#a30d24]"
           >
             GET A QUOTE
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+          </Link>
           <button
             type="button"
             aria-label="Cart"
@@ -70,14 +78,16 @@ export default function Header() {
         <div className="lg:hidden border-t border-[#e5e7eb] bg-white">
           <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6" aria-label="Mobile">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium text-[#1a1a1a] border-b border-[#f5f5f5] last:border-0 hover:text-[#c8102e]"
+                className={`py-3 text-sm font-medium border-b border-[#f5f5f5] last:border-0 hover:text-[#c8102e] ${
+                  isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
