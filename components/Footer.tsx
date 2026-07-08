@@ -5,8 +5,9 @@ import {
   Phone,
   Clock,
   Facebook,
-  Twitter,
   Instagram,
+  Linkedin,
+  Youtube,
   ArrowRight,
 } from "./icons";
 
@@ -52,7 +53,7 @@ export default function Footer() {
               and unbeatable customer support.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              {[Facebook, Twitter, Instagram].map((Icon, i) => (
+              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"

@@ -84,18 +84,13 @@ export default function Hero() {
           </div>
 
           {/* Badges row */}
-          <div className="mt-8 grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mt-8 flex w-full flex-wrap gap-x-7 gap-y-4">
             {BADGES.map((b) => (
-              <div
-                key={b.title}
-                className="flex items-start gap-3 rounded-lg border border-[#e5e7eb] bg-white p-3 shadow-sm"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
-                  <b.icon className="h-5 w-5" />
-                </span>
+              <div key={b.title} className="flex items-center gap-2.5">
+                <b.icon className="h-5 w-5 shrink-0 text-[#c8102e]" />
                 <div className="leading-tight">
-                  <div className="text-xs font-bold text-[#1a1a1a]">{b.title}</div>
-                  <div className="text-[10px] text-[#6b7280]">{b.sub}</div>
+                  <div className="text-xs font-bold text-[#1a1a1a] sm:text-sm">{b.title}</div>
+                  <div className="text-[11px] text-[#6b7280]">{b.sub}</div>
                 </div>
               </div>
             ))}

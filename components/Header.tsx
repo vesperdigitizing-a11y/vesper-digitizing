@@ -36,11 +36,14 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-[#c8102e] ${
+              className={`relative text-sm font-medium transition-colors hover:text-[#c8102e] ${
                 isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
               }`}
             >
               {item.label}
+              {isActive(item.href) && (
+                <span className="absolute -bottom-1.5 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-[#c8102e]" />
+              )}
             </Link>
           ))}
         </nav>

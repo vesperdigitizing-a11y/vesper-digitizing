@@ -48,9 +48,12 @@ export default function RootLayout({
       className={`${inter.variable} ${pops.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#1a1a1a]">
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 z-[100]"
+        />
         {children}
       </body>
     </html>
   );
 }
-

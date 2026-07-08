@@ -311,6 +311,30 @@ export const Lock = (props: IconProps) => (
   </svg>
 );
 
+export const Trophy = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M8 21h8" />
+    <path d="M12 17v4" />
+    <path d="M7 4h10v6a5 5 0 0 1-10 0z" />
+    <path d="M7 5H4v1a4 4 0 0 0 4 4" />
+    <path d="M17 5h3v1a4 4 0 0 1-4 4" />
+  </svg>
+);
+
+export const User = (props: IconProps) => (
+  <svg {...base(props)}>
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" />
+  </svg>
+);
+
+export const Youtube = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8z" />
+    <path d="M10 15V9l5 3z" fill="currentColor" stroke="none" />
+  </svg>
+);
+
 export const Heart = (props: IconProps) => (
   <svg {...base(props)}>
     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
@@ -344,7 +368,10 @@ export type IconName =
   | "linkedin"
   | "download"
   | "badge-check"
-  | "lock";
+  | "lock"
+  | "trophy"
+  | "user"
+  | "youtube";
 
 export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   shirt: Shirt,
@@ -373,4 +400,7 @@ export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   download: Download,
   "badge-check": BadgeCheck,
   lock: Lock,
+  trophy: Trophy,
+  user: User,
+  youtube: Youtube,
 };

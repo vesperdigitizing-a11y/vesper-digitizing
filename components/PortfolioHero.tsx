@@ -1,10 +1,10 @@
-import { ArrowRight } from "./icons";
+import { ArrowRight, Trophy, User, Globe, BadgeCheck } from "./icons";
 
 const STATS = [
-  { value: "5000+", label: "Projects Completed" },
-  { value: "2500+", label: "Happy Customers" },
-  { value: "45+", label: "Countries Served" },
-  { value: "99%", label: "Customer Satisfaction" },
+  { icon: Trophy, value: "5000+", label: "Projects Completed" },
+  { icon: User, value: "2500+", label: "Happy Customers" },
+  { icon: Globe, value: "45+", label: "Countries Served" },
+  { icon: BadgeCheck, value: "99%", label: "Customer Satisfaction" },
 ];
 
 export default function PortfolioHero() {
@@ -46,13 +46,14 @@ export default function PortfolioHero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
         <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
             Our Portfolio
+            <span className="h-px w-6 bg-current opacity-60" />
           </span>
 
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
             Stitching Your Ideas <br className="hidden sm:block" />
-            <span className="text-[#c8102e]">Into Perfection</span>
+            Into <span className="text-[#c8102e]">Perfection</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
@@ -70,28 +71,29 @@ export default function PortfolioHero() {
             </a>
             <a
               href="/services"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#c8102e] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#c8102e] transition-colors hover:bg-[#c8102e]/5"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#1a1a1a]/15 bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#1a1a1a] transition-colors hover:border-[#1a1a1a]/40 hover:bg-[#f5f5f5]"
             >
               View Services
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-        </div>
-      </div>
 
-      {/* Stats bar — merged at the bottom of the hero, over the background image */}
-      <div className="relative z-10 border-t border-white/40">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {STATS.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="font-display text-3xl font-extrabold text-[#c8102e] sm:text-4xl">
-                {s.value}
+          {/* Stats row — inline with the copy column, icon + value/label */}
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-5">
+            {STATS.map((s) => (
+              <div key={s.label} className="flex items-center gap-2.5">
+                <s.icon className="h-5 w-5 shrink-0 text-[#c8102e]" strokeWidth={1.75} />
+                <div className="leading-tight">
+                  <div className="font-display text-lg font-extrabold text-[#1a1a1a] sm:text-xl">
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] font-medium text-[#6b7280] sm:text-xs">
+                    {s.label}
+                  </div>
+                </div>
               </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
