@@ -18,21 +18,24 @@ export default function PortfolioHero() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Readability overlay: white on the left where text sits */}
+      {/* Readability overlay: strong white wash across the full hero so text
+          is fully legible, with a softer fade so the image still shows through
+          as a cohesive background rather than a separate box. */}
       <div
         aria-hidden
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.55) 65%, rgba(255,255,255,0.35) 100%)",
         }}
       />
+      {/* Mobile: stronger vertical wash */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.85) 100%)",
+            "linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.88) 100%)",
         }}
       />
 
@@ -41,9 +44,8 @@ export default function PortfolioHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 pt-28 pb-12 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-32 lg:pb-16 lg:px-8">
-        {/* Left: copy + CTAs */}
-        <div className="flex flex-col items-start">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
+        <div className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
             Our Portfolio
           </span>
@@ -53,14 +55,14 @@ export default function PortfolioHero() {
             <span className="text-[#c8102e]">Into Perfection</span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/80 sm:text-lg">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
             Explore our recent digitizing projects. Every design is crafted with
             precision, passion and perfection to make your brand stand out.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="#quote"
+              href="/contact"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-[#a30d24]"
             >
               Start Your Project
@@ -75,20 +77,17 @@ export default function PortfolioHero() {
             </a>
           </div>
         </div>
-
-        {/* Right column empty — image is the background */}
-        <div className="hidden lg:block" />
       </div>
 
-      {/* Stats bar at the bottom of the hero */}
-      <div className="relative z-10 border-t border-[#e5e7eb] bg-white/80 backdrop-blur-sm">
+      {/* Stats bar — merged at the bottom of the hero, over the background image */}
+      <div className="relative z-10 border-t border-white/40">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
           {STATS.map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-display text-3xl font-extrabold text-[#c8102e] sm:text-4xl">
                 {s.value}
               </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#6b7280] sm:text-sm">
+              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
                 {s.label}
               </div>
             </div>
