@@ -14,19 +14,18 @@ export default function ContactFeatures() {
   return (
     <section className="bg-[#f5f5f5] py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 rounded-xl border border-[#e5e7eb] bg-white p-6 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:p-8">
           {FEATURES.map((f) => {
             const Icon = IconByName[f.icon];
             return (
-              <div
-                key={f.title}
-                className="flex flex-col items-center rounded-xl border border-[#e5e7eb] bg-white p-6 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
-              >
-                <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20">
-                  <Icon className="h-6 w-6" />
+              <div key={f.title} className="flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20">
+                  <Icon className="h-5 w-5" />
                 </span>
-                <h3 className="text-sm font-bold text-[#1a1a1a]">{f.title}</h3>
-                <p className="mt-1 text-xs text-[#6b7280]">{f.desc}</p>
+                <div className="leading-tight">
+                  <h3 className="text-sm font-bold text-[#1a1a1a]">{f.title}</h3>
+                  <p className="mt-0.5 text-xs text-[#6b7280]">{f.desc}</p>
+                </div>
               </div>
             );
           })}

@@ -32,17 +32,17 @@ export default function ContactCTA() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
             <a
               href="#contact-form"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-7 text-sm font-semibold uppercase tracking-wide text-[#c8102e] shadow-sm transition-colors hover:bg-white/90"
+              className="group inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-white px-7 text-sm font-semibold uppercase tracking-wide text-[#c8102e] shadow-sm transition-colors hover:bg-white/90"
             >
               Get Free Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="tel:+12134567890"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/40 bg-transparent px-7 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+              className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-white/40 bg-transparent px-7 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
             >
               <Phone className="h-4 w-4" />
               Contact Us

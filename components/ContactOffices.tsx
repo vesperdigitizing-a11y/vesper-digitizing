@@ -17,20 +17,12 @@ export default function ContactOffices() {
   return (
     <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
-            <span className="h-px w-6 bg-current opacity-60" />
-            Our Offices
-            <span className="h-px w-6 bg-current opacity-60" />
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
-            Where to Find Us
-          </h2>
-        </div>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Office cards */}
           <div className="flex flex-col gap-6">
+            <h2 className="font-display text-2xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-3xl">
+              Our Offices
+            </h2>
             {OFFICES.map((office) => (
               <div
                 key={office.type}

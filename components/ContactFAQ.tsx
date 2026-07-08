@@ -30,7 +30,7 @@ export default function ContactFAQ() {
         <div className="text-center">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
             <span className="h-px w-6 bg-current opacity-60" />
-            FAQs
+            Quick Answers
             <span className="h-px w-6 bg-current opacity-60" />
           </span>
           <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">

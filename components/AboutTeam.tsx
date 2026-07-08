@@ -1,47 +1,66 @@
+import { ArrowRight } from "./icons";
+
 const TEAM = [
-  { name: "Zain Ul Abideen", role: "Founder & CEO",      initial: "ZA", color: "bg-[#c8102e]" },
-  { name: "Hassan Raza",     role: "Lead Digitizer",     initial: "HR", color: "bg-[#1a1a1a]" },
-  { name: "Usman Ali",       role: "Senior Digitizer",   initial: "UA", color: "bg-[#c8102e]" },
-  { name: "Talha Mehmood",   role: "Quality Analyst",    initial: "TM", color: "bg-[#1a1a1a]" },
+  { name: "Arslan Khan", role: "Senior Digitizer", exp: "10+ Years Experience" },
+  { name: "Usman Ali", role: "Lead Digitizer", exp: "8+ Years Experience" },
+  { name: "Hassan Raza", role: "Quality Analyst", exp: "7+ Years Experience" },
+  { name: "Zain Abbas", role: "Support Manager", exp: "6+ Years Experience" },
 ];
 
 export default function AboutTeam() {
   return (
     <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
-            <span className="h-px w-6 bg-current opacity-60" />
-            Meet Our Team
-            <span className="h-px w-6 bg-current opacity-60" />
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
-            The Experts Behind Every Stitch
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-[#6b7280] sm:text-base">
-            Our talented team of digitizers, designers, and quality analysts work
-            together to deliver excellence on every project.
-          </p>
-        </div>
-
-        <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {TEAM.map((member) => (
-            <div
-              key={member.name}
-              className="group flex flex-col items-center rounded-xl border border-[#e5e7eb] bg-white p-6 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
-            >
-              {/* Avatar with initial */}
-              <div className={`flex h-24 w-24 items-center justify-center rounded-full ${member.color} font-display text-3xl font-extrabold text-white transition-transform group-hover:scale-105`}>
-                {member.initial}
-              </div>
-              <h3 className="mt-4 font-display text-base font-bold text-[#1a1a1a]">
-                {member.name}
-              </h3>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#c8102e]">
-                {member.role}
+        <div className="overflow-hidden rounded-2xl bg-[#1a1a1a]">
+          <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr]">
+            {/* Left: copy panel */}
+            <div className="flex flex-col justify-center p-8 sm:p-10">
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
+                Our Team
+              </span>
+              <h2 className="mt-3 font-display text-2xl font-extrabold leading-tight text-white sm:text-3xl">
+                The Experts Behind Every{" "}
+                <span className="text-[#c8102e]">Perfect Stitch</span>
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-white/60">
+                Our team of experienced digitizers works with dedication and
+                creativity to bring your designs to life.
               </p>
+              <p className="mt-6 font-display text-lg italic text-white/40">
+                Vesper Digitizing
+              </p>
+              <a
+                href="/contact"
+                className="group mt-6 inline-flex h-11 w-fit items-center justify-center gap-2 rounded-md bg-[#c8102e] px-5 text-xs font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#a30d24]"
+              >
+                Join Our Team
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
             </div>
-          ))}
+
+            {/* Right: team photo placeholders */}
+            <div className="grid grid-cols-2 sm:grid-cols-4">
+              {TEAM.map((m) => (
+                <div
+                  key={m.name}
+                  className="placeholder-grid relative aspect-[3/4] border-l border-white/10 first:border-l-0 sm:first:border-l"
+                >
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="rounded-md bg-white/80 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-[#6b7280]">
+                      Photo
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4">
+                    <h3 className="font-display text-sm font-bold text-white">
+                      {m.name}
+                    </h3>
+                    <p className="text-[11px] text-white/60">{m.role}</p>
+                    <p className="text-[10px] text-[#c8102e]">{m.exp}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

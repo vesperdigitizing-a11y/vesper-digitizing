@@ -23,7 +23,7 @@ export default function ContactHero() {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.55) 65%, rgba(255,255,255,0.35) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
         }}
       />
       <div
@@ -41,7 +41,7 @@ export default function ContactHero() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
             Home &rsaquo; Contact Us
           </span>
@@ -74,19 +74,14 @@ export default function ContactHero() {
             </a>
           </div>
 
-          {/* Feature badges */}
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {/* Feature badges — single line, no boxes */}
+          <div className="mt-8 grid grid-cols-3 gap-x-3 sm:gap-x-6">
             {BADGES.map((b) => (
-              <div
-                key={b.title}
-                className="flex items-center gap-3 rounded-lg border border-[#e5e7eb] bg-white/90 px-4 py-3 backdrop-blur-sm"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
-                  <b.icon className="h-5 w-5" />
-                </span>
-                <div className="leading-tight">
-                  <div className="text-xs font-bold text-[#1a1a1a]">{b.title}</div>
-                  <div className="text-[11px] text-[#6b7280]">{b.sub}</div>
+              <div key={b.title} className="flex min-w-0 items-start gap-1.5 sm:gap-2.5">
+                <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
+                <div className="min-w-0 leading-tight">
+                  <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">{b.title}</div>
+                  <div className="text-[9px] leading-snug text-[#6b7280] sm:text-[11px]">{b.sub}</div>
                 </div>
               </div>
             ))}

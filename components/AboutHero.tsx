@@ -1,10 +1,10 @@
-import { ArrowRight } from "./icons";
+import { ArrowRight, Clock, Trophy, Globe, BadgeCheck } from "./icons";
 
 const STATS = [
-  { value: "15+", label: "Years Experience" },
-  { value: "5000+", label: "Projects Completed" },
-  { value: "2500+", label: "Happy Clients" },
-  { value: "45+", label: "Countries Served" },
+  { icon: Clock, value: "10+", label: "Years of Experience" },
+  { icon: Trophy, value: "5000+", label: "Projects Completed" },
+  { icon: Globe, value: "45+", label: "Countries Served" },
+  { icon: BadgeCheck, value: "99%", label: "Client Satisfaction" },
 ];
 
 export default function AboutHero() {
@@ -24,7 +24,7 @@ export default function AboutHero() {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.55) 65%, rgba(255,255,255,0.35) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
         }}
       />
       <div
@@ -42,29 +42,28 @@ export default function AboutHero() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
             About Vesper Digitizing
           </span>
 
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
             Crafting Perfection <br className="hidden sm:block" />
-            <span className="text-[#c8102e]">Stitch by Stitch</span>
+            One <span className="text-[#c8102e]">Stitch</span> at a Time
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
-            We are a team of passionate digitizers dedicated to transforming
-            your artwork into flawless embroidery files. With precision,
-            experience, and care, we deliver digitizing services that elevate
-            your brand.
+            At Vesper Digitizing, we turn your ideas into flawless embroidery.
+            With precision, passion, and technology, we deliver digitizing
+            solutions that help your brand stand out.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="/contact"
+              href="/services"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-[#a30d24]"
             >
-              Get Free Quote
+              Our Services
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
@@ -75,22 +74,23 @@ export default function AboutHero() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-        </div>
-      </div>
 
-      {/* Stats bar — merged at the bottom */}
-      <div className="relative z-10 border-t border-white/40">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {STATS.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="font-display text-3xl font-extrabold text-[#c8102e] sm:text-4xl">
-                {s.value}
+          {/* Stats row — grid-cols-4 keeps all four in a single line at every width */}
+          <div className="mt-8 grid grid-cols-4 gap-x-3 sm:gap-x-6">
+            {STATS.map((s) => (
+              <div key={s.label} className="flex min-w-0 items-start gap-1.5 sm:gap-2">
+                <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
+                <div className="min-w-0 leading-tight">
+                  <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-lg">
+                    {s.value}
+                  </div>
+                  <div className="text-[9px] leading-snug text-[#6b7280] sm:text-[11px]">
+                    {s.label}
+                  </div>
+                </div>
               </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
