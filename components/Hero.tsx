@@ -1,20 +1,25 @@
-"use client";
-
-// Enhanced Hero — parallax REMOVED per user request, image stays static.
-// Kept: animated gradient mesh background, floating shapes, scroll reveal,
-// magnetic CTAs (now just shadow hover), animated counter stat badge,
-// trust keywords marquee at bottom.
-
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
 import { ArrowRight, Clock, Refresh, ShieldCheck, Globe, Star } from "./icons";
 
 const BADGES = [
-  { icon: Clock, title: "24/7", sub: "Support" },
-  { icon: ShieldCheck, title: "100% Quality", sub: "Guaranteed" },
-  { icon: Globe, title: "Fast", sub: "Delivery" },
-  { icon: Refresh, title: "Unlimited", sub: "Revisions" },
+  {
+    icon: Clock,
+    title: "24/7 Support",
+    sub: "Always Available Around The Clock",
+  },
+  {
+    icon: ShieldCheck,
+    title: "100% Quality",
+    sub: "Guaranteed Premium Stitching",
+  },
+  { icon: Globe, title: "Fast Delivery", sub: "On Time, Every Single Time" },
+  {
+    icon: Refresh,
+    title: "Unlimited Revisions",
+    sub: "Until You Are Fully Satisfied",
+  },
 ];
 
 const TRUST_KEYWORDS = [
@@ -33,7 +38,6 @@ const TRUST_KEYWORDS = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pb-10 hero-mesh noise-overlay">
-      {/* Static background image (no parallax) */}
       <div
         aria-hidden
         className="absolute inset-0 z-0"
@@ -44,8 +48,6 @@ export default function Hero() {
           backgroundRepeat: "no-repeat",
         }}
       />
-
-      {/* Readability overlay — white wash on left where text sits */}
       <div
         aria-hidden
         className="absolute inset-0 z-0"
@@ -62,8 +64,6 @@ export default function Hero() {
             "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
       />
-
-      {/* Floating decorative shapes */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
@@ -73,8 +73,7 @@ export default function Hero() {
         className="pointer-events-none absolute top-1/3 -left-20 z-0 h-64 w-64 rounded-full bg-[#c8102e]/5 blur-3xl animate-float-slow"
       />
 
-      <div className="relative z-10 mx-auto grid items-center gap-8 px-4 pt-12 pb-28 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-32 lg:px-8">
-        {/* Left: copy + CTAs + badges */}
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 pt-12 pb-28 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start">
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e] backdrop-blur-sm">
@@ -116,23 +115,19 @@ export default function Hero() {
             </div>
           </ScrollReveal>
 
-          {/* Badges — equal-width columns + single-line, nowrap text so
-              icon/title/sub always align across badges (see ServicesHero
-              for the same fix and why: variable text length + items-center
-              made icons/text sit at different heights per badge). */}
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
-            <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
+            <div className="grid grid-cols-2 items-stretch gap-x-5 gap-y-3 sm:grid-cols-4 lg:gap-x-6">
               {BADGES.map((b) => (
                 <div
                   key={b.title}
-                  className="group flex items-start gap-1.5 sm:gap-2"
+                  className="group flex h-full items-start gap-1.5 sm:gap-2"
                 >
-                  <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
+                  <b.icon className="mt-0.5 h-5 w-5 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-6 sm:w-6" />
                   <div className="leading-tight">
-                    <div className="whitespace-nowrap text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                    <div className="text-xs font-bold text-[#1a1a1a] sm:text-sm">
                       {b.title}
                     </div>
-                    <div className="whitespace-nowrap text-[9px] text-[#6b7280] sm:text-[11px]">
+                    <div className="mt-0.5 text-[11px] leading-snug text-[#6b7280] sm:text-xs">
                       {b.sub}
                     </div>
                   </div>
@@ -142,7 +137,6 @@ export default function Hero() {
           </ScrollReveal>
         </div>
 
-        {/* Right column — floating stat card with animated counter */}
         <div className="relative hidden lg:block">
           <ScrollReveal variant="scale" delay={500}>
             <div className="absolute bottom-0 right-0 z-20 flex items-center gap-4 rounded-2xl bg-white/95 px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur animate-float">
@@ -171,7 +165,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust keywords marquee at bottom of hero */}
       <div className="relative z-10 border-y border-[#e5e7eb] bg-[#1a1a1a] py-4">
         <div className="marquee-mask overflow-hidden">
           <div className="animate-marquee flex w-max items-center gap-8 whitespace-nowrap">

@@ -20,7 +20,6 @@ export default function ServicesHero() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Stronger readability overlay — covers more area so text is always legible */}
       <div
         aria-hidden
         className="absolute inset-0 z-0"
@@ -42,10 +41,7 @@ export default function ServicesHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
       />
 
-      {/* FIX: items-start instead of items-center (so left content starts at top,
-          not vertically centered against the empty right column).
-          Increased bottom padding so badges never feel cramped at the bottom. */}
-      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-8 px-4 pt-28 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-32 lg:pb-28 lg:px-8">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-8 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-20 lg:pb-28 lg:px-8">
         <div className="flex flex-col items-start">
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e] backdrop-blur-sm">
@@ -91,10 +87,6 @@ export default function ServicesHero() {
             </div>
           </ScrollReveal>
 
-          {/* Badges — title/sub text is kept short enough (1 line each,
-              nowrap) that height never depends on font metrics or
-              column width. Pixel min-heights are fragile across
-              devices/fonts; a guaranteed single line is not. */}
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
             <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
               {BADGES.map((b) => (
@@ -114,7 +106,6 @@ export default function ServicesHero() {
           </ScrollReveal>
         </div>
 
-        {/* Right column — floating stat badge with animated counter */}
         <ScrollReveal variant="scale" delay={500} className="relative hidden lg:block">
           <div className="absolute bottom-0 right-0 z-20 flex items-center gap-3 rounded-xl bg-white/95 px-5 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur animate-float">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
