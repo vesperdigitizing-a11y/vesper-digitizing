@@ -3,10 +3,10 @@ import ScrollReveal from "./ScrollReveal";
 import AnimatedCounter from "./AnimatedCounter";
 
 const STATS = [
-  { icon: Trophy, value: 5000, suffix: "+", label: "Projects Completed" },
-  { icon: User, value: 2500, suffix: "+", label: "Happy Customers" },
-  { icon: Globe, value: 45, suffix: "+", label: "Countries Served" },
-  { icon: BadgeCheck, value: 99, suffix: "%", label: "Customer Satisfaction" },
+  { icon: Trophy, value: 5000, suffix: "+", label: "Projects" },
+  { icon: User, value: 2500, suffix: "+", label: "Customers" },
+  { icon: Globe, value: 45, suffix: "+", label: "Countries" },
+  { icon: BadgeCheck, value: 99, suffix: "%", label: "Satisfaction" },
 ];
 
 export default function PortfolioHero() {
@@ -83,17 +83,18 @@ export default function PortfolioHero() {
             </div>
           </ScrollReveal>
 
-          {/* Stats row with animated counters — flex-wrap on mobile */}
+          {/* Stats row with animated counters — equal-width columns + short,
+              nowrap labels keep every badge's icon/number/label aligned. */}
           <ScrollReveal stagger delay={400} className="mt-10 w-full">
-            <div className="flex w-full flex-wrap gap-x-5 gap-y-3 lg:flex-nowrap lg:gap-x-5">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4">
               {STATS.map((s) => (
-                <div key={s.label} className="group flex items-center gap-1.5 sm:gap-2.5">
+                <div key={s.label} className="group flex items-start gap-1.5 sm:gap-2.5">
                   <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" strokeWidth={1.75} />
                   <div className="leading-tight">
-                    <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-xl">
+                    <div className="whitespace-nowrap font-display text-sm font-extrabold text-[#1a1a1a] sm:text-xl">
                       <AnimatedCounter value={s.value} suffix={s.suffix} />
                     </div>
-                    <div className="text-[10px] font-medium leading-snug text-[#6b7280] sm:text-sm">
+                    <div className="whitespace-nowrap text-[10px] font-medium leading-snug text-[#6b7280] sm:text-sm">
                       {s.label}
                     </div>
                   </div>

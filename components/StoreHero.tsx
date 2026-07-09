@@ -9,10 +9,10 @@ import {
 } from "./icons";
 
 const FEATURE_BADGES = [
-  { icon: Download, label: "Instant Download", sub: "After Purchase" },
-  { icon: BadgeCheck, label: "Commercial Use", sub: "Included" },
-  { icon: ShieldCheck, label: "Premium Quality", sub: "Tested Designs" },
-  { icon: Lock, label: "Secure Payment", sub: "100% Safe" },
+  { icon: Download, label: "Instant", sub: "Download" },
+  { icon: BadgeCheck, label: "Commercial", sub: "Use" },
+  { icon: ShieldCheck, label: "Premium", sub: "Quality" },
+  { icon: Lock, label: "Secure", sub: "Payment" },
 ];
 
 const AVATAR_COLORS = [
@@ -93,7 +93,9 @@ export default function StoreHero() {
             </a>
           </div>
 
-          {/* Feature badges — grid-cols-4 keeps all four in a single line at every width */}
+          {/* Feature badges — grid-cols-4 keeps all four in a single line at
+              every width; short, nowrap label/sub text guarantees icon and
+              text always align across badges (no wrap-count drift). */}
           <div className="mt-8 grid grid-cols-4 gap-x-3 sm:gap-x-5">
             {FEATURE_BADGES.map((b) => (
               <div
@@ -102,10 +104,10 @@ export default function StoreHero() {
               >
                 <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
                 <div className="min-w-0 leading-tight">
-                  <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                  <div className="whitespace-nowrap text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
                     {b.label}
                   </div>
-                  <div className="text-[10px] leading-snug text-[#6b7280] sm:text-xs">
+                  <div className="whitespace-nowrap text-[10px] leading-snug text-[#6b7280] sm:text-xs">
                     {b.sub}
                   </div>
                 </div>

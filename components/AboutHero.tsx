@@ -3,10 +3,10 @@ import ScrollReveal from "./ScrollReveal";
 import AnimatedCounter from "./AnimatedCounter";
 
 const STATS = [
-  { icon: Clock, value: 10, suffix: "+", label: "Years of Experience" },
-  { icon: Trophy, value: 5000, suffix: "+", label: "Projects Completed" },
-  { icon: Globe, value: 45, suffix: "+", label: "Countries Served" },
-  { icon: BadgeCheck, value: 99, suffix: "%", label: "Client Satisfaction" },
+  { icon: Clock, value: 10, suffix: "+", label: "Experience" },
+  { icon: Trophy, value: 5000, suffix: "+", label: "Projects" },
+  { icon: Globe, value: 45, suffix: "+", label: "Countries" },
+  { icon: BadgeCheck, value: 99, suffix: "%", label: "Satisfaction" },
 ];
 
 export default function AboutHero() {
@@ -85,17 +85,18 @@ export default function AboutHero() {
             </div>
           </ScrollReveal>
 
-          {/* Stats row with animated counters — flex-wrap on mobile */}
+          {/* Stats row with animated counters — equal-width columns + short,
+              nowrap labels keep every badge's icon/number/label aligned. */}
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
-            <div className="flex w-full flex-wrap gap-x-5 gap-y-3 lg:flex-nowrap lg:gap-x-6">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
               {STATS.map((s) => (
-                <div key={s.label} className="group flex items-center gap-1.5 sm:gap-2">
+                <div key={s.label} className="group flex items-start gap-1.5 sm:gap-2">
                   <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
                   <div className="leading-tight">
-                    <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-lg">
+                    <div className="whitespace-nowrap font-display text-sm font-extrabold text-[#1a1a1a] sm:text-lg">
                       <AnimatedCounter value={s.value} suffix={s.suffix} />
                     </div>
-                    <div className="text-[10px] leading-snug text-[#6b7280] sm:text-xs">
+                    <div className="whitespace-nowrap text-[10px] leading-snug text-[#6b7280] sm:text-xs">
                       {s.label}
                     </div>
                   </div>

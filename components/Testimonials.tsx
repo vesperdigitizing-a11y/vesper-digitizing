@@ -78,7 +78,7 @@ export default function Testimonials() {
                     ? "border-[#c8102e]/40 shadow-lg ring-1 ring-[#c8102e]/10 md:scale-105"
                     : "border-[#e5e7eb] md:scale-100"
                 }`}
-                aria-hidden={!isActive && typeof window !== "undefined" ? "true" : undefined}
+                aria-hidden={!isActive ? "true" : undefined}
               >
                 <Quote className="h-9 w-9 text-[#c8102e]/30" />
 
