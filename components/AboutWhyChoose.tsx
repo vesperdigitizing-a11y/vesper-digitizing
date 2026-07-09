@@ -37,10 +37,10 @@ export default function AboutWhyChoose() {
                 <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20">
                   <Icon className="h-5 w-5" />
                 </span>
-                <h3 className="font-display text-sm font-bold text-[#1a1a1a]">
+                <h3 className="font-display text-sm font-bold text-[#1a1a1a] sm:text-base">
                   {f.title}
                 </h3>
-                <p className="mt-1 text-xs leading-relaxed text-[#6b7280]">
+                <p className="mt-1 text-xs leading-relaxed text-[#6b7280] sm:text-sm">
                   {f.desc}
                 </p>
               </div>

@@ -46,7 +46,7 @@ export default function AboutTeam() {
                   className="placeholder-grid relative aspect-[3/4] border-l border-white/10 first:border-l-0 sm:first:border-l"
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="rounded-md bg-white/80 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-[#6b7280]">
+                    <span className="rounded-md bg-white/80 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
                       Photo
                     </span>
                   </div>

@@ -86,7 +86,7 @@ export default function ServicesHero() {
                   <div className="truncate text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
                     {b.title}
                   </div>
-                  <div className="truncate text-[9px] text-[#6b7280] sm:text-[11px]">
+                  <div className="truncate text-[10px] text-[#6b7280] sm:text-xs">
                     {b.sub}
                   </div>
                 </div>

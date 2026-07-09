@@ -81,7 +81,7 @@ export default function ContactHero() {
                 <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] sm:h-5 sm:w-5" />
                 <div className="min-w-0 leading-tight">
                   <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">{b.title}</div>
-                  <div className="text-[9px] leading-snug text-[#6b7280] sm:text-[11px]">{b.sub}</div>
+                  <div className="text-[10px] leading-snug text-[#6b7280] sm:text-xs">{b.sub}</div>
                 </div>
               </div>
             ))}

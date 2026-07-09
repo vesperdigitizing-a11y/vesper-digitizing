@@ -36,10 +36,10 @@ export default function WhyChooseUs() {
                 <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#c8102e]/15 text-[#c8102e] ring-1 ring-[#c8102e]/30">
                   <Icon className="h-7 w-7" />
                 </span>
-                <div className="text-sm font-bold uppercase tracking-wider text-white">
+                <div className="text-sm font-bold uppercase tracking-wider text-white sm:text-base">
                   {f.title}
                 </div>
-                <div className="mt-2 text-xs leading-relaxed text-white/60">
+                <div className="mt-2 text-xs leading-relaxed text-white/60 sm:text-sm">
                   {f.desc}
                 </div>
               </div>

@@ -33,14 +33,14 @@ export default function AboutProcess() {
             <div key={s.title} className="relative flex flex-col items-center text-center">
               <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#c8102e]/25 bg-white text-[#c8102e]">
                 <s.icon className="h-5 w-5" />
-                <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#c8102e] text-[9px] font-bold text-white">
+                <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#c8102e] text-[10px] font-bold text-white">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
               </span>
-              <h3 className="mt-4 font-display text-sm font-bold text-[#1a1a1a]">
+              <h3 className="mt-4 font-display text-sm font-bold text-[#1a1a1a] sm:text-base">
                 {s.title}
               </h3>
-              <p className="mt-1 text-xs leading-relaxed text-[#6b7280]">
+              <p className="mt-1 text-xs leading-relaxed text-[#6b7280] sm:text-sm">
                 {s.desc}
               </p>
             </div>

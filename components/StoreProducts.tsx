@@ -187,7 +187,7 @@ export default function StoreProducts() {
 
                   {/* Info */}
                   <div className="flex flex-1 flex-col p-4">
-                    <h3 className="font-display text-sm font-bold text-[#1a1a1a]">
+                    <h3 className="font-display text-sm font-bold text-[#1a1a1a] sm:text-base">
                       {p.name}
                     </h3>
                     <div className="mt-2 flex items-center gap-2">

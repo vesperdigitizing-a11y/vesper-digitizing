@@ -101,7 +101,7 @@ export default function Hero() {
                   <div className="truncate text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
                     {b.title}
                   </div>
-                  <div className="truncate text-[9px] text-[#6b7280] sm:text-[11px]">
+                  <div className="truncate text-[10px] text-[#6b7280] sm:text-xs">
                     {b.sub}
                   </div>
                 </div>
@@ -118,7 +118,7 @@ export default function Hero() {
             <div className="text-2xl font-extrabold text-[#c8102e] font-display">
               5000+
             </div>
-            <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
+            <div className="text-[11px] font-medium uppercase tracking-wider text-[#6b7280]">
               Completed Projects
             </div>
           </div>

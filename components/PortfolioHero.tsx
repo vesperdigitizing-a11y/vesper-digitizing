@@ -87,7 +87,7 @@ export default function PortfolioHero() {
                   <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-xl">
                     {s.value}
                   </div>
-                  <div className="text-[9px] font-medium leading-snug text-[#6b7280] sm:text-xs">
+                  <div className="text-[10px] font-medium leading-snug text-[#6b7280] sm:text-sm">
                     {s.label}
                   </div>
                 </div>

@@ -84,7 +84,7 @@ export default function AboutHero() {
                   <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-lg">
                     {s.value}
                   </div>
-                  <div className="text-[9px] leading-snug text-[#6b7280] sm:text-[11px]">
+                  <div className="text-[10px] leading-snug text-[#6b7280] sm:text-xs">
                     {s.label}
                   </div>
                 </div>

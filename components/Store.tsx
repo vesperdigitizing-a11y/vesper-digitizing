@@ -76,7 +76,7 @@ export default function Store() {
                     <div className="text-[10px] font-medium uppercase tracking-wider text-[#9ca3af]">
                       {p.meta}
                     </div>
-                    <h3 className="mt-1 font-display text-sm font-bold text-[#1a1a1a]">
+                    <h3 className="mt-1 font-display text-sm font-bold text-[#1a1a1a] sm:text-base">
                       {p.name}
                     </h3>
 
