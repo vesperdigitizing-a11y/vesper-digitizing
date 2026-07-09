@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
+/* ============================================================
+   VESPER DIGITIZING — Global Styles & Animation System
+   ============================================================ */
+
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
   --vesper-red: #c8102e;
   --vesper-red-dark: #a30d24;
+  --vesper-red-light: #e63950;
   --vesper-dark: #1a1a1a;
   --vesper-gray: #6b7280;
   --vesper-light-gray: #f5f5f5;
   --vesper-border: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 30px -5px rgb(200 16 46 / 0.4);
+  --shadow-glow-lg: 0 0 50px -5px rgb(200 16 46 / 0.5);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @theme inline {
@@ -16,6 +30,7 @@
   --color-foreground: var(--foreground);
   --color-vesper-red: var(--vesper-red);
   --color-vesper-red-dark: var(--vesper-red-dark);
+  --color-vesper-red-light: var(--vesper-red-light);
   --color-vesper-dark: var(--vesper-dark);
   --color-vesper-gray: var(--vesper-gray);
   --color-vesper-light: var(--vesper-light-gray);
@@ -24,8 +39,13 @@
   --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -34,9 +54,47 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Custom utility classes */
+/* ============================================================
+   Custom Scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c8102e, #a30d24);
+  border-radius: 6px;
+  border: 2px solid #f5f5f5;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a30d24, #8a0b1e);
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c8102e #f5f5f5;
+}
+
+/* ============================================================
+   Custom Selection
+   ============================================================ */
+::selection {
+  background: #c8102e;
+  color: #ffffff;
+}
+::-moz-selection {
+  background: #c8102e;
+  color: #ffffff;
+}
+
+/* ============================================================
+   Typography Utilities
+   ============================================================ */
 .font-display {
   font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
@@ -45,23 +103,266 @@ body {
   text-wrap: balance;
 }
 
-/* Marquee animation for any horizontal scrollers */
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Gradient text — used on key headlines */
+.text-gradient {
+  background: linear-gradient(135deg, #c8102e 0%, #e63950 50%, #c8102e 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   Keyframe Animations
+   ============================================================ */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 @keyframes vesper-marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 .animate-marquee {
-  animation: vesper-marquee 30s linear infinite;
+  animation: vesper-marquee 40s linear infinite;
+}
+.animate-marquee-fast {
+  animation: vesper-marquee 20s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: vesper-marquee 40s linear infinite reverse;
 }
 
-/* Subtle red glow used on hero */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float 9s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 7s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px -5px rgba(200, 16, 46, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px 0px rgba(200, 16, 46, 0.7);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s var(--ease-out-expo) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-scale-in {
+  animation: scale-in 0.5s var(--ease-spring) both;
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s var(--ease-out-expo) both;
+}
+
+@keyframes draw-underline {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   Scroll Reveal — initial hidden state
+   The ScrollReveal component toggles .is-visible to animate in
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+}
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+}
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+}
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger helpers — apply to children of a .reveal container */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s var(--ease-out-expo),
+    transform 0.6s var(--ease-out-expo);
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.55s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.65s; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.75s; }
+
+/* ============================================================
+   Background Patterns & Effects
+   ============================================================ */
 .hero-radial {
   background-image:
-    radial-gradient(circle at 80% 20%, rgba(200, 16, 46, 0.06), transparent 50%),
-    radial-gradient(circle at 0% 80%, rgba(200, 16, 46, 0.04), transparent 45%);
+    radial-gradient(circle at 80% 20%, rgba(200, 16, 46, 0.08), transparent 50%),
+    radial-gradient(circle at 0% 80%, rgba(200, 16, 46, 0.05), transparent 45%);
 }
 
-/* Dotted grid background for empty image placeholders */
+.hero-mesh {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(200, 16, 46, 0.08) 0px, transparent 50%),
+    radial-gradient(at 98% 1%, rgba(200, 16, 46, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(26, 26, 26, 0.04) 0px, transparent 50%),
+    radial-gradient(at 1% 99%, rgba(200, 16, 46, 0.05) 0px, transparent 50%);
+}
+
+.dark-mesh {
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(at 20% 30%, rgba(200, 16, 46, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(200, 16, 46, 0.08) 0px, transparent 50%);
+}
+
 .placeholder-grid {
   background-color: #f5f5f5;
   background-image:
@@ -73,6 +374,178 @@ body {
   background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-/* Hide scrollbar for filter tabs row */
+/* Dotted grid for dark sections */
+.dark-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle noise texture overlay */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ============================================================
+   Glassmorphism
+   ============================================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.glass-dark {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================================
+   Card Hover Effects
+   ============================================================ */
+.card-hover {
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo),
+    border-color 0.4s var(--ease-out-expo);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Gradient border on hover */
+.gradient-border {
+  position: relative;
+  background: white;
+  z-index: 0;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #c8102e, transparent, #c8102e);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* 3D Tilt card — combined with TiltCard component */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* ============================================================
+   Button Effects
+   ============================================================ */
+/* Ripple effect — used by MagneticButton */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+/* Shine sweep on hover */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+.shine:hover::after {
+  left: 100%;
+}
+
+/* ============================================================
+   Marquee Mask — fade edges
+   ============================================================ */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* ============================================================
+   Misc
+   ============================================================ */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

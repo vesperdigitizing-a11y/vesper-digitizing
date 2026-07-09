@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ScrollReveal from "./ScrollReveal";
 
 const FAQS = [
   {
@@ -27,27 +28,33 @@ export default function ContactFAQ() {
   return (
     <section className="bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
-            <span className="h-px w-6 bg-current opacity-60" />
-            Quick Answers
-            <span className="h-px w-6 bg-current opacity-60" />
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <div className="mx-auto mt-4 h-[3px] w-16 rounded-full bg-[#c8102e]" />
-        </div>
+        <ScrollReveal>
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
+              <span className="h-px w-6 bg-current opacity-60" />
+              Quick Answers
+              <span className="h-px w-6 bg-current opacity-60" />
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <div className="mx-auto mt-4 h-[3px] w-16 rounded-full bg-[#c8102e]" />
+          </div>
+        </ScrollReveal>
 
-        <div className="mt-10 flex flex-col gap-4">
+        <ScrollReveal stagger className="mt-10 flex flex-col gap-4">
           {FAQS.map((faq, i) => (
             <div
               key={faq.q}
-              className="overflow-hidden rounded-xl border border-[#e5e7eb] bg-white transition-colors hover:border-[#c8102e]/30"
+              className={`group overflow-hidden rounded-xl border bg-white transition-all duration-300 hover:shadow-lg ${
+                open === i
+                  ? "border-[#c8102e]/40 shadow-md"
+                  : "border-[#e5e7eb] hover:border-[#c8102e]/30"
+              }`}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-sm font-semibold text-[#1a1a1a]"
+                className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-sm font-semibold text-[#1a1a1a] transition-colors group-hover:text-[#c8102e]"
               >
                 {faq.q}
                 <svg
@@ -72,7 +79,7 @@ export default function ContactFAQ() {
               </div>
             </div>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

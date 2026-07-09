@@ -4,32 +4,30 @@ import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
 import { PRODUCTS, formatPrice } from "@/lib/products";
 import AddToCartButton from "./AddToCartButton";
-
-// Home page store preview — shows the first 4 products from the shared
-// catalog. Each card links to /product/[slug] for the full detail page.
+import ScrollReveal from "./ScrollReveal";
+import MagneticButton from "./MagneticButton";
 
 const FEATURED = PRODUCTS.slice(0, 4);
 
 export default function Store() {
   return (
-    <section id="store" className="bg-[#f5f5f5] py-16 sm:py-24">
+    <section id="store" className="relative bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[280px_1fr] lg:gap-8">
-          <div>
-            <SectionHeading
-              align="left"
-              eyebrow="Visit Our Store"
-              title="Premium Embroidery Designs & More"
-              subtitle="Explore our collection of embroidery designs, fonts, and patch packs."
-            />
-            <Link
-              href="/store"
-              className="group mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-[#a30d24]"
-            >
-              Shop Now
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          </div>
+          <ScrollReveal variant="left">
+            <div>
+              <SectionHeading
+                align="left"
+                eyebrow="Visit Our Store"
+                title="Premium Embroidery Designs & More"
+                subtitle="Explore our collection of embroidery designs, fonts, and patch packs."
+              />
+              <MagneticButton href="/store" size="md" variant="solid" className="mt-6">
+                Shop Now
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </MagneticButton>
+            </div>
+          </ScrollReveal>
 
           <div>
             <div className="mb-5 flex justify-center gap-1.5 lg:justify-end">
@@ -43,11 +41,11 @@ export default function Store() {
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+            <ScrollReveal stagger className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
               {FEATURED.map((p) => (
                 <article
                   key={p.slug}
-                  className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
                 >
                   <Link
                     href={`/product/${p.slug}`}
@@ -59,13 +57,20 @@ export default function Store() {
                       alt={p.name}
                       fill
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     {p.badge === "sale" && p.originalPrice && (
-                      <span className="absolute left-3 top-3 rounded-md bg-[#c8102e] px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                      <span className="absolute left-3 top-3 z-10 rounded-md bg-[#c8102e] px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
                         Sale
                       </span>
                     )}
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <span className="mb-4 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1a1a1a] shadow-md backdrop-blur">
+                        View Details
+                        <ArrowRight className="h-3 w-3" />
+                      </span>
+                    </div>
                   </Link>
 
                   <div className="flex flex-1 flex-col p-3 sm:p-4">
@@ -98,7 +103,7 @@ export default function Store() {
                   </div>
                 </article>
               ))}
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

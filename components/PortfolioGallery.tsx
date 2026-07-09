@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight } from "./icons";
+import ScrollReveal from "./ScrollReveal";
 
 type PortfolioItem = {
   title: string;
@@ -47,54 +48,59 @@ export default function PortfolioGallery() {
   return (
     <section id="portfolio-gallery" className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
-            <span className="h-px w-6 bg-current opacity-60" />
-            Browse Our Work
-            <span className="h-px w-6 bg-current opacity-60" />
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
-            Our Portfolio
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
+              <span className="h-px w-6 bg-current opacity-60" />
+              Browse Our Work
+              <span className="h-px w-6 bg-current opacity-60" />
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
+              Our <span className="text-gradient">Portfolio</span>
+            </h2>
+          </div>
+        </ScrollReveal>
 
         {/* Filter tabs */}
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
-          {FILTERS.map((f) => (
-            <button
-              key={f.value}
-              onClick={() => setActive(f.value)}
-              className={`rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors sm:text-sm ${
-                active === f.value
-                  ? "bg-[#c8102e] text-white"
-                  : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
+        <ScrollReveal>
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
+            {FILTERS.map((f) => (
+              <button
+                key={f.value}
+                onClick={() => setActive(f.value)}
+                className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
+                  active === f.value
+                    ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
+                    : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
 
-        {/* Portfolio grid — 4 columns on desktop */}
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Portfolio grid */}
+        <ScrollReveal stagger className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <article
               key={item.title}
-              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all hover:-translate-y-1 hover:shadow-lg"
+              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
-              {/* Image */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f5f5]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#c8102e]/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Top accent border */}
+                <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
               </div>
 
-              {/* Footer */}
               <div className="flex items-center justify-between px-4 py-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
                   {item.title}
@@ -102,7 +108,7 @@ export default function PortfolioGallery() {
                 <a
                   href="#portfolio-gallery"
                   aria-label={`View ${item.title} project`}
-                  className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#c8102e] opacity-0 transition-opacity group-hover:opacity-100 sm:text-xs"
+                  className="inline-flex -translate-x-2 items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#c8102e] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:text-xs"
                 >
                   View
                   <ArrowRight className="h-3 w-3" />
@@ -110,7 +116,7 @@ export default function PortfolioGallery() {
               </div>
             </article>
           ))}
-        </div>
+        </ScrollReveal>
 
         {items.length === 0 && (
           <p className="mt-10 text-center text-sm text-[#6b7280]">
@@ -118,16 +124,17 @@ export default function PortfolioGallery() {
           </p>
         )}
 
-        {/* Load more button */}
-        <div className="mt-12 flex justify-center">
-          <button
-            type="button"
-            className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-[#a30d24]"
-          >
-            Load More Projects
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
-        </div>
+        <ScrollReveal>
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
+            >
+              Load More Projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

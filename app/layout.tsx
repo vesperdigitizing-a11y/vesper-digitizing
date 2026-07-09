@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
+import { ToastProvider } from "@/lib/toast-context";
 import CartDrawer from "@/components/CartDrawer";
+import ScrollProgress from "@/components/ScrollProgress";
+import AnnouncementBar from "@/components/AnnouncementBar";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,15 +54,29 @@ export default function RootLayout({
       className={`${inter.variable} ${pops.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#1a1a1a]">
-        <CartProvider>
-          <div
-            aria-hidden
-            className="pointer-events-none fixed inset-0 z-[100]"
-          />
-          {children}
-          {/* Cart drawer is mounted once at the root so it overlays every page */}
-          <CartDrawer />
-        </CartProvider>
+        <ToastProvider>
+          <CartProvider>
+            {/* Scroll progress bar — top of viewport */}
+            <ScrollProgress />
+
+            {/* Announcement bar — promo strip above header */}
+            <AnnouncementBar />
+
+            {/* Decorative top overlay (kept from original) */}
+            <div
+              aria-hidden
+              className="pointer-events-none fixed inset-0 z-[100]"
+            />
+
+            {children}
+
+            {/* Cart drawer — mounted once at root, overlays every page */}
+            <CartDrawer />
+
+            {/* Floating WhatsApp / Quote / Top button */}
+            <FloatingCTA />
+          </CartProvider>
+        </ToastProvider>
       </body>
     </html>
   );

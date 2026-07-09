@@ -1,4 +1,5 @@
 import { IconByName, type IconName } from "./icons";
+import ScrollReveal from "./ScrollReveal";
 
 type Feature = { icon: IconName; title: string; desc: string };
 
@@ -15,30 +16,33 @@ export default function Features() {
   return (
     <section
       aria-label="Key features"
-      /* Pull up so this dark bar overlaps the bottom of the Hero section.
-         -mt-24 = -96px on desktop, -mt-16 = -64px on tablet, -mt-12 = -48px on mobile.
-         z-20 ensures it stacks above the hero's whitespace. shadow-2xl makes the overlap look intentional. */
-      className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-24 bg-[#1a1a1a] py-10 shadow-2xl sm:py-14"
+      className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-24 bg-[#1a1a1a] py-10 shadow-2xl sm:py-14 dark-mesh"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        <ScrollReveal stagger className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
           {FEATURES.map((f) => {
             const Icon = IconByName[f.icon];
             return (
-              <div key={f.title} className="flex flex-col items-center text-center">
-                <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/15 text-[#c8102e] ring-1 ring-[#c8102e]/30">
-                  <Icon className="h-6 w-6" />
+              <div
+                key={f.title}
+                className="group relative flex flex-col items-center text-center"
+              >
+                {/* Glow on hover */}
+                <span className="pointer-events-none absolute -inset-2 rounded-2xl bg-[#c8102e]/0 blur-xl transition-all duration-500 group-hover:bg-[#c8102e]/20" />
+
+                <span className="relative mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/15 text-[#c8102e] ring-1 ring-[#c8102e]/30 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:ring-[#c8102e]">
+                  <Icon className="h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
                 </span>
-                <div className="text-xs font-bold uppercase tracking-wider text-white sm:text-sm">
+                <div className="relative text-xs font-bold uppercase tracking-wider text-white sm:text-sm">
                   {f.title}
                 </div>
-                <div className="mt-1 text-[11px] leading-snug text-white/60 sm:text-xs">
+                <div className="relative mt-1 text-[11px] leading-snug text-white/60 sm:text-xs">
                   {f.desc}
                 </div>
               </div>
             );
           })}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Search } from "./icons";
 import AddToCartButton from "./AddToCartButton";
+import ScrollReveal from "./ScrollReveal";
 import {
   PRODUCTS,
   BADGE_STYLES,
@@ -56,13 +57,17 @@ export default function StoreProducts() {
             <button
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors sm:text-sm ${
+              className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
                 activeTab === tab.value
-                  ? "bg-[#c8102e] text-white"
+                  ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
                   : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
               }`}
             >
-              {tab.label}
+              {/* Shine sweep on active */}
+              {activeTab === tab.value && (
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 hover:translate-x-full" />
+              )}
+              <span className="relative">{tab.label}</span>
             </button>
           ))}
         </div>
@@ -71,12 +76,11 @@ export default function StoreProducts() {
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[240px_1fr]">
           {/* Filters sidebar */}
           <aside className="hidden lg:block">
-            <div className="sticky top-24 rounded-xl border border-[#e5e7eb] bg-white p-6">
+            <div className="sticky top-24 rounded-xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
               <h3 className="text-sm font-bold uppercase tracking-wider text-[#1a1a1a]">
                 Filters
               </h3>
 
-              {/* Search */}
               <div className="relative mt-4">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7280]" />
                 <input
@@ -84,11 +88,10 @@ export default function StoreProducts() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search products..."
-                  className="h-10 w-full rounded-md border border-[#e5e7eb] pl-9 pr-3 text-sm outline-none focus:border-[#c8102e]"
+                  className="h-10 w-full rounded-md border border-[#e5e7eb] pl-9 pr-3 text-sm outline-none transition-colors focus:border-[#c8102e] focus:ring-2 focus:ring-[#c8102e]/10"
                 />
               </div>
 
-              {/* Category */}
               <div className="mt-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a]">
                   Category
@@ -96,7 +99,7 @@ export default function StoreProducts() {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="mt-2 h-10 w-full rounded-md border border-[#e5e7eb] px-3 text-sm text-[#6b7280] outline-none focus:border-[#c8102e]"
+                  className="mt-2 h-10 w-full rounded-md border border-[#e5e7eb] px-3 text-sm text-[#6b7280] outline-none transition-colors focus:border-[#c8102e]"
                 >
                   <option value="all">All Categories</option>
                   <option value="fonts">Embroidery Fonts</option>
@@ -110,7 +113,6 @@ export default function StoreProducts() {
                 </select>
               </div>
 
-              {/* Price range */}
               <div className="mt-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a]">
                   Price Range
@@ -130,14 +132,13 @@ export default function StoreProducts() {
                 </div>
               </div>
 
-              {/* Embroidery type */}
               <div className="mt-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a]">
                   Embroidery Type
                 </h4>
                 <div className="mt-2 flex flex-col gap-2">
                   {["Flat", "3D Puff", "Applique", "Chenille"].map((t) => (
-                    <label key={t} className="flex items-center gap-2 text-sm text-[#6b7280]">
+                    <label key={t} className="flex cursor-pointer items-center gap-2 text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">
                       <input type="checkbox" className="h-4 w-4 accent-[#c8102e]" />
                       {t}
                     </label>
@@ -145,7 +146,6 @@ export default function StoreProducts() {
                 </div>
               </div>
 
-              {/* Clear filters */}
               <button
                 onClick={() => {
                   setActiveTab("all");
@@ -153,7 +153,7 @@ export default function StoreProducts() {
                   setCategory("all");
                   setMaxPrice(50);
                 }}
-                className="mt-6 w-full rounded-md border border-[#c8102e] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#c8102e] transition-colors hover:bg-[#c8102e]/5"
+                className="mt-6 w-full rounded-md border border-[#c8102e] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#c8102e] transition-all hover:bg-[#c8102e] hover:text-white"
               >
                 Clear Filters
               </button>
@@ -166,9 +166,8 @@ export default function StoreProducts() {
               {filtered.map((p) => (
                 <article
                   key={p.slug}
-                  className="group flex flex-col overflow-hidden rounded-xl border border-[#e5e7eb] bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-xl border border-[#e5e7eb] bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#c8102e]/30 hover:shadow-2xl"
                 >
-                  {/* Image */}
                   <Link
                     href={`/product/${p.slug}`}
                     className="relative aspect-square w-full overflow-hidden bg-[#f5f5f5]"
@@ -179,10 +178,10 @@ export default function StoreProducts() {
                       alt={p.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     {p.badge && (
-                      <span className={`absolute left-3 top-3 z-10 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider ${BADGE_STYLES[p.badge]}`}>
+                      <span className={`absolute left-3 top-3 z-10 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider shadow-md ${BADGE_STYLES[p.badge]}`}>
                         {BADGE_LABELS[p.badge]}
                       </span>
                     )}
@@ -190,13 +189,19 @@ export default function StoreProducts() {
                       type="button"
                       aria-label="Add to wishlist"
                       onClick={(e) => e.preventDefault()}
-                      className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#6b7280] shadow-sm transition-colors hover:text-[#c8102e]"
+                      className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#6b7280] shadow-sm transition-all duration-300 hover:scale-110 hover:text-[#c8102e]"
                     >
                       <Heart className="h-4 w-4" />
                     </button>
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <span className="mb-4 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1a1a1a] shadow-md backdrop-blur">
+                        View Details
+                      </span>
+                    </div>
                   </Link>
 
-                  {/* Info */}
                   <div className="flex flex-1 flex-col p-4">
                     <Link
                       href={`/product/${p.slug}`}

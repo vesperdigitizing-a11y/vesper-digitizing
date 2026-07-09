@@ -1,4 +1,5 @@
 import { IconByName, type IconName } from "./icons";
+import ScrollReveal from "./ScrollReveal";
 
 type Feature = { icon: IconName; title: string; desc: string };
 
@@ -15,26 +16,28 @@ export default function AboutWhyChoose() {
   return (
     <section className="bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
-            <span className="h-px w-6 bg-current opacity-60" />
-            Why Choose Vesper?
-            <span className="h-px w-6 bg-current opacity-60" />
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
-            Quality That Makes the <span className="text-[#c8102e]">Difference</span>
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
+              <span className="h-px w-6 bg-current opacity-60" />
+              Why Choose Vesper?
+              <span className="h-px w-6 bg-current opacity-60" />
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-[#1a1a1a] sm:text-4xl">
+              Quality That Makes the <span className="text-gradient">Difference</span>
+            </h2>
+          </div>
+        </ScrollReveal>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <ScrollReveal stagger className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {FEATURES.map((f) => {
             const Icon = IconByName[f.icon];
             return (
               <div
                 key={f.title}
-                className="flex flex-col items-center rounded-xl border border-[#e5e7eb] bg-white p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col items-center rounded-xl border border-[#e5e7eb] bg-white p-5 text-center transition-all duration-500 hover:-translate-y-2 hover:border-[#c8102e]/40 hover:shadow-2xl"
               >
-                <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20">
+                <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white">
                   <Icon className="h-5 w-5" />
                 </span>
                 <h3 className="font-display text-sm font-bold text-[#1a1a1a] sm:text-base">
@@ -46,7 +49,7 @@ export default function AboutWhyChoose() {
               </div>
             );
           })}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

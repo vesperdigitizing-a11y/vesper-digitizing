@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "./AddToCartButton";
 import { BUNDLES, formatPrice, getDiscountPercent } from "@/lib/products";
+import { ArrowRight } from "./icons";
 
 export default function StoreBundles() {
   return (
-    <section className="bg-[#f5f5f5] py-16 sm:py-24">
+    <section className="relative bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
@@ -27,9 +28,8 @@ export default function StoreBundles() {
             return (
               <article
                 key={b.slug}
-                className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
               >
-                {/* Image with discount badge */}
                 <Link
                   href={`/product/${b.slug}`}
                   className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f5f5]"
@@ -40,16 +40,17 @@ export default function StoreBundles() {
                     alt={b.name}
                     fill
                     sizes="(max-width: 640px) 100vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   {discount && (
-                    <span className="absolute left-3 top-3 z-10 rounded-md bg-[#c8102e] px-3 py-1 text-sm font-bold text-white">
+                    <span className="absolute left-3 top-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e] text-sm font-bold text-white shadow-lg ring-4 ring-white/30">
                       -{discount}%
                     </span>
                   )}
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </Link>
 
-                {/* Info */}
                 <div className="flex flex-1 flex-col p-4">
                   <Link
                     href={`/product/${b.slug}`}
@@ -57,7 +58,7 @@ export default function StoreBundles() {
                   >
                     {b.name}
                   </Link>
-                  <p className="mt-1 text-xs text-[#6b7280]">{b.tagline}</p>
+                  <p className="mt-1 text-xs text-[#6b7280] line-clamp-2">{b.tagline}</p>
                   <div className="mt-3 flex items-center gap-2">
                     <span className="font-display text-xl font-extrabold text-[#c8102e]">
                       {formatPrice(b.price)}
@@ -71,6 +72,13 @@ export default function StoreBundles() {
                   <div className="mt-4">
                     <AddToCartButton slug={b.slug} fullWidth label="Add to Cart" />
                   </div>
+                  <Link
+                    href={`/product/${b.slug}`}
+                    className="mt-2 inline-flex items-center justify-center gap-1 text-xs font-semibold text-[#6b7280] transition-colors hover:text-[#c8102e]"
+                  >
+                    View details
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </article>
             );
