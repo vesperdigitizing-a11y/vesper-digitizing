@@ -84,7 +84,7 @@ function reducer(state: CartState, action: CartAction): CartState {
               quantity: qty,
             },
           ];
-      return { ...state, items, isOpen: true };
+      return { ...state, items };
     }
 
     case "REMOVE":

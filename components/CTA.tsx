@@ -25,7 +25,7 @@ export default function CTA() {
         className="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-white/10 blur-3xl animate-float-slow"
       />
 
-      {/* Diagonal shimmer line — subtle moving highlight */}
+      {/* Diagonal shimmer line */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-30"
@@ -50,19 +50,19 @@ export default function CTA() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              {/* Primary button — white bg, red text, dark red on hover */}
+              {/* Primary button — white bg, red text. Hover: slightly off-white */}
               <a
                 href="#quote"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-7 text-sm font-semibold uppercase tracking-wide text-[#c8102e] shadow-lg transition-all duration-300 hover:bg-[#1a1a1a] hover:text-white hover:scale-105"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-7 text-sm font-semibold uppercase tracking-wide text-[#c8102e] transition-colors duration-200 hover:bg-white/90"
               >
                 Get Free Quote
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </a>
 
-              {/* Secondary button — transparent with white border, white bg on hover */}
+              {/* Secondary button — white border, white text. Hover: subtle white tint */}
               <a
                 href="#contact"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-white bg-transparent px-7 text-sm font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-white hover:text-[#c8102e] hover:scale-105"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-white/60 bg-transparent px-7 text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
               >
                 <Phone className="h-4 w-4" />
                 Contact Us
