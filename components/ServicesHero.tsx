@@ -3,10 +3,10 @@ import ScrollReveal from "./ScrollReveal";
 import AnimatedCounter from "./AnimatedCounter";
 
 const BADGES = [
-  { icon: Clock, title: "24 Hours Delivery", sub: "Fast Turnaround" },
-  { icon: ShieldCheck, title: "100% Quality Guaranteed", sub: "Premium Stitching" },
-  { icon: Refresh, title: "Unlimited Revisions", sub: "Until You're Satisfied" },
-  { icon: Globe, title: "Worldwide Support", sub: "Global Clients" },
+  { icon: Clock, title: "24 Hours", sub: "Delivery" },
+  { icon: ShieldCheck, title: "100% Quality", sub: "Guaranteed" },
+  { icon: Refresh, title: "Unlimited", sub: "Revisions" },
+  { icon: Globe, title: "Worldwide", sub: "Support" },
 ];
 
 export default function ServicesHero() {
@@ -91,18 +91,20 @@ export default function ServicesHero() {
             </div>
           </ScrollReveal>
 
-          {/* Badges — equal-width columns keep icon/text alignment consistent
-              regardless of how many lines each title/sub wraps to. */}
+          {/* Badges — title/sub text is kept short enough (1 line each,
+              nowrap) that height never depends on font metrics or
+              column width. Pixel min-heights are fragile across
+              devices/fonts; a guaranteed single line is not. */}
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
             <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
               {BADGES.map((b) => (
                 <div key={b.title} className="group flex items-start gap-1.5 sm:gap-2">
                   <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
                   <div className="leading-tight">
-                    <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                    <div className="whitespace-nowrap text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
                       {b.title}
                     </div>
-                    <div className="text-[10px] text-[#6b7280] sm:text-xs">
+                    <div className="whitespace-nowrap text-[10px] text-[#6b7280] sm:text-xs">
                       {b.sub}
                     </div>
                   </div>
