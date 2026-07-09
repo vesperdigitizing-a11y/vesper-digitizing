@@ -38,7 +38,7 @@ export default function Hero() {
         aria-hidden
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("/images/MainHero.png")',
+          backgroundImage: 'url("/images/HeroMain.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -51,7 +51,7 @@ export default function Hero() {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
         }}
       />
       <div
@@ -59,7 +59,7 @@ export default function Hero() {
         className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.85) 100%)",
+            "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
       />
 
@@ -116,20 +116,21 @@ export default function Hero() {
             </div>
           </ScrollReveal>
 
-          {/* Badges — animated reveal with stagger */}
+          {/* Badges — flex-wrap on mobile so they shift to next line;
+              single row on desktop so all text is fully visible */}
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
-            <div className="grid w-full grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-0">
+            <div className="flex w-full flex-wrap gap-x-5 gap-y-3 lg:flex-nowrap lg:gap-x-6">
               {BADGES.map((b) => (
                 <div
                   key={b.title}
-                  className="group flex min-w-0 items-center gap-1.5 sm:gap-2"
+                  className="group flex items-center gap-1.5 sm:gap-2"
                 >
                   <b.icon className="h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
-                  <div className="min-w-0 leading-tight">
-                    <div className="truncate text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                  <div className="leading-tight">
+                    <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
                       {b.title}
                     </div>
-                    <div className="truncate text-[9px] text-[#6b7280] sm:text-[11px]">
+                    <div className="text-[9px] text-[#6b7280] sm:text-[11px]">
                       {b.sub}
                     </div>
                   </div>

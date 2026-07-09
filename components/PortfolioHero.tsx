@@ -25,7 +25,7 @@ export default function PortfolioHero() {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
         }}
       />
       <div
@@ -33,7 +33,7 @@ export default function PortfolioHero() {
         className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.88) 100%)",
+            "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
       />
       <div
@@ -83,20 +83,23 @@ export default function PortfolioHero() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal stagger delay={400} className="mt-10 grid grid-cols-4 gap-x-3 sm:gap-x-5">
-            {STATS.map((s) => (
-              <div key={s.label} className="group flex min-w-0 items-start gap-1.5 sm:gap-2.5">
-                <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" strokeWidth={1.75} />
-                <div className="min-w-0 leading-tight">
-                  <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-xl">
-                    <AnimatedCounter value={s.value} suffix={s.suffix} />
-                  </div>
-                  <div className="text-[10px] font-medium leading-snug text-[#6b7280] sm:text-sm">
-                    {s.label}
+          {/* Stats row with animated counters — flex-wrap on mobile */}
+          <ScrollReveal stagger delay={400} className="mt-10 w-full">
+            <div className="flex w-full flex-wrap gap-x-5 gap-y-3 lg:flex-nowrap lg:gap-x-5">
+              {STATS.map((s) => (
+                <div key={s.label} className="group flex items-center gap-1.5 sm:gap-2.5">
+                  <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" strokeWidth={1.75} />
+                  <div className="leading-tight">
+                    <div className="font-display text-sm font-extrabold text-[#1a1a1a] sm:text-xl">
+                      <AnimatedCounter value={s.value} suffix={s.suffix} />
+                    </div>
+                    <div className="text-[10px] font-medium leading-snug text-[#6b7280] sm:text-sm">
+                      {s.label}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </ScrollReveal>
         </div>
       </div>

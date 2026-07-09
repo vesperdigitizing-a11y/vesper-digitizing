@@ -20,12 +20,13 @@ export default function ServicesHero() {
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/* Stronger readability overlay — covers more area so text is always legible */}
       <div
         aria-hidden
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
         }}
       />
       <div
@@ -33,7 +34,7 @@ export default function ServicesHero() {
         className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.85) 100%)",
+            "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
       />
       <div
@@ -41,7 +42,10 @@ export default function ServicesHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 pt-28 pb-16 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-32 lg:pb-24 lg:px-8">
+      {/* FIX: items-start instead of items-center (so left content starts at top,
+          not vertically centered against the empty right column).
+          Increased bottom padding so badges never feel cramped at the bottom. */}
+      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-8 px-4 pt-28 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-32 lg:pb-28 lg:px-8">
         <div className="flex flex-col items-start">
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e] backdrop-blur-sm">
@@ -87,20 +91,24 @@ export default function ServicesHero() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal stagger delay={400} className="mt-8 grid w-full grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-5">
-            {BADGES.map((b) => (
-              <div key={b.title} className="group flex min-w-0 items-center gap-1.5 sm:gap-2">
-                <b.icon className="h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
-                <div className="min-w-0 leading-tight">
-                  <div className="truncate text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
-                    {b.title}
-                  </div>
-                  <div className="truncate text-[10px] text-[#6b7280] sm:text-xs">
-                    {b.sub}
+          {/* Badges — equal-width columns keep icon/text alignment consistent
+              regardless of how many lines each title/sub wraps to. */}
+          <ScrollReveal stagger delay={400} className="mt-8 w-full">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
+              {BADGES.map((b) => (
+                <div key={b.title} className="group flex items-start gap-1.5 sm:gap-2">
+                  <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
+                  <div className="leading-tight">
+                    <div className="text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
+                      {b.title}
+                    </div>
+                    <div className="text-[10px] text-[#6b7280] sm:text-xs">
+                      {b.sub}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </ScrollReveal>
         </div>
 
