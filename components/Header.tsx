@@ -10,9 +10,9 @@
 //   • Mobile menu slides in with stagger animation
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Logo from "./Logo";
 import { ArrowRight, Cart, Menu } from "./icons";
 import { useCart } from "@/lib/cart-context";
 import CartCount from "./CartCount";
@@ -54,6 +54,16 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (open) {
@@ -67,6 +77,7 @@ export default function Header() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         hidden ? "-translate-y-full" : "translate-y-0"
@@ -76,14 +87,21 @@ export default function Header() {
           : "border-b border-transparent bg-white/95 backdrop-blur"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 md:h-20">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 md:h-24">
         {/* Logo */}
         <Link
           href="/"
           aria-label="Vesper Digitizing home"
           className="group flex items-center transition-transform hover:scale-105"
         >
-          <Logo size={40} />
+          <Image
+            src="/images/LogoTransparent.png"
+            alt="Vesper Digitizing"
+            width={805}
+            height={310}
+            priority
+            className="h-14 w-auto sm:h-18"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -148,32 +166,62 @@ export default function Header() {
           </button>
         </div>
       </div>
-
-      {/* Mobile nav — slides down */}
-      <div
-        className={`lg:hidden overflow-hidden border-t border-[#e5e7eb] bg-white transition-all duration-500 ${
-          open ? "max-h-[400px]" : "max-h-0"
-        }`}
-      >
-        <nav
-          className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6"
-          aria-label="Mobile"
-        >
-          {NAV.map((item, idx) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className={`py-3 text-sm font-medium border-b border-[#f5f5f5] last:border-0 transition-all hover:text-[#c8102e] ${
-                isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
-              } ${open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"}`}
-              style={{ transitionDelay: open ? `${idx * 60}ms` : "0ms" }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
     </header>
+
+    {/* Mobile nav backdrop */}
+    <div
+      aria-hidden
+      onClick={() => setOpen(false)}
+      className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        open ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+    />
+
+    {/* Mobile nav — slides in from the left */}
+    <aside
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+      className={`fixed left-0 top-0 z-50 flex h-full w-full max-w-xs flex-col bg-white shadow-2xl transition-transform duration-500 lg:hidden ${
+        open ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
+      <div className="flex items-center justify-between border-b border-[#e5e7eb] px-5 py-4">
+        <Image
+          src="/images/LogoTransparent.png"
+          alt="Vesper Digitizing"
+          width={805}
+          height={310}
+          className="h-10 w-auto"
+        />
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          aria-label="Close menu"
+          className="flex h-9 w-9 items-center justify-center rounded-md text-[#1a1a1a] transition-colors hover:bg-[#f5f5f5]"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav className="flex flex-1 flex-col overflow-y-auto px-5 py-3" aria-label="Mobile">
+        {NAV.map((item, idx) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            onClick={() => setOpen(false)}
+            className={`py-3 text-sm font-medium border-b border-[#f5f5f5] last:border-0 transition-all hover:text-[#c8102e] ${
+              isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
+            } ${open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+            style={{ transitionDelay: open ? `${idx * 60}ms` : "0ms" }}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+    </aside>
+    </>
   );
 }

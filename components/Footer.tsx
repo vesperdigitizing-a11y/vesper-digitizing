@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "./Logo";
+import Image from "next/image";
 import {
   Mail,
   Phone,
@@ -64,7 +64,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand + tagline + socials */}
           <div className="lg:col-span-1">
-            <Logo size={44} theme="light" />
+            <Image
+              src="/images/LogoTransparent.png"
+              alt="Vesper Digitizing"
+              width={805}
+              height={310}
+              className="h-16 w-auto brightness-0 invert sm:h-20"
+            />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
               We provide premium quality digitizing services with fast delivery
               and unbeatable customer support.
