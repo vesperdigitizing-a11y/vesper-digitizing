@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/lib/cart-context";
+import CartDrawer from "@/components/CartDrawer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,11 +50,15 @@ export default function RootLayout({
       className={`${inter.variable} ${pops.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#1a1a1a]">
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[100]"
-        />
-        {children}
+        <CartProvider>
+          <div
+            aria-hidden
+            className="pointer-events-none fixed inset-0 z-[100]"
+          />
+          {children}
+          {/* Cart drawer is mounted once at the root so it overlays every page */}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

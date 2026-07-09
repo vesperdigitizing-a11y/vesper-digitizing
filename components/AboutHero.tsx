@@ -47,7 +47,7 @@ export default function AboutHero() {
             About Vesper Digitizing
           </span>
 
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             Crafting Perfection <br className="hidden sm:block" />
             One <span className="text-[#c8102e]">Stitch</span> at a Time
           </h1>

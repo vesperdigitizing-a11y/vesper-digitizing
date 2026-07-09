@@ -16,7 +16,7 @@ export default function Hero() {
     <section
       className="relative overflow-hidden bg-white pb-10"
       style={{
-        backgroundImage: 'url("/images/HeroMain.png")',
+        backgroundImage: 'url("/images/homeHero.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -59,7 +59,7 @@ export default function Hero() {
             Premium Digitizing Services
           </span>
 
-          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             Precision Digitizing <br className="hidden sm:block" />
             <span className="text-[#c8102e]">
               Crafted for Premium Embroidery

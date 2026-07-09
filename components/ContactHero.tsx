@@ -46,7 +46,7 @@ export default function ContactHero() {
             Home &rsaquo; Contact Us
           </span>
 
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             Let&rsquo;s Create Something <br className="hidden sm:block" />
             <span className="text-[#c8102e]">Amazing Together</span>
           </h1>

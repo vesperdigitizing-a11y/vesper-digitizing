@@ -51,7 +51,7 @@ export default function PortfolioHero() {
             <span className="h-px w-6 bg-current opacity-60" />
           </span>
 
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             Stitching Your Ideas <br className="hidden sm:block" />
             Into <span className="text-[#c8102e]">Perfection</span>
           </h1>

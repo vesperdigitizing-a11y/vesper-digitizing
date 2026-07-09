@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./Logo";
 import { ArrowRight, Cart, Menu } from "./icons";
+import { useCart } from "@/lib/cart-context";
+import CartCount from "./CartCount";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -18,6 +20,7 @@ const NAV = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { openCart } = useCart();
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -59,10 +62,12 @@ export default function Header() {
           </Link>
           <button
             type="button"
-            aria-label="Cart"
-            className="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#e5e7eb] text-[#1a1a1a] transition-colors hover:border-[#1a1a1a] hover:bg-[#f5f5f5]"
+            aria-label="Open cart"
+            onClick={openCart}
+            className="relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#e5e7eb] text-[#1a1a1a] transition-colors hover:border-[#1a1a1a] hover:bg-[#f5f5f5]"
           >
             <Cart className="h-5 w-5" />
+            <CartCount />
           </button>
           <button
             type="button"

@@ -49,7 +49,7 @@ export default function ServicesHero() {
             Professional Digitizing Services
           </span>
 
-          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             Precision That Every <br className="hidden sm:block" />
             <span className="text-[#c8102e]">Stitch Deserves</span>
           </h1>
