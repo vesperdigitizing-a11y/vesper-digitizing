@@ -222,7 +222,7 @@ export default function StoreProducts() {
                         </span>
                       )}
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-auto pt-3">
                       <AddToCartButton slug={p.slug} size="sm" fullWidth />
                     </div>
                   </div>

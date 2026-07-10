@@ -69,7 +69,7 @@ export default function StoreBundles() {
                       </span>
                     )}
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-auto pt-4">
                     <AddToCartButton slug={b.slug} fullWidth label="Add to Cart" />
                   </div>
                   <Link

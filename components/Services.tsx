@@ -50,7 +50,7 @@ export default function Services() {
                   <h3 className="relative font-display text-lg font-bold text-[#1a1a1a]">
                     {s.title}
                   </h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-[#6b7280]">
+                  <p className="relative mt-2 flex-1 text-sm leading-relaxed text-[#6b7280]">
                     {s.desc}
                   </p>
                   <a

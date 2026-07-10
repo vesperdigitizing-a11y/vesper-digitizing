@@ -97,7 +97,7 @@ export default function Store() {
                       </div>
                     </div>
 
-                    <div className="mt-3">
+                    <div className="mt-auto pt-3">
                       <AddToCartButton slug={p.slug} size="sm" fullWidth label="Add" />
                     </div>
                   </div>
