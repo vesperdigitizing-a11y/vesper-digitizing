@@ -12,12 +12,9 @@ const STATS = [
 export default function PortfolioHero() {
   return (
     <section
-      className="relative overflow-hidden bg-white hero-mesh noise-overlay"
+      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh noise-overlay lg:bg-center"
       style={{
         backgroundImage: 'url("/images/HeroPorfolio.png")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <div

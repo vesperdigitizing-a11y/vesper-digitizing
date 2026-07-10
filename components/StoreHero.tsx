@@ -25,12 +25,9 @@ const AVATAR_COLORS = [
 export default function StoreHero() {
   return (
     <section
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat lg:bg-center"
       style={{
         backgroundImage: 'url("/images/storeHero.png")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
     >
       {/* Readability overlay: strong white wash on the left where text sits,

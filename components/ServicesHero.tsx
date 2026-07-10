@@ -12,12 +12,9 @@ const BADGES = [
 export default function ServicesHero() {
   return (
     <section
-      className="relative overflow-hidden bg-white hero-mesh noise-overlay"
+      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh noise-overlay lg:bg-center"
       style={{
         backgroundImage: 'url("/images/serviceHero.png")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <div

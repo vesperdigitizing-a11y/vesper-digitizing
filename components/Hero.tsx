@@ -40,12 +40,9 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-white pb-10 hero-mesh noise-overlay">
       <div
         aria-hidden
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-right bg-cover bg-no-repeat lg:bg-center"
         style={{
           backgroundImage: 'url("/images/HeroMain.png")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
         }}
       />
       <div
