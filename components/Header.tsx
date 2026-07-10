@@ -87,12 +87,12 @@ export default function Header() {
           : "border-b border-transparent bg-white/95 backdrop-blur"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 md:h-24">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-3 sm:h-20 sm:gap-4 sm:px-6 lg:px-8 md:h-24">
         {/* Logo */}
         <Link
           href="/"
           aria-label="Vesper Digitizing home"
-          className="group flex items-center transition-transform hover:scale-105"
+          className="group flex shrink-0 items-center transition-transform hover:scale-105"
         >
           <Image
             src="/images/LogoTransparent.png"
@@ -100,7 +100,7 @@ export default function Header() {
             width={805}
             height={310}
             priority
-            className="h-14 w-auto sm:h-18"
+            className="h-10 w-auto sm:h-14 md:h-18"
           />
         </Link>
 
@@ -134,24 +134,27 @@ export default function Header() {
         </nav>
 
         {/* Right actions */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
           <Link
             href="/contact"
-            className="group relative inline-flex h-10 items-center gap-2 overflow-hidden rounded-md bg-[#c8102e] px-4 sm:px-5 text-sm font-semibold text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)] sm:gap-2"
+            className="group relative inline-flex h-9 shrink-0 items-center gap-1 overflow-hidden rounded-md bg-[#c8102e] px-2.5 text-xs font-semibold text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)] sm:h-10 sm:gap-2 sm:px-5 sm:text-sm"
           >
             {/* Shine sweep */}
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-            <span className="relative">GET A QUOTE</span>
-            <ArrowRight className="relative h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            <span className="relative whitespace-nowrap">
+              <span className="sm:hidden">Quote</span>
+              <span className="hidden sm:inline">GET A QUOTE</span>
+            </span>
+            <ArrowRight className="relative h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5 sm:h-4 sm:w-4" />
           </Link>
 
           <button
             type="button"
             aria-label="Open cart"
             onClick={openCart}
-            className="relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#e5e7eb] text-[#1a1a1a] transition-all hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white"
+            className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-[#e5e7eb] text-[#1a1a1a] transition-all hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white sm:h-10 sm:w-10"
           >
-            <Cart className="h-5 w-5" />
+            <Cart className="h-4 w-4 sm:h-5 sm:w-5" />
             <CartCount />
           </button>
 
@@ -160,9 +163,9 @@ export default function Header() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#e5e7eb] text-[#1a1a1a] transition-colors hover:border-[#c8102e] hover:text-[#c8102e]"
+            className="lg:hidden inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-[#e5e7eb] text-[#1a1a1a] transition-colors hover:border-[#c8102e] hover:text-[#c8102e] sm:h-10 sm:w-10"
           >
-            <Menu className="h-5 w-5" />
+            <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
       </div>
