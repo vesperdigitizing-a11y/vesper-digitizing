@@ -2,6 +2,7 @@ import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
 import { ArrowRight, Clock, Refresh, ShieldCheck, Globe, Star } from "./icons";
+import Image from "next/image";
 
 const BADGES = [
   {
@@ -38,12 +39,13 @@ const TRUST_KEYWORDS = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pb-10 hero-mesh noise-overlay">
-      <div
-        aria-hidden
-        className="absolute inset-0 z-0 bg-right bg-cover bg-no-repeat lg:bg-center"
-        style={{
-          backgroundImage: 'url("/images/HeroMain.png")',
-        }}
+      <Image
+        src="/images/heroimage.png"
+        alt="Vesper Digitizing"
+        fill
+        preload
+        sizes="100vw"
+        className="object-cover object-right z-0"
       />
       <div
         aria-hidden
@@ -83,7 +85,7 @@ export default function Hero() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
               Precision Digitizing <br className="hidden sm:block" />
               <span className="text-gradient">
                 Crafted for Premium Embroidery
