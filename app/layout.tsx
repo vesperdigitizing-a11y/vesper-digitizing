@@ -24,12 +24,9 @@ const pops = Poppins({
 export const metadata: Metadata = {
   title: "Vesper Digitizing — Premium Embroidery Digitizing Services",
   icons: {
-    icon: [
-      { url: "/favicon.ico", media: "(prefers-color-scheme: dark)" },
-      { url: "/faviconlight.ico", media: "(prefers-color-scheme: light)" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: "/favicon.ico",
     apple: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   description:
     "Vesper Digitizing transforms artwork into flawless embroidery files with exceptional stitch quality, fast turnaround and professional support trusted by clients worldwide.",
