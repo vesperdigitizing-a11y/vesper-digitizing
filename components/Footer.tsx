@@ -64,7 +64,10 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative overflow-hidden bg-[#1a1a1a] text-white">
+    <footer
+      id="contact"
+      className="relative overflow-hidden bg-[#1a1a1a] text-white"
+    >
       {/* Decorative top gradient line */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[#c8102e]/50 to-transparent" />
 
@@ -83,7 +86,7 @@ export default function Footer() {
               alt="Vesper Digitizing"
               width={805}
               height={310}
-              className="h-16 w-auto brightness-0 invert sm:h-20"
+              className="h-16 w-auto brightness-0 invert sm:h-20 relative right-6"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
               We provide premium quality digitizing services with fast delivery

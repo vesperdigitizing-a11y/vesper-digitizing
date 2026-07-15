@@ -9,8 +9,8 @@ import Link from "next/link";
 import { ArrowRight } from "./icons";
 
 export default function FloatingCTA() {
-  const [show, setShow] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [show, setShow] = useState(true);
+  const [expanded, setExpanded] = useState(true);
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,9 +36,7 @@ export default function FloatingCTA() {
       {/* Expanded actions */}
       <div
         className={`flex flex-col items-end gap-2 transition-all duration-300 ${
-          expanded
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0"
+          expanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <Link
@@ -70,7 +68,16 @@ export default function FloatingCTA() {
           className="group flex items-center gap-2 rounded-full bg-[#1a1a1a] py-3 pl-5 pr-4 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:scale-105"
         >
           Top
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M12 19V5M5 12l7-7 7 7" />
           </svg>
         </button>
