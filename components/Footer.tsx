@@ -7,7 +7,8 @@ import {
   Clock,
   Facebook,
   Instagram,
-  Linkedin,
+  Threads,
+  TikTok,
   Youtube,
   ArrowRight,
 } from "./icons";
@@ -42,10 +43,23 @@ const HELP_LINKS = [
 ];
 
 const SOCIALS = [
-  { Icon: Facebook, label: "Facebook" },
-  { Icon: Instagram, label: "Instagram" },
-  { Icon: Linkedin, label: "LinkedIn" },
-  { Icon: Youtube, label: "YouTube" },
+  {
+    Icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61584633009301",
+  },
+  {
+    Icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=4spjm4i",
+  },
+  {
+    Icon: Threads,
+    label: "Threads",
+    href: "https://www.threads.com/@vesperdigitizing?invite=0",
+  },
+  { Icon: TikTok, label: "TikTok", href: "#" },
+  { Icon: Youtube, label: "YouTube", href: "#" },
 ];
 
 export default function Footer() {
@@ -76,10 +90,12 @@ export default function Footer() {
               and unbeatable customer support.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              {SOCIALS.map(({ Icon, label }, i) => (
+              {SOCIALS.map(({ Icon, label, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="group flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-[#c8102e] hover:shadow-[0_8px_20px_-6px_rgba(200,16,46,0.6)]"
                 >

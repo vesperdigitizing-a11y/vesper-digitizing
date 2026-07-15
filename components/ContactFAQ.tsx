@@ -46,7 +46,7 @@ export default function ContactFAQ() {
           {FAQS.map((faq, i) => (
             <div
               key={faq.q}
-              className={`group overflow-hidden rounded-xl border bg-white transition-all duration-300 hover:shadow-lg ${
+              className={`group overflow-hidden rounded-xl border bg-white transition-colors duration-150 hover:shadow-lg ${
                 open === i
                   ? "border-[#c8102e]/40 shadow-md"
                   : "border-[#e5e7eb] hover:border-[#c8102e]/30"
@@ -58,7 +58,7 @@ export default function ContactFAQ() {
               >
                 {faq.q}
                 <svg
-                  className={`h-5 w-5 shrink-0 text-[#c8102e] transition-transform duration-300 ${
+                  className={`h-5 w-5 shrink-0 text-[#c8102e] transition-transform duration-100 ease-out ${
                     open === i ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -70,7 +70,7 @@ export default function ContactFAQ() {
                 </svg>
               </button>
               <div
-                className="grid transition-all duration-300 ease-out"
+                className="grid transition-[grid-template-rows] duration-100 ease-out"
                 style={{ gridTemplateRows: open === i ? "1fr" : "0fr" }}
               >
                 <p className="overflow-hidden px-5 text-sm leading-relaxed text-[#6b7280]">

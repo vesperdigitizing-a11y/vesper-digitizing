@@ -335,6 +335,21 @@ export const Youtube = (props: IconProps) => (
   </svg>
 );
 
+export const Threads = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M12 2C6.5 2 3 5.8 3 11.9c0 4 1.4 6.7 3.6 8.5 1.8 1.4 3.5 1.6 5.4 1.6 2.7 0 5.1-1 6.3-3.5.7-1.4.9-2.9.5-4.4-.5-1.9-1.9-3-3.9-3.3-1.4-.2-2.7 0-3.7.6" />
+    <path d="M15.2 9.9c-.3-1.4-1.5-2.3-3.1-2.3-2.1 0-3.6 1.5-3.6 3.4 0 1.7 1.2 3 3 3.3 1.8.3 3.2-.2 4.1-1.4.6-.9.8-2.1.5-3.4" />
+  </svg>
+);
+
+export const TikTok = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M16 3v9.5a4 4 0 1 1-4-4" />
+    <path d="M16 3a5 5 0 0 0 5 5" />
+    <path d="M16 8a5 5 0 0 0 5 0" />
+  </svg>
+);
+
 export const Eye = (props: IconProps) => (
   <svg {...base(props)}>
     <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />

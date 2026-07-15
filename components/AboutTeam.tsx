@@ -1,11 +1,36 @@
+import Image from "next/image";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 
 const TEAM = [
-  { name: "Arslan Khan", role: "Senior Digitizer", exp: "10+ Years Experience" },
-  { name: "Usman Ali", role: "Lead Digitizer", exp: "8+ Years Experience" },
-  { name: "Hassan Raza", role: "Quality Analyst", exp: "7+ Years Experience" },
-  { name: "Zain Abbas", role: "Support Manager", exp: "6+ Years Experience" },
+  {
+    name: "James Whitfield",
+    role: "Senior Digitizer",
+    exp: "10+ Years Experience",
+    photo:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Marco Rossi",
+    role: "Lead Digitizer",
+    exp: "8+ Years Experience",
+    photo:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Klaus Richter",
+    role: "Quality Analyst",
+    exp: "7+ Years Experience",
+    photo:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Carlos Mendes",
+    role: "Support Manager",
+    exp: "6+ Years Experience",
+    photo:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80&auto=format&fit=crop",
+  },
 ];
 
 export default function AboutTeam() {
@@ -45,13 +70,15 @@ export default function AboutTeam() {
                 {TEAM.map((m) => (
                   <div
                     key={m.name}
-                    className="group placeholder-grid relative aspect-[3/4] border-l border-white/10 first:border-l-0 sm:first:border-l"
+                    className="group relative aspect-[3/4] overflow-hidden border-l border-white/10 first:border-l-0 sm:first:border-l"
                   >
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="rounded-md bg-white/80 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-[#6b7280] transition-opacity duration-500 group-hover:opacity-0">
-                        Photo
-                      </span>
-                    </div>
+                    <Image
+                      src={m.photo}
+                      alt={m.name}
+                      fill
+                      sizes="(min-width: 640px) 25vw, 50vw"
+                      className="object-cover grayscale-[15%] transition-transform duration-500 group-hover:scale-105"
+                    />
                     {/* Hover gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#c8102e]/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 transition-transform duration-500 group-hover:translate-y-0">

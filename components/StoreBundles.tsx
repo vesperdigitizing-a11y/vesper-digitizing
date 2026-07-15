@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "./AddToCartButton";
-import { BUNDLES, formatPrice, getDiscountPercent } from "@/lib/products";
+import { BUNDLES, formatPrice } from "@/lib/products";
 import { ArrowRight } from "./icons";
 
 export default function StoreBundles() {
@@ -24,7 +24,6 @@ export default function StoreBundles() {
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {BUNDLES.map((b) => {
-            const discount = getDiscountPercent(b);
             return (
               <article
                 key={b.slug}
@@ -42,11 +41,9 @@ export default function StoreBundles() {
                     sizes="(max-width: 640px) 100vw, 25vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {discount && (
-                    <span className="absolute left-3 top-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e] text-sm font-bold text-white shadow-lg ring-4 ring-white/30">
-                      -{discount}%
-                    </span>
-                  )}
+                  <span className="absolute left-3 top-3 z-10 flex items-center justify-center whitespace-nowrap rounded-full bg-[#c8102e] px-3 py-1.5 text-xs font-bold text-white shadow-lg ring-4 ring-white/30">
+                    50+ Pieces
+                  </span>
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </Link>

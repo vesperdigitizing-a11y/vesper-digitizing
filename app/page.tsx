@@ -9,6 +9,7 @@ import Process from "@/components/Process";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
 import Store from "@/components/Store";
+import HomeFAQ from "@/components/HomeFAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Stats />
         <Testimonials />
         <Store />
+        <HomeFAQ />
         <CTA />
       </main>
       <Footer />
