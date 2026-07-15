@@ -4,6 +4,7 @@
 // Stars turn yellow on hover AND on the active card.
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import TiltCard from "./TiltCard";
@@ -13,7 +14,7 @@ type Testimonial = {
   quote: string;
   name: string;
   country: string;
-  initials: string;
+  avatar: string;
 };
 
 const TESTIMONIALS: Testimonial[] = [
@@ -22,21 +23,24 @@ const TESTIMONIALS: Testimonial[] = [
       "Vesper Digitizing delivered outstanding quality and super fast turnaround. My go-to digitizing partner!",
     name: "Michael T.",
     country: "USA",
-    initials: "MT",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
       "Professional, reliable and always exceed my expectations. Highly recommended!",
     name: "James R.",
     country: "Canada",
-    initials: "JR",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
       "The stitch quality is perfect every time. Absolutely love their work.",
     name: "Sarah K.",
     country: "UK",
-    initials: "SK",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
   },
 ];
 
@@ -116,8 +120,14 @@ export default function Testimonials() {
                 </blockquote>
 
                 <div className="relative mt-6 flex w-full items-center gap-3 border-t border-[#f5f5f5] pt-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#c8102e] to-[#a30d24] text-sm font-bold text-white shadow-md transition-transform duration-500 group-hover:scale-110">
-                    {t.initials}
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-[#c8102e]/20 shadow-md transition-transform duration-500 group-hover:scale-110 group-hover:ring-[#c8102e]/40">
+                    <Image
+                      src={t.avatar}
+                      alt={t.name}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="min-w-0">
                     <div className="text-sm font-bold text-[#1a1a1a]">{t.name}</div>
