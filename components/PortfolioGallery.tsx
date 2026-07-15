@@ -24,6 +24,38 @@ const ITEMS: PortfolioItem[] = [
   { title: "Chenille Digitizing",   category: "patches",  image: "/images/portfolio/chenille.png" },
   { title: "Towel Embroidery",      category: "left-chest", image: "/images/portfolio/crown.jpg" },
   { title: "Mascot Digitizing",     category: "patches",  image: "/images/portfolio/shark.jpg" },
+
+  // Real client work
+  { title: "Cap Digitizing — Perco Worldwide", category: "caps", image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg" },
+  { title: "Cap Digitizing — Transmateriales", category: "caps", image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg" },
+  { title: "Left Chest Logo — Servicios Automotrices", category: "left-chest", image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg" },
+  { title: "Towel Embroidery — Don Crudo Seafood", category: "left-chest", image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg" },
+  { title: "Applique Letter",       category: "applique", image: "/images/products/digitizing/applique-letter-m.jpg" },
+
+  { title: "Patch — Don't Hassle Me With Shuckle", category: "patches", image: "/images/products/customPatches/patch-dont-hassle-me-shuckle.jpg" },
+  { title: "Patch — Squirtle Squad", category: "patches", image: "/images/products/customPatches/patch-squirtle-squad.jpg" },
+  { title: "Patch — Classic Pikachu", category: "patches", image: "/images/products/customPatches/patch-classic-pikachu-1996.jpg" },
+  { title: "Patch — Nursing Assistant", category: "patches", image: "/images/products/customPatches/patch-licensed-nursing-assistant.jpg" },
+  { title: "Patch — Error 404",     category: "patches", image: "/images/products/customPatches/patch-error-404.jpg" },
+  { title: "Patch — Fire Department", category: "patches", image: "/images/products/customPatches/patch-kanto-fire-department.jpg" },
+  { title: "Patch — Delivery Service", category: "patches", image: "/images/products/customPatches/patch-dragonite-delivery-service.jpg" },
+  { title: "Patch — Bean of the Year", category: "patches", image: "/images/products/customPatches/patch-official-bean-of-the-year.jpg" },
+  { title: "Patch — Certified Locally Grown", category: "patches", image: "/images/products/customPatches/patch-certified-locally-grown.jpg" },
+  { title: "Patch — Dragon Slayer", category: "patches", image: "/images/products/customPatches/patch-professional-dragon-slayer.jpg" },
+  { title: "Patch — Dog Mascot",    category: "patches", image: "/images/products/Chenille/patch-dog-mascot.jpg" },
+
+  { title: "Chenille — Christin Cruz", category: "patches", image: "/images/products/Chenille/chenille-christin-cruz.jpg" },
+  { title: "Chenille — Rabbits",    category: "patches", image: "/images/products/Chenille/chenille-rabbits.jpg" },
+  { title: "Chenille — Varsity Letters", category: "patches", image: "/images/products/Chenille/chenille-king-varsity-letters.jpg" },
+  { title: "Chenille — Team Names", category: "patches", image: "/images/products/Chenille/chenille-team-name-patches.jpg" },
+  { title: "Chenille — Luigi",      category: "patches", image: "/images/products/Chenille/chenille-luigi.jpg" },
+  { title: "Chenille — Left Heart", category: "patches", image: "/images/products/Chenille/chenille-left-heart.jpg" },
+
+  { title: "Vector Art — Pop Art Illustration", category: "vector", image: "/images/products/vectorArt/vector-pop-art-illustration.jpg" },
+  { title: "Vector Art — Cartoon Character", category: "vector", image: "/images/products/vectorArt/vector-cartoon-character-art.jpg" },
+  { title: "Vector Art — Wolf Illustration", category: "vector", image: "/images/products/vectorArt/vector-wolf-illustration.jpg" },
+  { title: "Vector Art — Pikachu Dragon", category: "vector", image: "/images/products/vectorArt/vector-pikachu-dragon-art.jpg" },
+  { title: "Vector Art — Snack Bandit", category: "vector", image: "/images/products/vectorArt/vector-snack-bandit-art.jpg" },
 ];
 
 const FILTERS = [
@@ -35,6 +67,7 @@ const FILTERS = [
   { label: "3D Puff", value: "3d-puff" },
   { label: "Applique", value: "applique" },
   { label: "Polo", value: "polo" },
+  { label: "Vector Art", value: "vector" },
 ];
 
 export default function PortfolioGallery() {

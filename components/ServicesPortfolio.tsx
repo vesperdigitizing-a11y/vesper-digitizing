@@ -19,6 +19,12 @@ const ITEMS: PortfolioItem[] = [
   { title: "Patch Digitizing",    category: "patch",    image: "/images/portfolio/patch.jpg" },
   { title: "3D Puff Digitizing",  category: "puff",     image: "/images/portfolio/puff.jpg" },
   { title: "Applique Digitizing", category: "applique", image: "/images/portfolio/applique.jpg" },
+
+  // Real client work
+  { title: "Cap Digitizing — Perco Worldwide", category: "caps", image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg" },
+  { title: "Cap Digitizing — Transmateriales", category: "caps", image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg" },
+  { title: "Left Chest Logo — Servicios Automotrices", category: "polo", image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg" },
+  { title: "Applique Letter",     category: "applique", image: "/images/products/digitizing/applique-letter-m.jpg" },
 ];
 
 const FILTERS = [
