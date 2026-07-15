@@ -5,6 +5,7 @@ import {
   Mail,
   Phone,
   Clock,
+  MapPin,
   Facebook,
   Instagram,
   Threads,
@@ -33,13 +34,13 @@ const SERVICES = [
 ];
 
 const HELP_LINKS = [
-  "FAQs",
-  "How It Works",
-  "Payment Methods",
-  "Shipping & Delivery",
-  "Return Policy",
-  "Privacy Policy",
-  "Terms & Conditions",
+  { label: "FAQs", href: "/contact" },
+  { label: "How It Works", href: "/services" },
+  { label: "Payment Methods", href: "/contact" },
+  { label: "Shipping & Delivery", href: "/store" },
+  { label: "Return Policy", href: "/terms-and-conditions" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
 ];
 
 const SOCIALS = [
@@ -155,13 +156,13 @@ export default function Footer() {
             </h3>
             <ul className="mt-5 space-y-3">
               {HELP_LINKS.map((l) => (
-                <li key={l}>
+                <li key={l.label}>
                   <a
-                    href="#"
+                    href={l.href}
                     className="group inline-flex items-center gap-1 text-sm text-white/70 transition-colors hover:text-[#c8102e]"
                   >
                     <span className="h-px w-0 bg-[#c8102e] transition-all duration-300 group-hover:w-3" />
-                    {l}
+                    {l.label}
                   </a>
                 </li>
               ))}
@@ -174,6 +175,13 @@ export default function Footer() {
               Contact Us
             </h3>
             <ul className="mt-5 space-y-3 text-sm text-white/70">
+              <li className="group flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110" />
+                <span>
+                  1901 Avenue of the Stars, Suite 2000<br />
+                  Los Angeles, CA 90067, USA
+                </span>
+              </li>
               <li className="group flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110" />
                 <a
@@ -242,13 +250,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
           <p className="text-xs text-white/60">
-            © 2024 Vesper Digitizing. All Rights Reserved.
+            © 2026 Vesper Digitizing. All Rights Reserved.
           </p>
           <div className="flex items-center gap-5 text-xs text-white/60">
-            <a href="#" className="transition-colors hover:text-white">
+            <a href="/privacy-policy" className="transition-colors hover:text-white">
               Privacy Policy
             </a>
-            <a href="#" className="transition-colors hover:text-white">
+            <a href="/terms-and-conditions" className="transition-colors hover:text-white">
               Terms &amp; Conditions
             </a>
           </div>
