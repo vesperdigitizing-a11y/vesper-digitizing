@@ -25,10 +25,11 @@ export const metadata: Metadata = {
   title: "Vesper Digitizing — Premium Embroidery Digitizing Services",
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", media: "(prefers-color-scheme: dark)" },
+      { url: "/faviconlight.ico", media: "(prefers-color-scheme: light)" },
     ],
-    apple: "/icon.svg",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   description:
     "Vesper Digitizing transforms artwork into flawless embroidery files with exceptional stitch quality, fast turnaround and professional support trusted by clients worldwide.",
@@ -63,24 +64,14 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-[#1a1a1a]">
         <ToastProvider>
           <CartProvider>
-            {/* Scroll progress bar — top of viewport */}
             <ScrollProgress />
-
-            {/* Announcement bar — promo strip above header */}
             <AnnouncementBar />
-
-            {/* Decorative top overlay (kept from original) */}
             <div
               aria-hidden
               className="pointer-events-none fixed inset-0 z-[100]"
             />
-
             {children}
-
-            {/* Cart drawer — mounted once at root, overlays every page */}
             <CartDrawer />
-
-            {/* Floating WhatsApp / Quote / Top button */}
             <FloatingCTA />
           </CartProvider>
         </ToastProvider>
