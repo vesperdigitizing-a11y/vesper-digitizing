@@ -38,7 +38,7 @@ const TRUST_KEYWORDS = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pb-10 hero-mesh">
+    <section className="relative overflow-hidden bg-white pb-6 hero-mesh">
       <Image
         src="/images/heroimage.png"
         alt="Vesper Digitizing"
@@ -67,7 +67,7 @@ export default function Hero() {
       {/* Strong white overlay — mobile/tablet only (for text legibility) */}
       {/* Light overlay — desktop only (subtle, doesn't wash out the image) */}
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 pt-12 pb-28 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-12 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start">
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e] backdrop-blur-sm">
