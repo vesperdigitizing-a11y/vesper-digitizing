@@ -33,15 +33,22 @@ export default function StoreHero() {
       {/* Readability overlay: strong white wash on the left where text sits,
           softer fade to the right so the product image shows through as a
           cohesive background rather than a separate box. */}
+      {/* Mobile: stronger vertical wash */}
+
       <div
         aria-hidden
-        className="absolute inset-0 z-0"
+        className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
+      />
+
+            {/* White overlay — mobile/tablet only */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.93) 25%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.0) 55%)",
         }}
       />
-      {/* Mobile: stronger vertical wash */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -49,11 +56,6 @@ export default function StoreHero() {
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.88) 100%)",
         }}
-      />
-
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 lg:pt-20 lg:pb-16">

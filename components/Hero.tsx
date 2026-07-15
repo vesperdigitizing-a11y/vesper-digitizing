@@ -38,7 +38,7 @@ const TRUST_KEYWORDS = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pb-10 hero-mesh noise-overlay">
+    <section className="relative overflow-hidden bg-white pb-10 hero-mesh">
       <Image
         src="/images/heroimage.png"
         alt="Vesper Digitizing"
@@ -47,9 +47,10 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover object-right z-0"
       />
+      {/* White overlay — mobile/tablet only (for text legibility). Removed on desktop (lg) so the image shows fully. */}
       <div
         aria-hidden
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
@@ -63,14 +64,8 @@ export default function Hero() {
             "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-1/3 -left-20 z-0 h-64 w-64 rounded-full bg-[#c8102e]/5 blur-3xl animate-float-slow"
-      />
+      {/* Strong white overlay — mobile/tablet only (for text legibility) */}
+      {/* Light overlay — desktop only (subtle, doesn't wash out the image) */}
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 pt-12 pb-28 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start">

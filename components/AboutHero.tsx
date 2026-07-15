@@ -12,15 +12,22 @@ const STATS = [
 export default function AboutHero() {
   return (
     <section
-      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh noise-overlay lg:bg-center"
+      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
       style={{
         backgroundImage: 'url("/images/aboutHero.png")',
       }}
     >
       {/* Readability overlay */}
+
       <div
         aria-hidden
-        className="absolute inset-0 z-0"
+        className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
+      />
+
+            {/* White overlay — mobile/tablet only */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 lg:hidden"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
@@ -33,11 +40,6 @@ export default function AboutHero() {
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
-      />
-
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
