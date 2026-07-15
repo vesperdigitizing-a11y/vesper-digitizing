@@ -42,6 +42,16 @@ export default function AboutHero() {
         }}
       />
 
+            {/* Light overlay — desktop only (prevents image from overlapping text) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.60) 30%, rgba(255,255,255,0.30) 45%, rgba(255,255,255,0.0) 60%)",
+        }}
+      />
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
         <div className="max-w-xl">
           <ScrollReveal>
@@ -87,7 +97,7 @@ export default function AboutHero() {
           {/* Stats row with animated counters — equal-width columns + short,
               nowrap labels keep every badge's icon/number/label aligned. */}
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
-            <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
               {STATS.map((s) => (
                 <div key={s.label} className="group flex items-start gap-1.5 sm:gap-2">
                   <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />

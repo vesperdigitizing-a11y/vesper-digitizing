@@ -58,6 +58,16 @@ export default function StoreHero() {
         }}
       />
 
+      {/* Light overlay — desktop only (prevents image from overlapping text) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.60) 30%, rgba(255,255,255,0.30) 45%, rgba(255,255,255,0.0) 60%)",
+        }}
+      />
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 lg:pt-20 lg:pb-16">
         <div className="max-w-xl">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
@@ -95,7 +105,7 @@ export default function StoreHero() {
           {/* Feature badges — grid-cols-4 keeps all four in a single line at
               every width; short, nowrap label/sub text guarantees icon and
               text always align across badges (no wrap-count drift). */}
-          <div className="mt-8 grid grid-cols-4 gap-x-3 sm:gap-x-5">
+          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
             {FEATURE_BADGES.map((b) => (
               <div
                 key={b.label}

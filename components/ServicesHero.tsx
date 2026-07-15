@@ -87,7 +87,7 @@ export default function ServicesHero() {
           </ScrollReveal>
 
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
-            <div className="grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4 lg:gap-x-6">
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
               {BADGES.map((b) => (
                 <div key={b.title} className="group flex items-start gap-1.5 sm:gap-2">
                   <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
