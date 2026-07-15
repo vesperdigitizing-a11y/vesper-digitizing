@@ -6,6 +6,7 @@
 import { useEffect, useState } from "react";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
+import TiltCard from "./TiltCard";
 import { Quote, Star } from "./icons";
 
 type Testimonial = {
@@ -72,8 +73,8 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, idx) => {
             const isActive = idx === active;
             return (
+              <TiltCard key={t.name} max={10}>
               <article
-                key={t.name}
                 className={`group relative flex h-full flex-col items-start overflow-hidden rounded-xl border bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl ${
                   isActive
                     ? "border-[#c8102e]/40 ring-1 ring-[#c8102e]/10"
@@ -124,6 +125,7 @@ export default function Testimonials() {
                   </div>
                 </div>
               </article>
+              </TiltCard>
             );
           })}
         </ScrollReveal>
