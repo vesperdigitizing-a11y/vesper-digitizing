@@ -79,31 +79,32 @@ export default function ServicesPortfolio() {
           {items.map((item) => (
             <article
               key={item.title}
-              className="group relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative aspect-4/3 w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f5f5]">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-[#1a1a1a]/0 transition-colors duration-500 group-hover:bg-[#1a1a1a]/50">
-                  <span className="translate-y-3 text-xs font-semibold uppercase tracking-wider text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    {item.title}
-                  </span>
-                </div>
-                {/* Top accent border */}
-                <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
-              </div>
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-              <div className="flex items-center justify-between px-4 py-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a]">
+              {/* Label overlaid on image */}
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <span className="block text-xs font-bold uppercase tracking-wider text-white">
                   {item.title}
                 </span>
-                <ArrowRight className="h-4 w-4 -translate-x-2 text-[#c8102e] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
               </div>
+
+              {/* Arrow button appears on hover */}
+              <span className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+
+              {/* Top accent border */}
+              <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
             </article>
           ))}
         </ScrollReveal>
