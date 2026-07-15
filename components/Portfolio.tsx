@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
@@ -62,28 +62,23 @@ const ITEMS = [
   },
 ];
 
+// Duplicate the items array so the track can loop seamlessly
+const TRACK = [...ITEMS, ...ITEMS];
+
 function PortfolioCard({
   label,
   tag,
-  images,
-  step,
-  direction,
+  image,
 }: {
   label: string;
   tag: string;
-  images: string[];
-  step: number;
-  direction: "next" | "prev";
+  image: string;
 }) {
-  const index = ((step % images.length) + images.length) % images.length;
-  const slideClass =
-    direction === "prev" ? "animate-slide-in-left" : "animate-slide-in-right";
-
   return (
-    <article className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-      <div key={images[index]} className={`absolute inset-0 ${slideClass}`}>
+    <article className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+      <div className="absolute inset-0">
         <Image
-          src={images[index]}
+          src={image}
           alt={tag}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
@@ -97,7 +92,7 @@ function PortfolioCard({
           <span className="block text-xs font-bold uppercase tracking-wider text-white">
             {label}
           </span>
-          <span className="mt-1 block text-[10px] font-medium uppercase tracking-wider text-white/70 transition-all duration-500 group-hover:text-[#c8102e]">
+          <span className="mt-1 block text-[10px] font-medium uppercase tracking-wider text-white/70 transition-all duration-500 group-hover:text-white">
             {tag}
           </span>
         </div>
@@ -115,24 +110,44 @@ function PortfolioCard({
 }
 
 export default function Portfolio() {
-  const [step, setStep] = useState(0);
-  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  // Number of cards to show per view (responsive)
+  // We detect via window width on mount + resize
+  const [perView, setPerView] = useState(5);
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 640) setPerView(2);
+      else if (w < 1024) setPerView(3);
+      else setPerView(5);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const total = ITEMS.length;
 
   const goNext = () => {
-    setDirection("next");
-    setStep((s) => s + 1);
+    setIndex((i) => (i + 1) % total);
   };
   const goPrev = () => {
-    setDirection("prev");
-    setStep((s) => s - 1);
+    setIndex((i) => (i - 1 + total) % total);
   };
 
+  // Autoplay
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(goNext, 2600);
+    const id = setInterval(goNext, 3500);
     return () => clearInterval(id);
   }, [paused]);
+
+  // Calculate translateX — each card takes (100 / perView)% of the container width
+  // Moving by `index` cards = translateX(-index * (100 / perView)%)
+  const translateX = `-${index * (100 / perView)}%`;
 
   return (
     <section id="portfolio" className="relative bg-[#f5f5f5] py-16 sm:py-24">
@@ -166,7 +181,7 @@ export default function Portfolio() {
             <div className="mb-3 flex items-center justify-end gap-2">
               <button
                 type="button"
-                aria-label="Previous images"
+                aria-label="Previous"
                 onClick={goPrev}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#1a1a1a] shadow-sm transition-all hover:scale-110 hover:border-[#c8102e] hover:text-[#c8102e]"
               >
@@ -174,7 +189,7 @@ export default function Portfolio() {
               </button>
               <button
                 type="button"
-                aria-label="Next images"
+                aria-label="Next"
                 onClick={goNext}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#1a1a1a] shadow-sm transition-all hover:scale-110 hover:border-[#c8102e] hover:text-[#c8102e]"
               >
@@ -182,18 +197,47 @@ export default function Portfolio() {
               </button>
             </div>
 
-            <ScrollReveal stagger variant="right" className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5">
-              {ITEMS.map((item) => (
-                <PortfolioCard
-                  key={item.label}
-                  label={item.label}
-                  tag={item.tag}
-                  images={item.images}
-                  step={step}
-                  direction={direction}
+            {/* Carousel viewport — overflow hidden, cards slide as a group */}
+            <div className="overflow-hidden">
+              <div
+                ref={trackRef}
+                className="flex transition-transform duration-700 ease-out"
+                style={{
+                  transform: `translateX(${translateX})`,
+                }}
+              >
+                {TRACK.map((item, i) => (
+                  <div
+                    key={`${item.label}-${i}`}
+                    className="shrink-0 px-2"
+                    style={{ width: `${100 / perView}%` }}
+                  >
+                    <PortfolioCard
+                      label={item.label}
+                      tag={item.tag}
+                      image={item.images[i % item.images.length]}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dots indicator */}
+            <div className="mt-4 flex items-center justify-center gap-1.5">
+              {ITEMS.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Go to slide ${i + 1}`}
+                  onClick={() => setIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === index
+                      ? "w-6 bg-[#c8102e]"
+                      : "w-1.5 bg-[#d1d5db] hover:bg-[#9ca3af]"
+                  }`}
                 />
               ))}
-            </ScrollReveal>
+            </div>
           </div>
         </div>
       </div>
