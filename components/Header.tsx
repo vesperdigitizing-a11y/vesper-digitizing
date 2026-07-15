@@ -8,6 +8,7 @@
 //   • Live cart badge with count
 //   • Animated active underline that draws in
 //   • Mobile menu slides in with stagger animation
+//   • Services dropdown (All Services / Patches / Vectors)
 
 import Link from "next/link";
 import Image from "next/image";
@@ -17,9 +18,24 @@ import { ArrowRight, Cart, Menu } from "./icons";
 import { useCart } from "@/lib/cart-context";
 import CartCount from "./CartCount";
 
-const NAV = [
+type NavItem = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string; desc: string }[];
+};
+
+const NAV: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
+  {
+    label: "Services",
+    href: "/services",
+    // Dropdown disabled for now — uncomment to re-enable
+    // children: [
+    //   { label: "All Services", href: "/services", desc: "Full digitizing catalog" },
+    //   { label: "Patch Digitizing", href: "/patches", desc: "Merrow, laser cut, woven, chenille" },
+    //   { label: "Vector Conversion", href: "/vectors", desc: "Raster to vector, logo vectorization" },
+    // ],
+  },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Store", href: "/store" },
   { label: "About Us", href: "/about" },
@@ -30,11 +46,19 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const { openCart } = useCart();
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+  }, [pathname]);
 
   // Scroll behavior: detect direction + scrolled state
   useEffect(() => {
@@ -42,7 +66,6 @@ export default function Header() {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 20);
-      // Hide on scroll-down past 200px, show on scroll-up
       if (y > 200 && y > lastY + 8) {
         setHidden(true);
       } else if (y < lastY - 8 || y < 100) {
@@ -106,31 +129,98 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav
-          className="hidden lg:flex items-center gap-8"
+          className="hidden items-center gap-8 lg:flex"
           aria-label="Primary"
         >
-          {NAV.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`group relative text-sm font-medium transition-colors hover:text-[#c8102e] ${
-                isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
-              }`}
-            >
-              {item.label}
-              {/* Animated underline */}
-              <span
-                className={`absolute -bottom-1.5 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-[#c8102e] transition-all duration-300 ${
-                  isActive(item.href)
-                    ? "w-5"
-                    : "w-0 group-hover:w-5"
+          {NAV.map((item) => {
+            // Services item with dropdown
+            if (item.children) {
+              const active = isActive(item.href) || pathname === "/patches" || pathname === "/vectors";
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setServicesOpen((v) => !v)}
+                    className={`group relative flex items-center gap-1 text-sm font-medium transition-colors hover:text-[#c8102e] ${
+                      active ? "text-[#c8102e]" : "text-[#1a1a1a]"
+                    }`}
+                  >
+                    {item.label}
+                    {/* Chevron */}
+                    <svg
+                      className={`h-3 w-3 transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                    {/* Animated underline */}
+                    <span
+                      className={`absolute -bottom-1.5 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-[#c8102e] transition-all duration-300 ${
+                        active ? "w-5" : "w-0 group-hover:w-5"
+                      }`}
+                    />
+                  </button>
+
+                  {/* Dropdown */}
+                  {servicesOpen && (
+                    <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3">
+                      <div className="w-72 overflow-hidden rounded-xl border border-[#e5e7eb] bg-white shadow-2xl">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="group/item block border-b border-[#f5f5f5] px-4 py-3 transition-colors last:border-0 hover:bg-[#c8102e]/5"
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm font-semibold text-[#1a1a1a] transition-colors group-hover/item:text-[#c8102e]">
+                                {child.label}
+                              </span>
+                              <ArrowRight className="h-3.5 w-3.5 text-[#9ca3af] opacity-0 transition-all group-hover/item:translate-x-0.5 group-hover/item:opacity-100 group-hover/item:text-[#c8102e]" />
+                            </div>
+                            <p className="mt-0.5 text-xs text-[#6b7280]">{child.desc}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            // Regular nav item
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`group relative text-sm font-medium transition-colors hover:text-[#c8102e] ${
+                  isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
                 }`}
-                style={{
-                  transformOrigin: "center",
-                }}
-              />
-            </Link>
-          ))}
+              >
+                {item.label}
+                {/* Animated underline */}
+                <span
+                  className={`absolute -bottom-1.5 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-[#c8102e] transition-all duration-300 ${
+                    isActive(item.href)
+                      ? "w-5"
+                      : "w-0 group-hover:w-5"
+                  }`}
+                  style={{
+                    transformOrigin: "center",
+                  }}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right actions */}
@@ -210,19 +300,69 @@ export default function Header() {
       </div>
 
       <nav className="flex flex-1 flex-col overflow-y-auto px-5 py-3" aria-label="Mobile">
-        {NAV.map((item, idx) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            onClick={() => setOpen(false)}
-            className={`py-3 text-sm font-medium border-b border-[#f5f5f5] last:border-0 transition-all hover:text-[#c8102e] ${
-              isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
-            } ${open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
-            style={{ transitionDelay: open ? `${idx * 60}ms` : "0ms" }}
-          >
-            {item.label}
-          </Link>
-        ))}
+        {NAV.map((item, idx) => {
+          if (item.children) {
+            const active = isActive(item.href) || pathname === "/patches" || pathname === "/vectors";
+            return (
+              <div key={item.label} className="border-b border-[#f5f5f5]">
+                <button
+                  type="button"
+                  onClick={() => setMobileServicesOpen((v) => !v)}
+                  className={`flex w-full items-center justify-between py-3 text-sm font-medium transition-all ${
+                    active ? "text-[#c8102e]" : "text-[#1a1a1a] hover:text-[#c8102e]"
+                  } ${open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+                  style={{ transitionDelay: open ? `${idx * 60}ms` : "0ms" }}
+                >
+                  {item.label}
+                  <svg
+                    className={`h-4 w-4 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                {/* Expandable sub-items */}
+                {mobileServicesOpen && (
+                  <div className="pb-2 pl-3">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setOpen(false)}
+                        className={`block py-2.5 text-sm transition-colors ${
+                          pathname === child.href
+                            ? "font-semibold text-[#c8102e]"
+                            : "text-[#6b7280] hover:text-[#c8102e]"
+                        }`}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          }
+
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className={`py-3 text-sm font-medium border-b border-[#f5f5f5] transition-all hover:text-[#c8102e] ${
+                isActive(item.href) ? "text-[#c8102e]" : "text-[#1a1a1a]"
+              } ${open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+              style={{ transitionDelay: open ? `${idx * 60}ms` : "0ms" }}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
     </aside>
     </>

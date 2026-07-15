@@ -116,13 +116,13 @@ export default function StoreHero() {
         {/* Happy customers badge — floats over the right side of the background image */}
         <div className="mt-8 flex justify-start lg:absolute lg:right-[-20px] lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
           <div className="w-56 rounded-xl bg-white/95 px-5 py-4 shadow-lg ring-1 ring-[#e5e7eb] backdrop-blur-sm">
+            p
             <div className="font-display text-2xl font-extrabold text-[#c8102e]">
               5000+
             </div>
             <div className="text-sm font-medium text-[#1a1a1a]">
               Happy Customers
             </div>
-
             <div className="mt-3 flex -space-x-2">
               {AVATAR_COLORS.map((c, i) => (
                 <span
@@ -133,7 +133,6 @@ export default function StoreHero() {
                 </span>
               ))}
             </div>
-
             <div className="mt-3 text-sm font-bold text-[#1a1a1a]">
               4.9/5 Rating
             </div>
