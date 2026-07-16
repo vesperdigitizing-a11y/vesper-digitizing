@@ -27,7 +27,7 @@ export default function StoreHero() {
     <section
       className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat lg:bg-center"
       style={{
-        backgroundImage: 'url("/images/storeHero.png")',
+        backgroundImage: 'url("/images/HeroStore.png")',
       }}
     >
       {/* Readability overlay: strong white wash on the left where text sits,
