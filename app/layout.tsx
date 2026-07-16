@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "left chest logo",
     "cap digitizing",
     "3D puff digitizing",
-    "patch digitizing",
+    "Patches",
     "vector conversion",
     "vesper digitizing",
   ],

@@ -13,18 +13,54 @@ type PortfolioItem = {
 };
 
 const ITEMS: PortfolioItem[] = [
-  { title: "Cap Digitizing",      category: "caps",     image: "/images/portfolio/cap.jpg" },
-  { title: "Left Chest Logo",     category: "polo",     image: "/images/portfolio/polo.jpg" },
-  { title: "Jacket Back",         category: "jacket",   image: "/images/portfolio/jacket.jpg" },
-  { title: "Patch Digitizing",    category: "patch",    image: "/images/portfolio/patch.jpg" },
-  { title: "3D Puff Digitizing",  category: "puff",     image: "/images/portfolio/puff.jpg" },
-  { title: "Applique Digitizing", category: "applique", image: "/images/portfolio/applique.jpg" },
+  {
+    title: "Cap Digitizing",
+    category: "caps",
+    image: "/images/portfolio/cap.jpg",
+  },
+  {
+    title: "Left Chest Logo",
+    category: "polo",
+    image: "/images/portfolio/polo.jpg",
+  },
+  {
+    title: "Jacket Back",
+    category: "jacket",
+    image: "/images/portfolio/jacket.jpg",
+  },
+  { title: "Patches", category: "patch", image: "/images/portfolio/patch.jpg" },
+  {
+    title: "3D Puff Digitizing",
+    category: "puff",
+    image: "/images/portfolio/puff.jpg",
+  },
+  {
+    title: "Applique Digitizing",
+    category: "applique",
+    image: "/images/portfolio/applique.jpg",
+  },
 
   // Real client work
-  { title: "Cap Digitizing — Perco Worldwide", category: "caps", image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg" },
-  { title: "Cap Digitizing — Transmateriales", category: "caps", image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg" },
-  { title: "Left Chest Logo — Servicios Automotrices", category: "polo", image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg" },
-  { title: "Applique Letter",     category: "applique", image: "/images/products/digitizing/applique-letter-m.jpg" },
+  {
+    title: "Cap Digitizing — Perco Worldwide",
+    category: "caps",
+    image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg",
+  },
+  {
+    title: "Cap Digitizing — Transmateriales",
+    category: "caps",
+    image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg",
+  },
+  {
+    title: "Left Chest Logo — Servicios Automotrices",
+    category: "polo",
+    image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg",
+  },
+  {
+    title: "Applique Letter",
+    category: "applique",
+    image: "/images/products/digitizing/applique-letter-m.jpg",
+  },
 ];
 
 const FILTERS = [
@@ -41,9 +77,7 @@ export default function ServicesPortfolio() {
   const [active, setActive] = useState("all");
 
   const items =
-    active === "all"
-      ? ITEMS
-      : ITEMS.filter((i) => i.category === active);
+    active === "all" ? ITEMS : ITEMS.filter((i) => i.category === active);
 
   return (
     <section id="portfolio" className="bg-[#f5f5f5] py-16 sm:py-24">
@@ -75,7 +109,10 @@ export default function ServicesPortfolio() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal stagger className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ScrollReveal
+          stagger
+          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {items.map((item) => (
             <article
               key={item.title}

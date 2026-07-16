@@ -10,14 +10,46 @@ type Service = {
 };
 
 const SERVICES: Service[] = [
-  { icon: "shirt", title: "Left Chest Logo", desc: "Perfect for uniforms, polos, t-shirts and corporate branding" },
-  { icon: "cap", title: "Cap Digitizing", desc: "Specialized in cap logo digitizing with perfect stitch placement" },
-  { icon: "jacket", title: "Jacket Back", desc: "Large and complex design digitizing for jackets, hoodies and outerwear" },
-  { icon: "cube", title: "3D Puff Digitizing", desc: "High quality 3D puff effects with clean and raised stitches" },
-  { icon: "layers", title: "Applique Digitizing", desc: "Fabric applique with precise cutting lines and secure stitching" },
-  { icon: "patch", title: "Patch Digitizing", desc: "Merrow, laser cut, woven and custom patches in any shape or size" },
-  { icon: "penTool", title: "Vector Conversion", desc: "Convert any image or logo into high quality vector artwork" },
-  { icon: "sparkles", title: "Custom Embroidery", desc: "Bring your unique ideas to life with our expert digitizers" },
+  {
+    icon: "shirt",
+    title: "Left Chest Logo",
+    desc: "Perfect for uniforms, polos, t-shirts and corporate branding",
+  },
+  {
+    icon: "cap",
+    title: "Cap Digitizing",
+    desc: "Specialized in cap logo digitizing with perfect stitch placement",
+  },
+  {
+    icon: "jacket",
+    title: "Jacket Back",
+    desc: "Large and complex design digitizing for jackets, hoodies and outerwear",
+  },
+  {
+    icon: "cube",
+    title: "3D Puff Digitizing",
+    desc: "High quality 3D puff effects with clean and raised stitches",
+  },
+  {
+    icon: "layers",
+    title: "Applique Digitizing",
+    desc: "Fabric applique with precise cutting lines and secure stitching",
+  },
+  {
+    icon: "patch",
+    title: "Patches",
+    desc: "Merrow, laser cut, woven and custom patches in any shape or size",
+  },
+  {
+    icon: "penTool",
+    title: "Vector Conversion",
+    desc: "Convert any image or logo into high quality vector artwork",
+  },
+  {
+    icon: "sparkles",
+    title: "Custom Embroidery",
+    desc: "Bring your unique ideas to life with our expert digitizers",
+  },
 ];
 
 export default function ServicesContent() {
@@ -32,7 +64,10 @@ export default function ServicesContent() {
           />
         </ScrollReveal>
 
-        <ScrollReveal stagger className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ScrollReveal
+          stagger
+          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {SERVICES.map((s) => {
             const Icon = IconByName[s.icon];
             return (

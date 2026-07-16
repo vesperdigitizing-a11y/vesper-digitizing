@@ -28,7 +28,7 @@ const SERVICES = [
   "Jacket Back",
   "3D Puff Digitizing",
   "Applique Digitizing",
-  "Patch Digitizing",
+  "Patches",
   "Vector Conversion",
   "Custom Embroidery",
 ];
@@ -178,7 +178,8 @@ export default function Footer() {
               <li className="group flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110" />
                 <span>
-                  1901 Avenue of the Stars, Suite 2000<br />
+                  1901 Avenue of the Stars, Suite 2000
+                  <br />
                   Los Angeles, CA 90067, USA
                 </span>
               </li>
@@ -253,10 +254,16 @@ export default function Footer() {
             © 2026 Vesper Digitizing. All Rights Reserved.
           </p>
           <div className="flex items-center gap-5 text-xs text-white/60">
-            <a href="/privacy-policy" className="transition-colors hover:text-white">
+            <a
+              href="/privacy-policy"
+              className="transition-colors hover:text-white"
+            >
               Privacy Policy
             </a>
-            <a href="/terms-and-conditions" className="transition-colors hover:text-white">
+            <a
+              href="/terms-and-conditions"
+              className="transition-colors hover:text-white"
+            >
               Terms &amp; Conditions
             </a>
           </div>

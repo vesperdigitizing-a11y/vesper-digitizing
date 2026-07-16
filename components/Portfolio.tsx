@@ -38,7 +38,7 @@ const ITEMS = [
   },
   {
     label: "PATCH",
-    tag: "Patch Digitizing",
+    tag: "Patches",
     images: [
       "/images/portfolio/patch.jpg",
       "/images/products/customPatches/patch-dont-hassle-me-shuckle.jpg",

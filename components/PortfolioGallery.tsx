@@ -15,7 +15,7 @@ const ITEMS: PortfolioItem[] = [
   // { title: "Cap Digitizing",        category: "caps",     image: "/images/portfolio/cap.jpg" },
   // { title: "Left Chest Logo",       category: "left-chest", image: "/images/portfolio/polo.jpg" },
   // { title: "Jacket Back",           category: "jacket",   image: "/images/portfolio/jacket.jpg" },
-  // { title: "Patch Digitizing",      category: "patches",  image: "/images/portfolio/patch.jpg" },
+  // { title: "Patches",      category: "patches",  image: "/images/portfolio/patch.jpg" },
   // { title: "3D Puff Digitizing",    category: "3d-puff",  image: "/images/portfolio/puff.jpg" },
   // { title: "Embroidery Patch",      category: "patches",  image: "/images/portfolio/tiger.jpg" },
   // { title: "Applique Digitizing",   category: "applique", image: "/images/portfolio/applique.jpg" },

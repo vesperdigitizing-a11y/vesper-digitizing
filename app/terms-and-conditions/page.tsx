@@ -16,7 +16,7 @@ const SECTIONS = [
   },
   {
     title: "2. Services Provided",
-    body: "Vesper Digitizing provides professional embroidery digitizing services, including but not limited to: left chest logos, cap digitizing, jacket back designs, 3D puff digitizing, applique digitizing, patch digitizing, and custom embroidery. We also offer raster-to-vector conversion services and custom patch manufacturing. All services are subject to availability, and we reserve the right to refuse or decline any project at our discretion. Delivery timelines are estimates and may vary based on project complexity and current workload. Rush delivery (under 12 hours) is available for an additional 30% fee.",
+    body: "Vesper Digitizing provides professional embroidery digitizing services, including but not limited to: left chest logos, cap digitizing, jacket back designs, 3D puff digitizing, applique digitizing, Patches, and custom embroidery. We also offer raster-to-vector conversion services and custom patch manufacturing. All services are subject to availability, and we reserve the right to refuse or decline any project at our discretion. Delivery timelines are estimates and may vary based on project complexity and current workload. Rush delivery (under 12 hours) is available for an additional 30% fee.",
   },
   {
     title: "3. Orders and Payment",
