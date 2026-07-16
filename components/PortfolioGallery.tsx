@@ -12,57 +12,7 @@ type PortfolioItem = {
 };
 
 const ITEMS: PortfolioItem[] = [
-  // { title: "Cap Digitizing",        category: "caps",     image: "/images/portfolio/cap.jpg" },
-  // { title: "Left Chest Logo",       category: "left-chest", image: "/images/portfolio/polo.jpg" },
-  // { title: "Jacket Back",           category: "jacket",   image: "/images/portfolio/jacket.jpg" },
-  // { title: "Patches",      category: "patches",  image: "/images/portfolio/patch.jpg" },
-  // { title: "3D Puff Digitizing",    category: "3d-puff",  image: "/images/portfolio/puff.jpg" },
-  // { title: "Embroidery Patch",      category: "patches",  image: "/images/portfolio/tiger.jpg" },
-  // { title: "Applique Digitizing",   category: "applique", image: "/images/portfolio/applique.jpg" },
-  // { title: "Applique Logo",         category: "applique", image: "/images/portfolio/original.jpg" },
-  // {
-  //   title: "Flat Embroidery",
-  //   category: "left-chest",
-  //   image: "/images/portfolio/text.jpg",
-  // },
-  // {
-  //   title: "Chenille Digitizing",
-  //   category: "patches",
-  //   image: "/images/portfolio/chenille.png",
-  // },
-  // {
-  //   title: "Towel Embroidery",
-  //   category: "left-chest",
-  //   image: "/images/portfolio/crown.jpg",
-  // },
-  // {
-  //   title: "Mascot Digitizing",
-  //   category: "patches",
-  //   image: "/images/portfolio/shark.jpg",
-  // },
-
-  // Real client work
-  // {
-  //   title: "Cap Digitizing — Perco Worldwide",
-  //   category: "caps",
-  //   image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg",
-  // },
-  // {
-  //   title: "Cap Digitizing — Transmateriales",
-  //   category: "caps",
-  //   image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg",
-  // },
-  // {
-  //   title: "Left Chest Logo — Servicios Automotrices",
-  //   category: "left-chest",
-  //   image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg",
-  // },
-  // {
-  //   title: "Towel Embroidery — Don Crudo Seafood",
-  //   category: "left-chest",
-  //   image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg",
-  // },
-    {
+  {
     title: "3D Puff — Sox Flame",
     category: "3d-puff",
     image: "/images/products/3dArt/sox-flame-3d-puff.jpg",
@@ -77,7 +27,6 @@ const ITEMS: PortfolioItem[] = [
     category: "3d-puff",
     image: "/images/products/3dArt/ny-monogram-wings-3d-puff.jpg",
   },
-
   {
     title: "Patch — Don't Hassle Me With Shuckle",
     category: "patches",
@@ -96,8 +45,7 @@ const ITEMS: PortfolioItem[] = [
   {
     title: "Patch — Nursing Assistant",
     category: "patches",
-    image:
-      "/images/products/customPatches/patch-licensed-nursing-assistant.jpg",
+    image: "/images/products/customPatches/patch-licensed-nursing-assistant.jpg",
   },
   {
     title: "Patch — Error 404",
@@ -112,8 +60,7 @@ const ITEMS: PortfolioItem[] = [
   {
     title: "Patch — Delivery Service",
     category: "patches",
-    image:
-      "/images/products/customPatches/patch-dragonite-delivery-service.jpg",
+    image: "/images/products/customPatches/patch-dragonite-delivery-service.jpg",
   },
   {
     title: "Patch — Bean of the Year",
@@ -128,15 +75,13 @@ const ITEMS: PortfolioItem[] = [
   {
     title: "Patch — Dragon Slayer",
     category: "patches",
-    image:
-      "/images/products/customPatches/patch-professional-dragon-slayer.jpg",
+    image: "/images/products/customPatches/patch-professional-dragon-slayer.jpg",
   },
   {
     title: "Patch — Dog Mascot",
     category: "patches",
     image: "/images/products/Chenille/patch-dog-mascot.jpg",
   },
-
   {
     title: "Chenille — Christin Cruz",
     category: "patches",
@@ -147,11 +92,6 @@ const ITEMS: PortfolioItem[] = [
     category: "patches",
     image: "/images/products/Chenille/chenille-rabbits.jpg",
   },
-  // {
-  //   title: "Chenille — Varsity Letters",
-  //   category: "patches",
-  //   image: "/images/products/Chenille/chenille-king-varsity-letters.jpg",
-  // },
   {
     title: "Chenille — Team Names",
     category: "patches",
@@ -167,12 +107,6 @@ const ITEMS: PortfolioItem[] = [
     category: "patches",
     image: "/images/products/Chenille/chenille-left-heart.jpg",
   },
-
-  // {
-  //   title: "Vector Art — Pop Art Illustration",
-  //   category: "vector",
-  //   image: "/images/products/vectorArt/vector-pop-art-illustration.jpg",
-  // },
   {
     title: "Vector Art — Cartoon Character",
     category: "vector",
@@ -197,9 +131,6 @@ const ITEMS: PortfolioItem[] = [
 
 const FILTERS = [
   { label: "All", value: "all" },
-  // { label: "Caps", value: "caps" },
-  // { label: "Left Chest Logo", value: "left-chest" },
-  // { label: "Jacket Back", value: "jacket" },
   { label: "Patches", value: "patches" },
   { label: "3D Puff", value: "3d-puff" },
   { label: "Applique", value: "applique" },
@@ -207,11 +138,23 @@ const FILTERS = [
   { label: "Vector Art", value: "vector" },
 ];
 
+const INITIAL_COUNT = 8;
+const LOAD_MORE_COUNT = 8;
+
 export default function PortfolioGallery() {
   const [active, setActive] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
-  const items =
+  const filtered =
     active === "all" ? ITEMS : ITEMS.filter((i) => i.category === active);
+
+  const handleFilterChange = (value: string) => {
+    setActive(value);
+    setVisibleCount(INITIAL_COUNT);
+  };
+
+  const visibleItems = filtered.slice(0, visibleCount);
+  const hasMore = filtered.length > visibleCount;
 
   return (
     <section id="portfolio-gallery" className="bg-white py-16 sm:py-24">
@@ -235,7 +178,7 @@ export default function PortfolioGallery() {
             {FILTERS.map((f) => (
               <button
                 key={f.value}
-                onClick={() => setActive(f.value)}
+                onClick={() => handleFilterChange(f.value)}
                 className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
                   active === f.value
                     ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
@@ -249,14 +192,12 @@ export default function PortfolioGallery() {
         </ScrollReveal>
 
         {/* Portfolio grid */}
-        <ScrollReveal
-          stagger
-          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {items.map((item) => (
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {visibleItems.map((item, i) => (
             <article
               key={item.title}
-              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl"
+              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-500"
+              style={{ animationDelay: `${(i % LOAD_MORE_COUNT) * 60}ms`, animationFillMode: "backwards" }}
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f5f5]">
                 <Image
@@ -266,9 +207,7 @@ export default function PortfolioGallery() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#c8102e]/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                {/* Top accent border */}
                 <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
               </div>
 
@@ -287,25 +226,38 @@ export default function PortfolioGallery() {
               </div>
             </article>
           ))}
-        </ScrollReveal>
+        </div>
 
-        {items.length === 0 && (
+        {/* Empty state */}
+        {filtered.length === 0 && (
           <p className="mt-10 text-center text-sm text-[#6b7280]">
             No items in this category.
           </p>
         )}
 
-        <ScrollReveal>
-          <div className="mt-12 flex justify-center">
+        {/* Load More — only shows if there are more items */}
+        {hasMore && (
+          <div className="mt-12 flex flex-col items-center gap-2">
             <button
               type="button"
+              onClick={() => setVisibleCount((c) => c + LOAD_MORE_COUNT)}
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
             >
               Load More Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </button>
+            <p className="text-xs text-[#6b7280]">
+              Showing {visibleItems.length} of {filtered.length} items
+            </p>
           </div>
-        </ScrollReveal>
+        )}
+
+        {/* All loaded indicator */}
+        {!hasMore && filtered.length > INITIAL_COUNT && (
+          <p className="mt-12 text-center text-xs text-[#9ca3af]">
+            All {filtered.length} items displayed
+          </p>
+        )}
       </div>
     </section>
   );
