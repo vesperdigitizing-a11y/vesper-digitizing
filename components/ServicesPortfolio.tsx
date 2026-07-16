@@ -6,82 +6,102 @@ import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 
-type PortfolioItem = {
-  title: string;
-  category: string;
+/* ─── Category data — one sample image per product folder ─── */
+type Category = {
+  id: string;
+  label: string;
+  tag: string;
   image: string;
+  description: string;
 };
 
-const ITEMS: PortfolioItem[] = [
+const CATEGORIES: Category[] = [
   {
-    title: "Cap Digitizing",
-    category: "caps",
-    image: "/images/portfolio/cap.jpg",
+    id: "jacket-back",
+    label: "Jacket Back",
+    tag: "Jacket Back Embroidery",
+    image: "/images/products/jacketBack/jacket-back-1.jpeg",
+    description:
+      "Large-format jacket back designs with high stitch count and intricate detail work.",
   },
   {
-    title: "Left Chest Logo",
-    category: "polo",
-    image: "/images/portfolio/polo.jpg",
+    id: "cap-digitizing",
+    label: "Cap Digitizing",
+    tag: "Cap Embroidery",
+    image: "/images/products/capDigitizing/cap-embroidery-1.jpeg",
+    description:
+      "Precision cap digitizing with clean stitch-out on curved surfaces.",
   },
   {
-    title: "Jacket Back",
-    category: "jacket",
-    image: "/images/portfolio/jacket.jpg",
-  },
-  { title: "Patches", category: "patch", image: "/images/portfolio/patch.jpg" },
-  {
-    title: "3D Puff Digitizing",
-    category: "puff",
-    image: "/images/portfolio/puff.jpg",
+    id: "custom-patches",
+    label: "Custom Patches",
+    tag: "Embroidered Patches",
+    image: "/images/products/customPatches/patch-squirtle-squad.jpg",
+    description:
+      "Custom embroidered and chenille patches with merrowed or laser-cut edges.",
   },
   {
-    title: "Applique Digitizing",
-    category: "applique",
-    image: "/images/portfolio/applique.jpg",
-  },
-
-  // Real client work
-  {
-    title: "Cap Digitizing — Perco Worldwide",
-    category: "caps",
-    image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg",
+    id: "left-chest",
+    label: "Left Chest",
+    tag: "Left Chest Logo",
+    image: "/images/products/LeftChest/left-chest-1.jpeg",
+    description:
+      "Compact left chest logos optimized for small-area embroidery with clean edges.",
   },
   {
-    title: "Cap Digitizing — Transmateriales",
-    category: "caps",
-    image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg",
+    id: "shirt-sleeve",
+    label: "Shirt Sleeve",
+    tag: "Sleeve Embroidery",
+    image: "/images/products/shirtSleeve/shirt-sleeve-1.jpeg",
+    description:
+      "Sleeve-specific digitizing with proper density and underlay for tubular surfaces.",
   },
   {
-    title: "Left Chest Logo — Servicios Automotrices",
-    category: "polo",
-    image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg",
+    id: "3d-puff",
+    label: "3D Puff",
+    tag: "3D Puff Embroidery",
+    image: "/images/products/3dArt/acdc-pwr-up-tour-3d-puff.jpg",
+    description:
+      "Raised 3D puff embroidery with foam underlay for bold, dimensional designs.",
   },
   {
-    title: "Applique Letter",
-    category: "applique",
-    image: "/images/products/digitizing/applique-letter-m.jpg",
+    id: "chenille",
+    label: "Chenille",
+    tag: "Chenille Patches",
+    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
+    description:
+      "Custom chenille letterman patches and varsity-style embroidery designs.",
+  },
+  {
+    id: "vector-art",
+    label: "Vector Art",
+    tag: "Vector Conversion",
+    image: "/images/products/vectorArt/vector-cartoon-character-art.jpg",
+    description:
+      "High-quality vector artwork conversion for print and embroidery readiness.",
+  },
+  {
+    id: "general-digitizing",
+    label: "Digitizing",
+    tag: "Custom Digitizing",
+    image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg",
+    description:
+      "Professional custom digitizing for all garment types and embroidery needs.",
   },
 ];
 
-const FILTERS = [
-  { label: "All", value: "all" },
-  { label: "Caps", value: "caps" },
-  { label: "Polo", value: "polo" },
-  { label: "Jacket", value: "jacket" },
-  { label: "Patch", value: "patch" },
-  { label: "3D Puff", value: "puff" },
-  { label: "Applique", value: "applique" },
-];
-
+/* ─── Main component ─── */
 export default function ServicesPortfolio() {
-  const [active, setActive] = useState("all");
+  const [activeTab, setActiveTab] = useState<string | null>(null);
 
-  const items =
-    active === "all" ? ITEMS : ITEMS.filter((i) => i.category === active);
+  const filtered = activeTab
+    ? CATEGORIES.filter((c) => c.id === activeTab)
+    : CATEGORIES;
 
   return (
     <section id="portfolio" className="bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
         <ScrollReveal>
           <SectionHeading
             eyebrow="Our Portfolio"
@@ -90,37 +110,53 @@ export default function ServicesPortfolio() {
           />
         </ScrollReveal>
 
+        {/* Filter tabs */}
         <ScrollReveal>
-          {/* Filter tabs */}
           <div className="mt-10 flex flex-wrap justify-center gap-2">
-            {FILTERS.map((f) => (
+            {/* All tab */}
+            <button
+              onClick={() => setActiveTab(null)}
+              className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
+                activeTab === null
+                  ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
+                  : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
+              }`}
+            >
+              All
+            </button>
+
+            {/* Category tabs */}
+            {CATEGORIES.map((cat) => (
               <button
-                key={f.value}
-                onClick={() => setActive(f.value)}
+                key={cat.id}
+                onClick={() =>
+                  setActiveTab(activeTab === cat.id ? null : cat.id)
+                }
                 className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
-                  active === f.value
+                  activeTab === cat.id
                     ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
                     : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
                 }`}
               >
-                {f.label}
+                {cat.label}
               </button>
             ))}
           </div>
         </ScrollReveal>
 
+        {/* Grid */}
         <ScrollReveal
           stagger
           className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {items.map((item) => (
+          {filtered.map((cat, index) => (
             <article
-              key={item.title}
+              key={cat.id}
               className="group relative aspect-4/3 w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
               <Image
-                src={item.image}
-                alt={item.title}
+                src={cat.image}
+                alt={cat.tag}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -128,14 +164,20 @@ export default function ServicesPortfolio() {
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-              {/* Label overlaid on image */}
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <span className="block text-xs font-bold uppercase tracking-wider text-white">
-                  {item.title}
+              {/* Content overlay */}
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                <span className="inline-block rounded-full bg-[#c8102e]/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                  {cat.label}
                 </span>
+                <h3 className="mt-2 text-base font-bold text-white sm:text-lg">
+                  {cat.tag}
+                </h3>
+                <p className="mt-1 line-clamp-2 text-xs text-white/70 sm:text-sm">
+                  {cat.description}
+                </p>
               </div>
 
-              {/* Arrow button appears on hover */}
+              {/* Arrow button on hover */}
               <span className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <ArrowRight className="h-4 w-4" />
               </span>
@@ -146,16 +188,17 @@ export default function ServicesPortfolio() {
           ))}
         </ScrollReveal>
 
-        {items.length === 0 && (
+        {filtered.length === 0 && (
           <p className="mt-10 text-center text-sm text-[#6b7280]">
             No items in this category.
           </p>
         )}
 
+        {/* CTA */}
         <ScrollReveal>
           <div className="mt-12 flex justify-center">
             <a
-              href="#portfolio"
+              href="/portfolio"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
             >
               View Full Portfolio
