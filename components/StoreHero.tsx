@@ -40,7 +40,7 @@ export default function StoreHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
       />
 
-            {/* White overlay — mobile/tablet only */}
+      {/* White overlay — mobile/tablet only */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -128,7 +128,6 @@ export default function StoreHero() {
         {/* Happy customers badge — floats over the right side of the background image */}
         <div className="mt-8 flex justify-start lg:absolute lg:right-[-20px] lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
           <div className="w-56 rounded-xl bg-white/95 px-5 py-4 shadow-lg ring-1 ring-[#e5e7eb] backdrop-blur-sm">
-            p
             <div className="font-display text-2xl font-extrabold text-[#c8102e]">
               5000+
             </div>
