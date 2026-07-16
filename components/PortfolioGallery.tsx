@@ -12,134 +12,89 @@ type PortfolioItem = {
 };
 
 const ITEMS: PortfolioItem[] = [
-  {
-    title: "3D Puff — Sox Flame",
-    category: "3d-puff",
-    image: "/images/products/3dArt/sox-flame-3d-puff.jpg",
-  },
-  {
-    title: "3D Puff — AC/DC PWR UP Tour",
-    category: "3d-puff",
-    image: "/images/products/3dArt/acdc-pwr-up-tour-3d-puff.jpg",
-  },
-  {
-    title: "3D Puff — NY Monogram Wings",
-    category: "3d-puff",
-    image: "/images/products/3dArt/ny-monogram-wings-3d-puff.jpg",
-  },
-  {
-    title: "Patch — Don't Hassle Me With Shuckle",
-    category: "patches",
-    image: "/images/products/customPatches/patch-dont-hassle-me-shuckle.jpg",
-  },
-  {
-    title: "Patch — Squirtle Squad",
-    category: "patches",
-    image: "/images/products/customPatches/patch-squirtle-squad.jpg",
-  },
-  {
-    title: "Patch — Classic Pikachu",
-    category: "patches",
-    image: "/images/products/customPatches/patch-classic-pikachu-1996.jpg",
-  },
-  {
-    title: "Patch — Nursing Assistant",
-    category: "patches",
-    image: "/images/products/customPatches/patch-licensed-nursing-assistant.jpg",
-  },
-  {
-    title: "Patch — Error 404",
-    category: "patches",
-    image: "/images/products/customPatches/patch-error-404.jpg",
-  },
-  {
-    title: "Patch — Fire Department",
-    category: "patches",
-    image: "/images/products/customPatches/patch-kanto-fire-department.jpg",
-  },
-  {
-    title: "Patch — Delivery Service",
-    category: "patches",
-    image: "/images/products/customPatches/patch-dragonite-delivery-service.jpg",
-  },
-  {
-    title: "Patch — Bean of the Year",
-    category: "patches",
-    image: "/images/products/customPatches/patch-official-bean-of-the-year.jpg",
-  },
-  {
-    title: "Patch — Certified Locally Grown",
-    category: "patches",
-    image: "/images/products/customPatches/patch-certified-locally-grown.jpg",
-  },
-  {
-    title: "Patch — Dragon Slayer",
-    category: "patches",
-    image: "/images/products/customPatches/patch-professional-dragon-slayer.jpg",
-  },
-  {
-    title: "Patch — Dog Mascot",
-    category: "patches",
-    image: "/images/products/Chenille/patch-dog-mascot.jpg",
-  },
-  {
-    title: "Chenille — Christin Cruz",
-    category: "patches",
-    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
-  },
-  {
-    title: "Chenille — Rabbits",
-    category: "patches",
-    image: "/images/products/Chenille/chenille-rabbits.jpg",
-  },
-  {
-    title: "Chenille — Team Names",
-    category: "patches",
-    image: "/images/products/Chenille/chenille-team-name-patches.jpg",
-  },
-  {
-    title: "Chenille — Luigi",
-    category: "patches",
-    image: "/images/products/Chenille/chenille-luigi.jpg",
-  },
-  {
-    title: "Chenille — Left Heart",
-    category: "patches",
-    image: "/images/products/Chenille/chenille-left-heart.jpg",
-  },
-  {
-    title: "Vector Art — Cartoon Character",
-    category: "vector",
-    image: "/images/products/vectorArt/vector-cartoon-character-art.jpg",
-  },
-  {
-    title: "Vector Art — Wolf Illustration",
-    category: "vector",
-    image: "/images/products/vectorArt/vector-wolf-illustration.jpg",
-  },
-  {
-    title: "Vector Art — Pikachu Dragon",
-    category: "vector",
-    image: "/images/products/vectorArt/vector-pikachu-dragon-art.jpg",
-  },
-  {
-    title: "Vector Art — Snack Bandit",
-    category: "vector",
-    image: "/images/products/vectorArt/vector-snack-bandit-art.jpg",
-  },
+  /* ── 3D Puff ── */
+  { title: "3D Puff — AC/DC PWR UP Tour", category: "3d-puff", image: "/images/products/3d-puff/acdc-pwr-up-tour-3d-puff.jpg" },
+  { title: "3D Puff — NY Monogram Wings", category: "3d-puff", image: "/images/products/3d-puff/ny-monogram-wings-3d-puff.jpg" },
+  { title: "3D Puff — Sox Flame", category: "3d-puff", image: "/images/products/3d-puff/sox-flame-3d-puff.jpg" },
+
+  /* ── Cap Digitizing ── */
+  { title: "Cap Digitizing — Sample 1", category: "cap", image: "/images/products/cap-digitizing/cap-embroidery-1.jpeg" },
+  { title: "Cap Digitizing — Sample 2", category: "cap", image: "/images/products/cap-digitizing/cap-embroidery-2.jpeg" },
+  { title: "Cap Digitizing — Perco Worldwide", category: "cap", image: "/images/products/cap-digitizing/cap-embroidery-perco-worldwide.jpg" },
+  { title: "Cap Digitizing — Transmateriales", category: "cap", image: "/images/products/cap-digitizing/cap-embroidery-transmateriales.jpg" },
+
+  /* ── Chenille ── */
+  { title: "Chenille — Christin Cruz", category: "chenille", image: "/images/products/chenille/chenille-christin-cruz.jpg" },
+  { title: "Chenille — King Varsity Letters", category: "chenille", image: "/images/products/chenille/chenille-king-varsity-letters.jpg" },
+  { title: "Chenille — Left Heart", category: "chenille", image: "/images/products/chenille/chenille-left-heart.jpg" },
+  { title: "Chenille — Luigi", category: "chenille", image: "/images/products/chenille/chenille-luigi.jpg" },
+  { title: "Chenille — Rabbits", category: "chenille", image: "/images/products/chenille/chenille-rabbits.jpg" },
+  { title: "Chenille — Team Name Patches", category: "chenille", image: "/images/products/chenille/chenille-team-name-patches.jpg" },
+
+  /* ── Applique ── */
+  { title: "Applique — Letter M", category: "applique", image: "/images/products/applique/applique-letter-m.jpg" },
+
+  /* ── Patch Digitizing ── */
+  { title: "Patch Digitizing — Certified Locally Grown", category: "patches", image: "/images/products/patch-digitizing/patch-certified-locally-grown.jpg" },
+  { title: "Patch Digitizing — Classic Pikachu 1996", category: "patches", image: "/images/products/patch-digitizing/patch-classic-pikachu-1996.jpg" },
+  { title: "Patch Digitizing — Dog Mascot", category: "patches", image: "/images/products/patch-digitizing/patch-dog-mascot.jpg" },
+  { title: "Patch Digitizing — Don't Hassle Me Shuckle", category: "patches", image: "/images/products/patch-digitizing/patch-dont-hassle-me-shuckle.jpg" },
+  { title: "Patch Digitizing — Dragonite Delivery Service", category: "patches", image: "/images/products/patch-digitizing/patch-dragonite-delivery-service.jpg" },
+  { title: "Patch Digitizing — Error 404", category: "patches", image: "/images/products/patch-digitizing/patch-error-404.jpg" },
+  { title: "Patch Digitizing — Kanto Fire Department", category: "patches", image: "/images/products/patch-digitizing/patch-kanto-fire-department.jpg" },
+  { title: "Patch Digitizing — Licensed Nursing Assistant", category: "patches", image: "/images/products/patch-digitizing/patch-licensed-nursing-assistant.jpg" },
+  { title: "Patch Digitizing — Official Bean of the Year", category: "patches", image: "/images/products/patch-digitizing/patch-official-bean-of-the-year.jpg" },
+  { title: "Patch Digitizing — Professional Dragon Slayer", category: "patches", image: "/images/products/patch-digitizing/patch-professional-dragon-slayer.jpg" },
+  { title: "Patch Digitizing — Squirtle Squad", category: "patches", image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg" },
+
+  /* ── Left Chest ── */
+  { title: "Left Chest — Sample 1", category: "left-chest", image: "/images/products/left-chest/left-chest-1.jpeg" },
+  { title: "Left Chest — Sample 2", category: "left-chest", image: "/images/products/left-chest/left-chest-2.jpeg" },
+  { title: "Left Chest — Sample 3", category: "left-chest", image: "/images/products/left-chest/left-chest-3.jpeg" },
+  { title: "Left Chest — Sample 4", category: "left-chest", image: "/images/products/left-chest/left-chest-4.jpeg" },
+  { title: "Left Chest — Sample 5", category: "left-chest", image: "/images/products/left-chest/left-chest-5.jpeg" },
+  { title: "Left Chest — Sample 6", category: "left-chest", image: "/images/products/left-chest/left-chest-6.jpeg" },
+  { title: "Left Chest — Servicios Automotrices", category: "left-chest", image: "/images/products/left-chest/left-chest-servicios-automotrices.jpg" },
+
+  /* ── Jacket Back ── */
+  { title: "Jacket Back — Sample 1", category: "jacket-back", image: "/images/products/jacket-back/jacket-back-1.jpeg" },
+  { title: "Jacket Back — Sample 2", category: "jacket-back", image: "/images/products/jacket-back/jacket-back-2.jpeg" },
+
+  /* ── Sleeve Logos ── */
+  { title: "Sleeve Logos — Sample 1", category: "shirt-sleeve", image: "/images/products/sleeve-logos/shirt-sleeve-1.jpeg" },
+  { title: "Sleeve Logos — Sample 2", category: "shirt-sleeve", image: "/images/products/sleeve-logos/shirt-sleeve-2.jpeg" },
+  { title: "Sleeve Logos — Sample 3", category: "shirt-sleeve", image: "/images/products/sleeve-logos/shirt-sleeve-3.jpeg" },
+  { title: "Sleeve Logos — Sample 4", category: "shirt-sleeve", image: "/images/products/sleeve-logos/shirt-sleeve-4.jpeg" },
+  { title: "Sleeve Logos — Sample 5", category: "shirt-sleeve", image: "/images/products/sleeve-logos/shirt-sleeve-5.jpeg" },
+  { title: "Sleeve Logos — Sample 6", category: "shirt-sleeve", image: "/images/products/sleeve-logos/shirt-sleeve-6.jpeg" },
+
+  /* ── Towel Digitizing ── */
+  { title: "Towel Digitizing — Don Crudo Seafood", category: "towel", image: "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg" },
+
+  /* ── Vector Conversion ── */
+  { title: "Vector Conversion — Cartoon Character Art", category: "vector", image: "/images/products/vector-conversion/vector-cartoon-character-art.jpg" },
+  { title: "Vector Conversion — Pikachu Dragon Art", category: "vector", image: "/images/products/vector-conversion/vector-pikachu-dragon-art.jpg" },
+  { title: "Vector Conversion — Pop Art Illustration", category: "vector", image: "/images/products/vector-conversion/vector-pop-art-illustration.jpg" },
+  { title: "Vector Conversion — Snack Bandit Art", category: "vector", image: "/images/products/vector-conversion/vector-snack-bandit-art.jpg" },
+  { title: "Vector Conversion — Wolf Illustration", category: "vector", image: "/images/products/vector-conversion/vector-wolf-illustration.jpg" },
 ];
 
 const FILTERS = [
   { label: "All", value: "all" },
-  { label: "Patches", value: "patches" },
   { label: "3D Puff", value: "3d-puff" },
+  { label: "Cap Digitizing", value: "cap" },
+  { label: "Chenille", value: "chenille" },
   { label: "Applique", value: "applique" },
-  { label: "Polo", value: "polo" },
-  { label: "Vector Art", value: "vector" },
+  { label: "Patch Digitizing", value: "patches" },
+  { label: "Left Chest", value: "left-chest" },
+  { label: "Jacket Back", value: "jacket-back" },
+  { label: "Sleeve Logos", value: "shirt-sleeve" },
+  { label: "Towel Digitizing", value: "towel" },
+  { label: "Vector Conversion", value: "vector" },
 ];
 
-const INITIAL_COUNT = 8;
-const LOAD_MORE_COUNT = 8;
+const INITIAL_COUNT = 12;
+const LOAD_MORE_COUNT = 12;
 
 export default function PortfolioGallery() {
   const [active, setActive] = useState("all");
@@ -172,7 +127,6 @@ export default function PortfolioGallery() {
           </div>
         </ScrollReveal>
 
-        {/* Filter tabs */}
         <ScrollReveal>
           <div className="mt-10 flex flex-wrap justify-center gap-2">
             {FILTERS.map((f) => (
@@ -191,7 +145,6 @@ export default function PortfolioGallery() {
           </div>
         </ScrollReveal>
 
-        {/* Portfolio grid */}
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {visibleItems.map((item, i) => (
             <article
@@ -215,27 +168,23 @@ export default function PortfolioGallery() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
                   {item.title}
                 </span>
-                <a
-                  href="#portfolio-gallery"
-                  aria-label={`View ${item.title} project`}
+                <span
                   className="inline-flex -translate-x-2 items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#c8102e] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:text-xs"
                 >
                   View
                   <ArrowRight className="h-3 w-3" />
-                </a>
+                </span>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Empty state */}
         {filtered.length === 0 && (
           <p className="mt-10 text-center text-sm text-[#6b7280]">
             No items in this category.
           </p>
         )}
 
-        {/* Load More — only shows if there are more items */}
         {hasMore && (
           <div className="mt-12 flex flex-col items-center gap-2">
             <button
@@ -252,7 +201,6 @@ export default function PortfolioGallery() {
           </div>
         )}
 
-        {/* All loaded indicator */}
         {!hasMore && filtered.length > INITIAL_COUNT && (
           <p className="mt-12 text-center text-xs text-[#9ca3af]">
             All {filtered.length} items displayed

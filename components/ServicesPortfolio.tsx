@@ -6,7 +6,6 @@ import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 
-/* ─── Category data — one sample image per product folder ─── */
 type Category = {
   id: string;
   label: string;
@@ -20,39 +19,39 @@ const CATEGORIES: Category[] = [
     id: "jacket-back",
     label: "Jacket Back",
     tag: "Jacket Back Embroidery",
-    image: "/images/products/jacketBack/jacket-back-1.jpeg",
+    image: "/images/products/jacket-back/jacket-back-1.jpeg",
     description:
       "Large-format jacket back designs with high stitch count and intricate detail work.",
   },
   {
     id: "cap-digitizing",
     label: "Cap Digitizing",
-    tag: "Cap Embroidery",
-    image: "/images/products/capDigitizing/cap-embroidery-1.jpeg",
+    tag: "Cap Digitizing",
+    image: "/images/products/cap-digitizing/cap-embroidery-1.jpeg",
     description:
       "Precision cap digitizing with clean stitch-out on curved surfaces.",
   },
   {
-    id: "custom-patches",
-    label: "Custom Patches",
-    tag: "Embroidered Patches",
-    image: "/images/products/customPatches/patch-squirtle-squad.jpg",
+    id: "patch-digitizing",
+    label: "Patch Digitizing",
+    tag: "Patch Digitizing",
+    image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
     description:
-      "Custom embroidered and chenille patches with merrowed or laser-cut edges.",
+      "Custom embroidered patches with merrowed or laser-cut edges for any application.",
   },
   {
     id: "left-chest",
     label: "Left Chest",
     tag: "Left Chest Logo",
-    image: "/images/products/LeftChest/left-chest-1.jpeg",
+    image: "/images/products/left-chest/left-chest-1.jpeg",
     description:
       "Compact left chest logos optimized for small-area embroidery with clean edges.",
   },
   {
-    id: "shirt-sleeve",
-    label: "Shirt Sleeve",
-    tag: "Sleeve Embroidery",
-    image: "/images/products/shirtSleeve/shirt-sleeve-1.jpeg",
+    id: "sleeve-logos",
+    label: "Sleeve Logos",
+    tag: "Sleeve Logo Digitizing",
+    image: "/images/products/sleeve-logos/shirt-sleeve-1.jpeg",
     description:
       "Sleeve-specific digitizing with proper density and underlay for tubular surfaces.",
   },
@@ -60,7 +59,7 @@ const CATEGORIES: Category[] = [
     id: "3d-puff",
     label: "3D Puff",
     tag: "3D Puff Embroidery",
-    image: "/images/products/3dArt/acdc-pwr-up-tour-3d-puff.jpg",
+    image: "/images/products/3d-puff/acdc-pwr-up-tour-3d-puff.jpg",
     description:
       "Raised 3D puff embroidery with foam underlay for bold, dimensional designs.",
   },
@@ -68,29 +67,36 @@ const CATEGORIES: Category[] = [
     id: "chenille",
     label: "Chenille",
     tag: "Chenille Patches",
-    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
+    image: "/images/products/chenille/chenille-christin-cruz.jpg",
     description:
       "Custom chenille letterman patches and varsity-style embroidery designs.",
   },
   {
-    id: "vector-art",
-    label: "Vector Art",
+    id: "towel-digitizing",
+    label: "Towel Digitizing",
+    tag: "Towel Digitizing",
+    image: "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
+    description:
+      "Specialized towel embroidery digitizing with proper density for terry cloth fabrics.",
+  },
+  {
+    id: "vector-conversion",
+    label: "Vector Conversion",
     tag: "Vector Conversion",
-    image: "/images/products/vectorArt/vector-cartoon-character-art.jpg",
+    image: "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
     description:
       "High-quality vector artwork conversion for print and embroidery readiness.",
   },
   {
-    id: "general-digitizing",
-    label: "Digitizing",
-    tag: "Custom Digitizing",
-    image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg",
+    id: "applique",
+    label: "Applique",
+    tag: "Applique Digitizing",
+    image: "/images/products/applique/applique-letter-m.jpg",
     description:
-      "Professional custom digitizing for all garment types and embroidery needs.",
+      "Applique digitizing with fabric layering for bold, multi-texture designs.",
   },
 ];
 
-/* ─── Main component ─── */
 export default function ServicesPortfolio() {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
@@ -101,7 +107,6 @@ export default function ServicesPortfolio() {
   return (
     <section id="portfolio" className="bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <ScrollReveal>
           <SectionHeading
             eyebrow="Our Portfolio"
@@ -110,10 +115,8 @@ export default function ServicesPortfolio() {
           />
         </ScrollReveal>
 
-        {/* Filter tabs */}
         <ScrollReveal>
           <div className="mt-10 flex flex-wrap justify-center gap-2">
-            {/* All tab */}
             <button
               onClick={() => setActiveTab(null)}
               className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
@@ -125,7 +128,6 @@ export default function ServicesPortfolio() {
               All
             </button>
 
-            {/* Category tabs */}
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
@@ -144,12 +146,11 @@ export default function ServicesPortfolio() {
           </div>
         </ScrollReveal>
 
-        {/* Grid */}
         <ScrollReveal
           stagger
           className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {filtered.map((cat, index) => (
+          {filtered.map((cat) => (
             <article
               key={cat.id}
               className="group relative aspect-4/3 w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
@@ -161,10 +162,8 @@ export default function ServicesPortfolio() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-              {/* Content overlay */}
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
                 <span className="inline-block rounded-full bg-[#c8102e]/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                   {cat.label}
@@ -177,12 +176,10 @@ export default function ServicesPortfolio() {
                 </p>
               </div>
 
-              {/* Arrow button on hover */}
               <span className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <ArrowRight className="h-4 w-4" />
               </span>
 
-              {/* Top accent border */}
               <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
             </article>
           ))}
@@ -194,7 +191,6 @@ export default function ServicesPortfolio() {
           </p>
         )}
 
-        {/* CTA */}
         <ScrollReveal>
           <div className="mt-12 flex justify-center">
             <a
