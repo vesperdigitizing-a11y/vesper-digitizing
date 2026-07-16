@@ -1,7 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 import { IconByName, type IconName, Plus } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 import TiltCard from "./TiltCard";
+import PatchModal from "./PatchModal";
 
 type Service = {
   icon: IconName;
@@ -53,6 +57,8 @@ const SERVICES: Service[] = [
 ];
 
 export default function Services() {
+  const [patchModalOpen, setPatchModalOpen] = useState(false);
+
   return (
     <section id="services" className="relative bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -70,6 +76,8 @@ export default function Services() {
         >
           {SERVICES.map((s) => {
             const Icon = IconByName[s.icon];
+            const isPatchCard = s.title === "Patches";
+
             return (
               <TiltCard key={s.title} max={10}>
                 <article className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl">
@@ -88,19 +96,36 @@ export default function Services() {
                   <p className="relative mt-2 flex-1 text-sm leading-relaxed text-[#6b7280]">
                     {s.desc}
                   </p>
-                  <a
-                    href="#quote"
-                    aria-label={`Learn more about ${s.title}`}
-                    className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
-                  >
-                    <Plus className="h-4 w-4" />
-                  </a>
+
+                  {isPatchCard ? (
+                    /* Patches card — opens modal */
+                    <button
+                      type="button"
+                      onClick={() => setPatchModalOpen(true)}
+                      aria-label={`Browse ${s.title} designs`}
+                      className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </button>
+                  ) : (
+                    /* Other cards — link to quote */
+                    <a
+                      href="#quote"
+                      aria-label={`Learn more about ${s.title}`}
+                      className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </a>
+                  )}
                 </article>
               </TiltCard>
             );
           })}
         </ScrollReveal>
       </div>
+
+      {/* Patch modal */}
+      <PatchModal open={patchModalOpen} onClose={() => setPatchModalOpen(false)} />
     </section>
   );
 }
