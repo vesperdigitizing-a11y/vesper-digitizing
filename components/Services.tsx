@@ -10,14 +10,46 @@ type Service = {
 };
 
 const SERVICES: Service[] = [
-  { icon: "shirt", title: "Left Chest Logos", desc: "Perfect for shirts, uniforms & caps" },
-  { icon: "cap", title: "Cap Digitizing", desc: "Specialized in cap logo digitizing" },
-  { icon: "jacket", title: "Jacket Back", desc: "Large and complex back designs" },
-  { icon: "cube", title: "3D Puff Digitizing", desc: "High quality 3D puff effects" },
-  { icon: "layers", title: "Applique Digitizing", desc: "Fabric applique with precise stitching" },
-  { icon: "patch", title: "Patch Digitizing", desc: "Custom patches in any shape or size" },
-  { icon: "penTool", title: "Vector Conversion", desc: "Convert any image to vector art" },
-  { icon: "sparkles", title: "Custom Embroidery", desc: "Bring your ideas to life with thread" },
+  {
+    icon: "shirt",
+    title: "Left Chest Logos",
+    desc: "Perfect for shirts, uniforms & caps",
+  },
+  {
+    icon: "cap",
+    title: "Cap Digitizing",
+    desc: "Specialized in cap logo digitizing",
+  },
+  {
+    icon: "jacket",
+    title: "Jacket Back",
+    desc: "Large and complex back designs",
+  },
+  {
+    icon: "cube",
+    title: "3D Puff Digitizing",
+    desc: "High quality 3D puff effects",
+  },
+  {
+    icon: "layers",
+    title: "Applique Digitizing",
+    desc: "Fabric applique with precise stitching",
+  },
+  {
+    icon: "patch",
+    title: "Patches",
+    desc: "Custom patches in any shape or size",
+  },
+  {
+    icon: "penTool",
+    title: "Vector Conversion",
+    desc: "Convert any image to vector art",
+  },
+  {
+    icon: "sparkles",
+    title: "Custom Embroidery",
+    desc: "Bring your ideas to life with thread",
+  },
 ];
 
 export default function Services() {
@@ -32,7 +64,10 @@ export default function Services() {
           />
         </ScrollReveal>
 
-        <ScrollReveal stagger className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ScrollReveal
+          stagger
+          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {SERVICES.map((s) => {
             const Icon = IconByName[s.icon];
             return (
