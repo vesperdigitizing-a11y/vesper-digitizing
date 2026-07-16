@@ -33,8 +33,8 @@ export const PRODUCTS: Product[] = [
   //   name: "Classic Font Pack",
   //   category: "fonts",
   //   categoryLabel: "Embroidery Fonts",
-  //   price: 25.99,
-  //   originalPrice: 49.99,
+  //   price: 2.999,
+  //   originalPrice: 4.00,
   //   image: "/images/store/fonts.jpg",
   //   badge: "sale",
   //   tagline: "Timeless serif and sans-serif fonts for monograms and text embroidery.",
@@ -64,8 +64,8 @@ export const PRODUCTS: Product[] = [
   //   name: "Animal Embroidery Pack",
   //   category: "animal",
   //   categoryLabel: "Animal Designs",
-  //   price: 14.99,
-  //   originalPrice: 24.99,
+  //   price: 2.999,
+  //   originalPrice: 4.00,
   //   image: "/images/store/animal.jpg",
   //   badge: "best",
   //   tagline: "20 realistic and stylized animal designs for jackets, backs, and patches.",
@@ -95,8 +95,8 @@ export const PRODUCTS: Product[] = [
   //   name: "Patch Bundle Pack",
   //   category: "patches",
   //   categoryLabel: "Patch Collections",
-  //   price: 19.99,
-  //   originalPrice: 34.99,
+  //   price: 2.999,
+  //   originalPrice: 4.00,
   //   image: "/images/store/patch_bundle.jpg",
   //   badge: "sale",
   //   tagline: "50 premium patch designs — ready to stitch on twill, felt, or directly onto garments.",
@@ -126,8 +126,8 @@ export const PRODUCTS: Product[] = [
   //   name: "Sports Logo Pack",
   //   category: "sports",
   //   categoryLabel: "Sports Logos",
-  //   price: 24.99,
-  //   originalPrice: 39.99,
+  //   price: 2.999,
+  //   originalPrice: 4.00,
   //   image: "/images/store/sports.png",
   //   badge: "new",
   //   tagline: "30 bold sports team logos engineered for caps, jerseys, and jacket backs.",
@@ -157,7 +157,7 @@ export const PRODUCTS: Product[] = [
   //   name: "Floral Design Collection",
   //   category: "floral",
   //   categoryLabel: "Floral Designs",
-  //   price: 12.99,
+  //   price: 2.999,
   //   image: "/images/store/floral.jpg",
   //   tagline: "Delicate floral sprays and borders for monograms, hemlines, and yokes.",
   //   description:
@@ -186,8 +186,8 @@ export const PRODUCTS: Product[] = [
   //   name: "Mascot Character Pack",
   //   category: "mascot",
   //   categoryLabel: "Mascot Characters",
-  //   price: 18.99,
-  //   originalPrice: 29.99,
+  //   price: 2.999,
+  //   originalPrice: 4.00,
   //   image: "/images/store/mascot.jpg",
   //   badge: "sale",
   //   tagline: "20 bold mascot characters for schools, teams, and brand identities.",
@@ -217,7 +217,7 @@ export const PRODUCTS: Product[] = [
   //   name: "Vintage Logo Bundle",
   //   category: "vintage",
   //   categoryLabel: "Vintage Logos",
-  //   price: 16.99,
+  //   price: 2.999,
   //   image: "/images/store/vintage.jpg",
   //   tagline: "18 retro badge-style logos for apparel brands and small businesses.",
   //   description:
@@ -246,7 +246,7 @@ export const PRODUCTS: Product[] = [
   //   name: "Monogram Initials Set",
   //   category: "monogram",
   //   categoryLabel: "Monogram Sets",
-  //   price: 9.99,
+  //   price: 2.99,
   //   image: "/images/store/monogram.jpg",
   //   badge: "new",
   //   tagline: "Full A-Z monogram alphabets in 3 styles — vine, block, and circle.",
@@ -280,11 +280,12 @@ export const PRODUCTS: Product[] = [
     name: "Certified Locally Grown Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 7.99,
-    originalPrice: 12.99,
+    price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/customPatches/patch-certified-locally-grown.jpg",
     badge: "sale",
-    tagline: "Rustic farm-to-table patch perfect for local businesses and farmers markets.",
+    tagline:
+      "Rustic farm-to-table patch perfect for local businesses and farmers markets.",
     description:
       "A charming 'Certified Locally Grown' patch design with a rustic, hand-crafted aesthetic. Features clean satin lettering with a decorative border that looks great on aprons, tote bags, and market displays. Digitized for both iron-on and sew-on application.",
     features: [
@@ -311,11 +312,12 @@ export const PRODUCTS: Product[] = [
     name: "Classic Pikachu 1996 Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 8.99,
-    originalPrice: 14.99,
+    price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/customPatches/patch-classic-pikachu-1996.jpg",
     badge: "best",
-    tagline: "Retro-style character patch — nostalgic 1996 design for fans and collectors.",
+    tagline:
+      "Retro-style character patch — nostalgic 1996 design for fans and collectors.",
     description:
       "A nostalgic retro-style character patch featuring a classic 1996 design. Bold outlines and vibrant fills make this patch pop on jackets, backpacks, and caps. Digitized with clean satin borders ready for merrow or laser-cut finishing.",
     features: [
@@ -342,10 +344,11 @@ export const PRODUCTS: Product[] = [
     name: "Don't Hassle Me Shuckle Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 6.99,
+    price: 2.99,
     image: "/images/products/customPatches/patch-dont-hassle-me-shuckle.jpg",
     badge: "new",
-    tagline: "Fun character patch with playful typography — perfect for backpacks and jackets.",
+    tagline:
+      "Fun character patch with playful typography — perfect for backpacks and jackets.",
     description:
       "A fun and quirky character patch featuring playful typography and a beloved shell Pokemon. Clean stitch paths and optimized density make this design run smoothly on any machine. Great for backpacks, denim jackets, and fan merchandise.",
     features: [
@@ -372,11 +375,13 @@ export const PRODUCTS: Product[] = [
     name: "Dragonite Delivery Service Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 8.49,
-    originalPrice: 13.99,
-    image: "/images/products/customPatches/patch-dragonite-delivery-service.jpg",
+    price: 2.99,
+    originalPrice: 4.0,
+    image:
+      "/images/products/customPatches/patch-dragonite-delivery-service.jpg",
     badge: "sale",
-    tagline: "Vintage delivery service badge patch — whimsical design for fan apparel.",
+    tagline:
+      "Vintage delivery service badge patch — whimsical design for fan apparel.",
     description:
       "A vintage-style delivery service badge patch featuring a friendly dragon character. The circular badge design includes bold ring text and detailed fills that stitch cleanly on both light and dark fabrics. Perfect for fan apparel and collectible merchandise.",
     features: [
@@ -403,9 +408,10 @@ export const PRODUCTS: Product[] = [
     name: "Error 404 Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 5.99,
+    price: 2.99,
     image: "/images/products/customPatches/patch-error-404.jpg",
-    tagline: "Geeky error-code patch — perfect for tech enthusiasts and developers.",
+    tagline:
+      "Geeky error-code patch — perfect for tech enthusiasts and developers.",
     description:
       "A minimalist 'Error 404' patch design perfect for tech enthusiasts, developers, and geek culture apparel. Clean monospace-style lettering with a subtle glitch aesthetic. Lightweight density makes it ideal for caps, laptop sleeves, and backpacks.",
     features: [
@@ -432,11 +438,12 @@ export const PRODUCTS: Product[] = [
     name: "Kanto Fire Department Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 9.99,
-    originalPrice: 15.99,
+    price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/customPatches/patch-kanto-fire-department.jpg",
     badge: "best",
-    tagline: "Authentic fire department style patch — bold shield design for apparel.",
+    tagline:
+      "Authentic fire department style patch — bold shield design for apparel.",
     description:
       "An authentic fire department-style shield patch with bold lettering and a classic shield shape. The design features clean satin borders, color-blocked sections, and a professional aesthetic that looks great on jackets, uniforms, and collectible displays. Digitized for both iron-on and sew-on application.",
     features: [
@@ -463,9 +470,11 @@ export const PRODUCTS: Product[] = [
     name: "Licensed Nursing Assistant Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 7.49,
-    image: "/images/products/customPatches/patch-licensed-nursing-assistant.jpg",
-    tagline: "Professional medical patch — clean design for scrubs and uniforms.",
+    price: 2.99,
+    image:
+      "/images/products/customPatches/patch-licensed-nursing-assistant.jpg",
+    tagline:
+      "Professional medical patch — clean design for scrubs and uniforms.",
     description:
       "A professional 'Licensed Nursing Assistant' patch designed for medical scrubs and uniforms. Clean lettering, medical cross accent, and a structured layout make this patch look official and polished. Optimized for high stitch count durability through repeated washing.",
     features: [
@@ -492,11 +501,12 @@ export const PRODUCTS: Product[] = [
     name: "Official Bean of the Year Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 6.49,
-    originalPrice: 10.99,
+    price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/customPatches/patch-official-bean-of-the-year.jpg",
     badge: "sale",
-    tagline: "Fun award-style patch — perfect for coffee lovers and café merchandise.",
+    tagline:
+      "Fun award-style patch — perfect for coffee lovers and café merchandise.",
     description:
       "A whimsical 'Official Bean of the Year' award-style patch perfect for coffee shops, café merchandise, and fun apparel. Features a circular badge design with playful typography and a coffee bean centerpiece. Light density makes it great for aprons and tote bags.",
     features: [
@@ -523,10 +533,12 @@ export const PRODUCTS: Product[] = [
     name: "Professional Dragon Slayer Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 8.99,
-    image: "/images/products/customPatches/patch-professional-dragon-slayer.jpg",
+    price: 2.99,
+    image:
+      "/images/products/customPatches/patch-professional-dragon-slayer.jpg",
     badge: "new",
-    tagline: "Epic fantasy patch — bold dragon design for gamers and fantasy fans.",
+    tagline:
+      "Epic fantasy patch — bold dragon design for gamers and fantasy fans.",
     description:
       "An epic 'Professional Dragon Slayer' patch featuring a bold dragon design with dramatic fills and sharp outlines. Perfect for gaming apparel, fantasy merchandise, and convention gear. Heavy satin stitching gives this patch a premium, raised feel that stands out on any garment.",
     features: [
@@ -553,11 +565,12 @@ export const PRODUCTS: Product[] = [
     name: "Squirtle Squad Patch",
     category: "patches",
     categoryLabel: "Custom Patches",
-    price: 7.99,
-    originalPrice: 12.99,
+    price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/customPatches/patch-squirtle-squad.jpg",
     badge: "best",
-    tagline: "Iconic squad patch — retro character design for fans and collectors.",
+    tagline:
+      "Iconic squad patch — retro character design for fans and collectors.",
     description:
       "An iconic squad patch featuring a beloved turtle character in retro sunglasses. The design captures the cool, laid-back vibe of the classic squad aesthetic. Clean color blocking and bold outlines make this patch pop on jackets, caps, and backpacks. A must-have for collectors and fan apparel.",
     features: [
@@ -598,7 +611,7 @@ export const BUNDLES: Product[] = [
       "Our complete font library: 500+ embroidery fonts covering every style — serif, sans-serif, script, display, monogram, and decorative. Every font is hand-digitized in multiple sizes and ships with a lifetime commercial license. This is the most cost-effective way to get every font we offer, and updates are free for life.",
     features: [
       "500+ embroidery fonts in every style",
-      "Multiple sizes per font (0.5\" to 4\")",
+      'Multiple sizes per font (0.5" to 4")',
       "Hand-digitized for clean stitch-out",
       "Lifetime commercial license",
       "Free lifetime updates",
@@ -660,7 +673,8 @@ export const BUNDLES: Product[] = [
     badge: "sale",
     isBundle: true,
     bundleDiscount: 40,
-    tagline: "200+ animal embroidery designs — from realistic portraits to stylized mascots.",
+    tagline:
+      "200+ animal embroidery designs — from realistic portraits to stylized mascots.",
     description:
       "200+ animal designs covering every category — realistic wildlife, stylized mascots, cute cartoon critters, and tribal-style silhouettes. Each design is tested on multiple fabrics and hoop sizes. Perfect for shops that need a deep library of animal artwork for jackets, patches, and kids' apparel.",
     features: [
@@ -693,7 +707,8 @@ export const BUNDLES: Product[] = [
     badge: "sale",
     isBundle: true,
     bundleDiscount: 35,
-    tagline: "150+ sports team logos across every major sport — ready to decorate.",
+    tagline:
+      "150+ sports team logos across every major sport — ready to decorate.",
     description:
       "150+ bold sports logos covering football, basketball, baseball, hockey, soccer, and esports. Each logo comes in cap, left-chest, and full-back sizes. Color-blocked fills and clean outlines make these logos stitch cleanly even on challenging fabrics like polyester mesh.",
     features: [
@@ -727,10 +742,10 @@ export function getRelatedProducts(slug: string, count = 4): Product[] {
   const current = getProductBySlug(slug);
   if (!current) return PRODUCTS.slice(0, count);
   const sameCategory = ALL_PRODUCTS.filter(
-    (p) => p.slug !== slug && p.category === current.category
+    (p) => p.slug !== slug && p.category === current.category,
   );
   const others = ALL_PRODUCTS.filter(
-    (p) => p.slug !== slug && p.category !== current.category
+    (p) => p.slug !== slug && p.category !== current.category,
   );
   return [...sameCategory, ...others].slice(0, count);
 }
