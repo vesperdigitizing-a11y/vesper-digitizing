@@ -133,10 +133,17 @@ export const Shirt = (props: IconProps) => (
 
 export const Cap = (props: IconProps) => (
   <svg {...base(props)}>
-    <path d="M2 19h20" />
-    <path d="M4 19a8 8 0 0 1 16 0" />
-    <path d="M12 11V5a2 2 0 0 1 2-2h2" />
-    <path d="M9 11h6" />
+    {/* Cap crown — rounded dome */}
+    <path d="M3 15c0-6 4-10 9-10s9 4 9 10" />
+    {/* Cap brim — curved visor at the bottom */}
+    <path d="M3 15c0 2 2 4 4 4h10c2 0 4-2 4-4" />
+    {/* Center front panel seam */}
+    <path d="M12 5v10" />
+    {/* Side panel seams */}
+    <path d="M6.5 15c0-4 2.5-7 5.5-7" />
+    <path d="M17.5 15c0-4-2.5-7-5.5-7" />
+    {/* Button on top */}
+    <circle cx="12" cy="5" r="1" />
   </svg>
 );
 
