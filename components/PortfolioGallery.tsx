@@ -12,57 +12,184 @@ type PortfolioItem = {
 };
 
 const ITEMS: PortfolioItem[] = [
-  { title: "Cap Digitizing",        category: "caps",     image: "/images/portfolio/cap.jpg" },
-  { title: "Left Chest Logo",       category: "left-chest", image: "/images/portfolio/polo.jpg" },
-  { title: "Jacket Back",           category: "jacket",   image: "/images/portfolio/jacket.jpg" },
-  { title: "Patch Digitizing",      category: "patches",  image: "/images/portfolio/patch.jpg" },
-  { title: "3D Puff Digitizing",    category: "3d-puff",  image: "/images/portfolio/puff.jpg" },
-  { title: "Embroidery Patch",      category: "patches",  image: "/images/portfolio/tiger.jpg" },
-  { title: "Applique Digitizing",   category: "applique", image: "/images/portfolio/applique.jpg" },
-  { title: "Applique Logo",         category: "applique", image: "/images/portfolio/original.jpg" },
-  { title: "Flat Embroidery",       category: "left-chest", image: "/images/portfolio/text.jpg" },
-  { title: "Chenille Digitizing",   category: "patches",  image: "/images/portfolio/chenille.png" },
-  { title: "Towel Embroidery",      category: "left-chest", image: "/images/portfolio/crown.jpg" },
-  { title: "Mascot Digitizing",     category: "patches",  image: "/images/portfolio/shark.jpg" },
+  // { title: "Cap Digitizing",        category: "caps",     image: "/images/portfolio/cap.jpg" },
+  // { title: "Left Chest Logo",       category: "left-chest", image: "/images/portfolio/polo.jpg" },
+  // { title: "Jacket Back",           category: "jacket",   image: "/images/portfolio/jacket.jpg" },
+  // { title: "Patch Digitizing",      category: "patches",  image: "/images/portfolio/patch.jpg" },
+  // { title: "3D Puff Digitizing",    category: "3d-puff",  image: "/images/portfolio/puff.jpg" },
+  // { title: "Embroidery Patch",      category: "patches",  image: "/images/portfolio/tiger.jpg" },
+  // { title: "Applique Digitizing",   category: "applique", image: "/images/portfolio/applique.jpg" },
+  // { title: "Applique Logo",         category: "applique", image: "/images/portfolio/original.jpg" },
+  // {
+  //   title: "Flat Embroidery",
+  //   category: "left-chest",
+  //   image: "/images/portfolio/text.jpg",
+  // },
+  // {
+  //   title: "Chenille Digitizing",
+  //   category: "patches",
+  //   image: "/images/portfolio/chenille.png",
+  // },
+  // {
+  //   title: "Towel Embroidery",
+  //   category: "left-chest",
+  //   image: "/images/portfolio/crown.jpg",
+  // },
+  // {
+  //   title: "Mascot Digitizing",
+  //   category: "patches",
+  //   image: "/images/portfolio/shark.jpg",
+  // },
 
   // Real client work
-  { title: "Cap Digitizing — Perco Worldwide", category: "caps", image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg" },
-  { title: "Cap Digitizing — Transmateriales", category: "caps", image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg" },
-  { title: "Left Chest Logo — Servicios Automotrices", category: "left-chest", image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg" },
-  { title: "Towel Embroidery — Don Crudo Seafood", category: "left-chest", image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg" },
-  { title: "Applique Letter",       category: "applique", image: "/images/products/digitizing/applique-letter-m.jpg" },
+  // {
+  //   title: "Cap Digitizing — Perco Worldwide",
+  //   category: "caps",
+  //   image: "/images/products/digitizing/cap-embroidery-perco-worldwide.jpg",
+  // },
+  // {
+  //   title: "Cap Digitizing — Transmateriales",
+  //   category: "caps",
+  //   image: "/images/products/digitizing/cap-embroidery-transmateriales.jpg",
+  // },
+  // {
+  //   title: "Left Chest Logo — Servicios Automotrices",
+  //   category: "left-chest",
+  //   image: "/images/products/digitizing/left-chest-servicios-automotrices.jpg",
+  // },
+  // {
+  //   title: "Towel Embroidery — Don Crudo Seafood",
+  //   category: "left-chest",
+  //   image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg",
+  // },
+  {
+    title: "3D Puff",
+    category: "applique",
+    image: "/images/products/digitizing/applique-letter-m.jpg",
+  },
 
-  { title: "Patch — Don't Hassle Me With Shuckle", category: "patches", image: "/images/products/customPatches/patch-dont-hassle-me-shuckle.jpg" },
-  { title: "Patch — Squirtle Squad", category: "patches", image: "/images/products/customPatches/patch-squirtle-squad.jpg" },
-  { title: "Patch — Classic Pikachu", category: "patches", image: "/images/products/customPatches/patch-classic-pikachu-1996.jpg" },
-  { title: "Patch — Nursing Assistant", category: "patches", image: "/images/products/customPatches/patch-licensed-nursing-assistant.jpg" },
-  { title: "Patch — Error 404",     category: "patches", image: "/images/products/customPatches/patch-error-404.jpg" },
-  { title: "Patch — Fire Department", category: "patches", image: "/images/products/customPatches/patch-kanto-fire-department.jpg" },
-  { title: "Patch — Delivery Service", category: "patches", image: "/images/products/customPatches/patch-dragonite-delivery-service.jpg" },
-  { title: "Patch — Bean of the Year", category: "patches", image: "/images/products/customPatches/patch-official-bean-of-the-year.jpg" },
-  { title: "Patch — Certified Locally Grown", category: "patches", image: "/images/products/customPatches/patch-certified-locally-grown.jpg" },
-  { title: "Patch — Dragon Slayer", category: "patches", image: "/images/products/customPatches/patch-professional-dragon-slayer.jpg" },
-  { title: "Patch — Dog Mascot",    category: "patches", image: "/images/products/Chenille/patch-dog-mascot.jpg" },
+  {
+    title: "Patch — Don't Hassle Me With Shuckle",
+    category: "patches",
+    image: "/images/products/customPatches/patch-dont-hassle-me-shuckle.jpg",
+  },
+  {
+    title: "Patch — Squirtle Squad",
+    category: "patches",
+    image: "/images/products/customPatches/patch-squirtle-squad.jpg",
+  },
+  {
+    title: "Patch — Classic Pikachu",
+    category: "patches",
+    image: "/images/products/customPatches/patch-classic-pikachu-1996.jpg",
+  },
+  {
+    title: "Patch — Nursing Assistant",
+    category: "patches",
+    image:
+      "/images/products/customPatches/patch-licensed-nursing-assistant.jpg",
+  },
+  {
+    title: "Patch — Error 404",
+    category: "patches",
+    image: "/images/products/customPatches/patch-error-404.jpg",
+  },
+  {
+    title: "Patch — Fire Department",
+    category: "patches",
+    image: "/images/products/customPatches/patch-kanto-fire-department.jpg",
+  },
+  {
+    title: "Patch — Delivery Service",
+    category: "patches",
+    image:
+      "/images/products/customPatches/patch-dragonite-delivery-service.jpg",
+  },
+  {
+    title: "Patch — Bean of the Year",
+    category: "patches",
+    image: "/images/products/customPatches/patch-official-bean-of-the-year.jpg",
+  },
+  {
+    title: "Patch — Certified Locally Grown",
+    category: "patches",
+    image: "/images/products/customPatches/patch-certified-locally-grown.jpg",
+  },
+  {
+    title: "Patch — Dragon Slayer",
+    category: "patches",
+    image:
+      "/images/products/customPatches/patch-professional-dragon-slayer.jpg",
+  },
+  {
+    title: "Patch — Dog Mascot",
+    category: "patches",
+    image: "/images/products/Chenille/patch-dog-mascot.jpg",
+  },
 
-  { title: "Chenille — Christin Cruz", category: "patches", image: "/images/products/Chenille/chenille-christin-cruz.jpg" },
-  { title: "Chenille — Rabbits",    category: "patches", image: "/images/products/Chenille/chenille-rabbits.jpg" },
-  { title: "Chenille — Varsity Letters", category: "patches", image: "/images/products/Chenille/chenille-king-varsity-letters.jpg" },
-  { title: "Chenille — Team Names", category: "patches", image: "/images/products/Chenille/chenille-team-name-patches.jpg" },
-  { title: "Chenille — Luigi",      category: "patches", image: "/images/products/Chenille/chenille-luigi.jpg" },
-  { title: "Chenille — Left Heart", category: "patches", image: "/images/products/Chenille/chenille-left-heart.jpg" },
+  {
+    title: "Chenille — Christin Cruz",
+    category: "patches",
+    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
+  },
+  {
+    title: "Chenille — Rabbits",
+    category: "patches",
+    image: "/images/products/Chenille/chenille-rabbits.jpg",
+  },
+  // {
+  //   title: "Chenille — Varsity Letters",
+  //   category: "patches",
+  //   image: "/images/products/Chenille/chenille-king-varsity-letters.jpg",
+  // },
+  {
+    title: "Chenille — Team Names",
+    category: "patches",
+    image: "/images/products/Chenille/chenille-team-name-patches.jpg",
+  },
+  {
+    title: "Chenille — Luigi",
+    category: "patches",
+    image: "/images/products/Chenille/chenille-luigi.jpg",
+  },
+  {
+    title: "Chenille — Left Heart",
+    category: "patches",
+    image: "/images/products/Chenille/chenille-left-heart.jpg",
+  },
 
-  { title: "Vector Art — Pop Art Illustration", category: "vector", image: "/images/products/vectorArt/vector-pop-art-illustration.jpg" },
-  { title: "Vector Art — Cartoon Character", category: "vector", image: "/images/products/vectorArt/vector-cartoon-character-art.jpg" },
-  { title: "Vector Art — Wolf Illustration", category: "vector", image: "/images/products/vectorArt/vector-wolf-illustration.jpg" },
-  { title: "Vector Art — Pikachu Dragon", category: "vector", image: "/images/products/vectorArt/vector-pikachu-dragon-art.jpg" },
-  { title: "Vector Art — Snack Bandit", category: "vector", image: "/images/products/vectorArt/vector-snack-bandit-art.jpg" },
+  // {
+  //   title: "Vector Art — Pop Art Illustration",
+  //   category: "vector",
+  //   image: "/images/products/vectorArt/vector-pop-art-illustration.jpg",
+  // },
+  {
+    title: "Vector Art — Cartoon Character",
+    category: "vector",
+    image: "/images/products/vectorArt/vector-cartoon-character-art.jpg",
+  },
+  {
+    title: "Vector Art — Wolf Illustration",
+    category: "vector",
+    image: "/images/products/vectorArt/vector-wolf-illustration.jpg",
+  },
+  {
+    title: "Vector Art — Pikachu Dragon",
+    category: "vector",
+    image: "/images/products/vectorArt/vector-pikachu-dragon-art.jpg",
+  },
+  {
+    title: "Vector Art — Snack Bandit",
+    category: "vector",
+    image: "/images/products/vectorArt/vector-snack-bandit-art.jpg",
+  },
 ];
 
 const FILTERS = [
-  { label: "All", value: "all" },
-  { label: "Caps", value: "caps" },
-  { label: "Left Chest Logo", value: "left-chest" },
-  { label: "Jacket Back", value: "jacket" },
+  // { label: "All", value: "all" },
+  // { label: "Caps", value: "caps" },
+  // { label: "Left Chest Logo", value: "left-chest" },
+  // { label: "Jacket Back", value: "jacket" },
   { label: "Patches", value: "patches" },
   { label: "3D Puff", value: "3d-puff" },
   { label: "Applique", value: "applique" },
@@ -74,9 +201,7 @@ export default function PortfolioGallery() {
   const [active, setActive] = useState("all");
 
   const items =
-    active === "all"
-      ? ITEMS
-      : ITEMS.filter((i) => i.category === active);
+    active === "all" ? ITEMS : ITEMS.filter((i) => i.category === active);
 
   return (
     <section id="portfolio-gallery" className="bg-white py-16 sm:py-24">
@@ -114,7 +239,10 @@ export default function PortfolioGallery() {
         </ScrollReveal>
 
         {/* Portfolio grid */}
-        <ScrollReveal stagger className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ScrollReveal
+          stagger
+          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {items.map((item) => (
             <article
               key={item.title}
