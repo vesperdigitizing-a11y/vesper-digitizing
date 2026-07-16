@@ -62,10 +62,20 @@ const ITEMS: PortfolioItem[] = [
   //   category: "left-chest",
   //   image: "/images/products/digitizing/towel-embroidery-don-crudo-seafood.jpg",
   // },
+    {
+    title: "3D Puff — Sox Flame",
+    category: "3d-puff",
+    image: "/images/products/3dArt/sox-flame-3d-puff.jpg",
+  },
   {
-    title: "3D Puff",
-    category: "applique",
-    image: "/images/products/digitizing/applique-letter-m.jpg",
+    title: "3D Puff — AC/DC PWR UP Tour",
+    category: "3d-puff",
+    image: "/images/products/3dArt/acdc-pwr-up-tour-3d-puff.jpg",
+  },
+  {
+    title: "3D Puff — NY Monogram Wings",
+    category: "3d-puff",
+    image: "/images/products/3dArt/ny-monogram-wings-3d-puff.jpg",
   },
 
   {
@@ -186,7 +196,7 @@ const ITEMS: PortfolioItem[] = [
 ];
 
 const FILTERS = [
-  // { label: "All", value: "all" },
+  { label: "All", value: "all" },
   // { label: "Caps", value: "caps" },
   // { label: "Left Chest Logo", value: "left-chest" },
   // { label: "Jacket Back", value: "jacket" },
@@ -246,7 +256,7 @@ export default function PortfolioGallery() {
           {items.map((item) => (
             <article
               key={item.title}
-              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f5f5]">
                 <Image

@@ -6,6 +6,7 @@ import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
+import PatchModal from "./PatchModal";
 
 const ITEMS = [
   {
@@ -34,7 +35,12 @@ const ITEMS = [
   {
     label: "3D PUFF",
     tag: "3D Puff Digitizing",
-    images: ["/images/portfolio/puff.jpg"],
+    images: [
+      "/images/portfolio/puff.jpg",
+      "/images/products/3dArt/sox-flame-3d-puff.jpg",
+      "/images/products/3dArt/acdc-pwr-up-tour-3d-puff.jpg",
+      "/images/products/3dArt/ny-monogram-wings-3d-puff.jpg",
+    ],
   },
   {
     label: "PATCH",
@@ -69,13 +75,15 @@ function PortfolioCard({
   label,
   tag,
   image,
+  onPatchClick,
 }: {
   label: string;
   tag: string;
   image: string;
+  onPatchClick?: () => void;
 }) {
   return (
-    <article className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+    <article className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl">
       <div className="absolute inset-0">
         <Image
           src={image}
@@ -98,9 +106,23 @@ function PortfolioCard({
         </div>
 
         {/* Arrow button appears on hover */}
-        <span className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-          <ArrowRight className="h-4 w-4" />
-        </span>
+        {tag === "Patches" && onPatchClick ? (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onPatchClick();
+            }}
+            aria-label={`Browse ${tag} products`}
+            className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 hover:scale-110"
+          >
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        ) : (
+          <span className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <ArrowRight className="h-4 w-4" />
+          </span>
+        )}
       </div>
 
       {/* Top border accent on hover */}
@@ -112,6 +134,7 @@ function PortfolioCard({
 export default function Portfolio() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [patchModalOpen, setPatchModalOpen] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
   // Number of cards to show per view (responsive)
@@ -216,6 +239,11 @@ export default function Portfolio() {
                       label={item.label}
                       tag={item.tag}
                       image={item.images[i % item.images.length]}
+                      onPatchClick={
+                        item.tag === "Patches"
+                          ? () => setPatchModalOpen(true)
+                          : undefined
+                      }
                     />
                   </div>
                 ))}
@@ -241,6 +269,11 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
+
+      <PatchModal
+        open={patchModalOpen}
+        onClose={() => setPatchModalOpen(false)}
+      />
     </section>
   );
 }
