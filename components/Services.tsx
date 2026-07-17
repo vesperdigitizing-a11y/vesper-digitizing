@@ -5,6 +5,7 @@ import SectionHeading from "./SectionHeading";
 import { IconByName, type IconName, Plus } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 import TiltCard from "./TiltCard";
+import { usePathname } from "next/navigation";
 
 type Service = {
   icon: IconName;
@@ -78,6 +79,32 @@ const SERVICES: Service[] = [
 ];
 
 export default function Services() {
+  const pathname = usePathname();
+  
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
+    // If already on services page, manually handle navigation with scroll
+    if (pathname === "/services") {
+      e.preventDefault();
+      const url = new URL(window.location.href);
+      url.searchParams.set("category", slug);
+      window.history.pushState({}, "", url.toString());
+      // Dispatch popstate event to trigger useSearchParams update
+      window.dispatchEvent(new PopStateEvent("popstate"));
+      // Scroll to portfolio with increased offset for fixed header + extra spacing
+      setTimeout(() => {
+        const element = document.getElementById("portfolio");
+        if (element) {
+          const headerOffset = 200; // Increased offset for more scroll down
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementPosition - headerOffset,
+            behavior: "smooth"
+          });
+        }
+      }, 300);
+    }
+  };
+
   return (
     <section id="services" className="relative bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -107,7 +134,11 @@ export default function Services() {
                 key={s.title}
                 max={10}
               >
-                <Link href={`/services?category=${s.slug}`} scroll={false}>
+                <Link 
+                  href={`/services?category=${s.slug}`} 
+                  scroll={false}
+                  onClick={(e) => handleClick(e, s.slug)}
+                >
                   <article className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl cursor-pointer">
                     <div
                       aria-hidden

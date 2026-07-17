@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
@@ -37,8 +38,7 @@ const CATEGORIES: Category[] = [
     label: "Patch Digitizing",
     tag: "Patch Digitizing",
     image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
-    description:
-      "Custom embroidered patches with merrowed or laser-cut edges for any application.",
+    description: "Custom embroidered patches with merrowed or laser-cut edges.",
   },
   {
     id: "left-chest",
@@ -46,100 +46,116 @@ const CATEGORIES: Category[] = [
     tag: "Left Chest Logo",
     image: "/images/products/left-chest/left-chest-1.jpeg",
     description:
-      "Compact left chest logos optimized for small-area embroidery with clean edges.",
+      "Compact left chest logos optimized for small embroidery areas.",
   },
   {
     id: "sleeve-logos",
     label: "Sleeve Logos",
     tag: "Sleeve Logo Digitizing",
     image: "/images/products/sleeve-logos/shirt-sleeve-1.jpeg",
-    description:
-      "Sleeve-specific digitizing with proper density and underlay for tubular surfaces.",
+    description: "Sleeve logo digitizing with proper density and underlay.",
   },
   {
     id: "3d-puff",
     label: "3D Puff",
     tag: "3D Puff Embroidery",
     image: "/images/products/3d-puff/acdc-pwr-up-tour-3d-puff.jpg",
-    description:
-      "Raised 3D puff embroidery with foam underlay for bold, dimensional designs.",
+    description: "Raised 3D puff embroidery with dimensional effects.",
   },
   {
     id: "chenille",
     label: "Chenille",
     tag: "Chenille Patches",
     image: "/images/products/Chenille/chenille-christin-cruz.jpg",
-    description:
-      "Custom chenille letterman patches and varsity-style embroidery designs.",
+    description: "Classic chenille patches for varsity jackets and branding.",
   },
   {
     id: "towel-digitizing",
     label: "Towel Digitizing",
     tag: "Towel Digitizing",
-    image: "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
-    description:
-      "Specialized towel embroidery digitizing with proper density for terry cloth fabrics.",
+    image:
+      "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
+    description: "Professional towel embroidery digitizing for terry cloth.",
   },
   {
     id: "vector-conversion",
     label: "Vector Conversion",
     tag: "Vector Conversion",
-    image: "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
-    description:
-      "High-quality vector artwork conversion for print and embroidery readiness.",
+    image:
+      "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
+    description: "Convert raster artwork into clean print-ready vectors.",
   },
   {
     id: "applique",
     label: "Applique",
     tag: "Applique Digitizing",
     image: "/images/products/applique/applique-letter-m.jpg",
-    description:
-      "Applique digitizing with fabric layering for bold, multi-texture designs.",
+    description: "Precision applique digitizing with layered fabric effects.",
   },
 ];
 
+function Tab({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300 sm:px-5 sm:text-sm ${
+        active
+          ? "bg-[#c8102e] text-white shadow-[0_6px_18px_-6px_rgba(200,16,46,.45)]"
+          : "bg-white text-[#6b7280] ring-1 ring-[#e5e7eb] hover:text-[#c8102e] hover:ring-[#c8102e]"
+      }`}
+    >
+      {label}
+    </button>
+  );
+}
+
 export default function ServicesPortfolio() {
   const searchParams = useSearchParams();
+
   const categoryParam = searchParams.get("category");
 
-  const validIds = new Set(CATEGORIES.map((c) => c.id));
-  const initialTab =
-    categoryParam && validIds.has(categoryParam) ? categoryParam : null;
+  const validIds = useMemo(() => new Set(CATEGORIES.map((c) => c.id)), []);
 
-  const [activeTab, setActiveTab] = useState<string | null>(initialTab);
-  const hasScrolledFromUrl = useRef(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
 
   useEffect(() => {
-    if (categoryParam && validIds.has(categoryParam) && !hasScrolledFromUrl.current) {
-      hasScrolledFromUrl.current = true;
+    if (categoryParam && validIds.has(categoryParam)) {
       setActiveTab(categoryParam);
-      const scroll = () => {
-        if (!sectionRef.current) return;
-        const y = sectionRef.current.getBoundingClientRect().top + window.scrollY - 20;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      };
-      const raf1 = requestAnimationFrame(() => {
-        const raf2 = requestAnimationFrame(() => {
-          scroll();
-        });
-        return () => cancelAnimationFrame(raf2);
-      });
-      return () => cancelAnimationFrame(raf1);
+      // Scroll to portfolio section when category is specified in URL
+      // Use offset to account for fixed/sticky header + extra spacing
+      setTimeout(() => {
+        const element = document.getElementById("portfolio");
+        if (element) {
+          const elementPosition =
+            element.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 250);
+    } else {
+      setActiveTab(null);
     }
   }, [categoryParam, validIds]);
 
-  const handleTabChange = useCallback((id: string | null) => {
-    setActiveTab((prev) => (prev === id ? null : id));
-    hasScrolledFromUrl.current = true;
-  }, []);
-
-  const filtered = activeTab
-    ? CATEGORIES.filter((c) => c.id === activeTab)
-    : CATEGORIES;
+  const filtered = useMemo(() => {
+    return activeTab
+      ? CATEGORIES.filter((c) => c.id === activeTab)
+      : CATEGORIES;
+  }, [activeTab]);
 
   return (
-    <section id="portfolio" ref={sectionRef} className="bg-[#f5f5f5] py-16 sm:py-24">
+    <section className="bg-[#f5f5f5] py-16 sm:py-24 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeading
@@ -149,89 +165,85 @@ export default function ServicesPortfolio() {
           />
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="mt-10 flex flex-wrap justify-center gap-2">
-            <button
-              onClick={() => handleTabChange(null)}
-              className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
-                activeTab === null
-                  ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
-                  : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
-              }`}
-            >
-              All
-            </button>
+        <ScrollReveal delay={100}>
+          <div
+            id="portfolio"
+            className="mt-8 flex flex-wrap justify-center gap-3"
+          >
+            <Tab
+              label="All"
+              active={activeTab === null}
+              onClick={() => setActiveTab(null)}
+            />
 
             {CATEGORIES.map((cat) => (
-              <button
+              <Tab
                 key={cat.id}
-                onClick={() => handleTabChange(cat.id)}
-                className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
-                  activeTab === cat.id
-                    ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
-                    : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
-                }`}
-              >
-                {cat.label}
-              </button>
+                label={cat.label}
+                active={activeTab === cat.id}
+                onClick={() =>
+                  setActiveTab((prev) => (prev === cat.id ? null : cat.id))
+                }
+              />
             ))}
           </div>
         </ScrollReveal>
 
         <ScrollReveal
           stagger
-          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {filtered.map((cat) => (
             <article
               key={cat.id}
-              className="group relative aspect-4/3 w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
             >
               <Image
                 src={cat.image}
                 alt={cat.tag}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                <span className="inline-block rounded-full bg-[#c8102e]/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="rounded-full bg-[#c8102e] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                   {cat.label}
                 </span>
-                <h3 className="mt-2 text-base font-bold text-white sm:text-lg">
-                  {cat.tag}
-                </h3>
-                <p className="mt-1 line-clamp-2 text-xs text-white/70 sm:text-sm">
+
+                <h3 className="mt-2 text-lg font-bold text-white">{cat.tag}</h3>
+
+                <p className="mt-1 line-clamp-2 text-sm text-white/75">
                   {cat.description}
                 </p>
               </div>
 
-              <span className="absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#c8102e] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+              <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur transition-all duration-500 group-hover:opacity-100">
                 <ArrowRight className="h-4 w-4" />
               </span>
 
-              <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
+              <div className="absolute left-0 right-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
             </article>
           ))}
         </ScrollReveal>
 
         {filtered.length === 0 && (
-          <p className="mt-10 text-center text-sm text-[#6b7280]">
-            No items in this category.
+          <p className="mt-10 text-center text-[#6b7280]">
+            No portfolio found.
           </p>
         )}
 
-        <ScrollReveal>
+        <ScrollReveal delay={200}>
           <div className="mt-12 flex justify-center">
-            <a
+            <Link
               href="/portfolio"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
+              className="group inline-flex items-center gap-2 rounded-lg bg-[#c8102e] px-6 py-3 font-semibold text-white transition hover:bg-[#a30d24]"
             >
               View Full Portfolio
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </ScrollReveal>
       </div>
