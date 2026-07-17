@@ -10,7 +10,7 @@ import MagneticButton from "./MagneticButton";
 
 type Category = {
   id: string;
-  /** Maps to PortfolioGallery FILTER value */
+  /** Maps to PortfolioGallery FILTER value for /portfolio?category= */
   filterSlug: string;
   label: string;
   tag: string;
@@ -46,6 +46,69 @@ const CATEGORIES: Category[] = [
     description:
       "Custom embroidered patches with merrowed or laser-cut edges for any application.",
   },
+  {
+    id: "left-chest",
+    filterSlug: "left-chest",
+    label: "Left Chest",
+    tag: "Left Chest Logo",
+    image: "/images/products/left-chest/left-chest-1.jpeg",
+    description:
+      "Small, clean left chest logos perfect for corporate and casual wear.",
+  },
+  {
+    id: "3d-puff",
+    filterSlug: "3d-puff",
+    label: "3D Puff",
+    tag: "3D Puff Embroidery",
+    image: "/images/products/3d-puff/acdc-pwr-up-tour-3d-puff.jpg",
+    description:
+      "Eye-catching raised 3D puff embroidery that adds dimension to caps and apparel.",
+  },
+  {
+    id: "applique",
+    filterSlug: "applique",
+    label: "Applique",
+    tag: "Applique Digitizing",
+    image: "/images/products/applique/applique-letter-m.jpg",
+    description:
+      "Creative applique designs with layered fabric and precise stitching.",
+  },
+  {
+    id: "chenille",
+    filterSlug: "chenille",
+    label: "Chenille",
+    tag: "Chenille Patches",
+    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
+    description:
+      "Classic chenille patches for letterman jackets, varsity wear and retro branding.",
+  },
+  {
+    id: "towel-digitizing",
+    filterSlug: "towel",
+    label: "Towel Digitizing",
+    tag: "Towel Embroidery",
+    image: "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
+    description:
+      "Premium towel embroidery for hotels, spas, resorts and hospitality branding.",
+  },
+  {
+    id: "sleeve-logos",
+    filterSlug: "shirt-sleeve",
+    label: "Sleeve Logos",
+    tag: "Sleeve Logo Digitizing",
+    image: "/images/products/sleeve-logos/shirt-sleeve-1.jpeg",
+    description:
+      "Compact sleeve logo digitizing optimized for small embroidery areas.",
+  },
+  {
+    id: "vector-conversion",
+    filterSlug: "vector",
+    label: "Vector Conversion",
+    tag: "Vector Art Conversion",
+    image: "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
+    description:
+      "Professional raster-to-vector conversion for print-ready artwork.",
+  },
 ];
 
 function Tab({
@@ -61,7 +124,7 @@ function Tab({
     <button
       type="button"
       onClick={onClick}
-      className={`relative px-5 py-2.5 text-sm font-semibold transition-all duration-300 rounded-full ${
+      className={`relative px-4 py-2 text-xs font-semibold transition-all duration-300 rounded-full sm:px-5 sm:py-2.5 sm:text-sm ${
         active
           ? "text-white bg-[#c8102e] shadow-[0_4px_14px_-4px_rgba(200,16,46,0.5)]"
           : "text-[#6b7280] hover:text-[#1a1a1a] hover:bg-[#f5f5f5]"

@@ -412,7 +412,40 @@ export type IconName =
   | "lock"
   | "trophy"
   | "user"
-  | "youtube";
+  | "youtube"
+  | "chenille"
+  | "towel"
+  | "sleeve";
+
+
+
+export const Chenille = (props: IconProps) => (
+  <svg {...base(props)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3C7 3 3 7.5 3 12s4 9 9 9 9-4.5 9-9S17 3 12 3z" />
+    <path d="M12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5" />
+    <path d="M12 7c2.8 0 5 2.2 5 5" />
+    <circle cx="12" cy="12" r="1.5" />
+  </svg>
+);
+
+export const Towel = (props: IconProps) => (
+  <svg {...base(props)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <path d="M3 10h18" />
+    <path d="M8 4v6" />
+    <path d="M16 4v6" />
+    <path d="M3 14h18" />
+  </svg>
+);
+
+export const Sleeve = (props: IconProps) => (
+  <svg {...base(props)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 2L2 8v10c0 2.2 1.8 4 4 4h2V2" />
+    <path d="M18 2l4 6v10c0 2.2-1.8 4-4 4h-2V2" />
+    <path d="M8 22h8" />
+    <path d="M8 2h8" />
+  </svg>
+);
 
 export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   shirt: Shirt,
@@ -444,4 +477,7 @@ export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   trophy: Trophy,
   user: User,
   youtube: Youtube,
+  chenille: Chenille,
+  towel: Towel,
+  sleeve: Sleeve,
 };

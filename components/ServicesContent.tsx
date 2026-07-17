@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import SectionHeading from "./SectionHeading";
 import { IconByName, type IconName, Plus } from "./icons";
 import ScrollReveal from "./ScrollReveal";
@@ -11,6 +12,8 @@ type Service = {
   icon: IconName;
   title: string;
   desc: string;
+  /** Maps to ServicesPortfolio category ID */
+  slug?: string;
 };
 
 const SERVICES: Service[] = [
@@ -18,46 +21,79 @@ const SERVICES: Service[] = [
     icon: "shirt",
     title: "Left Chest Logo",
     desc: "Perfect for uniforms, polos, t-shirts and corporate branding",
+    slug: "left-chest",
   },
   {
     icon: "cap",
     title: "Cap Digitizing",
     desc: "Specialized in cap logo digitizing with perfect stitch placement",
+    slug: "cap-digitizing",
   },
   {
     icon: "jacket",
     title: "Jacket Back",
     desc: "Large and complex design digitizing for jackets, hoodies and outerwear",
+    slug: "jacket-back",
   },
   {
     icon: "cube",
     title: "3D Puff Digitizing",
     desc: "High quality 3D puff effects with clean and raised stitches",
+    slug: "3d-puff",
   },
   {
     icon: "layers",
     title: "Applique Digitizing",
     desc: "Fabric applique with precise cutting lines and secure stitching",
+    slug: "applique",
   },
   {
     icon: "patch",
     title: "Patches",
     desc: "Merrow, laser cut, woven and custom patches in any shape or size",
+    slug: "patch-digitizing",
+  },
+  {
+    icon: "chenille",
+    title: "Chenille Patches",
+    desc: "Custom chenille letterman and varsity-style embroidery patches",
+    slug: "chenille",
   },
   {
     icon: "penTool",
     title: "Vector Conversion",
     desc: "Convert any image or logo into high quality vector artwork",
+    slug: "vector-conversion",
+  },
+  {
+    icon: "towel",
+    title: "Towel Digitizing",
+    desc: "Specialized towel embroidery digitizing for terry cloth fabrics",
+    slug: "towel-digitizing",
+  },
+  {
+    icon: "sleeve",
+    title: "Sleeve Logos",
+    desc: "Sleeve-specific digitizing with proper density and underlay",
+    slug: "sleeve-logos",
   },
   {
     icon: "sparkles",
     title: "Custom Embroidery",
     desc: "Bring your unique ideas to life with our expert digitizers",
+    slug: "left-chest",
   },
 ];
 
 export default function ServicesContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [patchModalOpen, setPatchModalOpen] = useState(false);
+
+  const handleServiceClick = (slug: string) => {
+    // Update URL param — ServicesPortfolio's useEffect will handle scroll
+    router.replace(`/services?category=${slug}`, { scroll: false });
+  };
 
   return (
     <section id="services" className="bg-white py-16 sm:py-24">
@@ -77,43 +113,63 @@ export default function ServicesContent() {
           {SERVICES.map((s) => {
             const Icon = IconByName[s.icon];
             const isPatchCard = s.title === "Patches";
+            const cardContent = (
+              <article className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:border-[#c8102e]/40 hover:shadow-2xl">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#c8102e]/0 to-[#c8102e]/0 transition-all duration-500 group-hover:from-[#c8102e]/5 group-hover:to-transparent"
+                />
+                <span className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]">
+                  <Icon className="h-7 w-7" />
+                </span>
+                <h3 className="relative font-display text-lg font-bold text-[#1a1a1a]">
+                  {s.title}
+                </h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-[#6b7280]">
+                  {s.desc}
+                </p>
+
+                {isPatchCard ? (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setPatchModalOpen(true);
+                    }}
+                    aria-label={`Browse ${s.title} designs`}
+                    className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </button>
+                ) : (
+                  <span
+                    aria-label={`Learn more about ${s.title}`}
+                    className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 group-hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </span>
+                )}
+              </article>
+            );
 
             return (
               <TiltCard key={s.title} max={10}>
-                <article className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:border-[#c8102e]/40 hover:shadow-2xl">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#c8102e]/0 to-[#c8102e]/0 transition-all duration-500 group-hover:from-[#c8102e]/5 group-hover:to-transparent"
-                  />
-                  <span className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]">
-                    <Icon className="h-7 w-7" />
-                  </span>
-                  <h3 className="relative font-display text-lg font-bold text-[#1a1a1a]">
-                    {s.title}
-                  </h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-[#6b7280]">
-                    {s.desc}
-                  </p>
-
-                  {isPatchCard ? (
-                    <button
-                      type="button"
-                      onClick={() => setPatchModalOpen(true)}
-                      aria-label={`Browse ${s.title} designs`}
-                      className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  ) : (
-                    <a
-                      href="#quote"
-                      aria-label={`Learn more about ${s.title}`}
-                      className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </a>
-                  )}
-                </article>
+                {isPatchCard ? (
+                  <div className="cursor-pointer" onClick={() => setPatchModalOpen(true)}>
+                    {cardContent}
+                  </div>
+                ) : s.slug ? (
+                  <button
+                    type="button"
+                    onClick={() => handleServiceClick(s.slug!)}
+                    className="w-full text-left bg-transparent border-0 p-0 cursor-pointer"
+                  >
+                    {cardContent}
+                  </button>
+                ) : (
+                  cardContent
+                )}
               </TiltCard>
             );
           })}

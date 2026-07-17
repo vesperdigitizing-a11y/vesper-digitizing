@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
@@ -67,7 +68,7 @@ const CATEGORIES: Category[] = [
     id: "chenille",
     label: "Chenille",
     tag: "Chenille Patches",
-    image: "/images/products/chenille/chenille-christin-cruz.jpg",
+    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
     description:
       "Custom chenille letterman patches and varsity-style embroidery designs.",
   },
@@ -98,14 +99,47 @@ const CATEGORIES: Category[] = [
 ];
 
 export default function ServicesPortfolio() {
-  const [activeTab, setActiveTab] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
+  const validIds = new Set(CATEGORIES.map((c) => c.id));
+  const initialTab =
+    categoryParam && validIds.has(categoryParam) ? categoryParam : null;
+
+  const [activeTab, setActiveTab] = useState<string | null>(initialTab);
+  const hasScrolledFromUrl = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (categoryParam && validIds.has(categoryParam) && !hasScrolledFromUrl.current) {
+      hasScrolledFromUrl.current = true;
+      setActiveTab(categoryParam);
+      const scroll = () => {
+        if (!sectionRef.current) return;
+        const y = sectionRef.current.getBoundingClientRect().top + window.scrollY - 20;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      };
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => {
+          scroll();
+        });
+        return () => cancelAnimationFrame(raf2);
+      });
+      return () => cancelAnimationFrame(raf1);
+    }
+  }, [categoryParam, validIds]);
+
+  const handleTabChange = useCallback((id: string | null) => {
+    setActiveTab((prev) => (prev === id ? null : id));
+    hasScrolledFromUrl.current = true;
+  }, []);
 
   const filtered = activeTab
     ? CATEGORIES.filter((c) => c.id === activeTab)
     : CATEGORIES;
 
   return (
-    <section id="portfolio" className="bg-[#f5f5f5] py-16 sm:py-24">
+    <section id="portfolio" ref={sectionRef} className="bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeading
@@ -118,7 +152,7 @@ export default function ServicesPortfolio() {
         <ScrollReveal>
           <div className="mt-10 flex flex-wrap justify-center gap-2">
             <button
-              onClick={() => setActiveTab(null)}
+              onClick={() => handleTabChange(null)}
               className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
                 activeTab === null
                   ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
@@ -131,9 +165,7 @@ export default function ServicesPortfolio() {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() =>
-                  setActiveTab(activeTab === cat.id ? null : cat.id)
-                }
+                onClick={() => handleTabChange(cat.id)}
                 className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
                   activeTab === cat.id
                     ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"

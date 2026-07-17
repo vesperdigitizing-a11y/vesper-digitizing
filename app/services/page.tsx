@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import ServicesHero from "@/components/ServicesHero";
 import ServicesContent from "@/components/ServicesContent";
@@ -20,10 +21,14 @@ export default function ServicesPage() {
       <Header />
       <main className="flex-1">
         <ServicesHero />
-        <ServicesContent />
+        <Suspense fallback={null}>
+          <ServicesContent />
+        </Suspense>
         <WhyChooseUs />
         <ServicesProcess />
-        <ServicesPortfolio />
+        <Suspense fallback={null}>
+          <ServicesPortfolio />
+        </Suspense>
         <ServicesCTA />
       </main>
       <Footer />

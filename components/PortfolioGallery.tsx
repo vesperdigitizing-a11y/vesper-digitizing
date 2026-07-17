@@ -56,32 +56,32 @@ const ITEMS: PortfolioItem[] = [
   {
     title: "Chenille — Christin Cruz",
     category: "chenille",
-    image: "/images/products/chenille/chenille-christin-cruz.jpg",
+    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
   },
   {
     title: "Chenille — King Varsity Letters",
     category: "chenille",
-    image: "/images/products/chenille/chenille-king-varsity-letters.jpg",
+    image: "/images/products/Chenille/chenille-king-varsity-letters.jpg",
   },
   {
     title: "Chenille — Left Heart",
     category: "chenille",
-    image: "/images/products/chenille/chenille-left-heart.jpg",
+    image: "/images/products/Chenille/chenille-left-heart.jpg",
   },
   {
     title: "Chenille — Luigi",
     category: "chenille",
-    image: "/images/products/chenille/chenille-luigi.jpg",
+    image: "/images/products/Chenille/chenille-luigi.jpg",
   },
   {
     title: "Chenille — Rabbits",
     category: "chenille",
-    image: "/images/products/chenille/chenille-rabbits.jpg",
+    image: "/images/products/Chenille/chenille-rabbits.jpg",
   },
   {
     title: "Chenille — Team Name Patches",
     category: "chenille",
-    image: "/images/products/chenille/chenille-team-name-patches.jpg",
+    image: "/images/products/Chenille/chenille-team-name-patches.jpg",
   },
 
   /* ── Applique ── */
@@ -420,10 +420,7 @@ export default function PortfolioGallery() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
                   {item.title}
                 </span>
-                <span className="inline-flex -translate-x-2 items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#c8102e] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:text-xs">
-                  View
-                  <ArrowRight className="h-3 w-3" />
-                </span>
+
               </div>
             </article>
           ))}
