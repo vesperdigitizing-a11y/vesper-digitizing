@@ -6,7 +6,7 @@
 //   • Subtle shadow appears only after scrolling
 //   • Magnetic "Get a Quote" CTA
 //   • Live cart badge with count
-//   • Animated active underline that draws in
+//   • Animated active underline that draws in (disabled for Services)
 //   • Mobile menu slides in with stagger animation
 //   • Services dropdown (All Services / Patches / Vectors)
 
@@ -29,12 +29,24 @@ const NAV: NavItem[] = [
   {
     label: "Services",
     href: "/services",
-    // Dropdown disabled for now — uncomment to re-enable
-    // children: [
-    //   { label: "All Services", href: "/services", desc: "Full digitizing catalog" },
-    //   { label: "Patches", href: "/patches", desc: "Merrow, laser cut, woven, chenille" },
-    //   { label: "Vector Conversion", href: "/vectors", desc: "Raster to vector, logo vectorization" },
-    // ],
+    // Services dropdown with sub-pages
+    children: [
+      {
+        label: "All Services",
+        href: "/services",
+        desc: "Full digitizing catalog",
+      },
+      {
+        label: "Patches",
+        href: "/patches",
+        desc: "Merrow, laser cut, woven, chenille",
+      },
+      {
+        label: "Vector Conversion",
+        href: "/vectors",
+        desc: "Raster to vector, logo vectorization",
+      },
+    ],
   },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Store", href: "/store" },
@@ -133,7 +145,7 @@ export default function Header() {
             aria-label="Primary"
           >
             {NAV.map((item) => {
-              // Services item with dropdown
+              // Services item with dropdown (NO hover line effect)
               if (item.children) {
                 const active =
                   isActive(item.href) ||
@@ -165,13 +177,7 @@ export default function Header() {
                         strokeLinejoin="round"
                       >
                         <path d="M6 9l6 6 6-6" />
-                      </svg>
-                      {/* Animated underline */}
-                      <span
-                        className={`absolute -bottom-1.5 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-[#c8102e] transition-all duration-300 ${
-                          active ? "w-5" : "w-0 group-hover:w-5"
-                        }`}
-                      />
+                      </svg>{" "}
                     </button>
 
                     {/* Dropdown */}
@@ -202,7 +208,7 @@ export default function Header() {
                 );
               }
 
-              // Regular nav item
+              // Regular nav item WITH hover line effect
               return (
                 <Link
                   key={item.label}
@@ -212,7 +218,7 @@ export default function Header() {
                   }`}
                 >
                   {item.label}
-                  {/* Animated underline */}
+                  {/* Animated underline - NOT applied to Services */}
                   <span
                     className={`absolute -bottom-1.5 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-[#c8102e] transition-all duration-300 ${
                       isActive(item.href) ? "w-5" : "w-0 group-hover:w-5"

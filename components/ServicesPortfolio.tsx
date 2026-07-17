@@ -193,10 +193,14 @@ export default function ServicesPortfolio() {
           stagger
           className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {filtered.map((cat) => (
+          {filtered.map((cat, index) => (
             <article
               key={cat.id}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+              className={`group relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl ${
+                filtered.length % 3 === 1 && index === filtered.length - 1
+                  ? "lg:col-start-2"
+                  : ""
+              }`}
             >
               <Image
                 src={cat.image}
