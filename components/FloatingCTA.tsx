@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ArrowRight } from "./icons";
 
 export default function FloatingCTA() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [expanded, setExpanded] = useState(true);
 
   useEffect(() => {
