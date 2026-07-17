@@ -89,6 +89,26 @@ const ITEMS: PortfolioItem[] = [
     category: "applique",
     image: "/images/products/applique/applique-letter-m.jpg",
   },
+  {
+    title: "Applique — Design 1",
+    category: "applique",
+    image: "/images/products/applique/applique-design-1.jpeg",
+  },
+  {
+    title: "Applique — Design 2",
+    category: "applique",
+    image: "/images/products/applique/applique-design-2.jpeg",
+  },
+  {
+    title: "Applique — Design 3",
+    category: "applique",
+    image: "/images/products/applique/applique-design-3.jpeg",
+  },
+  {
+    title: "Applique — Design 4",
+    category: "applique",
+    image: "/images/products/applique/applique-design-4.jpeg",
+  },
 
   /* ── Patch Digitizing ── */
   {
