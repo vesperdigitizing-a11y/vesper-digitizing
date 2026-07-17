@@ -5,7 +5,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServicesCTA from "@/components/ServicesCTA";
 import Stats from "@/components/Stats";
-import { IconByName, type IconName } from "@/components/icons";
+import TiltCard from "@/components/TiltCard";
+import { IconByName, type IconName, Plus } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Vector Conversion | Vesper Digitizing",
@@ -127,7 +128,7 @@ export default function VectorsPage() {
           </div>
         </section>
 
-        {/* ============ VECTOR TYPES ============ */}
+        {/* ============ VECTOR TYPES - WITH TILTCARD & PLUS ICON ============ */}
         <section id="types" className="bg-[#f5f5f5] py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
@@ -142,20 +143,31 @@ export default function VectorsPage() {
               {VECTOR_TYPES.map((v) => {
                 const Icon = IconByName[v.icon];
                 return (
-                  <article
-                    key={v.title}
-                    className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl"
-                  >
-                    <span className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white">
-                      <Icon className="h-7 w-7" />
-                    </span>
-                    <h3 className="font-display text-lg font-bold text-[#1a1a1a]">
-                      {v.title}
-                    </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[#6b7280]">
-                      {v.desc}
-                    </p>
-                  </article>
+                  <TiltCard key={v.title} max={6}>
+                    <article className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl cursor-pointer">
+                      {/* Gradient overlay on hover */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#c8102e]/0 to-[#c8102e]/0 transition-all duration-500 group-hover:from-[#c8102e]/5 group-hover:to-transparent"
+                      />
+                      <span className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:ring-[#c8102e] group-hover:shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]">
+                        <Icon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
+                      </span>
+                      <h3 className="relative font-display text-lg font-bold text-[#1a1a1a]">
+                        {v.title}
+                      </h3>
+                      <p className="relative mt-2 flex-1 text-sm leading-relaxed text-[#6b7280]">
+                        {v.desc}
+                      </p>
+                      {/* Plus icon that rotates on hover */}
+                      <span
+                        aria-label={`Learn more about ${v.title}`}
+                        className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 group-hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
+                      >
+                        <Plus className="h-4 w-4" />
+                      </span>
+                    </article>
+                  </TiltCard>
                 );
               })}
             </ScrollReveal>

@@ -99,6 +99,7 @@ export const PRODUCTS: Product[] = [
     category: "patches",
     categoryLabel: "Custom Patches",
     price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/patch-digitizing/patch-dont-hassle-me-shuckle.jpg",
     badge: "new",
     tagline:
@@ -163,6 +164,7 @@ export const PRODUCTS: Product[] = [
     category: "patches",
     categoryLabel: "Custom Patches",
     price: 2.99,
+    originalPrice: 4.0,
     image: "/images/products/patch-digitizing/patch-error-404.jpg",
     tagline:
       "Geeky error-code patch — perfect for tech enthusiasts and developers.",
@@ -225,6 +227,7 @@ export const PRODUCTS: Product[] = [
     category: "patches",
     categoryLabel: "Custom Patches",
     price: 2.99,
+    originalPrice: 4.0,
     image:
       "/images/products/patch-digitizing/patch-licensed-nursing-assistant.jpg",
     tagline:
@@ -289,6 +292,7 @@ export const PRODUCTS: Product[] = [
     category: "patches",
     categoryLabel: "Custom Patches",
     price: 2.99,
+    originalPrice: 4.0,
     image:
       "/images/products/patch-digitizing/patch-professional-dragon-slayer.jpg",
     badge: "new",
