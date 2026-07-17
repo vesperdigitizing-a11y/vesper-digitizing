@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import ServicesHero from "@/components/ServicesHero";
-import ServicesContent from "@/components/ServicesContent";
+// import ServicesContent from "@/components/ServicesContent";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ServicesProcess from "@/components/ServicesProcess";
 import ServicesPortfolio from "@/components/ServicesPortfolio";
 import ServicesCTA from "@/components/ServicesCTA";
 import Footer from "@/components/Footer";
+import Services from "@/components/Services";
+import ServicesContent from "@/components/ServicesContent";
 
 export const metadata: Metadata = {
   title: "Our Services | Vesper Digitizing",
@@ -22,7 +24,8 @@ export default function ServicesPage() {
       <main className="flex-1">
         <ServicesHero />
         <Suspense fallback={null}>
-          <ServicesContent />
+          <Services />
+          {/* <ServicesContent/> */}
         </Suspense>
         <WhyChooseUs />
         <ServicesProcess />

@@ -87,7 +87,8 @@ const CATEGORIES: Category[] = [
     filterSlug: "towel",
     label: "Towel Digitizing",
     tag: "Towel Embroidery",
-    image: "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
+    image:
+      "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
     description:
       "Premium towel embroidery for hotels, spas, resorts and hospitality branding.",
   },
@@ -105,7 +106,8 @@ const CATEGORIES: Category[] = [
     filterSlug: "vector",
     label: "Vector Conversion",
     tag: "Vector Art Conversion",
-    image: "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
+    image:
+      "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
     description:
       "Professional raster-to-vector conversion for print-ready artwork.",
   },
@@ -222,21 +224,24 @@ export default function Portfolio() {
           </div>
         </ScrollReveal>
 
-        <div
-          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {filtered.map((cat, i) => (
-            <CategoryCard key={cat.id} category={cat} index={i} />
-          ))}
-        </div>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((cat, i) => {
+            const isLast = i === filtered.length - 1;
+            const isSingleLastRow = filtered.length % 3 === 1;
 
+            return (
+              <div
+                key={cat.id}
+                className={isLast && isSingleLastRow ? "lg:col-start-2" : ""}
+              >
+                <CategoryCard category={cat} index={i} />
+              </div>
+            );
+          })}
+        </div>
         <ScrollReveal delay={300}>
           <div className="mt-10 flex justify-center">
-            <MagneticButton
-              href="/portfolio"
-              size="md"
-              variant="solid"
-            >
+            <MagneticButton href="/portfolio" size="md" variant="solid">
               Explore Portfolio
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </MagneticButton>

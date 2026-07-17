@@ -91,12 +91,22 @@ export default function Services() {
 
         <ScrollReveal
           stagger
-          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 justify-center"
         >
-          {SERVICES.map((s) => {
+          {SERVICES.map((s, index) => {
             const Icon = IconByName[s.icon];
             return (
-              <TiltCard key={s.title} max={10}>
+              <TiltCard
+                className={
+                  index === 8
+                    ? "lg:col-start-2"
+                    : index === 9
+                      ? "lg:col-start-3"
+                      : ""
+                }
+                key={s.title}
+                max={10}
+              >
                 <Link href={`/services?category=${s.slug}`} scroll={false}>
                   <article className="group relative flex h-full flex-col items-start overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl cursor-pointer">
                     <div
