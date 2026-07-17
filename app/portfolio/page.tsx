@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import PortfolioHero from "@/components/PortfolioHero";
 import PortfolioGallery from "@/components/PortfolioGallery";
@@ -18,7 +19,9 @@ export default function PortfolioPage() {
       <Header />
       <main className="flex-1">
         <PortfolioHero />
-        <PortfolioGallery />
+        <Suspense fallback={null}>
+          <PortfolioGallery />
+        </Suspense>
         <PortfolioFeatures />
         <PortfolioCTA />
       </main>

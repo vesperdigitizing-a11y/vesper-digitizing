@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
@@ -9,6 +10,8 @@ import MagneticButton from "./MagneticButton";
 
 type Category = {
   id: string;
+  /** Maps to PortfolioGallery FILTER value */
+  filterSlug: string;
   label: string;
   tag: string;
   image: string;
@@ -18,6 +21,7 @@ type Category = {
 const CATEGORIES: Category[] = [
   {
     id: "jacket-back",
+    filterSlug: "jacket-back",
     label: "Jacket Back",
     tag: "Jacket Back Embroidery",
     image: "/images/products/jacket-back/jacket-back-1.jpeg",
@@ -26,6 +30,7 @@ const CATEGORIES: Category[] = [
   },
   {
     id: "cap-digitizing",
+    filterSlug: "cap",
     label: "Cap Digitizing",
     tag: "Cap Digitizing",
     image: "/images/products/cap-digitizing/cap-embroidery-1.jpeg",
@@ -34,6 +39,7 @@ const CATEGORIES: Category[] = [
   },
   {
     id: "patch-digitizing",
+    filterSlug: "patches",
     label: "Patch Digitizing",
     tag: "Patch Digitizing",
     image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
@@ -78,36 +84,38 @@ function CategoryCard({
 }) {
   return (
     <ScrollReveal delay={index * 100}>
-      <article className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl">
-        <div className="absolute inset-0">
-          <Image
-            src={category.image}
-            alt={category.tag}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        </div>
+      <Link href={`/portfolio?category=${category.filterSlug}`} scroll={false}>
+        <article className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl cursor-pointer">
+          <div className="absolute inset-0">
+            <Image
+              src={category.image}
+              alt={category.tag}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+          </div>
 
-        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-          <span className="inline-block rounded-full bg-[#c8102e]/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-            {category.label}
+          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+            <span className="inline-block rounded-full bg-[#c8102e]/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+              {category.label}
+            </span>
+            <h3 className="mt-2 font-display text-lg font-bold text-white sm:text-xl">
+              {category.tag}
+            </h3>
+            <p className="mt-1 line-clamp-2 text-sm text-white/70">
+              {category.description}
+            </p>
+          </div>
+
+          <span className="absolute top-4 right-4 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[#c8102e]">
+            <ArrowRight className="h-4 w-4" />
           </span>
-          <h3 className="mt-2 font-display text-lg font-bold text-white sm:text-xl">
-            {category.tag}
-          </h3>
-          <p className="mt-1 line-clamp-2 text-sm text-white/70">
-            {category.description}
-          </p>
-        </div>
 
-        <span className="absolute top-4 right-4 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[#c8102e]">
-          <ArrowRight className="h-4 w-4" />
-        </span>
-
-        <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
-      </article>
+          <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
+        </article>
+      </Link>
     </ScrollReveal>
   );
 }

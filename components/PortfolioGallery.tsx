@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
@@ -303,22 +304,64 @@ const INITIAL_COUNT = 12;
 const LOAD_MORE_COUNT = 12;
 
 export default function PortfolioGallery() {
-  const [active, setActive] = useState("all");
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
+  const validFilters = new Set(FILTERS.map((f) => f.value));
+  const initialFilter =
+    categoryParam && validFilters.has(categoryParam) ? categoryParam : "all";
+
+  const [active, setActive] = useState(initialFilter);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const hasScrolledFromUrl = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // On mount (or param change), if we have a valid category, scroll to gallery
+  useEffect(() => {
+    if (
+      categoryParam &&
+      validFilters.has(categoryParam) &&
+      !hasScrolledFromUrl.current
+    ) {
+      hasScrolledFromUrl.current = true;
+      setActive(categoryParam);
+      setVisibleCount(INITIAL_COUNT);
+      // Wait for layout to settle, then scroll so section top is 80px below viewport top
+      const scroll = () => {
+        if (!sectionRef.current) return;
+        const y =
+          sectionRef.current.getBoundingClientRect().top + window.scrollY - 20;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      };
+      // Use requestAnimationFrame to ensure DOM has painted
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => {
+          scroll();
+        });
+        return () => cancelAnimationFrame(raf2);
+      });
+      return () => cancelAnimationFrame(raf1);
+    }
+  }, [categoryParam, validFilters]);
+
+  const handleFilterChange = useCallback((value: string) => {
+    setActive(value);
+    setVisibleCount(INITIAL_COUNT);
+    hasScrolledFromUrl.current = true; // prevent re-scroll after manual switch
+  }, []);
 
   const filtered =
     active === "all" ? ITEMS : ITEMS.filter((i) => i.category === active);
-
-  const handleFilterChange = (value: string) => {
-    setActive(value);
-    setVisibleCount(INITIAL_COUNT);
-  };
 
   const visibleItems = filtered.slice(0, visibleCount);
   const hasMore = filtered.length > visibleCount;
 
   return (
-    <section id="portfolio-gallery" className="bg-white py-16 sm:py-24">
+    <section
+      id="portfolio-gallery"
+      ref={sectionRef}
+      className="bg-white py-16 sm:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center">
