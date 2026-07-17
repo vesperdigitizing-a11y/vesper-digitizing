@@ -32,17 +32,17 @@ const NAV: NavItem[] = [
     // Services dropdown with sub-pages
     children: [
       {
-        label: "All Services",
+        label: "Digitizing Services",
         href: "/services",
         desc: "Full digitizing catalog",
       },
       {
-        label: "Patches",
+        label: "Patches Services",
         href: "/patches",
         desc: "Merrow, laser cut, woven, chenille",
       },
       {
-        label: "Vector Conversion",
+        label: "Vector Services",
         href: "/vectors",
         desc: "Raster to vector, logo vectorization",
       },
