@@ -14,7 +14,7 @@ export default function AboutHero() {
     <section
       className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
       style={{
-        backgroundImage: 'url("/images/aboutHero.png")',
+        backgroundImage: 'url("/images/aboutHero.jpeg")',
       }}
     >
       {/* Readability overlay */}
@@ -24,7 +24,7 @@ export default function AboutHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
       />
 
-            {/* White overlay — mobile/tablet only */}
+      {/* White overlay — mobile/tablet only */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -42,7 +42,7 @@ export default function AboutHero() {
         }}
       />
 
-            {/* Light overlay — desktop only (prevents image from overlapping text) */}
+      {/* Light overlay — desktop only (prevents image from overlapping text) */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 hidden lg:block"
@@ -99,7 +99,10 @@ export default function AboutHero() {
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
             <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
               {STATS.map((s) => (
-                <div key={s.label} className="group flex items-start gap-1.5 sm:gap-2">
+                <div
+                  key={s.label}
+                  className="group flex items-start gap-1.5 sm:gap-2"
+                >
                   <s.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
                   <div className="leading-tight">
                     <div className="whitespace-nowrap font-display text-sm font-extrabold text-[#1a1a1a] sm:text-lg">
