@@ -14,7 +14,7 @@ import ServicesContent from "@/components/ServicesContent";
 export const metadata: Metadata = {
   title: "Our Services | Vesper Digitizing",
   description:
-    "Professional embroidery digitizing services — left chest logos, cap digitizing, jacket back, 3D puff, applique, patches, vector conversion and custom embroidery.",
+    "Professional embroidery digitizing services — left chest logos, cap digitizing, jacket back, 3D puff, applique, patches, vector art and custom embroidery.",
 };
 
 export default function ServicesPage() {

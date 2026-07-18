@@ -54,7 +54,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: "penTool",
-    title: "Vector Conversion",
+    title: "Vector Art",
     desc: "Convert any image to clean vector art",
     slug: "vector-conversion",
   },
@@ -80,8 +80,11 @@ const SERVICES: Service[] = [
 
 export default function Services() {
   const pathname = usePathname();
-  
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    slug: string,
+  ) => {
     // If already on services page, manually handle navigation with scroll
     if (pathname === "/services") {
       e.preventDefault();
@@ -95,10 +98,11 @@ export default function Services() {
         const element = document.getElementById("portfolio");
         if (element) {
           const headerOffset = 200; // Increased offset for more scroll down
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const elementPosition =
+            element.getBoundingClientRect().top + window.pageYOffset;
           window.scrollTo({
             top: elementPosition - headerOffset,
-            behavior: "smooth"
+            behavior: "smooth",
           });
         }
       }, 300);
@@ -134,8 +138,8 @@ export default function Services() {
                 key={s.title}
                 max={10}
               >
-                <Link 
-                  href={`/services?category=${s.slug}`} 
+                <Link
+                  href={`/services?category=${s.slug}`}
                   scroll={false}
                   onClick={(e) => handleClick(e, s.slug)}
                 >

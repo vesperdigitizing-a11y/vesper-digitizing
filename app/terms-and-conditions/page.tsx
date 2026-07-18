@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 const SECTIONS = [
   {
     title: "1. Acceptance of Terms",
-    body: "By accessing or using the Vesper Digitizing website (vesperdigitizing.com) and our services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our website or services. These terms apply to all visitors, users, and customers who access or use our digitizing services, vector conversion, patch manufacturing, or online store. Your continued use of our services constitutes acceptance of any updated or modified terms.",
+    body: "By accessing or using the Vesper Digitizing website (vesperdigitizing.com) and our services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our website or services. These terms apply to all visitors, users, and customers who access or use our digitizing services, vector art, patch manufacturing, or online store. Your continued use of our services constitutes acceptance of any updated or modified terms.",
   },
   {
     title: "2. Services Provided",
-    body: "Vesper Digitizing provides professional embroidery digitizing services, including but not limited to: left chest logos, cap digitizing, jacket back designs, 3D puff digitizing, applique digitizing, Patches, and custom embroidery. We also offer raster-to-vector conversion services and custom patch manufacturing. All services are subject to availability, and we reserve the right to refuse or decline any project at our discretion. Delivery timelines are estimates and may vary based on project complexity and current workload. Rush delivery (under 12 hours) is available for an additional 30% fee.",
+    body: "Vesper Digitizing provides professional embroidery digitizing services, including but not limited to: left chest logos, cap digitizing, jacket back designs, 3D puff digitizing, applique digitizing, Patches, and custom embroidery. We also offer raster-to-vector art services and custom patch manufacturing. All services are subject to availability, and we reserve the right to refuse or decline any project at our discretion. Delivery timelines are estimates and may vary based on project complexity and current workload. Rush delivery (under 12 hours) is available for an additional 30% fee.",
   },
   {
     title: "3. Orders and Payment",
@@ -24,15 +24,15 @@ const SECTIONS = [
   },
   {
     title: "4. Artwork and Intellectual Property",
-    body: "You warrant that any artwork, logos, designs, or files you submit to us for digitizing or vector conversion do not infringe upon the intellectual property rights of any third party. You retain full ownership of your submitted artwork. Upon completion of services and full payment, the digitized files and vector art become your property. Vesper Digitizing retains the right to display completed work in our portfolio and marketing materials unless you explicitly request otherwise in writing. We do not claim ownership of your original designs, but we own the digitizing technique and stitch file methodology used to create the final product.",
+    body: "You warrant that any artwork, logos, designs, or files you submit to us for digitizing or vector art do not infringe upon the intellectual property rights of any third party. You retain full ownership of your submitted artwork. Upon completion of services and full payment, the digitized files and vector art become your property. Vesper Digitizing retains the right to display completed work in our portfolio and marketing materials unless you explicitly request otherwise in writing. We do not claim ownership of your original designs, but we own the digitizing technique and stitch file methodology used to create the final product.",
   },
   {
     title: "5. Revisions and Approvals",
-    body: "We offer free unlimited revisions on all digitizing and vector conversion projects until the proof matches your requirements. Revisions must be requested within 7 days of receiving the initial proof. After 7 days, the project is considered approved and additional changes may incur charges. For physical patch manufacturing, revisions to the digitized file must be completed before production begins. Once production starts, changes to the physical patch (size, backing, colors) cannot be made without additional charges. You are responsible for carefully reviewing all proofs before approving them for production.",
+    body: "We offer free unlimited revisions on all digitizing and vector art projects until the proof matches your requirements. Revisions must be requested within 7 days of receiving the initial proof. After 7 days, the project is considered approved and additional changes may incur charges. For physical patch manufacturing, revisions to the digitized file must be completed before production begins. Once production starts, changes to the physical patch (size, backing, colors) cannot be made without additional charges. You are responsible for carefully reviewing all proofs before approving them for production.",
   },
   {
     title: "6. Delivery and Turnaround",
-    body: "Standard turnaround time for digitizing services is 24 hours from the time of order confirmation. Rush delivery (under 12 hours) is available for an additional 30% fee. Vector conversion services typically take 24-48 hours depending on complexity. Physical patch manufacturing takes 7-10 business days after file approval and payment. Digital files are delivered via email or download link. We are not liable for delays caused by incomplete artwork, unclear instructions, or circumstances beyond our control. If we fail to meet the stated turnaround time, you may request a partial refund of the rush fee (if applicable), but standard turnaround times are estimates and not guaranteed.",
+    body: "Standard turnaround time for digitizing services is 24 hours from the time of order confirmation. Rush delivery (under 12 hours) is available for an additional 30% fee. vector art services typically take 24-48 hours depending on complexity. Physical patch manufacturing takes 7-10 business days after file approval and payment. Digital files are delivered via email or download link. We are not liable for delays caused by incomplete artwork, unclear instructions, or circumstances beyond our control. If we fail to meet the stated turnaround time, you may request a partial refund of the rush fee (if applicable), but standard turnaround times are estimates and not guaranteed.",
   },
   {
     title: "7. Store Purchases and Downloads",
@@ -40,7 +40,7 @@ const SECTIONS = [
   },
   {
     title: "8. Refund Policy",
-    body: "For digitizing and vector conversion services: If you are not satisfied with the initial proof, we offer unlimited free revisions. If we are unable to meet your requirements after reasonable revisions, you may request a full refund before the final files are delivered. Once final files are delivered and downloaded, refunds are no longer available. For store purchases: Due to the digital nature of our products, refunds are not available after download. If you experience a technical issue with a downloaded file, contact us within 7 days for a replacement or resolution. Physical patch orders: Refunds are not available once production has begun. If patches are defective or do not match the approved proof, we will reprint or refund the defective items.",
+    body: "For digitizing and vector art services: If you are not satisfied with the initial proof, we offer unlimited free revisions. If we are unable to meet your requirements after reasonable revisions, you may request a full refund before the final files are delivered. Once final files are delivered and downloaded, refunds are no longer available. For store purchases: Due to the digital nature of our products, refunds are not available after download. If you experience a technical issue with a downloaded file, contact us within 7 days for a replacement or resolution. Physical patch orders: Refunds are not available once production has begun. If patches are defective or do not match the approved proof, we will reprint or refund the defective items.",
   },
   {
     title: "9. Limitation of Liability",

@@ -262,25 +262,25 @@ const ITEMS: PortfolioItem[] = [
       "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
   },
 
-  /* ── Vector Conversion ── */
+  /* ── Vector Art ── */
   {
-    title: "Vector Conversion — Cartoon Character Art",
+    title: "Vector Art — Cartoon Character Art",
     category: "vector",
     image:
       "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
   },
   {
-    title: "Vector Conversion — Pikachu Dragon Art",
+    title: "Vector Art — Pikachu Dragon Art",
     category: "vector",
     image: "/images/products/vector-conversion/vector-pikachu-dragon-art.jpg",
   },
   {
-    title: "Vector Conversion — Snack Bandit Art",
+    title: "Vector Art — Snack Bandit Art",
     category: "vector",
     image: "/images/products/vector-conversion/vector-snack-bandit-art.jpg",
   },
   {
-    title: "Vector Conversion — Wolf Illustration",
+    title: "Vector Art — Wolf Illustration",
     category: "vector",
     image: "/images/products/vector-conversion/vector-wolf-illustration.jpg",
   },
@@ -297,7 +297,7 @@ const FILTERS = [
   { label: "Jacket Back", value: "jacket-back" },
   { label: "Sleeve Logos", value: "shirt-sleeve" },
   { label: "Towel Digitizing", value: "towel" },
-  { label: "Vector Conversion", value: "vector" },
+  { label: "Vector Art", value: "vector" },
 ];
 
 const INITIAL_COUNT = 12;
@@ -420,7 +420,6 @@ export default function PortfolioGallery() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#1a1a1a] sm:text-sm">
                   {item.title}
                 </span>
-
               </div>
             </article>
           ))}

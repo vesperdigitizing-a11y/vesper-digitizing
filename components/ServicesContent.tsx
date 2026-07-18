@@ -61,7 +61,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: "penTool",
-    title: "Vector Conversion",
+    title: "Vector Art",
     desc: "Convert any image or logo into high quality vector artwork",
     slug: "vector-conversion",
   },
@@ -156,7 +156,10 @@ export default function ServicesContent() {
             return (
               <TiltCard key={s.title} max={10}>
                 {isPatchCard ? (
-                  <div className="cursor-pointer" onClick={() => setPatchModalOpen(true)}>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => setPatchModalOpen(true)}
+                  >
                     {cardContent}
                   </div>
                 ) : s.slug ? (
@@ -176,7 +179,10 @@ export default function ServicesContent() {
         </ScrollReveal>
       </div>
 
-      <PatchModal open={patchModalOpen} onClose={() => setPatchModalOpen(false)} />
+      <PatchModal
+        open={patchModalOpen}
+        onClose={() => setPatchModalOpen(false)}
+      />
     </section>
   );
 }

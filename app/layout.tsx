@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "cap digitizing",
     "3D puff digitizing",
     "Patches",
-    "vector conversion",
+    "Vector Art",
     "vesper digitizing",
   ],
   authors: [{ name: "Vesper Digitizing" }],

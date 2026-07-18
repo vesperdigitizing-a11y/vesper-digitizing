@@ -79,8 +79,8 @@ const CATEGORIES: Category[] = [
   },
   {
     id: "vector-conversion",
-    label: "Vector Conversion",
-    tag: "Vector Conversion",
+    label: "Vector Art",
+    tag: "Vector Art",
     image:
       "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
     description: "Convert raster artwork into clean print-ready vectors.",

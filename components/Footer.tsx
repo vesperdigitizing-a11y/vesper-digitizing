@@ -29,7 +29,7 @@ const SERVICES = [
   { name: "3D Puff Digitizing", href: "/services?category=3d-puff" },
   { name: "Applique Digitizing", href: "/services?category=applique" },
   { name: "Custom Patches", href: "/patches" },
-  { name: "Vector Conversion", href: "/vectors" },
+  { name: "Vector Art", href: "/vectors" },
   { name: "Custom Embroidery", href: "/services" },
 ];
 
@@ -93,7 +93,7 @@ export default function Footer() {
               We provide premium quality digitizing services with fast delivery
               and unbeatable customer support.
             </p>
-            
+
             {/* Social Icons */}
             <div className="mt-5 flex items-center gap-2.5">
               {SOCIALS.map(({ Icon, label, href }, i) => (
@@ -148,13 +148,18 @@ export default function Footer() {
                   >
                     <span className="relative flex items-center gap-2">
                       <span className="h-px w-0 bg-[#c8102e] transition-all duration-300 group-hover:w-3" />
-                      <svg 
-                        className="absolute -right-4 top-1/2 -translate-y-1/2 h-3 w-3 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#c8102e]" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <svg
+                        className="absolute -right-4 top-1/2 -translate-y-1/2 h-3 w-3 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#c8102e]"
+                        fill="none"
+                        stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </span>
                     {s.name}
@@ -192,7 +197,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4">
               Contact Us
             </h3>
-            
+
             <ul className="space-y-3 text-sm text-white/70">
               {/* Email */}
               <li className="group flex items-start gap-3">
@@ -204,7 +209,7 @@ export default function Footer() {
                   support@vesperdigitizing.com
                 </a>
               </li>
-              
+
               {/* Phone */}
               <li className="group flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
@@ -223,7 +228,7 @@ export default function Footer() {
                   </a>
                 </span>
               </li>
-              
+
               {/* Business Hours */}
               <li className="group flex items-start gap-3">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
@@ -233,15 +238,19 @@ export default function Footer() {
                   Sunday: Closed
                 </span>
               </li>
-              
+
               {/* Location - CORRECTED TO LA ADDRESS */}
               <li className="group flex items-start gap-3 pt-2 border-t border-white/10">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
                 <div className="leading-relaxed">
                   <p className="font-medium text-white/90">Head Office</p>
-                  <p className="text-sm text-white/60 mt-0.5">1901 Avenue of the Stars, Suite 2000</p>
-                  <p className="text-sm text-white/60">Los Angeles, CA 90067, USA</p>
-                  
+                  <p className="text-sm text-white/60 mt-0.5">
+                    1901 Avenue of the Stars, Suite 2000
+                  </p>
+                  <p className="text-sm text-white/60">
+                    Los Angeles, CA 90067, USA
+                  </p>
+
                   <a
                     href="https://maps.google.com/?q=1901+Avenue+of+the+Stars+Suite+2000+Los+Angeles+CA+90067"
                     target="_blank"
@@ -262,10 +271,7 @@ export default function Footer() {
               <p className="text-xs text-white/60 mb-3 leading-relaxed">
                 Subscribe for updates and exclusive offers.
               </p>
-              <form
-                className="flex gap-2"
-                onSubmit={(e) => e.preventDefault()}
-              >
+              <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="email"
                   placeholder="Your Email"

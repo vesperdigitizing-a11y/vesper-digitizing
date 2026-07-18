@@ -104,12 +104,11 @@ const CATEGORIES: Category[] = [
   {
     id: "vector-conversion",
     filterSlug: "vector",
-    label: "Vector Conversion",
-    tag: "Vector Art Conversion",
+    label: "Vector Art",
+    tag: "Vector Art",
     image:
       "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
-    description:
-      "Professional raster-to-vector conversion for print-ready artwork.",
+    description: "Professional raster-to-vector art for print-ready artwork.",
   },
 ];
 
