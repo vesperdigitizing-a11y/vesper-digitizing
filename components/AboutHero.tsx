@@ -52,8 +52,9 @@ export default function AboutHero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 lg:px-8 lg:pt-32 lg:pb-16">
-        <div className="max-w-xl">
+      {/* ✅ FIXED: Same padding as ServicesHero */}
+      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-8 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-20 lg:pb-28 lg:px-8">
+        <div className="flex flex-col items-start">
           <ScrollReveal>
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
               About Vesper Digitizing
@@ -117,6 +118,23 @@ export default function AboutHero() {
             </div>
           </ScrollReveal>
         </div>
+
+        {/* Stats card - floating on right side (desktop only) */}
+        <ScrollReveal variant="scale" delay={500} className="relative hidden lg:block">
+          <div className="absolute bottom-0 right-0 z-20 flex items-center gap-3 rounded-xl bg-white/95 px-5 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur animate-float">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
+              <Trophy className="h-6 w-6" />
+            </span>
+            <div>
+              <div className="text-2xl font-extrabold text-[#c8102e] font-display">
+                <AnimatedCounter value={5000} suffix="+" />
+              </div>
+              <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
+                Projects Delivered
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
