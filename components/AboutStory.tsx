@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Target, Eye, Diamond } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 
@@ -24,16 +25,18 @@ export default function AboutStory() {
     <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          {/* Left: team/office photo placeholder */}
+          {/* Left: Team photo - zoomed to cover border */}
           <ScrollReveal variant="left">
-            <div className="group placeholder-grid relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-[#e5e7eb] transition-all duration-500 hover:ring-[#c8102e]/30 hover:shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="rounded-md bg-white/80 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
-                  Team Photo
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl bg-[#1a1a1a]/90 px-4 py-3 backdrop-blur-sm transition-transform duration-500 group-hover:scale-105">
-                <span className="font-display text-xl font-extrabold text-[#c8102e]">10+</span>
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-[#e5e7eb] transition-all duration-500 hover:ring-[#c8102e]/30 hover:shadow-2xl translate-y-0 hover:-translate-y-2">
+              <Image
+                src="/images/aboutTeam.jpeg"
+                alt="Vesper Digitizing Team"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-all duration-700 ease-out scale-110 group-hover:scale-125"
+              />
+              <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl bg-[#1a1a1a]/90 px-4 py-3 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:bg-[#c8102e]">
+                <span className="font-display text-xl font-extrabold text-[#c8102e] group-hover:text-white transition-colors duration-300">10+</span>
                 <span className="text-[11px] font-semibold uppercase leading-tight tracking-wider text-white">
                   Years of
                   <br />

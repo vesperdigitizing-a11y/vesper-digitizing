@@ -177,7 +177,7 @@ export default function VectorsPage() {
         {/* HERO */}
         <section
           className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
-          style={{ backgroundImage: "url(/images/serviceHero.png)" }}
+          style={{ backgroundImage: "url(/images/vectorHero1.png)" }}
         >
           <div
             aria-hidden

@@ -95,7 +95,7 @@ export default function PatchesPage() {
       <Header />
       <main className="flex-1">
         {/* HERO */}
-        <section className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center" style={{ backgroundImage: "url(/images/serviceHero.png)" }}>
+        <section className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center" style={{ backgroundImage: "url(/images/patchesHero.jpeg)" }}>
           <div aria-hidden className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float" />
           <div aria-hidden className="absolute inset-0 z-0 lg:hidden" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)" }} />
           <div aria-hidden className="absolute inset-0 z-0 lg:hidden" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)" }} />
