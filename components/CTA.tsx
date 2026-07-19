@@ -34,7 +34,7 @@ export default function CTA() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="#quote"
+                href="/contact"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-7 text-sm font-semibold uppercase tracking-wide text-[#c8102e] shadow-xl transition-all duration-200 hover:bg-white/90 hover:shadow-2xl hover:scale-105"
               >
                 Get Free Quote
@@ -42,7 +42,7 @@ export default function CTA() {
               </a>
 
               <a
-                href="#contact"
+                href="/contact"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-white/80 bg-white/10 backdrop-blur-sm px-7 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition-all duration-200 hover:border-white hover:bg-white/20 hover:scale-105"
               >
                 <Phone className="h-4 w-4" />

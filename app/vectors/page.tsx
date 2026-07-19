@@ -22,19 +22,19 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 export const metadata: Metadata = {
   title: "Vector Art | Vesper Digitizing",
   description:
-    "Raster to Vector Art — logo vectorization, clip art, illustrations, and custom vector art. Scalable, print-ready vector files in any format.",
+    "Raster to Vector Art â logo vectorization, clip art, illustrations, and custom vector art. Scalable, print-ready vector files in any format.",
 };
 
 const VECTOR_TYPES = [
   {
     icon: "penTool" as IconName,
     title: "Logo Vectorization",
-    desc: "Convert your raster logo (PNG, JPG) into a crisp, scalable vector. Perfect for print, signage, embroidery and web — never pixelates at any size.",
+    desc: "Convert your raster logo (PNG, JPG) into a crisp, scalable vector. Perfect for print, signage, embroidery and web â never pixelates at any size.",
   },
   {
     icon: "layers" as IconName,
     title: "Raster to Vector",
-    desc: "Any image — photo, sketch, screenshot — converted to clean vector paths. No more pixelation, no more quality loss when scaling up.",
+    desc: "Any image â photo, sketch, screenshot â converted to clean vector paths. No more pixelation, no more quality loss when scaling up.",
   },
   {
     icon: "sparkles" as IconName,
@@ -54,7 +54,7 @@ const VECTOR_TYPES = [
   {
     icon: "patch" as IconName,
     title: "Embroidery Vectors",
-    desc: "Vector files prepped for embroidery digitizing — stitch paths, underlay, and pull-compensation built in from the start.",
+    desc: "Vector files prepped for embroidery digitizing â stitch paths, underlay, and pull-compensation built in from the start.",
   },
 ];
 
@@ -81,7 +81,7 @@ const PROCESS_STEPS = [
     num: "01",
     icon: "upload" as IconName,
     title: "Upload Image",
-    desc: "Send your raster image — PNG, JPG, photo, sketch. We accept any resolution and format.",
+    desc: "Send your raster image â PNG, JPG, photo, sketch. We accept any resolution and format.",
   },
   {
     num: "02",
@@ -93,7 +93,7 @@ const PROCESS_STEPS = [
     num: "03",
     icon: "penTool" as IconName,
     title: "Manual Tracing",
-    desc: "We manually trace every path — no auto-tracing. Clean curves, precise anchor points, perfect symmetry.",
+    desc: "We manually trace every path â no auto-tracing. Clean curves, precise anchor points, perfect symmetry.",
   },
   {
     num: "04",
@@ -105,7 +105,7 @@ const PROCESS_STEPS = [
     num: "05",
     icon: "send" as IconName,
     title: "Format Delivery",
-    desc: "Final files delivered in AI, EPS, SVG, PDF, and more — all formats included, no extra charge.",
+    desc: "Final files delivered in AI, EPS, SVG, PDF, and more â all formats included, no extra charge.",
   },
 ];
 
@@ -113,7 +113,7 @@ const WHY = [
   {
     icon: "diamond" as IconName,
     title: "Manual Tracing",
-    desc: "Every vector is hand-traced by a human artist — no auto-trace artifacts, no jagged edges.",
+    desc: "Every vector is hand-traced by a human artist â no auto-trace artifacts, no jagged edges.",
   },
   {
     icon: "zap" as IconName,
@@ -128,7 +128,7 @@ const WHY = [
   {
     icon: "shieldCheck" as IconName,
     title: "Print-Ready",
-    desc: "Every file is production-ready — proper color modes, clean paths, optimized for your use case.",
+    desc: "Every file is production-ready â proper color modes, clean paths, optimized for your use case.",
   },
   {
     icon: "tag" as IconName,
@@ -138,14 +138,14 @@ const WHY = [
   {
     icon: "globe" as IconName,
     title: "All Formats",
-    desc: "AI, EPS, SVG, PDF, CDR, DXF — delivered in one zip. Need a specific format? Just ask.",
+    desc: "AI, EPS, SVG, PDF, CDR, DXF â delivered in one zip. Need a specific format? Just ask.",
   },
 ];
 
 const FAQS = [
   {
-    q: "What\'s the difference between raster and vector?",
-    a: "Raster images (PNG, JPG) are made of pixels — they pixelate when scaled up. Vectors (AI, EPS, SVG) are made of mathematical paths — they scale infinitely without quality loss. If you need your logo on a business card AND a billboard, you need a vector.",
+    q: "What's the difference between raster and vector?",
+    a: "Raster images (PNG, JPG) are made of pixels â they pixelate when scaled up. Vectors (AI, EPS, SVG) are made of mathematical paths â they scale infinitely without quality loss. If you need your logo on a business card AND a billboard, you need a vector.",
   },
   {
     q: "Can you convert any image to vector?",
@@ -157,7 +157,7 @@ const FAQS = [
   },
   {
     q: "What file formats do I receive?",
-    a: "You receive all major vector formats in a single zip file: AI (Adobe Illustrator), EPS (universal), SVG (web), PDF (print), CDR (CorelDRAW), and DXF (CAD). Need a specific format? Just let us know — we deliver it at no extra cost.",
+    a: "You receive all major vector formats in a single zip file: AI (Adobe Illustrator), EPS (universal), SVG (web), PDF (print), CDR (CorelDRAW), and DXF (CAD). Need a specific format? Just let us know â we deliver it at no extra cost.",
   },
   {
     q: "How long does Vector Art take?",
@@ -165,7 +165,7 @@ const FAQS = [
   },
   {
     q: "Can you color-separate for screen printing?",
-    a: "Yes. We deliver print-ready vector files with proper color separation for screen printing, DTG, and heat transfer. Specify your print method at checkout and we\'ll optimize the file accordingly — including halftones, underbases, and trap if needed.",
+    a: "Yes. We deliver print-ready vector files with proper color separation for screen printing, DTG, and heat transfer. Specify your print method at checkout and we'll optimize the file accordingly â including halftones, underbases, and trap if needed.",
   },
 ];
 
@@ -221,7 +221,7 @@ export default function VectorsPage() {
 
               <ScrollReveal delay={200}>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/80 sm:text-lg">
-                  Convert any raster image — logos, photos, sketches, clip art —
+                  Convert any raster image â logos, photos, sketches, clip art â
                   into clean, scalable vector files. Print at any size without
                   losing quality.
                 </p>
@@ -230,7 +230,7 @@ export default function VectorsPage() {
               <ScrollReveal delay={300}>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <a
-                    href="#quote"
+                    href="/contact"
                     className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
                   >
                     Get Free Quote
@@ -302,7 +302,7 @@ export default function VectorsPage() {
               <SectionHeading
                 eyebrow="Vector Services"
                 title="Every Vector Type You Need"
-                subtitle="From logo vectorization to complex illustrations — we handle every conversion with precision and care."
+                subtitle="From logo vectorization to complex illustrations â we handle every conversion with precision and care."
               />
             </ScrollReveal>
             <ScrollReveal
@@ -448,7 +448,7 @@ export default function VectorsPage() {
               <SectionHeading
                 eyebrow="Why Choose Vesper?"
                 title="The Vector Experts"
-                subtitle="We\'ve converted thousands of images for brands, printers, embroiderers, and designers worldwide."
+                subtitle="We've converted thousands of images for brands, printers, embroiderers, and designers worldwide."
                 light
               />
             </ScrollReveal>
@@ -489,7 +489,7 @@ export default function VectorsPage() {
               <SectionHeading
                 eyebrow="FAQ"
                 title="Vector Questions"
-                subtitle="Everything you need to know about our vector services. Can\'t find an answer? Contact us."
+                subtitle="Everything you need to know about our vector services. Can't find an answer? Contact us."
               />
             </ScrollReveal>
             <ScrollReveal stagger className="mt-10 space-y-4">

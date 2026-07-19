@@ -162,10 +162,15 @@ export default function ContactForm() {
                   <p className="mt-1 text-xs text-white/60">
                     Chat with our support team in real-time
                   </p>
-                  <button className="mt-3 group inline-flex h-9 items-center gap-2 rounded-md bg-[#c8102e] px-4 text-xs font-semibold uppercase tracking-wide text-white transition-all hover:bg-[#a30d24]">
-                    Start Live Chat
+                  <a
+                    href="https://wa.me/11234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 group inline-flex h-9 items-center gap-2 rounded-md bg-[#c8102e] px-4 text-xs font-semibold uppercase tracking-wide text-white transition-all hover:bg-[#a30d24]"
+                  >
+                    Chat on WhatsApp
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

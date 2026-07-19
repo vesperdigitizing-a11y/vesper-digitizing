@@ -268,7 +268,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-[#c8102e] hover:text-[#a30d24] transition-colors duration-300 focus:outline-none focus:underline"
                   >
-                    View on Google Maps →
+                    View on Google Maps â
                   </a>
                 </div>
               </li>
@@ -282,9 +282,10 @@ export default function Footer() {
               <p className="text-xs text-white/60 mb-3 leading-relaxed">
                 Subscribe for updates and exclusive offers.
               </p>
-              <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); alert("Thank you for subscribing!"); (e.target as HTMLFormElement).reset(); }}>
                 <input
                   type="email"
+                  required
                   placeholder="Your Email"
                   aria-label="Your email address"
                   className="h-9 w-full min-w-0 rounded-md border border-white/15 bg-white/5 px-3 text-sm text-white placeholder-white/40 outline-none transition-all duration-300 focus:border-[#c8102e] focus:bg-white/10 focus:ring-1 focus:ring-[#c8102e]/50"
@@ -294,7 +295,7 @@ export default function Footer() {
                   className="group inline-flex h-9 shrink-0 items-center justify-center rounded-md bg-[#c8102e] px-4 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#a30d24] hover:shadow-[0_4px_12px_-4px_rgba(200,16,46,0.5)] focus:outline-none focus:ring-2 focus:ring-[#c8102e]/50"
                   aria-label="Subscribe to newsletter"
                 >
-                  Submit
+                  Subscribe
                   <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </button>
               </form>
@@ -305,7 +306,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
           <p className="text-xs text-white/60 order-2 sm:order-1">
-            © 2026 Vesper Digitizing. All Rights Reserved.
+            Â© 2026 Vesper Digitizing. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-white/60 order-1 sm:order-2">
             <a

@@ -22,7 +22,7 @@ export default function ServicesHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
       />
 
-            {/* White overlay — mobile/tablet only */}
+            {/* White overlay â mobile/tablet only */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -70,14 +70,14 @@ export default function ServicesHero() {
           <ScrollReveal delay={300}>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="#quote"
+                href="/contact"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
               >
                 Get Free Quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#portfolio"
+                href="/portfolio"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-[#1a1a1a] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#1a1a1a] transition-all hover:bg-[#1a1a1a] hover:text-white"
               >
                 View Pricing

@@ -12,14 +12,14 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 export const metadata: Metadata = {
   title: "Patches | Vesper Digitizing",
   description:
-    "Custom Patches — merrow border, laser cut, woven, chenille, PVC and iron-on patches in any shape or size. Fast turnaround, unlimited revisions.",
+    "Custom Patches â merrow border, laser cut, woven, chenille, PVC and iron-on patches in any shape or size. Fast turnaround, unlimited revisions.",
 };
 
 const PATCH_TYPES = [
   {
     icon: "patch" as IconName,
     title: "Merrow Border Patches",
-    desc: "Classic overlocked edge with a raised thread border. The traditional patch look — durable, clean, and timeless. Best for simple shapes like circles, squares, and rectangles.",
+    desc: "Classic overlocked edge with a raised thread border. The traditional patch look â durable, clean, and timeless. Best for simple shapes like circles, squares, and rectangles.",
   },
   {
     icon: "layers" as IconName,
@@ -34,7 +34,7 @@ const PATCH_TYPES = [
   {
     icon: "cube" as IconName,
     title: "Chenille Patches",
-    desc: "Fuzzy, raised chenille yarn for varsity letters and mascot patches. The classic letterman jacket look — bold, textured, and nostalgic.",
+    desc: "Fuzzy, raised chenille yarn for varsity letters and mascot patches. The classic letterman jacket look â bold, textured, and nostalgic.",
   },
   {
     icon: "sparkles" as IconName,
@@ -44,7 +44,7 @@ const PATCH_TYPES = [
   {
     icon: "shirt" as IconName,
     title: "Iron-On Patches",
-    desc: "Heat-seal backing for easy at-home application. Just press with an iron for 30 seconds — no sewing required. Permanent bond that survives the wash.",
+    desc: "Heat-seal backing for easy at-home application. Just press with an iron for 30 seconds â no sewing required. Permanent bond that survives the wash.",
   },
 ];
 
@@ -56,23 +56,23 @@ const BACKINGS = [
 ];
 
 const SIZES = [
-  { size: `1" – 2"`, desc: "Small cap and collar patches" },
-  { size: `2" – 3"`, desc: "Standard left-chest size" },
-  { size: `3" – 4"`, desc: "Medium jacket and bag patches" },
-  { size: `4" – 6"`, desc: "Large back and banner patches" },
+  { size: `1" â 2"`, desc: "Small cap and collar patches" },
+  { size: `2" â 3"`, desc: "Standard left-chest size" },
+  { size: `3" â 4"`, desc: "Medium jacket and bag patches" },
+  { size: `4" â 6"`, desc: "Large back and banner patches" },
   { size: `6"+`, desc: "Oversized and custom shapes" },
 ];
 
 const PROCESS_STEPS = [
-  { num: "01", icon: "upload" as IconName, title: "Send Your Design", desc: "Upload your logo, sketch, or reference image in any format — we accept them all." },
+  { num: "01", icon: "upload" as IconName, title: "Send Your Design", desc: "Upload your logo, sketch, or reference image in any format â we accept them all." },
   { num: "02", icon: "search" as IconName, title: "Design Review", desc: "Our digitizers analyze your artwork and recommend the best patch type, size, and backing." },
   { num: "03", icon: "penTool" as IconName, title: "Digitizing", desc: "We map every stitch path, density, and color stop with precision for clean production." },
   { num: "04", icon: "shieldCheck" as IconName, title: "Proof & Approve", desc: "You receive a digital proof simulation. Free unlimited revisions until it's exactly right." },
-  { num: "05", icon: "send" as IconName, title: "Production Files", desc: "Final files delivered in DST, PES, JEF, and more — ready for any embroidery machine." },
+  { num: "05", icon: "send" as IconName, title: "Production Files", desc: "Final files delivered in DST, PES, JEF, and more â ready for any embroidery machine." },
 ];
 
 const WHY = [
-  { icon: "diamond" as IconName, title: "Stitch Quality", desc: "Tight, clean stitches with proper density and underlay — no gaps, no puckering." },
+  { icon: "diamond" as IconName, title: "Stitch Quality", desc: "Tight, clean stitches with proper density and underlay â no gaps, no puckering." },
   { icon: "zap" as IconName, title: "24h Turnaround", desc: "Most patch files delivered within 24 hours. Rush available for +30%." },
   { icon: "refresh" as IconName, title: "Free Revisions", desc: "Unlimited revisions until the proof matches your vision. No extra charges, ever." },
   { icon: "shieldCheck" as IconName, title: "Wash-Tested", desc: "Every patch design is validated for 50+ wash cycles. Durability guaranteed." },
@@ -81,12 +81,12 @@ const WHY = [
 ];
 
 const FAQS = [
-  { q: "What's the minimum order quantity for patches?", a: "For digital Patches files, there's no minimum — even a single design is fine. For physical patch manufacturing, the minimum is typically 50 pieces. Contact us for exact pricing based on your quantity, size, and backing type." },
-  { q: "How long does Patches take?", a: "Standard turnaround is 24 hours for the digitized file. If you need it faster, rush delivery (under 12 hours) is available for an additional 30% fee. Physical patch manufacturing takes 7–10 business days after file approval." },
-  { q: "What file formats do you deliver?", a: "We deliver all major embroidery formats: DST (standard), PES (Brother), JEF (Janome), EXP, VP3, and XXX. You'll receive all formats in a single zip file — specify your machine at checkout or we send the full set." },
+  { q: "What's the minimum order quantity for patches?", a: "For digital Patches files, there's no minimum â even a single design is fine. For physical patch manufacturing, the minimum is typically 50 pieces. Contact us for exact pricing based on your quantity, size, and backing type." },
+  { q: "How long does Patches take?", a: "Standard turnaround is 24 hours for the digitized file. If you need it faster, rush delivery (under 12 hours) is available for an additional 30% fee. Physical patch manufacturing takes 7â10 business days after file approval." },
+  { q: "What file formats do you deliver?", a: "We deliver all major embroidery formats: DST (standard), PES (Brother), JEF (Janome), EXP, VP3, and XXX. You'll receive all formats in a single zip file â specify your machine at checkout or we send the full set." },
   { q: "Can you match my brand colors exactly?", a: "Yes. We use Madeira + Isacord polyester thread in 380+ colors and cross-reference your brand PMS/HEX codes against physical thread charts under daylight-balanced bulbs. Color matching is included at no extra cost." },
-  { q: "What's the difference between embroidered and woven patches?", a: "Embroidered patches have raised stitching on a twill backing — thicker, more tactile, and the classic patch look. Woven patches are made entirely from thread woven together — flatter, allows finer detail and smaller text, and feels smoother. We help you pick the right one for your design." },
-  { q: "Do you offer physical patch manufacturing too?", a: "Yes — we handle the full process from digitizing to manufacturing. After you approve the digital proof, we produce the physical patches in your chosen type (merrow, laser-cut, woven, chenille, PVC), size, and backing. Minimum 50 pieces." },
+  { q: "What's the difference between embroidered and woven patches?", a: "Embroidered patches have raised stitching on a twill backing â thicker, more tactile, and the classic patch look. Woven patches are made entirely from thread woven together â flatter, allows finer detail and smaller text, and feels smoother. We help you pick the right one for your design." },
+  { q: "Do you offer physical patch manufacturing too?", a: "Yes â we handle the full process from digitizing to manufacturing. After you approve the digital proof, we produce the physical patches in your chosen type (merrow, laser-cut, woven, chenille, PVC), size, and backing. Minimum 50 pieces." },
 ];
 
 export default function PatchesPage() {
@@ -121,13 +121,13 @@ export default function PatchesPage() {
 
               <ScrollReveal delay={200}>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/80 sm:text-lg">
-                  From merrow borders to laser-cut, woven, chenille and PVC — we digitize patches in any shape, size, or backing. Wash-tested up to 50 cycles, shipped worldwide.
+                  From merrow borders to laser-cut, woven, chenille and PVC â we digitize patches in any shape, size, or backing. Wash-tested up to 50 cycles, shipped worldwide.
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={300}>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <a href="#quote" className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]">
+                  <a href="/contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]">
                     Get Free Quote
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </a>

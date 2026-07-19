@@ -31,14 +31,14 @@ export default function ServicesCTA() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="#quote"
+                href="/contact"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-7 text-sm font-semibold uppercase tracking-wide text-[#c8102e] shadow-xl transition-all hover:bg-white/90 hover:scale-105 hover:shadow-2xl"
               >
                 Get Free Quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/80 bg-white/10 backdrop-blur-sm px-7 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition-all hover:bg-white/20 hover:scale-105"
               >
                 <Phone className="h-4 w-4" />

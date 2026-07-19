@@ -4,7 +4,7 @@
 //
 // Mounted once in app/layout.tsx (inside <CartProvider>). Reads isOpen,
 // items, subtotal from the cart context. Each line has a QtyStepper so the
-// user can + / - quantities directly in the cart — and the count in the
+// user can + / - quantities directly in the cart â and the count in the
 // header updates immediately because it derives from the same store.
 
 import { useEffect } from "react";
@@ -88,7 +88,7 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto">
           {!hydrated ? (
             <div className="flex h-full items-center justify-center px-6 text-center text-sm text-[#6b7280]">
-              Loading cart…
+              Loading cartâ¦
             </div>
           ) : items.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
@@ -189,13 +189,13 @@ export default function CartDrawer() {
               Shipping &amp; taxes calculated at checkout.
             </p>
 
-            <button
-              type="button"
+            <a
+              href="/contact"
               className="group mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#a30d24]"
             >
               Checkout
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </button>
+            </a>
 
             <div className="mt-3 flex items-center justify-between">
               <button

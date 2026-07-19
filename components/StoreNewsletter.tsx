@@ -33,11 +33,12 @@ export default function StoreNewsletter() {
 
           <form
             className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => { e.preventDefault(); alert("Thank you for subscribing!"); (e.target as HTMLFormElement).reset(); }}
           >
             <input
               type="email"
               placeholder="Enter your email address"
+              required
               aria-label="Email address"
               className="h-12 w-full rounded-md border border-white/30 bg-white/15 backdrop-blur-sm px-4 text-sm text-white placeholder-white/60 outline-none transition-all focus:border-white/50 focus:bg-white/25 shadow-lg"
             />
