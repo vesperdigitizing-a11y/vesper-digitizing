@@ -20,8 +20,9 @@ const TESTIMONIALS: Testimonial[] = [
     initials: "MT",
   },
   {
-    quote: "The stitch quality is perfect every time. Absolutely love their work.",
-    name: "Sarah J.",
+    quote:
+      "The stitch quality is perfect every time. Absolutely love their work.",
+    name: "Jessica.",
     country: "UK",
     initials: "SJ",
   },
@@ -69,7 +70,11 @@ export default function AboutTestimonials() {
           <button
             type="button"
             aria-label="Previous testimonial"
-            onClick={() => setActive((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+            onClick={() =>
+              setActive(
+                (i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
+              )
+            }
             className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-x-5 -translate-y-1/2 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#1a1a1a] shadow-sm transition-all hover:scale-110 hover:border-[#c8102e] hover:text-[#c8102e] lg:flex"
           >
             <ArrowRight className="h-4 w-4 rotate-180" />
@@ -109,7 +114,9 @@ export default function AboutTestimonials() {
                       {t.initials}
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-[#1a1a1a]">{t.name}</div>
+                      <div className="text-sm font-bold text-[#1a1a1a]">
+                        {t.name}
+                      </div>
                       <div className="text-xs text-[#6b7280]">{t.country}</div>
                     </div>
                   </div>

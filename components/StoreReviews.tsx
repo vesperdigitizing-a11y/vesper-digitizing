@@ -9,19 +9,22 @@ type Review = {
 
 const REVIEWS: Review[] = [
   {
-    quote: "Amazing quality designs and instant download. My go-to store for all embroidery files!",
+    quote:
+      "Amazing quality designs and instant download. My go-to store for all embroidery files!",
     name: "Michael T.",
     role: "USA",
     initials: "MT",
   },
   {
-    quote: "The font packs are incredible value. Commercial license included is a huge bonus!",
-    name: "Sarah K.",
+    quote:
+      "The font packs are incredible value. Commercial license included is a huge bonus!",
+    name: "Jessica.",
     role: "UK",
     initials: "SK",
   },
   {
-    quote: "Best embroidery design store I've used. Premium quality at fair prices.",
+    quote:
+      "Best embroidery design store I've used. Premium quality at fair prices.",
     name: "James R.",
     role: "Canada",
     initials: "JR",
@@ -66,7 +69,9 @@ export default function StoreReviews() {
                   {r.initials}
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#1a1a1a]">{r.name}</div>
+                  <div className="text-sm font-bold text-[#1a1a1a]">
+                    {r.name}
+                  </div>
                   <div className="text-xs text-[#6b7280]">{r.role}</div>
                 </div>
               </div>
