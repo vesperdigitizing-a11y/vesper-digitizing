@@ -65,28 +65,33 @@ export default function AboutTeam() {
                 </a>
               </div>
 
-              {/* Right: team photo placeholders */}
-              <ScrollReveal stagger className="grid grid-cols-2 sm:grid-cols-4">
+              {/* Right: team photos with frames */}
+              <ScrollReveal stagger className="grid grid-cols-2 sm:grid-cols-4 items-stretch">
                 {TEAM.map((m) => (
                   <div
                     key={m.name}
-                    className="group relative aspect-[3/4] overflow-hidden border-l border-white/10 first:border-l-0 sm:first:border-l"
+                    className="group relative overflow-hidden border-l border-white/10 first:border-l-0 sm:first:border-l p-2"
                   >
-                    <Image
-                      src={m.photo}
-                      alt={m.name}
-                      fill
-                      sizes="(min-width: 640px) 25vw, 50vw"
-                      className="object-cover grayscale-[15%] transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Hover gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#c8102e]/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 transition-transform duration-500 group-hover:translate-y-0">
-                      <h3 className="font-display text-sm font-bold text-white">
-                        {m.name}
-                      </h3>
-                      <p className="text-[11px] text-white/60">{m.role}</p>
-                      <p className="text-[10px] text-[#c8102e]">{m.exp}</p>
+                    {/* Frame container */}
+                    <div className="relative w-full h-full min-h-[280px] sm:min-h-[320px] lg:min-h-[100%] rounded-lg overflow-hidden ring-2 ring-white/20 shadow-xl">
+                      <Image
+                        src={m.photo}
+                        alt={m.name}
+                        fill
+                        sizes="(min-width: 640px) 25vw, 50vw"
+                        className="object-cover object-top grayscale-[15%] transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                      />
+                      {/* Hover gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#c8102e]/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      
+                      {/* Info overlay at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 pt-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="font-display text-sm font-bold text-white truncate">
+                          {m.name}
+                        </h3>
+                        <p className="text-[11px] text-white/70 truncate">{m.role}</p>
+                        <p className="text-[10px] text-[#c8102e] mt-0.5">{m.exp}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
