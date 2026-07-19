@@ -77,10 +77,10 @@ export default function ServicesHero() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="/portfolio"
+                href="/store#products"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-[#1a1a1a] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#1a1a1a] transition-all hover:bg-[#1a1a1a] hover:text-white"
               >
-                View Pricing
+                View Prices
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

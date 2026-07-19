@@ -138,7 +138,7 @@ export default function PatchModal({
               {patchProducts.length} patch designs available
             </p>
             <Link
-              href="/store"
+              href="/store#products"
               onClick={onClose}
               className="text-xs font-semibold text-[#c8102e] transition-colors hover:text-[#a30d24]"
             >

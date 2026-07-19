@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Search } from "./icons";
+import { Search } from "./icons";
 import AddToCartButton from "./AddToCartButton";
 import ScrollReveal from "./ScrollReveal";
 import {
@@ -185,14 +185,6 @@ export default function StoreProducts() {
                         {BADGE_LABELS[p.badge]}
                       </span>
                     )}
-                    <button
-                      type="button"
-                      aria-label="Add to wishlist"
-                      onClick={(e) => e.preventDefault()}
-                      className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#6b7280] shadow-sm transition-all duration-300 hover:scale-110 hover:text-[#c8102e]"
-                    >
-                      <Heart className="h-4 w-4" />
-                    </button>
 
                     {/* Hover overlay */}
                     <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">

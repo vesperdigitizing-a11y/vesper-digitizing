@@ -87,14 +87,14 @@ export default function StoreHero() {
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="/store"
+              href="#products"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-[#a30d24]"
             >
               Shop Now
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
-              href="/store"
+              href="#categories"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#c8102e] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#c8102e] transition-colors hover:bg-[#c8102e]/5"
             >
               Browse Categories

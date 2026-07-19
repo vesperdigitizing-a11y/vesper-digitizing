@@ -49,7 +49,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         <div className="mx-auto max-w-7xl px-4 py-3 text-xs text-[#6b7280] sm:px-6 lg:px-8">
           <Link href="/" className="hover:text-[#c8102e]">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/store" className="hover:text-[#c8102e]">Store</Link>
+          <Link href="/store#products" className="hover:text-[#c8102e]">Store</Link>
           <span className="mx-2">/</span>
           <span className="text-[#1a1a1a]">{product.name}</span>
         </div>
@@ -273,7 +273,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 </h2>
               </div>
               <Link
-                href="/store"
+                href="/store#products"
                 className="group hidden items-center gap-2 text-sm font-semibold uppercase tracking-wide text-[#c8102e] hover:underline sm:inline-flex"
               >
                 View All

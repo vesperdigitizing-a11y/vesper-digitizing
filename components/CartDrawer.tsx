@@ -104,7 +104,7 @@ export default function CartDrawer() {
                 </p>
               </div>
               <Link
-                href="/store"
+                href="/store#products"
                 onClick={closeCart}
                 className="group inline-flex h-10 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-5 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#a30d24]"
               >

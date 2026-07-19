@@ -57,7 +57,7 @@ export default function StoreCategories() {
             return (
               <TiltCard key={cat.title} max={10}>
                 <a
-                  href="/store"
+                  href="#products"
                   className="group relative flex h-full flex-col items-center overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-5 text-center shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl cursor-pointer"
                 >
                   {/* Gradient overlay on hover */}

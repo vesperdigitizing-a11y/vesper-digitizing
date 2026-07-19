@@ -22,7 +22,7 @@ export default function Store() {
                 title="Premium Embroidery Designs & More"
                 subtitle="Explore our collection of embroidery designs, fonts, and patch packs."
               />
-              <MagneticButton href="/store" size="md" variant="solid" className="mt-6">
+              <MagneticButton href="/store#products" size="md" variant="solid" className="mt-6">
                 Shop Now
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </MagneticButton>

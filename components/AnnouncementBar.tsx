@@ -12,7 +12,7 @@ const MESSAGES = [
     icon: Zap,
     text: "⚡ 50% OFF on all embroidery font packs — this week only!",
     cta: "Shop Now",
-    href: "/store",
+    href: "/store#products",
   },
   {
     icon: Sparkles,
