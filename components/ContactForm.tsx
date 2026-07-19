@@ -14,7 +14,7 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     title: "Email Address",
-    lines: ["support@vesperdigitizing.com", "sales@vesperdigitizing.com"],
+    lines: ["support@vesperdigitizing.com", "contact@vesperdigitizing.com"],
   },
   {
     icon: Clock,

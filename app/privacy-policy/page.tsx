@@ -52,7 +52,7 @@ const SECTIONS = [
   },
   {
     title: "11. Contact Us",
-    body: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at: Vesper Digitizing, 1901 Avenue of the Stars, Suite 2000, Los Angeles, CA 90067, USA. Email: support@vesperdigitizing.com. Phone: +1 (123) 456-7890. We are committed to resolving any privacy-related issues promptly and transparently.",
+    body: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at: Vesper Digitizing, 1901 Avenue of the Stars, Suite 2000, Los Angeles, CA 90067, USA. Email: support@vesperdigitizing.com. For legal inquiries: legal@vesperdigitizing.com. Phone: +1 (123) 456-7890. We are committed to resolving any privacy-related issues promptly and transparently.",
   },
 ];
 

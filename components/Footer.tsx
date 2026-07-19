@@ -210,6 +210,17 @@ export default function Footer() {
                 </a>
               </li>
 
+              {/* Contact Email */}
+              <li className="group flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
+                <a
+                  href="mailto:contact@vesperdigitizing.com"
+                  className="transition-colors duration-300 hover:text-[#c8102e] focus:outline-none focus:text-[#c8102e]"
+                >
+                  contact@vesperdigitizing.com
+                </a>
+              </li>
+
               {/* Phone */}
               <li className="group flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />

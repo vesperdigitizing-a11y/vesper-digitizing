@@ -60,7 +60,7 @@ const SECTIONS = [
   },
   {
     title: "13. Contact Information",
-    body: "If you have any questions or concerns about these Terms and Conditions, please contact us at: Vesper Digitizing, 1901 Avenue of the Stars, Suite 2000, Los Angeles, CA 90067, USA. Email: support@vesperdigitizing.com. Phone: +1 (123) 456-7890. Our business hours are Monday through Saturday, 9:00 AM to 7:00 PM (Pacific Time). We are committed to providing transparent and fair terms for all our customers.",
+    body: "If you have any questions or concerns about these Terms and Conditions, please contact us at: Vesper Digitizing, 1901 Avenue of the Stars, Suite 2000, Los Angeles, CA 90067, USA. Email: support@vesperdigitizing.com. For legal inquiries: legal@vesperdigitizing.com. Phone: +1 (123) 456-7890. Our business hours are Monday through Saturday, 9:00 AM to 7:00 PM (Pacific Time). We are committed to providing transparent and fair terms for all our customers.",
   },
 ];
 
