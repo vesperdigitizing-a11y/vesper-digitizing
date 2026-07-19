@@ -1,7 +1,8 @@
 "use client";
 
-// Enhanced Testimonials — 3-card grid matching the Services card style.
-// Stars turn yellow on hover AND on the active card.
+// Unified Testimonials component — reusable across ALL pages.
+// Accepts optional testimonials data + heading props so each page
+// can show its own relevant quotes while the component stays identical.
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -10,14 +11,14 @@ import ScrollReveal from "./ScrollReveal";
 import TiltCard from "./TiltCard";
 import { Quote, Star } from "./icons";
 
-type Testimonial = {
+export type Testimonial = {
   quote: string;
   name: string;
   country: string;
   avatar: string;
 };
 
-const TESTIMONIALS: Testimonial[] = [
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "Vesper Digitizing delivered outstanding quality and super fast turnaround. My go-to digitizing partner!",
@@ -44,40 +45,59 @@ const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export default function Testimonials() {
+export type TestimonialsProps = {
+  /** Section eyebrow text */
+  eyebrow?: string;
+  /** Section heading title */
+  title?: string;
+  /** Section subtitle */
+  subtitle?: string;
+  /** Custom testimonial data — defaults to the home-page set */
+  testimonials?: Testimonial[];
+  /** Optional extra class on the outer <section> */
+  className?: string;
+};
+
+export default function Testimonials({
+  eyebrow = "Testimonials",
+  title = "What Clients Say",
+  subtitle = "Real feedback from real clients who trust Vesper Digitizing with their embroidery work.",
+  testimonials = DEFAULT_TESTIMONIALS,
+  className = "",
+}: TestimonialsProps) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (paused) return;
     const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % TESTIMONIALS.length);
+      setActive((i) => (i + 1) % testimonials.length);
     }, 5000);
     return () => window.clearInterval(id);
-  }, [paused]);
+  }, [paused, testimonials.length]);
 
   return (
     <section
       id="testimonials"
-      className="relative bg-white py-16 sm:py-24"
+      className={`relative bg-white py-16 sm:py-24 ${className}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="Testimonials"
-            title="What Clients Say"
-            subtitle="Real feedback from real clients who trust Vesper Digitizing with their embroidery work."
+            eyebrow={eyebrow}
+            title={title}
+            subtitle={subtitle}
           />
         </ScrollReveal>
 
-        {/* All 3 cards — same style as Services cards */}
+        {/* Cards */}
         <ScrollReveal
           stagger
           className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {TESTIMONIALS.map((t, idx) => {
+          {testimonials.map((t, idx) => {
             const isActive = idx === active;
             return (
               <TiltCard key={t.name} max={10}>
@@ -89,18 +109,18 @@ export default function Testimonials() {
                   }`}
                   aria-hidden={!isActive ? "true" : undefined}
                 >
-                  {/* Gradient bg appears on hover — same as Services */}
+                  {/* Gradient bg on hover */}
                   <div
                     aria-hidden
                     className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#c8102e]/0 to-[#c8102e]/0 transition-all duration-500 group-hover:from-[#c8102e]/5 group-hover:to-transparent"
                   />
 
-                  {/* Quote icon — same treatment as the Services icon */}
+                  {/* Quote icon */}
                   <span className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:ring-[#c8102e] group-hover:shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]">
                     <Quote className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
                   </span>
 
-                  {/* Stars — yellow on hover AND on active card */}
+                  {/* Stars */}
                   <div className="relative mt-1 flex gap-0.5">
                     {Array.from({ length: 5 }).map((_, s) => (
                       <Star
@@ -119,7 +139,8 @@ export default function Testimonials() {
                       isActive
                         ? "text-[#1a1a1a]"
                         : "text-[#1a1a1a]/80 group-hover:text-[#1a1a1a]"
-                    }`}
+                    }`
+                  }
                   >
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
@@ -147,9 +168,9 @@ export default function Testimonials() {
           })}
         </ScrollReveal>
 
-        {/* Dots — click to select which card is "active" (stars go yellow) */}
+        {/* Dots */}
         <div className="mt-8 flex items-center justify-center gap-2">
-          {TESTIMONIALS.map((_, i) => (
+          {testimonials.map((_, i) => (
             <button
               key={i}
               type="button"
