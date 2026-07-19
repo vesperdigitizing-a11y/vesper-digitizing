@@ -365,7 +365,8 @@ export const BUNDLES: Product[] = [
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
-    tagline: "50 premium patch designs — curated collection at an unbeatable price.",
+    tagline:
+      "50 premium patch designs — curated collection at an unbeatable price.",
     description:
       "A curated pack of 50 premium embroidery patch designs covering multiple themes including military, biker, sports, and brand identity. Every patch is hand-digitized with clean satin borders optimized for merrow-edge or laser-cut finishing. Ships with stitch-map PDFs and a lifetime commercial license.",
     features: [
@@ -399,7 +400,8 @@ export const BUNDLES: Product[] = [
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
-    tagline: "50 premium patch designs — curated collection at an unbeatable price.",
+    tagline:
+      "50 premium patch designs — curated collection at an unbeatable price.",
     description:
       "A curated pack of 50 premium embroidery patch designs spanning military, biker, sports, outdoors, and brand identity themes. Every patch comes with stitch-map PDFs for clean finishing and is optimized for both twill applique and direct-to-garment stitching. Great value for shops that do patch work.",
     features: [
@@ -501,7 +503,8 @@ export const BUNDLES: Product[] = [
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
-    tagline: "100 premium patch designs — the ultimate collection for serious shops.",
+    tagline:
+      "100 premium patch designs — the ultimate collection for serious shops.",
     description:
       "100 premium patch designs covering floral, vintage, decorative, and artistic themes. Light density and smooth underlay make these safe for delicate fabrics while bold designs work beautifully on denim and canvas. The ultimate collection for shops that need variety and volume.",
     features: [
@@ -534,7 +537,8 @@ export const BUNDLES: Product[] = [
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
-    tagline: "100 premium patch designs — the ultimate collection for serious shops.",
+    tagline:
+      "100 premium patch designs — the ultimate collection for serious shops.",
     description:
       "100 premium patch designs covering mascots, characters, school spirit, and brand identity themes. Heavy satin fills and bold outlines make these designs read clearly even at small sizes. Each design comes with cap and jacket-back variants. The ultimate pack for high-volume shops.",
     features: [
@@ -561,7 +565,7 @@ export const BUNDLES: Product[] = [
     name: "50 Patches Pack",
     category: "patches",
     categoryLabel: "Patch Bundles",
-    price: 140,
+    price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-7.jpeg",
     badge: "sale",
@@ -596,7 +600,7 @@ export const BUNDLES: Product[] = [
     name: "50 Patches Pack",
     category: "patches",
     categoryLabel: "Patch Bundles",
-    price: 140,
+    price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-8.jpeg",
     badge: "sale",
@@ -630,7 +634,7 @@ export const BUNDLES: Product[] = [
     name: "50 Patches Pack",
     category: "patches",
     categoryLabel: "Patch Bundles",
-    price: 140,
+    price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-9.jpeg",
     badge: "sale",
@@ -664,7 +668,7 @@ export const BUNDLES: Product[] = [
     name: "50 Patches Pack",
     category: "patches",
     categoryLabel: "Patch Bundles",
-    price: 140,
+    price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-10.jpeg",
     badge: "sale",
