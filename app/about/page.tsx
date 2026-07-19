@@ -22,24 +22,21 @@ const ABOUT_TESTIMONIALS: Testimonial[] = [
       "We have been partnering with Vesper for over two years now. Their consistency and attention to detail is unmatched in the industry.",
     name: "David M.",
     country: "Germany",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/david-m.jpg",
   },
   {
     quote:
       "What sets Vesper apart is their team. Every project feels personal, and they always go the extra mile to get it right.",
     name: "Elena R.",
     country: "Australia",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/elena-r.jpg",
   },
   {
     quote:
       "From small logos to complex jacket-back designs, they handle everything with the same level of precision and care.",
     name: "Robert L.",
     country: "UAE",
-    avatar:
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/robert-l.jpg",
   },
 ];
 

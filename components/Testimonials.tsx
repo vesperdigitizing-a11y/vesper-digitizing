@@ -24,24 +24,21 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
       "Vesper Digitizing delivered outstanding quality and super fast turnaround. My go-to digitizing partner!",
     name: "Michael T.",
     country: "USA",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/michael-t.jpg",
   },
   {
     quote:
       "Professional, reliable and always exceed my expectations. Highly recommended!",
     name: "James R.",
     country: "Canada",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/james-r.jpg",
   },
   {
     quote:
       "The stitch quality is perfect every time. Absolutely love their work.",
     name: "Jessica.",
     country: "UK",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/jessica.jpg",
   },
 ];
 
@@ -139,8 +136,7 @@ export default function Testimonials({
                       isActive
                         ? "text-[#1a1a1a]"
                         : "text-[#1a1a1a]/80 group-hover:text-[#1a1a1a]"
-                    }`
-                  }
+                    }`}
                   >
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>

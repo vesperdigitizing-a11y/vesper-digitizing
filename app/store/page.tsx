@@ -21,24 +21,21 @@ const STORE_TESTIMONIALS: Testimonial[] = [
       "Amazing quality designs and instant download. My go-to store for all embroidery files!",
     name: "Emily W.",
     country: "USA",
-    avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/emily-w.jpg",
   },
   {
     quote:
       "The font packs are incredible value. Commercial license included is a huge bonus!",
     name: "Chris P.",
     country: "UK",
-    avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/chris-p.jpg",
   },
   {
     quote:
       "Best embroidery design store I have used. Premium quality at fair prices.",
     name: "Anna S.",
     country: "Netherlands",
-    avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+    avatar: "/images/testimonials/anna-s.jpg",
   },
 ];
 
