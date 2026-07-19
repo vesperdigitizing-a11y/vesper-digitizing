@@ -111,64 +111,64 @@ const ITEMS: PortfolioItem[] = [
     image: "/images/products/applique/applique-design-4.jpeg",
   },
 
-  /* ── Patch Digitizing ── */
+  /* ── Custom Patches ── */
   {
-    title: "Patch Digitizing — Certified Locally Grown",
+    title: "Custom Patches — Certified Locally Grown",
     category: "patches",
     image:
       "/images/products/patch-digitizing/patch-certified-locally-grown.jpg",
   },
   {
-    title: "Patch Digitizing — Classic Pikachu 1996",
+    title: "Custom Patches — Classic Pikachu 1996",
     category: "patches",
     image: "/images/products/patch-digitizing/patch-classic-pikachu-1996.jpg",
   },
   {
-    title: "Patch Digitizing — Dog Mascot",
+    title: "Custom Patches — Dog Mascot",
     category: "patches",
     image: "/images/products/patch-digitizing/patch-dog-mascot.jpg",
   },
   {
-    title: "Patch Digitizing — Don't Hassle Me Shuckle",
+    title: "Custom Patches — Don't Hassle Me Shuckle",
     category: "patches",
     image: "/images/products/patch-digitizing/patch-dont-hassle-me-shuckle.jpg",
   },
   {
-    title: "Patch Digitizing — Dragonite Delivery Service",
+    title: "Custom Patches — Dragonite Delivery Service",
     category: "patches",
     image:
       "/images/products/patch-digitizing/patch-dragonite-delivery-service.jpg",
   },
   {
-    title: "Patch Digitizing — Error 404",
+    title: "Custom Patches — Error 404",
     category: "patches",
     image: "/images/products/patch-digitizing/patch-error-404.jpg",
   },
   {
-    title: "Patch Digitizing — Kanto Fire Department",
+    title: "Custom Patches — Kanto Fire Department",
     category: "patches",
     image: "/images/products/patch-digitizing/patch-kanto-fire-department.jpg",
   },
   {
-    title: "Patch Digitizing — Licensed Nursing Assistant",
+    title: "Custom Patches — Licensed Nursing Assistant",
     category: "patches",
     image:
       "/images/products/patch-digitizing/patch-licensed-nursing-assistant.jpg",
   },
   {
-    title: "Patch Digitizing — Official Bean of the Year",
+    title: "Custom Patches — Official Bean of the Year",
     category: "patches",
     image:
       "/images/products/patch-digitizing/patch-official-bean-of-the-year.jpg",
   },
   {
-    title: "Patch Digitizing — Professional Dragon Slayer",
+    title: "Custom Patches — Professional Dragon Slayer",
     category: "patches",
     image:
       "/images/products/patch-digitizing/patch-professional-dragon-slayer.jpg",
   },
   {
-    title: "Patch Digitizing — Squirtle Squad",
+    title: "Custom Patches — Squirtle Squad",
     category: "patches",
     image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
   },
@@ -292,7 +292,7 @@ const FILTERS = [
   { label: "Cap Digitizing", value: "cap" },
   { label: "Chenille", value: "chenille" },
   { label: "Applique", value: "applique" },
-  { label: "Patch Digitizing", value: "patches" },
+  { label: "Custom Patches", value: "patches" },
   { label: "Left Chest", value: "left-chest" },
   { label: "Jacket Back", value: "jacket-back" },
   { label: "Sleeve Logos", value: "shirt-sleeve" },

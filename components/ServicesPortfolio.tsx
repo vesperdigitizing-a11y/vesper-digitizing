@@ -35,8 +35,8 @@ const CATEGORIES: Category[] = [
   },
   {
     id: "patch-digitizing",
-    label: "Patch Digitizing",
-    tag: "Patch Digitizing",
+    label: "Custom Patches",
+    tag: "Custom Patches",
     image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
     description: "Custom embroidered patches with merrowed or laser-cut edges.",
   },
