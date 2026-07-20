@@ -88,7 +88,7 @@ export default function Hero({
   if (useBackgroundImage) {
     return (
       <section
-        className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
+        className="relative overflow-visible bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center min-h-[600px] lg:min-h-[650px]"
         style={{ backgroundImage: `url("${image}")` }}
       >
         {/* Blur orb */}
@@ -115,13 +115,23 @@ export default function Hero({
           }}
         />
 
-        {/* Light overlay desktop */}
+        {/* Light overlay desktop - left side */}
         <div
           aria-hidden
           className="absolute inset-0 z-0 hidden lg:block"
           style={{
             background:
               "linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.60) 30%, rgba(255,255,255,0.30) 45%, rgba(255,255,255,0.0) 60%)",
+          }}
+        />
+
+        {/* BOTTOM CENTER OVERLAY - 25% from bottom going up (for character visibility) */}
+        <div
+          aria-hidden
+          className="absolute inset-0 z-0 hidden lg:block"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 35% at 50% 100%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.70) 40%, transparent 80%)",
           }}
         />
 
@@ -137,41 +147,56 @@ export default function Hero({
   // Default: Using Next.js Image component (like Home page)
   return (
     <section className="relative overflow-hidden bg-white pb-0 hero-mesh">
+      {/* Background Product Image */}
       <Image
         src={image}
         alt={imageAlt}
         fill
-        preload
+        priority // Preload ki jagah priority Next.js recommended hai
         sizes="100vw"
         className="object-cover object-right z-0"
       />
 
-      {/* Overlays */}
+      {/* STYLISH OVERLAYS FOR TEXT VISIBILITY */}
+
+      {/* 1. Mobile & Tablet: Full-cover solid white-to-soft gradient drop */}
       <div
         aria-hidden
-        className="absolute inset-0 z-0 lg:hidden"
+        className="absolute inset-0 z-10 lg:hidden"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 z-0 lg:hidden"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
+            "linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.85) 100%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-12 lg:pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start">{renderContent()}</div>
+      {/* 2. Desktop Premium Vignette: Left se white overlay jo right side products tak smoothly fade out ho jaye */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-10 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0) 70%)",
+        }}
+      />
+
+      {/* 3. Subtle Red Blur Orb behind the Heading to add a custom "Premium Design" vibe and boost text punch */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-1/4 z-10 hidden h-[400px] w-[400px] -translate-x-1/4 rounded-full bg-[#c8102e]/5 blur-[120px] lg:block"
+      />
+
+      {/* Content Wrapper */}
+      <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8">
+        {/* Left Side Content - Mixed with enhanced contrast utility */}
+        <div className="flex flex-col items-start max-w-xl backdrop-blur-[2px] lg:backdrop-blur-0 p-4 lg:p-0 rounded-2xl bg-white/20 lg:bg-transparent">
+          {renderContent()}
+        </div>
 
         {/* Stats Card - Right Side */}
         {showStatsCard && (
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block z-20">
             <ScrollReveal variant="scale" delay={500}>
-              <div className="absolute bottom-0 right-0 z-20 flex items-center gap-4 rounded-2xl bg-white/95 px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur animate-float">
+              <div className="absolute bottom-4 right-0 flex items-center gap-4 rounded-2xl bg-white/95 px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur-md animate-float">
                 <div>
                   <div className="font-display text-3xl font-extrabold text-[#c8102e]">
                     <AnimatedCounter
@@ -238,7 +263,7 @@ export default function Hero({
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             {title.split("<br/>").map((line, i, arr) => (
               <span key={i}>
-                {i > 0 && <br className="hidden sm:block" />}
+                {i > 0 && <br className="hidden sm-block" />}
                 {i === arr.length - 1 &&
                 titleHighlight &&
                 line.includes(titleHighlight) ? (
