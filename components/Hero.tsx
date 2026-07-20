@@ -152,43 +152,53 @@ export default function Hero({
         src={image}
         alt={imageAlt}
         fill
-        priority // Preload ki jagah priority Next.js recommended hai
+        priority
         sizes="100vw"
         className="object-cover object-right z-0"
       />
 
-      {/* STYLISH OVERLAYS FOR TEXT VISIBILITY */}
+      {/* OVERLAYS (CUSTOM BREAKPOINTS FOR 15+ INCH SCREENS) */}
 
-      {/* 1. Mobile & Tablet: Full-cover solid white-to-soft gradient drop */}
+      {/* 1. Mobile & Tablet: Full solid-to-soft white gradient drop */}
       <div
         aria-hidden
         className="absolute inset-0 z-10 lg:hidden"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.85) 100%)",
+            "linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0.85) 100%)",
         }}
       />
 
-      {/* 2. Desktop Premium Vignette: Left se white overlay jo right side products tak smoothly fade out ho jaye */}
+      {/* 2. Standard Laptops (13 to 15-inch): Soft aesthetic vignette */}
       <div
         aria-hidden
-        className="absolute inset-0 z-10 hidden lg:block"
+        className="absolute inset-0 z-10 hidden lg:block 2xl:hidden"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0) 70%)",
         }}
       />
 
-      {/* 3. Subtle Red Blur Orb behind the Heading to add a custom "Premium Design" vibe and boost text punch */}
+      {/* 3. 15-Inch+ Large Laptops & Monitors (2xl & up): 100% Crisp Vector Fade (Zero Blur / Pure Solid White Background for Text) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-0 top-1/4 z-10 hidden h-[400px] w-[400px] -translate-x-1/4 rounded-full bg-[#c8102e]/5 blur-[120px] lg:block"
+        className="absolute inset-0 z-10 hidden 2xl:block"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(255,255,255,0.90) 52%, rgba(255,255,255,0) 75%)",
+        }}
+      />
+
+      {/* 4. Soft Red Graphic Orb: Only visible on smaller laptops, strictly hidden on 15-inch+ screens */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-1/4 z-10 hidden h-[400px] w-[400px] -translate-x-1/4 rounded-full bg-[#c8102e]/5 blur-[120px] lg:block 2xl:hidden"
       />
 
       {/* Content Wrapper */}
       <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8">
-        {/* Left Side Content - Mixed with enhanced contrast utility */}
-        <div className="flex flex-col items-start max-w-xl backdrop-blur-[2px] lg:backdrop-blur-0 p-4 lg:p-0 rounded-2xl bg-white/20 lg:bg-transparent">
+        {/* Left Side Content - Backdrop blur dynamic wrapper */}
+        <div className="flex flex-col items-start max-w-xl backdrop-blur-[2px] lg:backdrop-blur-0 2xl:backdrop-filter-none">
           {renderContent()}
         </div>
 
@@ -196,7 +206,8 @@ export default function Hero({
         {showStatsCard && (
           <div className="relative hidden lg:block z-20">
             <ScrollReveal variant="scale" delay={500}>
-              <div className="absolute bottom-4 right-0 flex items-center gap-4 rounded-2xl bg-white/95 px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur-md animate-float">
+              <div className="absolute bottom-4 right-0 flex items-center gap-4 rounded-2xl bg-white px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] animate-float 2xl:backdrop-filter-none">
+                {/* Stats items render here... */}
                 <div>
                   <div className="font-display text-3xl font-extrabold text-[#c8102e]">
                     <AnimatedCounter
