@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Vesper Digitizing",
@@ -85,7 +84,10 @@ export default function TermsPage() {
       <SmoothScroll />
       <main className="flex-1 bg-white">
         {/* Hero */}
-        <section id="top" className="relative overflow-hidden bg-[#f5f5f5] py-16 sm:py-20">
+        <section
+          id="top"
+          className="relative overflow-hidden bg-[#f5f5f5] py-16 sm:py-20"
+        >
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">

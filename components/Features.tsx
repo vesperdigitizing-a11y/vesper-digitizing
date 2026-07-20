@@ -50,18 +50,21 @@ export default function Features() {
               return (
                 <div
                   key={f.title}
-                  className="group relative flex flex-col items-center text-center px-3 sm:px-5"
+                  className="group relative flex flex-col items-center justify-center text-center px-3 sm:px-5 py-4"
                 >
                   <span className="pointer-events-none absolute -inset-2 rounded-2xl bg-[#c8102e]/0 blur-xl transition-all duration-500 group-hover:bg-[#c8102e]/20" />
 
                   <span className="relative mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/15 text-[#c8102e] ring-1 ring-[#c8102e]/30 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:ring-[#c8102e]">
                     <Icon className="h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
                   </span>
-                  <div className="relative text-xs font-bold uppercase tracking-wider text-white sm:text-sm">
-                    {f.title}
-                  </div>
-                  <div className="relative mt-1 text-[11px] leading-snug text-white/60 sm:text-xs">
-                    {f.desc}
+                  
+                  <div className="relative w-full text-center">
+                    <div className="text-xs font-bold uppercase tracking-wider text-white sm:text-sm">
+                      {f.title}
+                    </div>
+                    <div className="mt-1 text-[11px] leading-snug text-white/60 sm:text-xs">
+                      {f.desc}
+                    </div>
                   </div>
                 </div>
               );
