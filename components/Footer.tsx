@@ -121,11 +121,10 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="group inline-flex items-center gap-2 text-sm text-white/70 transition-all duration-300 hover:text-[#c8102e] hover:translate-x-1 focus:outline-none focus:text-[#c8102e]"
+                    className="group inline-flex items-center text-sm text-white/70 transition-all duration-300 hover:text-[#c8102e] hover:translate-x-1 focus:outline-none focus:text-[#c8102e]"
                   >
-                    <span className="relative">
-                      <span className="h-px w-0 bg-[#c8102e] transition-all duration-300 group-hover:w-3" />
-                      <ArrowRight className="absolute -right-4 top-1/2 -translate-y-1/2 h-3 w-3 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#c8102e]" />
+                    <span className="flex items-center w-0 opacity-0 transition-all duration-300 group-hover:w-3.5 group-hover:opacity-100">
+                      <span className="h-px w-2.5 bg-[#c8102e]" />
                     </span>
                     {l.label}
                   </a>
@@ -144,23 +143,10 @@ export default function Footer() {
                 <li key={s.name}>
                   <a
                     href={s.href}
-                    className="group inline-flex items-center gap-2 text-sm text-white/70 transition-all duration-300 hover:text-[#c8102e] hover:translate-x-1 focus:outline-none focus:text-[#c8102e]"
+                    className="group inline-flex items-center text-sm text-white/70 transition-all duration-300 hover:text-[#c8102e] hover:translate-x-1 focus:outline-none focus:text-[#c8102e]"
                   >
-                    <span className="relative flex items-center gap-2">
-                      <span className="h-px w-0 bg-[#c8102e] transition-all duration-300 group-hover:w-3" />
-                      <svg
-                        className="absolute -right-4 top-1/2 -translate-y-1/2 h-3 w-3 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#c8102e]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                    <span className="flex items-center w-0 opacity-0 transition-all duration-300 group-hover:w-3.5 group-hover:opacity-100">
+                      <span className="h-px w-2.5 bg-[#c8102e]" />
                     </span>
                     {s.name}
                   </a>
@@ -179,11 +165,10 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="group inline-flex items-center gap-2 text-sm text-white/70 transition-all duration-300 hover:text-[#c8102e] hover:translate-x-1 focus:outline-none focus:text-[#c8102e]"
+                    className="group inline-flex items-center text-sm text-white/70 transition-all duration-300 hover:text-[#c8102e] hover:translate-x-1 focus:outline-none focus:text-[#c8102e]"
                   >
-                    <span className="relative">
-                      <span className="h-px w-0 bg-[#c8102e] transition-all duration-300 group-hover:w-3" />
-                      <ArrowRight className="absolute -right-4 top-1/2 -translate-y-1/2 h-3 w-3 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#c8102e]" />
+                    <span className="flex items-center w-0 opacity-0 transition-all duration-300 group-hover:w-3.5 group-hover:opacity-100">
+                      <span className="h-px w-2.5 bg-[#c8102e]" />
                     </span>
                     {l.label}
                   </a>
@@ -192,7 +177,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Us Section - Corrected Address */}
+          {/* Contact Us Section */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4">
               Contact Us
@@ -250,7 +235,7 @@ export default function Footer() {
                 </span>
               </li>
 
-              {/* Location - CORRECTED TO LA ADDRESS */}
+              {/* Location */}
               <li className="group flex items-start gap-3 pt-2 border-t border-white/10">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
                 <div className="leading-relaxed">
@@ -273,40 +258,13 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
-
-            {/* Newsletter */}
-            {/* <div className="mt-6 pt-4 border-t border-white/10">
-              <div className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-3">
-                Newsletter
-              </div>
-              <p className="text-xs text-white/60 mb-3 leading-relaxed">
-                Subscribe for updates and exclusive offers.
-              </p>
-              <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); alert("Thank you for subscribing!"); (e.target as HTMLFormElement).reset(); }}>
-                <input
-                  type="email"
-                  required
-                  placeholder="Your Email"
-                  aria-label="Your email address"
-                  className="h-9 w-full min-w-0 rounded-md border border-white/15 bg-white/5 px-3 text-sm text-white placeholder-white/40 outline-none transition-all duration-300 focus:border-[#c8102e] focus:bg-white/10 focus:ring-1 focus:ring-[#c8102e]/50"
-                />
-                <button
-                  type="submit"
-                  className="group inline-flex h-9 shrink-0 items-center justify-center rounded-md bg-[#c8102e] px-4 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#a30d24] hover:shadow-[0_4px_12px_-4px_rgba(200,16,46,0.5)] focus:outline-none focus:ring-2 focus:ring-[#c8102e]/50"
-                  aria-label="Subscribe to newsletter"
-                >
-                  Subscribe
-                  <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </button>
-              </form>
-            </div> */}
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
           <p className="text-xs text-white/60 order-2 sm:order-1">
-            Â© 2026 Vesper Digitizing. All Rights Reserved.
+            © 2026 Vesper Digitizing. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-white/60 order-1 sm:order-2">
             <a
