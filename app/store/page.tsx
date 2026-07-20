@@ -8,7 +8,15 @@ import StoreWhyShop from "@/components/StoreWhyShop";
 import Testimonials, { type Testimonial } from "@/components/Testimonials";
 import StoreNewsletter from "@/components/StoreNewsletter";
 import Footer from "@/components/Footer";
-import { Download, BadgeCheck, ShieldCheck, Lock } from "@/components/icons";
+import {
+  Download,
+  BadgeCheck,
+  ShieldCheck,
+  Lock,
+  Clock,
+  Refresh,
+  Globe,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Store | Vesper Digitizing",
@@ -57,6 +65,28 @@ export default function StorePage() {
           ctaButtons={[
             { text: "Start Your Project", href: "/contact", variant: "solid" },
             { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          badges={[
+            {
+              icon: ShieldCheck,
+              title: "Secure Checkout",
+              sub: "Encrypted payments & safe billing",
+            },
+            {
+              icon: Globe,
+              title: "Global Tracking",
+              sub: "Track your patch shipment live",
+            },
+            {
+              icon: Refresh,
+              title: "Satisfaction Guarantee",
+              sub: "Easy replacements if quality mismatches",
+            },
+            {
+              icon: Clock,
+              title: "Instant Digital Access",
+              sub: "Download stock files immediately",
+            },
           ]}
           showStatsCard={true}
           statsCardValue={5000}

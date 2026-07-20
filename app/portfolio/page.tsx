@@ -6,7 +6,16 @@ import PortfolioGallery from "@/components/PortfolioGallery";
 import PortfolioFeatures from "@/components/PortfolioFeatures";
 import PortfolioCTA from "@/components/PortfolioCTA";
 import Footer from "@/components/Footer";
-import { Trophy, User, Globe, BadgeCheck } from "@/components/icons";
+import {
+  Trophy,
+  User,
+  Globe,
+  BadgeCheck,
+  Star,
+  ShieldCheck,
+  Clock,
+  Refresh,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Our Portfolio | Vesper Digitizing",
@@ -32,11 +41,33 @@ export default function PortfolioPage() {
             { text: "Start Your Project", href: "/contact", variant: "solid" },
             { text: "View Portfolio", href: "/portfolio", variant: "outline" },
           ]}
+          badges={[
+            {
+              icon: Star,
+              title: "Top Rated Support",
+              sub: "Highly praised by global apparel brands",
+            },
+            {
+              icon: ShieldCheck,
+              title: "NDA Protected",
+              sub: "Your designs & copyrights are 100% safe",
+            },
+            {
+              icon: Clock,
+              title: "Fast Response Time",
+              sub: "Quotes sent within 30-60 minutes",
+            },
+            {
+              icon: Refresh,
+              title: "Free Setup Review",
+              sub: "Artwork checked before you pay anything",
+            },
+          ]}
           showStatsCard={true}
           statsCardValue={5000}
           statsCardSuffix="+"
           statsCardLabel="Completed Projects"
-/>
+        />
         <Suspense fallback={null}>
           <PortfolioGallery />
         </Suspense>

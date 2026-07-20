@@ -7,7 +7,7 @@ import ContactOffices from "@/components/ContactOffices";
 import ContactFAQ from "@/components/ContactFAQ";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
-import { Clock, Headset, ShieldCheck } from "@/components/icons";
+import { Clock, Headset, Refresh, ShieldCheck, Star } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Contact Us | Vesper Digitizing",
@@ -33,11 +33,33 @@ export default function ContactPage() {
             { text: "Start Your Project", href: "/contact", variant: "solid" },
             { text: "View Portfolio", href: "/portfolio", variant: "outline" },
           ]}
+          badges={[
+            {
+              icon: Star,
+              title: "Top Rated Support",
+              sub: "Highly praised by global apparel brands",
+            },
+            {
+              icon: ShieldCheck,
+              title: "NDA Protected",
+              sub: "Your designs & copyrights are 100% safe",
+            },
+            {
+              icon: Clock,
+              title: "Fast Response Time",
+              sub: "Quotes sent within 30-60 minutes",
+            },
+            {
+              icon: Refresh,
+              title: "Free Setup Review",
+              sub: "Artwork checked before you pay anything",
+            },
+          ]}
           showStatsCard={true}
           statsCardValue={5000}
           statsCardSuffix="+"
           statsCardLabel="Completed Projects"
-/>
+        />
         <ContactForm />
         <ContactFeatures />
         <ContactOffices />

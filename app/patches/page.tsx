@@ -7,7 +7,15 @@ import SectionHeading from "@/components/SectionHeading";
 import ServicesCTA from "@/components/ServicesCTA";
 import Stats from "@/components/Stats";
 import TiltCard from "@/components/TiltCard";
-import { IconByName, type IconName, Plus } from "@/components/icons";
+import {
+  Clock,
+  Globe,
+  IconByName,
+  type IconName,
+  Plus,
+  Refresh,
+  ShieldCheck,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Patches | Vesper Digitizing",
@@ -174,6 +182,28 @@ export default function PatchesPage() {
           ctaButtons={[
             { text: "Start Your Project", href: "/contact", variant: "solid" },
             { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          badges={[
+            {
+              icon: ShieldCheck,
+              title: "Premium Twill & Thread",
+              sub: "Vibrant colors & laser-cut edges",
+            },
+            {
+              icon: Refresh,
+              title: "Custom Backings",
+              sub: "Iron-on, Velcro & Merrow borders",
+            },
+            {
+              icon: Globe,
+              title: "Bulk Orders",
+              sub: "Scalable production for any team size",
+            },
+            {
+              icon: Clock,
+              title: "Free Physical Proof",
+              sub: "Approval sample before mass production",
+            },
           ]}
           showStatsCard={true}
           statsCardValue={5000}

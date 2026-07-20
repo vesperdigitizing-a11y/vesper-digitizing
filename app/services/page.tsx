@@ -9,7 +9,7 @@ import ServicesCTA from "@/components/ServicesCTA";
 import Footer from "@/components/Footer";
 import Services from "@/components/Services";
 import ServicesContent from "@/components/ServicesContent";
-import { Clock, Refresh, ShieldCheck, Globe } from "@/components/icons";
+import { Clock, Refresh, ShieldCheck, Globe, Star } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Our Services | Vesper Digitizing",
@@ -35,11 +35,33 @@ export default function ServicesPage() {
             { text: "Start Your Project", href: "/contact", variant: "solid" },
             { text: "View Portfolio", href: "/portfolio", variant: "outline" },
           ]}
+          badges={[
+            {
+              icon: ShieldCheck,
+              title: "Flawless Formats",
+              sub: "DST, EMB, PES & more optimized",
+            },
+            {
+              icon: Clock,
+              title: "Quick Turnaround",
+              sub: "Standard 8-24 hours delivery",
+            },
+            {
+              icon: Refresh,
+              title: "Stitch Optimization",
+              sub: "Zero thread breaks guaranteed",
+            },
+            {
+              icon: Star,
+              title: "Expert Digitizers",
+              sub: "Industry veterans handling artwork",
+            },
+          ]}
           showStatsCard={true}
           statsCardValue={5000}
           statsCardSuffix="+"
           statsCardLabel="Completed Projects"
-/>
+        />
         <Suspense fallback={null}>
           <Services />
         </Suspense>

@@ -7,7 +7,15 @@ import SectionHeading from "@/components/SectionHeading";
 import ServicesCTA from "@/components/ServicesCTA";
 import Stats from "@/components/Stats";
 import TiltCard from "@/components/TiltCard";
-import { IconByName, type IconName, Plus } from "@/components/icons";
+import {
+  Clock,
+  IconByName,
+  type IconName,
+  Plus,
+  Refresh,
+  ShieldCheck,
+  Star,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Vector Art | Vesper Digitizing",
@@ -177,6 +185,28 @@ export default function VectorsPage() {
           ctaButtons={[
             { text: "Start Your Project", href: "/contact", variant: "solid" },
             { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          badges={[
+            {
+              icon: ShieldCheck,
+              title: "Crisp Vector Paths",
+              sub: "Clean nodes with no jagged edges",
+            },
+            {
+              icon: Refresh,
+              title: "High-Res Formats",
+              sub: "AI, EPS, SVG & Print-Ready PDF",
+            },
+            {
+              icon: Clock,
+              title: "Urgent Vectorization",
+              sub: "Redrawn manually within a few hours",
+            },
+            {
+              icon: Star,
+              title: "Manual Redrawing",
+              sub: "No auto-tracing, 100% hand-drawn precision",
+            },
           ]}
           showStatsCard={true}
           statsCardValue={5000}
