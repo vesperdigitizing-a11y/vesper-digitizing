@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Vesper Digitizing",
@@ -46,7 +47,7 @@ const SECTIONS = [
     body: "Products purchased from our online store are digital downloads available immediately after payment confirmation. Due to the nature of digital products, all sales are final and non-refundable once the download link has been accessed. You are granted a commercial-use license for all store purchases, allowing you to use the designs for personal and commercial embroidery projects. You may not resell, redistribute, or share the digital files themselves. All store products come with a commercial-use license unless otherwise stated on the product page.",
   },
   {
-    id: "returns", // <-- THIS IS THE RETURN POLICY SECTION ID
+    id: "returns", // <-- RETURN POLICY ID
     title: "8. Refund Policy",
     body: "For digitizing and vector art services: If you are not satisfied with the initial proof, we offer unlimited free revisions. If we are unable to meet your requirements after reasonable revisions, you may request a full refund before the final files are delivered. Once final files are delivered and downloaded, refunds are no longer available. For store purchases: Due to the digital nature of our products, refunds are not available after download. If you experience a technical issue with a downloaded file, contact us within 7 days for a replacement or resolution. Physical patch orders: Refunds are not available once production has begun. If patches are defective or do not match the approved proof, we will reprint or refund the defective items.",
   },
@@ -81,6 +82,7 @@ export default function TermsPage() {
   return (
     <>
       <Header />
+      <SmoothScroll />
       <main className="flex-1 bg-white">
         {/* Hero */}
         <section id="top" className="relative overflow-hidden bg-[#f5f5f5] py-16 sm:py-20">
