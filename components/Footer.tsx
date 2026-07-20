@@ -268,14 +268,14 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-[#c8102e] hover:text-[#a30d24] transition-colors duration-300 focus:outline-none focus:underline"
                   >
-                    View on Google Maps â
+                    View on Google Maps
                   </a>
                 </div>
               </li>
             </ul>
 
             {/* Newsletter */}
-            <div className="mt-6 pt-4 border-t border-white/10">
+            {/* <div className="mt-6 pt-4 border-t border-white/10">
               <div className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-3">
                 Newsletter
               </div>
@@ -299,7 +299,7 @@ export default function Footer() {
                   <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
 

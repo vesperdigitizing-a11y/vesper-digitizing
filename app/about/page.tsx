@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import AboutHero from "@/components/AboutHero";
+import Hero from "@/components/Hero";
 import AboutStory from "@/components/AboutStory";
 import AboutStats from "@/components/AboutStats";
 import AboutWhyChoose from "@/components/AboutWhyChoose";
@@ -9,6 +9,7 @@ import AboutTeam from "@/components/AboutTeam";
 import Testimonials, { type Testimonial } from "@/components/Testimonials";
 import AboutCTA from "@/components/AboutCTA";
 import Footer from "@/components/Footer";
+import { Clock, Trophy, Globe, BadgeCheck } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "About Us | Vesper Digitizing",
@@ -31,13 +32,6 @@ const ABOUT_TESTIMONIALS: Testimonial[] = [
     country: "Australia",
     avatar: "/images/testimonials/elena-r.jpg",
   },
-  {
-    quote:
-      "From small logos to complex jacket-back designs, they handle everything with the same level of precision and care.",
-    name: "Robert L.",
-    country: "UAE",
-    avatar: "/images/testimonials/robert-l.jpg",
-  },
 ];
 
 export default function AboutPage() {
@@ -45,7 +39,24 @@ export default function AboutPage() {
     <>
       <Header />
       <main className="flex-1">
-        <AboutHero />
+        <Hero
+          badge="About Vesper Digitizing"
+          badgeType="plain"
+          title={"Crafting Perfection One Stitch at a Time"}
+          titleHighlight="Stitch"
+          description="At Vesper Digitizing, we turn your ideas into flawless embroidery. With precision, passion, and technology, we deliver digitizing solutions that help your brand stand out."
+          image="/images/aboutHero.jpeg"
+          imageAlt="About Vesper Digitizing"
+          useBackgroundImage={false}
+          ctaButtons={[
+            { text: "Start Your Project", href: "/contact", variant: "solid" },
+            { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          showStatsCard={true}
+          statsCardValue={5000}
+          statsCardSuffix="+"
+          statsCardLabel="Completed Projects"
+/>
         <AboutStory />
         <AboutStats />
         <AboutWhyChoose />

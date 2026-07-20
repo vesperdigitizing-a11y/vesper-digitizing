@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Header from "@/components/Header";
-import ServicesHero from "@/components/ServicesHero";
-// import ServicesContent from "@/components/ServicesContent";
+import Hero from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ServicesProcess from "@/components/ServicesProcess";
 import ServicesPortfolio from "@/components/ServicesPortfolio";
@@ -10,6 +9,7 @@ import ServicesCTA from "@/components/ServicesCTA";
 import Footer from "@/components/Footer";
 import Services from "@/components/Services";
 import ServicesContent from "@/components/ServicesContent";
+import { Clock, Refresh, ShieldCheck, Globe } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Our Services | Vesper Digitizing",
@@ -22,10 +22,26 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="flex-1">
-        <ServicesHero />
+        <Hero
+          badge="Professional Digitizing Services"
+          badgeType="dot"
+          title={"Precision That Every Stitch Deserves"}
+          titleHighlight="Stitch Deserves"
+          description="We deliver exceptional embroidery digitizing with perfect stitch quality, fast turnaround and unmatched customer support trusted by clients worldwide."
+          image="/images/serviceHero.png"
+          imageAlt="Professional Digitizing Services"
+          useBackgroundImage={false}
+          ctaButtons={[
+            { text: "Start Your Project", href: "/contact", variant: "solid" },
+            { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          showStatsCard={true}
+          statsCardValue={5000}
+          statsCardSuffix="+"
+          statsCardLabel="Completed Projects"
+/>
         <Suspense fallback={null}>
           <Services />
-          {/* <ServicesContent/> */}
         </Suspense>
         <WhyChooseUs />
         <ServicesProcess />

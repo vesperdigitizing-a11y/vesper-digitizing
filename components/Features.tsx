@@ -4,22 +4,49 @@ import ScrollReveal from "./ScrollReveal";
 type Feature = { icon: IconName; title: string; desc: string };
 
 const FEATURES: Feature[] = [
-  { icon: "diamond", title: "Premium Quality", desc: "Ultra clean and precise stitching" },
-  { icon: "zap", title: "Fast Delivery", desc: "Same day & 24 hours turnaround" },
-  { icon: "target", title: "100% Accuracy", desc: "Perfect stitch path optimization" },
-  { icon: "globe", title: "Worldwide Clients", desc: "Proudly serving clients across the globe" },
-  { icon: "refresh", title: "Unlimited Revisions", desc: "Until you are 100% satisfied" },
-  { icon: "headset", title: "24/7 Support", desc: "We are always here to help you" },
+  {
+    icon: "diamond",
+    title: "Premium Quality",
+    desc: "Ultra clean and precise stitching",
+  },
+  {
+    icon: "zap",
+    title: "Fast Delivery",
+    desc: "Same day & 24 hours turnaround",
+  },
+  {
+    icon: "target",
+    title: "100% Accuracy",
+    desc: "Perfect stitch path optimization",
+  },
+  {
+    icon: "globe",
+    title: "Worldwide Clients",
+    desc: "Proudly serving clients across the globe",
+  },
+  {
+    icon: "refresh",
+    title: "Unlimited Revisions",
+    desc: "Until you are 100% satisfied",
+  },
+  {
+    icon: "headset",
+    title: "24/7 Support",
+    desc: "We are always here to help you",
+  },
 ];
 
 export default function Features() {
   return (
     <section
       aria-label="Key features"
-      className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-24 bg-[#1a1a1a] py-10 shadow-2xl sm:py-14 dark-mesh"
+      className="relative z-20 bg-[#1a1a1a] py-10 shadow-2xl sm:py-14 dark-mesh"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal stagger className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        <ScrollReveal
+          stagger
+          className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6"
+        >
           {FEATURES.map((f) => {
             const Icon = IconByName[f.icon];
             return (

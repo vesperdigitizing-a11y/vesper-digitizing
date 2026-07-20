@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Header from "@/components/Header";
-import PortfolioHero from "@/components/PortfolioHero";
+import Hero from "@/components/Hero";
 import PortfolioGallery from "@/components/PortfolioGallery";
 import PortfolioFeatures from "@/components/PortfolioFeatures";
 import PortfolioCTA from "@/components/PortfolioCTA";
 import Footer from "@/components/Footer";
+import { Trophy, User, Globe, BadgeCheck } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Our Portfolio | Vesper Digitizing",
@@ -18,7 +19,24 @@ export default function PortfolioPage() {
     <>
       <Header />
       <main className="flex-1">
-        <PortfolioHero />
+        <Hero
+          badge="Our Portfolio"
+          badgeType="line"
+          title={"Stitching Your Ideas Into Perfection"}
+          titleHighlight="Perfection"
+          description="Explore our recent digitizing projects. Every design is crafted with precision, passion and perfection to make your brand stand out."
+          image="/images/HeroPorfolio.png"
+          imageAlt="Portfolio - Our Work"
+          useBackgroundImage={false}
+          ctaButtons={[
+            { text: "Start Your Project", href: "/contact", variant: "solid" },
+            { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          showStatsCard={true}
+          statsCardValue={5000}
+          statsCardSuffix="+"
+          statsCardLabel="Completed Projects"
+/>
         <Suspense fallback={null}>
           <PortfolioGallery />
         </Suspense>
