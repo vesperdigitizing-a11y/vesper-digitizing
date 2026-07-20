@@ -32,6 +32,13 @@ const ABOUT_TESTIMONIALS: Testimonial[] = [
     country: "Australia",
     avatar: "/images/testimonials/elena-r.jpg",
   },
+  {
+    quote:
+      "From small logos to complex jacket-back designs, they handle everything with the same level of precision and care.",
+    name: "Robert L.",
+    country: "UAE",
+    avatar: "/images/testimonials/robert-l.jpg",
+  },
 ];
 
 export default function AboutPage() {
@@ -56,7 +63,7 @@ export default function AboutPage() {
           statsCardValue={5000}
           statsCardSuffix="+"
           statsCardLabel="Completed Projects"
-/>
+        />
         <AboutStory />
         <AboutStats />
         <AboutWhyChoose />

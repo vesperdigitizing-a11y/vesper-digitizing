@@ -24,6 +24,20 @@ const STORE_TESTIMONIALS: Testimonial[] = [
     country: "USA",
     avatar: "/images/testimonials/emily-w.jpg",
   },
+  {
+    quote:
+      "The font packs are incredible value. Commercial license included is a huge bonus!",
+    name: "Chris P.",
+    country: "UK",
+    avatar: "/images/testimonials/chris-p.jpg",
+  },
+  {
+    quote:
+      "Best embroidery design store I have used. Premium quality at fair prices.",
+    name: "Anna S.",
+    country: "Netherlands",
+    avatar: "/images/testimonials/anna-s.jpg",
+  },
 ];
 
 export default function StorePage() {
@@ -48,7 +62,7 @@ export default function StorePage() {
           statsCardValue={5000}
           statsCardSuffix="+"
           statsCardLabel="Completed Projects"
-/>
+        />
         <StoreCategories />
         <StoreProducts />
         <StoreBundles />

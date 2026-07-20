@@ -18,30 +18,6 @@ export const metadata: Metadata = {
     "Professional embroidery digitizing services. Transform your artwork into flawless embroidery files with precision, quality and fast turnaround.",
 };
 
-const HOME_TESTIMONIALS: Testimonial[] = [
-  {
-    quote:
-      "Vesper has transformed our embroidery business. Their attention to detail and quick turnaround is unmatched in the industry.",
-    name: "Sarah M.",
-    country: "USA",
-    avatar: "/images/testimonials/sarah-m.jpg",
-  },
-  {
-    quote:
-      "We have been using Vesper for over 3 years now. Consistent quality and excellent customer service every single time.",
-    name: "James L.",
-    country: "UK",
-    avatar: "/images/testimonials/james-l.jpg",
-  },
-  {
-    quote:
-      "The best digitizing service we have ever used. Complex designs are handled with perfection every time.",
-    name: "Ahmed K.",
-    country: "UAE",
-    avatar: "/images/testimonials/ahmed-k.jpg",
-  },
-];
-
 export default function HomePage() {
   return (
     <>
@@ -69,12 +45,7 @@ export default function HomePage() {
         <Portfolio />
         <Process />
         <Stats />
-        <Testimonials
-          eyebrow="Our Happy Customers"
-          title="What Our Clients Say"
-          subtitle="Real feedback from real clients who trust Vesper Digitizing with their embroidery work."
-          testimonials={HOME_TESTIMONIALS}
-        />
+        <Testimonials />
         <Store />
         <HomeFAQ />
         <CTA />
