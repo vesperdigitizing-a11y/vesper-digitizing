@@ -22,7 +22,7 @@ export default function ServicesHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
       />
 
-            {/* White overlay â mobile/tablet only */}
+      {/* White overlay mobile/tablet only */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -89,7 +89,10 @@ export default function ServicesHero() {
           <ScrollReveal stagger delay={400} className="mt-8 w-full">
             <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
               {BADGES.map((b) => (
-                <div key={b.title} className="group flex items-start gap-1.5 sm:gap-2">
+                <div
+                  key={b.title}
+                  className="group flex items-start gap-1.5 sm:gap-2"
+                >
                   <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
                   <div className="leading-tight">
                     <div className="whitespace-nowrap text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
@@ -105,7 +108,11 @@ export default function ServicesHero() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal variant="scale" delay={500} className="relative hidden lg:block">
+        <ScrollReveal
+          variant="scale"
+          delay={500}
+          className="relative hidden lg:block"
+        >
           <div className="absolute bottom-0 right-0 z-20 flex items-center gap-3 rounded-xl bg-white/95 px-5 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur animate-float">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
               <Star className="h-6 w-6" />

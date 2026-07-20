@@ -47,7 +47,7 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover object-right z-0"
       />
-      {/* White overlay â mobile/tablet only (for text legibility). Removed on desktop (lg) so the image shows fully. */}
+      {/* White overlay mobile/tablet only (for text legibility). Removed on desktop (lg) so the image shows fully. */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -64,8 +64,8 @@ export default function Hero() {
             "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
         }}
       />
-      {/* Strong white overlay â mobile/tablet only (for text legibility) */}
-      {/* Light overlay â desktop only (subtle, doesn't wash out the image) */}
+      {/* Strong white overlay mobile/tablet only (for text legibility) */}
+      {/* Light overlay desktop only (subtle, doesn't wash out the image) */}
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-12 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start">

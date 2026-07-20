@@ -40,7 +40,7 @@ export default function StoreHero() {
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/5 blur-3xl"
       />
 
-      {/* White overlay â mobile/tablet only */}
+      {/* White overlay mobile/tablet only */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 lg:hidden"
@@ -58,7 +58,7 @@ export default function StoreHero() {
         }}
       />
 
-      {/* Light overlay â desktop only (prevents image from overlapping text) */}
+      {/* Light overlay desktop only (prevents image from overlapping text) */}
       <div
         aria-hidden
         className="absolute inset-0 z-0 hidden lg:block"
@@ -102,7 +102,7 @@ export default function StoreHero() {
             </a>
           </div>
 
-          {/* Feature badges â grid-cols-4 keeps all four in a single line at
+          {/* Feature badges grid-cols-4 keeps all four in a single line at
               every width; short, nowrap label/sub text guarantees icon and
               text always align across badges (no wrap-count drift). */}
           <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
@@ -125,7 +125,7 @@ export default function StoreHero() {
           </div>
         </div>
 
-        {/* Happy customers badge â floats over the right side of the background image */}
+        {/* Happy customers badge floats over the right side of the background image */}
         <div className="mt-8 flex justify-start lg:absolute lg:right-[-20px] lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
           <div className="w-56 rounded-xl bg-white/95 px-5 py-4 shadow-lg ring-1 ring-[#e5e7eb] backdrop-blur-sm">
             <div className="font-display text-2xl font-extrabold text-[#c8102e]">

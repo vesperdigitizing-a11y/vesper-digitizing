@@ -4,7 +4,7 @@
 //
 // Mounted once in app/layout.tsx (inside <CartProvider>). Reads isOpen,
 // items, subtotal from the cart context. Each line has a QtyStepper so the
-// user can + / - quantities directly in the cart â and the count in the
+// user can + / - quantities directly in the cart and the count in the
 // header updates immediately because it derives from the same store.
 
 import { useEffect } from "react";
@@ -78,7 +78,15 @@ export default function CartDrawer() {
             aria-label="Close cart"
             className="flex h-9 w-9 items-center justify-center rounded-md text-[#1a1a1a] transition-colors hover:bg-[#f5f5f5]"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
@@ -115,10 +123,7 @@ export default function CartDrawer() {
           ) : (
             <ul className="divide-y divide-[#f5f5f5]">
               {items.map((item) => (
-                <li
-                  key={item.slug}
-                  className="flex gap-4 px-5 py-4"
-                >
+                <li key={item.slug} className="flex gap-4 px-5 py-4">
                   {/* Thumbnail */}
                   <Link
                     href={`/product/${item.slug}`}
