@@ -1,23 +1,13 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServicesCTA from "@/components/ServicesCTA";
 import Stats from "@/components/Stats";
 import TiltCard from "@/components/TiltCard";
-import {
-  IconByName,
-  type IconName,
-  Plus,
-  ArrowRight,
-  Clock,
-  Refresh,
-  ShieldCheck,
-  Globe,
-  Star,
-} from "@/components/icons";
-import AnimatedCounter from "@/components/AnimatedCounter";
+import { IconByName, type IconName, Plus } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Patches | Vesper Digitizing",
@@ -66,11 +56,11 @@ const BACKINGS = [
 ];
 
 const SIZES = [
-  { size: `1" â 2"`, desc: "Small cap and collar patches" },
-  { size: `2" â 3"`, desc: "Standard left-chest size" },
-  { size: `3" â 4"`, desc: "Medium jacket and bag patches" },
-  { size: `4" â 6"`, desc: "Large back and banner patches" },
-  { size: `6"+`, desc: "Oversized and custom shapes" },
+  { size: '1" – 2"', desc: "Small cap and collar patches" },
+  { size: '2" – 3"', desc: "Standard left-chest size" },
+  { size: '3" – 4"', desc: "Medium jacket and bag patches" },
+  { size: '4" – 6"', desc: "Large back and banner patches" },
+  { size: '6"+', desc: "Oversized and custom shapes" },
 ];
 
 const PROCESS_STEPS = [
@@ -146,7 +136,7 @@ const FAQS = [
   },
   {
     q: "How long does Patches take?",
-    a: "Standard turnaround is 24 hours for the digitized file. If you need it faster, rush delivery (under 12 hours) is available for an additional 30% fee. Physical patch manufacturing takes 7â10 business days after file approval.",
+    a: "Standard turnaround is 24 hours for the digitized file. If you need it faster, rush delivery (under 12 hours) is available for an additional 30% fee. Physical patch manufacturing takes 7–10 business days after file approval.",
   },
   {
     q: "What file formats do you deliver?",
@@ -171,130 +161,25 @@ export default function PatchesPage() {
     <>
       <Header />
       <main className="flex-1">
-        {/* HERO */}
-        <section
-          className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
-          style={{ backgroundImage: "url(/images/patchesHero.jpeg)" }}
-        >
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 z-0 lg:hidden"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 z-0 lg:hidden"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
-            }}
-          />
-
-          <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-8 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-20 lg:pb-28 lg:px-8">
-            <div className="flex flex-col items-start">
-              <ScrollReveal>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e] backdrop-blur-sm">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8102e] opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#c8102e]" />
-                  </span>
-                  Custom Patch Design
-                </span>
-              </ScrollReveal>
-
-              <ScrollReveal delay={100}>
-                <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
-                  Patches That <br className="hidden sm:block" />
-                  <span className="text-gradient">Stand Out</span>
-                </h1>
-              </ScrollReveal>
-
-              <ScrollReveal delay={200}>
-                <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/80 sm:text-lg">
-                  From merrow borders to laser-cut, woven, chenille and PVC we
-                  digitize patches in any shape, size, or backing. Wash-tested
-                  up to 50 cycles, shipped worldwide.
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={300}>
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <a
-                    href="/contact"
-                    className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
-                  >
-                    Get Free Quote
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                  <a
-                    href="#types"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-[#1a1a1a] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#1a1a1a] transition-all hover:bg-[#1a1a1a] hover:text-white"
-                  >
-                    Explore Types
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal stagger delay={400} className="mt-8 w-full">
-                <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
-                  {[
-                    { icon: Clock, title: "24 Hours", sub: "Delivery" },
-                    {
-                      icon: ShieldCheck,
-                      title: "100% Quality",
-                      sub: "Guaranteed",
-                    },
-                    { icon: Refresh, title: "Unlimited", sub: "Revisions" },
-                    { icon: Globe, title: "Worldwide", sub: "Shipping" },
-                  ].map((b) => (
-                    <div
-                      key={b.title}
-                      className="group flex items-start gap-1.5 sm:gap-2"
-                    >
-                      <b.icon className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-5 sm:w-5" />
-                      <div className="leading-tight">
-                        <div className="whitespace-nowrap text-[10px] font-bold text-[#1a1a1a] sm:text-xs">
-                          {b.title}
-                        </div>
-                        <div className="whitespace-nowrap text-[10px] text-[#6b7280] sm:text-xs">
-                          {b.sub}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
-
-            <ScrollReveal
-              variant="scale"
-              delay={500}
-              className="relative hidden lg:block"
-            >
-              <div className="absolute bottom-0 right-0 z-20 flex items-center gap-3 rounded-xl bg-white/95 px-5 py-4 shadow-2xl ring-1 ring-[#e5e7eb] backdrop-blur animate-float">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#c8102e]/10 text-[#c8102e]">
-                  <Star className="h-6 w-6" />
-                </span>
-                <div>
-                  <div className="text-2xl font-extrabold text-[#c8102e] font-display">
-                    <AnimatedCounter value={2500} suffix="+" />
-                  </div>
-                  <div className="text-[10px] font-medium uppercase tracking-wider text-[#6b7280]">
-                    Patches Delivered
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
+        {/* HERO - Using Hero.tsx component */}
+        <Hero
+          badge="Custom Patch Design"
+          badgeType="dot"
+          title="Patches That Stand Out"
+          titleHighlight="Stand Out"
+          description="From merrow borders to laser-cut, woven, chenille and PVC we digitize patches in any shape, size, or backing. Wash-tested up to 50 cycles, shipped worldwide."
+          image="/images/patchesHero.jpeg"
+          imageAlt="Custom Patches Design"
+          useBackgroundImage={false}
+          ctaButtons={[
+            { text: "Start Your Project", href: "/contact", variant: "solid" },
+            { text: "View Portfolio", href: "/portfolio", variant: "outline" },
+          ]}
+          showStatsCard={true}
+          statsCardValue={5000}
+          statsCardSuffix="+"
+          statsCardLabel="Completed Projects"
+        />
 
         {/* PATCH TYPES */}
         <section id="types" className="bg-[#f5f5f5] py-16 sm:py-24">

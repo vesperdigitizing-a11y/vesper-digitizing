@@ -37,7 +37,7 @@ const NAV: NavItem[] = [
         desc: "Full digitizing catalog",
       },
       {
-        label: "Patches Services",
+        label: "Patch Services",
         href: "/patches",
         desc: "Merrow, laser cut, woven, chenille",
       },
