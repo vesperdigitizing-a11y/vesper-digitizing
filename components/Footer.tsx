@@ -11,7 +11,6 @@ import {
   Threads,
   TikTok,
   Youtube,
-  ArrowRight,
 } from "./icons";
 
 const QUICK_LINKS = [
@@ -79,17 +78,22 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-8">
-          {/* Brand + tagline + socials */}
-          <div className="lg:col-span-1">
-            <Image
-              src="/images/LogoTransparent.png"
-              alt="Vesper Digitizing"
-              width={805}
-              height={310}
-              className="h-14 w-auto brightness-0 invert sm:h-18 relative right-6"
-            />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
+        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+          {/* 1. Brand + tagline + socials */}
+          <div className="lg:col-span-3 flex flex-col justify-start">
+            {/* -mb-4 lagane se extra gap khatam ho jayega */}
+            <div className="-mt-3 sm:-mt-4 -mb-3 sm:-mb-4">
+              <Image
+                src="/images/LogoTransparent.png"
+                alt="Vesper Digitizing"
+                width={805}
+                height={310}
+                className="h-14 w-auto object-contain brightness-0 invert sm:h-18 relative right-6 top-[-15px] block"
+              />
+            </div>
+
+            {/* mt-1 / mt-0 se text perfectly place ho jayega */}
+            <p className="mt-0 max-w-xs text-sm leading-relaxed text-white/70">
               We provide premium quality digitizing services with fast delivery
               and unbeatable customer support.
             </p>
@@ -111,9 +115,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4">
+          {/* 2. Quick Links */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4 leading-none">
               Quick Links
             </h3>
             <ul className="space-y-2.5">
@@ -133,9 +137,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4">
+          {/* 3. Services */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4 leading-none">
               Services
             </h3>
             <ul className="space-y-2.5">
@@ -155,9 +159,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Help & Support */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4">
+          {/* 4. Help & Support */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4 leading-none">
               Help &amp; Support
             </h3>
             <ul className="space-y-2.5">
@@ -177,9 +181,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Us Section */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4">
+          {/* 5. Contact Us Section */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/90 mb-4 leading-none">
               Contact Us
             </h3>
 
@@ -189,7 +193,7 @@ export default function Footer() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
                 <a
                   href="mailto:support@vesperdigitizing.com"
-                  className="transition-colors duration-300 hover:text-[#c8102e] focus:outline-none focus:text-[#c8102e]"
+                  className="whitespace-nowrap transition-colors duration-300 hover:text-[#c8102e] focus:outline-none focus:text-[#c8102e]"
                 >
                   support@vesperdigitizing.com
                 </a>
@@ -200,7 +204,7 @@ export default function Footer() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#c8102e] transition-transform duration-300 group-hover:scale-110" />
                 <a
                   href="mailto:contact@vesperdigitizing.com"
-                  className="transition-colors duration-300 hover:text-[#c8102e] focus:outline-none focus:text-[#c8102e]"
+                  className="whitespace-nowrap transition-colors duration-300 hover:text-[#c8102e] focus:outline-none focus:text-[#c8102e]"
                 >
                   contact@vesperdigitizing.com
                 </a>
