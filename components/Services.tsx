@@ -65,13 +65,13 @@ const SERVICES: Service[] = [
     slug: "chenille",
   },
   {
-    icon: "shirt",
+    icon: "towel",
     title: "Towel Digitizing",
     desc: "Premium towel embroidery for hospitality",
     slug: "towel-digitizing",
   },
   {
-    icon: "jacket",
+    icon: "sleeve",
     title: "Sleeve Logo Digitizing",
     desc: "Sleeve logos for athletic and casual wear",
     slug: "sleeve-logos",

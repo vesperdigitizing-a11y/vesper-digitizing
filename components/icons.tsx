@@ -1,11 +1,5 @@
 import type { SVGProps, ReactElement } from "react";
 
-/**
- * Inline SVG icon set for Vesper Digitizing.
- * All icons inherit currentColor and accept standard SVG props.
- * Stroke-width 1.75 by default for the elegant line-icon look used on the site.
- */
-
 type IconProps = SVGProps<SVGSVGElement>;
 
 const base = (props: IconProps) => ({
@@ -145,25 +139,20 @@ export const Shirt = (props: IconProps) => (
 
 export const Cap = (props: IconProps) => (
   <svg {...base(props)}>
-    {/* Cap crown — rounded dome */}
-    <path d="M3 15c0-6 4-10 9-10s9 4 9 10" />
-    {/* Cap brim — curved visor at the bottom */}
-    <path d="M3 15c0 2 2 4 4 4h10c2 0 4-2 4-4" />
-    {/* Center front panel seam */}
-    <path d="M12 5v10" />
-    {/* Side panel seams */}
-    <path d="M6.5 15c0-4 2.5-7 5.5-7" />
-    <path d="M17.5 15c0-4-2.5-7-5.5-7" />
-    {/* Button on top */}
-    <circle cx="12" cy="5" r="1" />
+    <path d="M2 17c0-5 3.5-9 10-9s10 4 10 9" />
+    <path d="M2 17h20" />
+    <path d="M22 17c0 1.5-3 3-7 3H2" />
+    <circle cx="12" cy="8" r="1" fill="currentColor" />
   </svg>
 );
 
+/* RE-ENGINEERED: True Jacket Back View (Collared rear outline + highlighted back embroidery area) */
 export const Jacket = (props: IconProps) => (
   <svg {...base(props)}>
-    <path d="M4 4l4-2 4 3 4-3 4 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
-    <path d="M12 5v15" />
-    <path d="M8 9l4 2 4-2" />
+    <path d="M8 2.5c2 1 6 1 8 0L21 6v15H3V6l5-3.5z" />
+    <path d="M8 2.5c1.5 2 6.5 2 8 0" />
+    <path d="M3 6.5C7 8 17 8 21 6.5" />
+    <rect x="7" y="10" width="10" height="8" rx="1" strokeDasharray="2 2" />
   </svg>
 );
 
@@ -185,8 +174,50 @@ export const Layers = (props: IconProps) => (
 
 export const Patch = (props: IconProps) => (
   <svg {...base(props)}>
-    <path d="M4 4h16v16H4z" />
-    <path d="M4 8h16M4 12h16M4 16h16" />
+    <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" />
+    <path
+      d="M12 5.5L5 9v3.5c0 4.2 2.9 8.1 7 9.1 4.1-1 7-4.9 7-9.1V9l-7-3.5z"
+      strokeDasharray="2 2"
+    />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+);
+
+export const Puff = (props: IconProps) => (
+  <svg {...base(props)}>
+    <rect x="7" y="7" width="10" height="10" rx="2" />
+    <path d="M7 7l-3-3" />
+    <path d="M17 7l3-3" />
+    <path d="M17 17l3 3" />
+    <path d="M7 17l-3 3" />
+    <rect x="4" y="4" width="16" height="16" rx="3" strokeDasharray="3 2" />
+  </svg>
+);
+
+/* RE-ENGINEERED: Applique Fabric Cutout with Perimeter Satin Stitches */
+export const Applique = (props: IconProps) => (
+  <svg {...base(props)}>
+    <rect x="4" y="4" width="16" height="16" rx="3" />
+    <path d="M7 2v4M12 2v4M17 2v4M7 18v4M12 18v4M17 18v4M2 7h4M2 12h4M2 17h4M18 7h4M18 12h4M18 17h4" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+);
+
+/* RE-ENGINEERED: Chenille Varsity Letter "C" (Bold Plush Contour + Loop Texture) */
+export const Chenille = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M18 6H10a5 5 0 0 0-5 5v2a5 5 0 0 0 5 5h8" strokeWidth={2.2} />
+    <path d="M18 9H11a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h7" />
+    <path d="M7 7l-2-2M7 17l-2 2M15 4v2M15 18v2" />
+  </svg>
+);
+
+/* RE-ENGINEERED: Sleeve Placement (Shoulder line, Arm outline, Cuff & Circular Logo Target) */
+export const Sleeve = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="M4 3l11 3 5 12-8 3L4 5V3z" />
+    <path d="M12 21l8-3" strokeWidth={2} />
+    <circle cx="12" cy="11" r="3" strokeDasharray="2 1.5" />
   </svg>
 );
 
@@ -299,7 +330,6 @@ export const MapPin = (props: IconProps) => (
   </svg>
 );
 
-
 export const Tag = (props: IconProps) => (
   <svg {...base(props)}>
     <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
@@ -382,7 +412,15 @@ export const Heart = (props: IconProps) => (
   </svg>
 );
 
-/** Mapping helpers for service / feature / step / stat icons. */
+export const Towel = (props: IconProps) => (
+  <svg {...base(props)}>
+    <rect x="4" y="4" width="16" height="16" rx="2" />
+    <path d="M4 10h16" />
+    <path d="M8 14h8" />
+    <path d="M8 17h5" />
+  </svg>
+);
+
 export type IconName =
   | "shirt"
   | "cap"
@@ -390,6 +428,8 @@ export type IconName =
   | "cube"
   | "layers"
   | "patch"
+  | "puff"
+  | "applique"
   | "penTool"
   | "sparkles"
   | "diamond"
@@ -417,36 +457,6 @@ export type IconName =
   | "towel"
   | "sleeve";
 
-
-
-export const Chenille = (props: IconProps) => (
-  <svg {...base(props)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3C7 3 3 7.5 3 12s4 9 9 9 9-4.5 9-9S17 3 12 3z" />
-    <path d="M12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5" />
-    <path d="M12 7c2.8 0 5 2.2 5 5" />
-    <circle cx="12" cy="12" r="1.5" />
-  </svg>
-);
-
-export const Towel = (props: IconProps) => (
-  <svg {...base(props)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="4" width="18" height="16" rx="2" />
-    <path d="M3 10h18" />
-    <path d="M8 4v6" />
-    <path d="M16 4v6" />
-    <path d="M3 14h18" />
-  </svg>
-);
-
-export const Sleeve = (props: IconProps) => (
-  <svg {...base(props)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M6 2L2 8v10c0 2.2 1.8 4 4 4h2V2" />
-    <path d="M18 2l4 6v10c0 2.2-1.8 4-4 4h-2V2" />
-    <path d="M8 22h8" />
-    <path d="M8 2h8" />
-  </svg>
-);
-
 export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   shirt: Shirt,
   cap: Cap,
@@ -454,6 +464,8 @@ export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   cube: Cube,
   layers: Layers,
   patch: Patch,
+  puff: Puff,
+  applique: Applique,
   penTool: PenTool,
   sparkles: Sparkles,
   diamond: Diamond,
