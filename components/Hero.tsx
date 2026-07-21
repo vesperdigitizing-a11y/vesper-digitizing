@@ -32,32 +32,17 @@ interface CTAButton {
 }
 
 interface HeroProps {
-  // Badge props
   badge?: string;
   badgeType?: "dot" | "line" | "breadcrumb" | "plain";
-
-  // Heading props
   title: string;
   titleHighlight?: string;
-
-  // Description
   description?: string;
-
-  // Image props
   image?: string;
   imageAlt?: string;
-  useBackgroundImage?: boolean; // Use backgroundImage CSS instead of Next/Image
-
-  // CTA buttons (customizable per page)
+  useBackgroundImage?: boolean;
   ctaButtons?: CTAButton[];
-
-  // Trust badges (the icons grid)
   badges?: Array<{ icon: any; title: string; sub: string }>;
-
-  // Stats row (animated counters below CTA)
   stats?: Array<{ icon: any; value: number; suffix: string; label: string }>;
-
-  // Floating stats card (right side on desktop)
   showStatsCard?: boolean;
   statsCardValue?: number;
   statsCardSuffix?: string;
@@ -84,57 +69,12 @@ export default function Hero({
   statsCardSuffix = "+",
   statsCardLabel = "Completed Projects",
 }: HeroProps) {
-  // If using background image (CSS), render differently
   if (useBackgroundImage) {
     return (
       <section
         className="relative overflow-visible bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center min-h-[600px] lg:min-h-[650px]"
         style={{ backgroundImage: `url("${image}")` }}
       >
-        {/* Blur orb */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
-        />
-
-        {/* White overlay mobile/tablet only */}
-        <div
-          aria-hidden
-          className="absolute inset-0 z-0 lg:hidden"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 z-0 lg:hidden"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
-          }}
-        />
-
-        {/* Light overlay desktop - left side */}
-        <div
-          aria-hidden
-          className="absolute inset-0 z-0 hidden lg:block"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.60) 30%, rgba(255,255,255,0.30) 45%, rgba(255,255,255,0.0) 60%)",
-          }}
-        />
-
-        {/* BOTTOM CENTER OVERLAY - 25% from bottom going up (for character visibility) */}
-        <div
-          aria-hidden
-          className="absolute inset-0 z-0 hidden lg:block"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 35% at 50% 100%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.70) 40%, transparent 80%)",
-          }}
-        />
-
         <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 lg:pt-20 lg:pb-16">
           <div className={stats || showStatsCard ? "max-w-xl" : ""}>
             {renderContent()}
@@ -144,10 +84,9 @@ export default function Hero({
     );
   }
 
-  // Default: Using Next.js Image component (like Home page)
   return (
     <section className="relative overflow-hidden bg-white pb-0 hero-mesh">
-      {/* Background Product Image */}
+      {/* CRISP SHARP IMAGE */}
       <Image
         src={image}
         alt={imageAlt}
@@ -157,57 +96,15 @@ export default function Hero({
         className="object-cover object-right z-0"
       />
 
-      {/* OVERLAYS (CUSTOM BREAKPOINTS FOR 15+ INCH SCREENS) */}
-
-      {/* 1. Mobile & Tablet: Full solid-to-soft white gradient drop */}
-      <div
-        aria-hidden
-        className="absolute inset-0 z-10 lg:hidden"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0.85) 100%)",
-        }}
-      />
-
-      {/* 2. Standard Laptops (13 to 15-inch): Soft aesthetic vignette */}
-      <div
-        aria-hidden
-        className="absolute inset-0 z-10 hidden lg:block 2xl:hidden"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0) 70%)",
-        }}
-      />
-
-      {/* 3. 15-Inch+ Large Laptops & Monitors (2xl & up): 100% Crisp Vector Fade (Zero Blur / Pure Solid White Background for Text) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 z-10 hidden 2xl:block"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(255,255,255,0.90) 52%, rgba(255,255,255,0) 75%)",
-        }}
-      />
-
-      {/* 4. Soft Red Graphic Orb: Only visible on smaller laptops, strictly hidden on 15-inch+ screens */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-0 top-1/4 z-10 hidden h-[400px] w-[400px] -translate-x-1/4 rounded-full bg-[#c8102e]/5 blur-[120px] lg:block 2xl:hidden"
-      />
-
-      {/* Content Wrapper */}
       <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8">
-        {/* Left Side Content - Backdrop blur dynamic wrapper */}
-        <div className="flex flex-col items-start max-w-xl backdrop-blur-[2px] lg:backdrop-blur-0 2xl:backdrop-filter-none">
+        <div className="flex flex-col items-start max-w-xl">
           {renderContent()}
         </div>
 
-        {/* Stats Card - Right Side */}
         {showStatsCard && (
           <div className="relative hidden lg:block z-20">
             <ScrollReveal variant="scale" delay={500}>
-              <div className="absolute bottom-4 right-0 flex items-center gap-4 rounded-2xl bg-white px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] animate-float 2xl:backdrop-filter-none">
-                {/* Stats items render here... */}
+              <div className="absolute bottom-4 right-0 flex items-center gap-4 rounded-2xl bg-white px-6 py-4 shadow-2xl ring-1 ring-[#e5e7eb] animate-float">
                 <div>
                   <div className="font-display text-3xl font-extrabold text-[#c8102e]">
                     <AnimatedCounter
@@ -239,14 +136,13 @@ export default function Hero({
     </section>
   );
 
-  // Helper function to render the content (badge, title, desc, CTA, badges/stats)
   function renderContent() {
     return (
       <>
         {/* BADGE */}
         <ScrollReveal>
           {badgeType === "dot" && (
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e] backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e]">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8102e] opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#c8102e]" />
@@ -274,7 +170,7 @@ export default function Hero({
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
             {title.split("<br/>").map((line, i, arr) => (
               <span key={i}>
-                {i > 0 && <br className="hidden sm-block" />}
+                {i > 0 && <br className="hidden sm:block" />}
                 {i === arr.length - 1 &&
                 titleHighlight &&
                 line.includes(titleHighlight) ? (
@@ -363,23 +259,42 @@ export default function Hero({
           </ScrollReveal>
         )}
 
-        {/* BADGES GRID (if provided and no stats) */}
+        {/* BADGES - PURE TRANSPARENT WITH HIGH-CONTRAST TEXT SHADOWS */}
+        {/* BADGES - PURE TRANSPARENT WITH MAXIMUM TEXT VISIBILITY */}
         {!stats && badges && badges.length > 0 && (
-          <ScrollReveal stagger delay={400} className="mt-8 w-full">
-            <div className="grid grid-cols-2 items-stretch gap-x-5 gap-y-3 sm:grid-cols-4 lg:gap-x-6">
+          <ScrollReveal delay={400} className="mt-8 w-full max-w-xl">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {badges.map((b) => (
                 <div
                   key={b.title}
-                  className="group flex h-full items-start gap-1.5 sm:gap-2"
+                  className="group flex flex-col items-center justify-center p-2 text-center rounded-xl transition-all duration-300 hover:scale-105"
                 >
-                  <b.icon className="mt-0.5 h-5 w-5 shrink-0 text-[#c8102e] transition-transform group-hover:scale-110 sm:h-6 sm:w-6" />
-                  <div className="leading-tight">
-                    <div className="text-xs font-bold text-[#1a1a1a] sm:text-sm">
-                      {b.title}
-                    </div>
-                    <div className="mt-0.5 text-[11px] leading-snug text-[#6b7280] sm:text-xs">
-                      {b.sub}
-                    </div>
+                  {/* Top Red Icon with Solid Red Background Badge for Instant Eye-Catching Look */}
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-[#c8102e] text-white shadow-md shadow-[#c8102e]/20 transition-transform duration-300 group-hover:scale-110">
+                    <b.icon className="h-4 w-4" />
+                  </div>
+
+                  {/* High Visibility Title */}
+                  <div
+                    className="text-xs font-black tracking-tight text-[#0f172a] leading-tight"
+                    style={{
+                      textShadow:
+                        "0 2px 4px rgba(255, 255, 255, 1), 0 -1px 4px rgba(255, 255, 255, 1), 2px 0 4px rgba(255, 255, 255, 1), -2px 0 4px rgba(255, 255, 255, 1)",
+                      filter: "drop-shadow(0 1px 2px rgba(255, 255, 255, 0.8))",
+                    }}
+                  >
+                    {b.title}
+                  </div>
+
+                  {/* High Visibility Subtitle */}
+                  <div
+                    className="mt-1 text-[10px] font-bold text-[#334155] leading-tight break-words max-w-full"
+                    style={{
+                      textShadow:
+                        "0 1px 3px rgba(255, 255, 255, 1), 0 -1px 3px rgba(255, 255, 255, 1), 1px 0 3px rgba(255, 255, 255, 1), -1px 0 3px rgba(255, 255, 255, 1)",
+                    }}
+                  >
+                    {b.sub}
                   </div>
                 </div>
               ))}
