@@ -1,4 +1,5 @@
 import type { SVGProps, ReactElement } from "react";
+import Image from "next/image";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -131,56 +132,49 @@ export const Users = (props: IconProps) => (
   </svg>
 );
 
-export const Shirt = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
-  </svg>
+const imgIcon = (src: string, alt: string) =>
+  function ImgIcon(props: IconProps) {
+    const { className } = props;
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        width={128}
+        height={128}
+        className={className}
+        style={{ objectFit: "contain" }}
+      />
+    );
+  };
+
+export const Shirt = imgIcon(
+  "/icons/embroidered-shirt-check.png",
+  "Left chest logo embroidery",
 );
 
-export const Cap = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M2 17c0-5 3.5-9 10-9s10 4 10 9" />
-    <path d="M2 17h20" />
-    <path d="M22 17c0 1.5-3 3-7 3H2" />
-    <circle cx="12" cy="8" r="1" fill="currentColor" />
-  </svg>
+export const Cap = imgIcon(
+  "/icons/embroidered-cap-front.png",
+  "Cap digitizing",
 );
 
-/* RE-ENGINEERED: True Jacket Back View (Collared rear outline + highlighted back embroidery area) */
-export const Jacket = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M8 2.5c2 1 6 1 8 0L21 6v15H3V6l5-3.5z" />
-    <path d="M8 2.5c1.5 2 6.5 2 8 0" />
-    <path d="M3 6.5C7 8 17 8 21 6.5" />
-    <rect x="7" y="10" width="10" height="8" rx="1" strokeDasharray="2 2" />
-  </svg>
+export const Jacket = imgIcon(
+  "/icons/embroidered-jacket.png",
+  "Jacket back embroidery",
 );
 
-export const Cube = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-    <path d="m3.3 7 8.7 5 8.7-5" />
-    <path d="M12 22V12" />
-  </svg>
+export const Cube = imgIcon(
+  "/icons/embroidery-digitizing-box.png",
+  "3D puff digitizing",
 );
 
-export const Layers = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M12.83 2.18 2 7.82 12 13l10-5.18L12.83 2.18z" />
-    <path d="M2 17.82 12 23l10-5.18" />
-    <path d="m2 12.82 10 5.18 10-5.18" />
-  </svg>
+export const Layers = imgIcon(
+  "/icons/smiley-face-patch.png",
+  "Applique digitizing",
 );
 
-export const Patch = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" />
-    <path
-      d="M12 5.5L5 9v3.5c0 4.2 2.9 8.1 7 9.1 4.1-1 7-4.9 7-9.1V9l-7-3.5z"
-      strokeDasharray="2 2"
-    />
-    <path d="M9 12l2 2 4-4" />
-  </svg>
+export const Patch = imgIcon(
+  "/icons/embroidered-shield-patch.png",
+  "Patch digitizing",
 );
 
 export const Puff = (props: IconProps) => (
@@ -213,29 +207,19 @@ export const Chenille = (props: IconProps) => (
 );
 
 /* RE-ENGINEERED: Sleeve Placement (Shoulder line, Arm outline, Cuff & Circular Logo Target) */
-export const Sleeve = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M4 3l11 3 5 12-8 3L4 5V3z" />
-    <path d="M12 21l8-3" strokeWidth={2} />
-    <circle cx="12" cy="11" r="3" strokeDasharray="2 1.5" />
-  </svg>
+export const Sleeve = imgIcon(
+  "/icons/embroidery-hoop.png",
+  "Sleeve logo digitizing",
 );
 
-export const PenTool = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="m12 19 7-7 3 3-7 7-3-3z" />
-    <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-    <path d="M2 2 9.586 9.586" />
-    <circle cx="11" cy="11" r="2" />
-  </svg>
+export const PenTool = imgIcon(
+  "/icons/vector-pen-tool.png",
+  "Vector art digitizing",
 );
 
-export const Sparkles = (props: IconProps) => (
-  <svg {...base(props)}>
-    <path d="M9.94 14.66 12 22l2.06-7.34L21 12l-6.94-2.06L12 2 9.94 9.94 2 12z" />
-    <path d="M19 3v4" />
-    <path d="M21 5h-4" />
-  </svg>
+export const Sparkles = imgIcon(
+  "/icons/heart-needle-thread.png",
+  "Chenille patch embroidery",
 );
 
 export const Upload = (props: IconProps) => (
@@ -412,13 +396,9 @@ export const Heart = (props: IconProps) => (
   </svg>
 );
 
-export const Towel = (props: IconProps) => (
-  <svg {...base(props)}>
-    <rect x="4" y="4" width="16" height="16" rx="2" />
-    <path d="M4 10h16" />
-    <path d="M8 14h8" />
-    <path d="M8 17h5" />
-  </svg>
+export const Towel = imgIcon(
+  "/icons/embroidered-towel.png",
+  "Towel digitizing",
 );
 
 export type IconName =
@@ -493,3 +473,90 @@ export const IconByName: Record<IconName, (p: IconProps) => ReactElement> = {
   towel: Towel,
   sleeve: Sleeve,
 };
+
+// export const Shirt = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
+//   </svg>
+// );
+
+// export const Cap = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M2 17c0-5 3.5-9 10-9s10 4 10 9" />
+//     <path d="M2 17h20" />
+//     <path d="M22 17c0 1.5-3 3-7 3H2" />
+//     <circle cx="12" cy="8" r="1" fill="currentColor" />
+//   </svg>
+// );
+
+// /* RE-ENGINEERED: True Jacket Back View (Collared rear outline + highlighted back embroidery area) */
+// export const Jacket = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M8 2.5c2 1 6 1 8 0L21 6v15H3V6l5-3.5z" />
+//     <path d="M8 2.5c1.5 2 6.5 2 8 0" />
+//     <path d="M3 6.5C7 8 17 8 21 6.5" />
+//     <rect x="7" y="10" width="10" height="8" rx="1" strokeDasharray="2 2" />
+//   </svg>
+// );
+
+// export const Cube = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+//     <path d="m3.3 7 8.7 5 8.7-5" />
+//     <path d="M12 22V12" />
+//   </svg>
+// );
+
+// export const Layers = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M12.83 2.18 2 7.82 12 13l10-5.18L12.83 2.18z" />
+//     <path d="M2 17.82 12 23l10-5.18" />
+//     <path d="m2 12.82 10 5.18 10-5.18" />
+//   </svg>
+// );
+
+// export const Patch = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" />
+//     <path
+//       d="M12 5.5L5 9v3.5c0 4.2 2.9 8.1 7 9.1 4.1-1 7-4.9 7-9.1V9l-7-3.5z"
+//       strokeDasharray="2 2"
+//     />
+//     <path d="M9 12l2 2 4-4" />
+//   </svg>
+// );
+
+// export const PenTool = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="m12 19 7-7 3 3-7 7-3-3z" />
+//     <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+//     <path d="M2 2 9.586 9.586" />
+//     <circle cx="11" cy="11" r="2" />
+//   </svg>
+// );
+
+// export const Sparkles = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M9.94 14.66 12 22l2.06-7.34L21 12l-6.94-2.06L12 2 9.94 9.94 2 12z" />
+//     <path d="M19 3v4" />
+//     <path d="M21 5h-4" />
+//   </svg>
+// );
+
+// export const Towel = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <rect x="4" y="4" width="16" height="16" rx="2" />
+//     <path d="M4 10h16" />
+//     <path d="M8 14h8" />
+//     <path d="M8 17h5" />
+//   </svg>
+// );
+
+// /* RE-ENGINEERED: Sleeve Placement (Shoulder line, Arm outline, Cuff & Circular Logo Target) */
+// export const Sleeve = (props: IconProps) => (
+//   <svg {...base(props)}>
+//     <path d="M4 3l11 3 5 12-8 3L4 5V3z" />
+//     <path d="M12 21l8-3" strokeWidth={2} />
+//     <circle cx="12" cy="11" r="3" strokeDasharray="2 1.5" />
+//   </svg>
+// );
