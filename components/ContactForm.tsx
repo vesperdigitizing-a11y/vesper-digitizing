@@ -27,20 +27,47 @@ export default function ContactForm() {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setSubmitting(true);
-    // Simulate a network request
-    window.setTimeout(() => {
-      setSubmitting(false);
+
+    const formData = new FormData(form);
+    formData.append("access_key", "c0c3ce9e-bbe4-46ea-8fc0-07928844c58c");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you within 1 hour.",
+          variant: "success",
+          duration: 4000,
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again in a moment.",
+          variant: "error",
+          duration: 4000,
+        });
+      }
+    } catch {
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you within 1 hour.",
-        variant: "success",
+        title: "Something went wrong",
+        description: "Please check your connection and try again.",
+        variant: "error",
         duration: 4000,
       });
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -71,6 +98,7 @@ export default function ContactForm() {
                   Your Name
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="Enter your name"
                     className="h-11 rounded-md border border-[#e5e7eb] bg-white px-4 text-sm outline-none transition-all focus:border-[#c8102e] focus:ring-2 focus:ring-[#c8102e]/10 group-hover:border-[#c8102e]/40"
@@ -80,6 +108,7 @@ export default function ContactForm() {
                   Email Address
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="Enter your email"
                     className="h-11 rounded-md border border-[#e5e7eb] bg-white px-4 text-sm outline-none transition-all focus:border-[#c8102e] focus:ring-2 focus:ring-[#c8102e]/10 group-hover:border-[#c8102e]/40"
@@ -89,6 +118,7 @@ export default function ContactForm() {
                   Phone Number
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="Enter your phone"
                     className="h-11 rounded-md border border-[#e5e7eb] bg-white px-4 text-sm outline-none transition-all focus:border-[#c8102e] focus:ring-2 focus:ring-[#c8102e]/10 group-hover:border-[#c8102e]/40"
                   />
@@ -97,6 +127,7 @@ export default function ContactForm() {
                   Subject
                   <input
                     type="text"
+                    name="subject"
                     placeholder="Enter subject"
                     className="h-11 rounded-md border border-[#e5e7eb] bg-white px-4 text-sm outline-none transition-all focus:border-[#c8102e] focus:ring-2 focus:ring-[#c8102e]/10 group-hover:border-[#c8102e]/40"
                   />
@@ -105,6 +136,7 @@ export default function ContactForm() {
                   Your Message
                   <textarea
                     rows={5}
+                    name="message"
                     required
                     placeholder="Tell us about your project..."
                     className="rounded-md border border-[#e5e7eb] bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#c8102e] focus:ring-2 focus:ring-[#c8102e]/10 group-hover:border-[#c8102e]/40"
