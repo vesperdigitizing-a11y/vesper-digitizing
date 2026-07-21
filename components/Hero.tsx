@@ -75,6 +75,24 @@ export default function Hero({
         className="relative overflow-visible bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center min-h-[600px] lg:min-h-[650px]"
         style={{ backgroundImage: `url("${image}")` }}
       >
+        {/* White overlay — mobile/tablet only */}
+        <div
+          aria-hidden
+          className="absolute inset-0 z-0 lg:hidden"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 30%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.40) 65%, rgba(255,255,255,0.0) 80%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 z-0 lg:hidden"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.92) 100%)",
+          }}
+        />
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 lg:pt-20 lg:pb-16">
           <div className={stats || showStatsCard ? "max-w-xl" : ""}>
             {renderContent()}
@@ -94,6 +112,16 @@ export default function Hero({
         priority
         sizes="100vw"
         className="object-cover object-right z-0"
+      />
+
+      {/* Contrast overlay so hero text stays readable over the image on small screens */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-10 lg:hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 35%, rgba(255,255,255,0.55) 60%, rgba(255,255,255,0.85) 100%)",
+        }}
       />
 
       <div className="relative z-20 mx-auto grid max-w-7xl items-center gap-8 pt-10 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8">
