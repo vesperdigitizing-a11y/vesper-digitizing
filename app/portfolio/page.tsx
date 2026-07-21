@@ -44,23 +44,23 @@ export default function PortfolioPage() {
           badges={[
             {
               icon: Star,
-              title: "Top Rated Support",
-              sub: "Highly praised by global apparel brands",
+              title: "Top Rated",
+              sub: "Trusted by global brands",
             },
             {
               icon: ShieldCheck,
               title: "NDA Protected",
-              sub: "Your designs & copyrights are 100% safe",
+              sub: "100% safe designs",
             },
             {
               icon: Clock,
-              title: "Fast Response Time",
-              sub: "Quotes sent within 30-60 minutes",
+              title: "Fast Quotes",
+              sub: "30-60 min response",
             },
             {
               icon: Refresh,
-              title: "Free Setup Review",
-              sub: "Artwork checked before you pay anything",
+              title: "Free Review",
+              sub: "Check before payment",
             },
           ]}
           showStatsCard={true}

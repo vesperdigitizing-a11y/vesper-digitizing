@@ -38,23 +38,23 @@ export default function ServicesPage() {
           badges={[
             {
               icon: ShieldCheck,
-              title: "Flawless Formats",
-              sub: "DST, EMB, PES & more optimized",
+              title: "All Formats",
+              sub: "DST, EMB, PES & more",
             },
             {
               icon: Clock,
-              title: "Quick Turnaround",
-              sub: "Standard 8-24 hours delivery",
+              title: "Fast Delivery",
+              sub: "8-24 hours turnaround",
             },
             {
               icon: Refresh,
-              title: "Stitch Optimization",
-              sub: "Zero thread breaks guaranteed",
+              title: "Zero Thread Breaks",
+              sub: "Stitch-optimized files",
             },
             {
               icon: Star,
-              title: "Expert Digitizers",
-              sub: "Industry veterans handling artwork",
+              title: "Expert Team",
+              sub: "Veteran digitizers",
             },
           ]}
           showStatsCard={true}

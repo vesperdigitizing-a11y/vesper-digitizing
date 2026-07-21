@@ -69,23 +69,23 @@ export default function StorePage() {
           badges={[
             {
               icon: ShieldCheck,
-              title: "Secure Checkout",
-              sub: "Encrypted payments & safe billing",
+              title: "Secure Payment",
+              sub: "Encrypted checkout",
             },
             {
               icon: Globe,
-              title: "Global Tracking",
-              sub: "Track your patch shipment live",
+              title: "Live Tracking",
+              sub: "Track patch shipments",
             },
             {
               icon: Refresh,
-              title: "Satisfaction Guarantee",
-              sub: "Easy replacements if quality mismatches",
+              title: "Guaranteed Quality",
+              sub: "Easy replacements",
             },
             {
               icon: Clock,
-              title: "Instant Digital Access",
-              sub: "Download stock files immediately",
+              title: "Instant Download",
+              sub: "Immediate file access",
             },
           ]}
           showStatsCard={true}

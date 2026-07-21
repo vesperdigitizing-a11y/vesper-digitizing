@@ -189,23 +189,23 @@ export default function VectorsPage() {
           badges={[
             {
               icon: ShieldCheck,
-              title: "Crisp Vector Paths",
-              sub: "Clean nodes with no jagged edges",
+              title: "Crisp Vectors",
+              sub: "Clean paths & nodes",
             },
             {
               icon: Refresh,
-              title: "High-Res Formats",
-              sub: "AI, EPS, SVG & Print-Ready PDF",
+              title: "Print Formats",
+              sub: "AI, EPS, SVG & PDF",
             },
             {
               icon: Clock,
-              title: "Urgent Vectorization",
-              sub: "Redrawn manually within a few hours",
+              title: "Urgent Delivery",
+              sub: "Ready in few hours",
             },
             {
               icon: Star,
-              title: "Manual Redrawing",
-              sub: "No auto-tracing, 100% hand-drawn precision",
+              title: "100% Hand-Drawn",
+              sub: "No auto-tracing used",
             },
           ]}
           showStatsCard={true}

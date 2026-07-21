@@ -186,23 +186,23 @@ export default function PatchesPage() {
           badges={[
             {
               icon: ShieldCheck,
-              title: "Premium Twill & Thread",
-              sub: "Vibrant colors & laser-cut edges",
+              title: "Premium Quality",
+              sub: "Vibrant laser-cut twill",
             },
             {
               icon: Refresh,
               title: "Custom Backings",
-              sub: "Iron-on, Velcro & Merrow borders",
+              sub: "Iron-on, Velcro & Merrow",
             },
             {
               icon: Globe,
-              title: "Bulk Orders",
-              sub: "Scalable production for any team size",
+              title: "Bulk Production",
+              sub: "Scalable team orders",
             },
             {
               icon: Clock,
-              title: "Free Physical Proof",
-              sub: "Approval sample before mass production",
+              title: "Physical Sample",
+              sub: "Proof before mass run",
             },
           ]}
           showStatsCard={true}
