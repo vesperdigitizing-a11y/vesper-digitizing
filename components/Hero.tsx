@@ -9,18 +9,18 @@ const DEFAULT_BADGES = [
   {
     icon: Clock,
     title: "24/7 Support",
-    sub: "Always Available Around The Clock",
+    sub: "Always Available",
   },
   {
     icon: ShieldCheck,
     title: "100% Quality",
-    sub: "Guaranteed Premium Stitching",
+    sub: "Premium Stitching",
   },
-  { icon: Globe, title: "Fast Delivery", sub: "On Time, Every Single Time" },
+  { icon: Globe, title: "Fast Delivery", sub: "On Time, Always" },
   {
     icon: Refresh,
     title: "Unlimited Revisions",
-    sub: "Until You Are Fully Satisfied",
+    sub: "Till You're Happy",
   },
 ];
 
@@ -270,8 +270,8 @@ export default function Hero({
                   className="group flex flex-col items-center justify-center p-2 text-center rounded-xl transition-all duration-300 hover:scale-105"
                 >
                   {/* Top Red Icon with Solid Red Background Badge for Instant Eye-Catching Look */}
-                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-[#c8102e] text-white shadow-md shadow-[#c8102e]/20 transition-transform duration-300 group-hover:scale-110">
-                    <b.icon className="h-4 w-4" />
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl text-[#c8102e]  transition-transform duration-300 group-hover:scale-110">
+                    <b.icon className="h-6 w-6" />
                   </div>
 
                   {/* High Visibility Title */}
