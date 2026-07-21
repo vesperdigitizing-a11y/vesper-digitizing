@@ -81,7 +81,6 @@ export default function TermsPage() {
   return (
     <>
       <Header />
-      <SmoothScroll />
       <main className="flex-1 bg-white">
         {/* Hero */}
         <section
