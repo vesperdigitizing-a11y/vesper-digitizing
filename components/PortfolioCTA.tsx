@@ -8,11 +8,11 @@ export default function PortfolioCTA() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/ctabg/portfoliocta.jpeg"
+          src="/images/ctabg/portfoliocta.webp"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover"
-          priority
           quality={90}
         />
       </div>

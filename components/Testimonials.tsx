@@ -24,21 +24,21 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
       "Vesper Digitizing delivered outstanding quality and super fast turnaround. My go-to digitizing partner!",
     name: "Michael T.",
     country: "USA",
-    avatar: "/images/testimonials/michael-t.jpg",
+    avatar: "/images/testimonials/michael-t.webp",
   },
   {
     quote:
       "Professional, reliable and always exceed my expectations. Highly recommended!",
     name: "James R.",
     country: "Canada",
-    avatar: "/images/testimonials/james-r.jpg",
+    avatar: "/images/testimonials/james-r.webp",
   },
   {
     quote:
       "The stitch quality is perfect every time. Absolutely love their work.",
     name: "Jessica.",
     country: "UK",
-    avatar: "/images/testimonials/jessica.jpg",
+    avatar: "/images/testimonials/jessica.webp",
   },
 ];
 

@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     price: 2.99,
     originalPrice: 4.0,
     image:
-      "/images/products/patch-digitizing/patch-certified-locally-grown.jpg",
+      "/images/products/patch-digitizing/patch-certified-locally-grown.webp",
     badge: "sale",
     tagline:
       "Rustic farm-to-table patch perfect for local businesses and farmers markets.",
@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
-    image: "/images/products/patch-digitizing/patch-classic-pikachu-1996.jpg",
+    image: "/images/products/patch-digitizing/patch-classic-pikachu-1996.webp",
     badge: "best",
     tagline:
       "Retro-style character patch — nostalgic 1996 design for fans and collectors.",
@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
-    image: "/images/products/patch-digitizing/patch-dont-hassle-me-shuckle.jpg",
+    image: "/images/products/patch-digitizing/patch-dont-hassle-me-shuckle.webp",
     badge: "new",
     tagline:
       "Fun character patch with playful typography — perfect for backpacks and jackets.",
@@ -133,7 +133,7 @@ export const PRODUCTS: Product[] = [
     price: 2.99,
     originalPrice: 4.0,
     image:
-      "/images/products/patch-digitizing/patch-dragonite-delivery-service.jpg",
+      "/images/products/patch-digitizing/patch-dragonite-delivery-service.webp",
     badge: "sale",
     tagline:
       "Vintage delivery service badge patch — whimsical design for fan apparel.",
@@ -165,7 +165,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
-    image: "/images/products/patch-digitizing/patch-error-404.jpg",
+    image: "/images/products/patch-digitizing/patch-error-404.webp",
     tagline:
       "Geeky error-code patch — perfect for tech enthusiasts and developers.",
     description:
@@ -196,7 +196,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
-    image: "/images/products/patch-digitizing/patch-kanto-fire-department.jpg",
+    image: "/images/products/patch-digitizing/patch-kanto-fire-department.webp",
     badge: "best",
     tagline:
       "Authentic fire department style patch — bold shield design for apparel.",
@@ -229,7 +229,7 @@ export const PRODUCTS: Product[] = [
     price: 2.99,
     originalPrice: 4.0,
     image:
-      "/images/products/patch-digitizing/patch-licensed-nursing-assistant.jpg",
+      "/images/products/patch-digitizing/patch-licensed-nursing-assistant.webp",
     tagline:
       "Professional medical patch — clean design for scrubs and uniforms.",
     description:
@@ -261,7 +261,7 @@ export const PRODUCTS: Product[] = [
     price: 2.99,
     originalPrice: 4.0,
     image:
-      "/images/products/patch-digitizing/patch-official-bean-of-the-year.jpg",
+      "/images/products/patch-digitizing/patch-official-bean-of-the-year.webp",
     badge: "sale",
     tagline:
       "Fun award-style patch — perfect for coffee lovers and café merchandise.",
@@ -294,7 +294,7 @@ export const PRODUCTS: Product[] = [
     price: 2.99,
     originalPrice: 4.0,
     image:
-      "/images/products/patch-digitizing/patch-professional-dragon-slayer.jpg",
+      "/images/products/patch-digitizing/patch-professional-dragon-slayer.webp",
     badge: "new",
     tagline:
       "Epic fantasy patch — bold dragon design for gamers and fantasy fans.",
@@ -326,7 +326,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
-    image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
+    image: "/images/products/patch-digitizing/patch-squirtle-squad.webp",
     badge: "best",
     tagline:
       "Iconic squad patch — retro character design for fans and collectors.",
@@ -361,7 +361,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 200,
-    image: "/images/products/bundles/bundle-1.jpeg",
+    image: "/images/products/bundles/bundle-1.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -396,7 +396,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 200,
-    image: "/images/products/bundles/bundle-2.jpeg",
+    image: "/images/products/bundles/bundle-2.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -431,7 +431,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 209.99,
     originalPrice: 280,
-    image: "/images/products/bundles/bundle-3.jpeg",
+    image: "/images/products/bundles/bundle-3.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -465,7 +465,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 209.99,
     originalPrice: 280,
-    image: "/images/products/bundles/bundle-4.jpeg",
+    image: "/images/products/bundles/bundle-4.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -499,7 +499,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 299.99,
     originalPrice: 400,
-    image: "/images/products/bundles/bundle-5.jpeg",
+    image: "/images/products/bundles/bundle-5.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -533,7 +533,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 299.99,
     originalPrice: 400,
-    image: "/images/products/bundles/bundle-6.jpeg",
+    image: "/images/products/bundles/bundle-6.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -567,7 +567,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
-    image: "/images/products/bundles/bundle-7.jpeg",
+    image: "/images/products/bundles/bundle-7.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -602,7 +602,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
-    image: "/images/products/bundles/bundle-8.jpeg",
+    image: "/images/products/bundles/bundle-8.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -636,7 +636,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
-    image: "/images/products/bundles/bundle-9.jpeg",
+    image: "/images/products/bundles/bundle-9.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,
@@ -670,7 +670,7 @@ export const BUNDLES: Product[] = [
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
-    image: "/images/products/bundles/bundle-10.jpeg",
+    image: "/images/products/bundles/bundle-10.webp",
     badge: "sale",
     isBundle: true,
     bundleDiscount: 25,

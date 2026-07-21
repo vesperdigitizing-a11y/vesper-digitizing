@@ -21,7 +21,7 @@ const CATEGORIES: Category[] = [
     id: "jacket-back",
     label: "Jacket Back",
     tag: "Jacket Back Embroidery",
-    image: "/images/products/jacket-back/jacket-back-1.jpeg",
+    image: "/images/products/jacket-back/jacket-back-1.webp",
     description:
       "Large-format jacket back designs with high stitch count and intricate detail work.",
   },
@@ -29,7 +29,7 @@ const CATEGORIES: Category[] = [
     id: "cap-digitizing",
     label: "Cap Digitizing",
     tag: "Cap Digitizing",
-    image: "/images/products/cap-digitizing/cap-embroidery-1.jpeg",
+    image: "/images/products/cap-digitizing/cap-embroidery-1.webp",
     description:
       "Precision cap digitizing with clean stitch-out on curved surfaces.",
   },
@@ -37,14 +37,14 @@ const CATEGORIES: Category[] = [
     id: "patch-digitizing",
     label: "Custom Patches",
     tag: "Custom Patches",
-    image: "/images/products/patch-digitizing/patch-squirtle-squad.jpg",
+    image: "/images/products/patch-digitizing/patch-squirtle-squad.webp",
     description: "Custom embroidered patches with merrowed or laser-cut edges.",
   },
   {
     id: "left-chest",
     label: "Left Chest",
     tag: "Left Chest Logo",
-    image: "/images/products/left-chest/left-chest-1.jpeg",
+    image: "/images/products/left-chest/left-chest-1.webp",
     description:
       "Compact left chest logos optimized for small embroidery areas.",
   },
@@ -52,21 +52,21 @@ const CATEGORIES: Category[] = [
     id: "sleeve-logos",
     label: "Sleeve Logos",
     tag: "Sleeve Logo Digitizing",
-    image: "/images/products/sleeve-logos/shirt-sleeve-1.jpeg",
+    image: "/images/products/sleeve-logos/shirt-sleeve-1.webp",
     description: "Sleeve logo digitizing with proper density and underlay.",
   },
   {
     id: "3d-puff",
     label: "3D Puff",
     tag: "3D Puff Embroidery",
-    image: "/images/products/3d-puff/acdc-pwr-up-tour-3d-puff.jpg",
+    image: "/images/products/3d-puff/acdc-pwr-up-tour-3d-puff.webp",
     description: "Raised 3D puff embroidery with dimensional effects.",
   },
   {
     id: "chenille",
     label: "Chenille",
     tag: "Chenille Patches",
-    image: "/images/products/Chenille/chenille-christin-cruz.jpg",
+    image: "/images/products/Chenille/chenille-christin-cruz.webp",
     description: "Classic chenille patches for varsity jackets and branding.",
   },
   {
@@ -74,7 +74,7 @@ const CATEGORIES: Category[] = [
     label: "Towel Digitizing",
     tag: "Towel Digitizing",
     image:
-      "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.jpg",
+      "/images/products/towel-digitizing/towel-embroidery-don-crudo-seafood.webp",
     description: "Professional towel embroidery digitizing for terry cloth.",
   },
   {
@@ -82,14 +82,14 @@ const CATEGORIES: Category[] = [
     label: "Vector Art",
     tag: "Vector Art",
     image:
-      "/images/products/vector-conversion/vector-cartoon-character-art.jpg",
+      "/images/products/vector-conversion/vector-cartoon-character-art.webp",
     description: "Convert raster artwork into clean print-ready vectors.",
   },
   {
     id: "applique",
     label: "Applique",
     tag: "Applique Digitizing",
-    image: "/images/products/applique/applique-letter-m.jpg",
+    image: "/images/products/applique/applique-letter-m.webp",
     description: "Precision applique digitizing with layered fabric effects.",
   },
 ];

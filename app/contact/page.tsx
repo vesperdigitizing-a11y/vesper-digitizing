@@ -26,7 +26,7 @@ export default function ContactPage() {
           title={"Lets Create Something Amazing Together"}
           titleHighlight="Amazing Together"
           description="Have a question, need a quote, or want to discuss your project? We are here to help you with the best embroidery digitizing solutions."
-          image="/images/HeroContact.png"
+          image="/images/HeroContact.webp"
           imageAlt="Contact Vesper Digitizing"
           useBackgroundImage={false}
           ctaButtons={[

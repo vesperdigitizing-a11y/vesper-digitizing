@@ -1,6 +1,7 @@
 import { ArrowRight, Clock, Trophy, Globe, BadgeCheck } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 import AnimatedCounter from "./AnimatedCounter";
+import Image from "next/image";
 
 const STATS = [
   { icon: Clock, value: 10, suffix: "+", label: "Experience" },
@@ -11,12 +12,16 @@ const STATS = [
 
 export default function AboutHero() {
   return (
-    <section
-      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
-      style={{
-        backgroundImage: 'url("/images/aboutHero.jpeg")',
-      }}
-    >
+    <section className="relative overflow-hidden bg-white hero-mesh">
+      <Image
+        src="/images/aboutHero.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-right z-0 lg:object-center"
+      />
+
       {/* Readability overlay */}
 
       <div

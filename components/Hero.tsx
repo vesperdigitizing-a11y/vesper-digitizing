@@ -55,7 +55,7 @@ export default function Hero({
   title,
   titleHighlight = "",
   description = "We transform artwork into flawless embroidery files with exceptional stitch quality, fast turnaround and professional support trusted by clients worldwide.",
-  image = "/images/HeroImg.png",
+  image = "/images/HeroImg.webp",
   imageAlt = "Vesper Digitizing",
   useBackgroundImage = false,
   ctaButtons = [

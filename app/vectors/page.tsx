@@ -179,7 +179,7 @@ export default function VectorsPage() {
           title="Vectors That Never Pixelate"
           titleHighlight="Never Pixelate"
           description="Convert any raster image logos, photos, sketches, clip art into clean, scalable vector files. Print at any size without losing quality."
-          image="/images/vectorHero1.png"
+          image="/images/vectorHero1.webp"
           imageAlt="Vector Art Services"
           useBackgroundImage={false}
           ctaButtons={[

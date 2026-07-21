@@ -130,7 +130,7 @@ export default function Header() {
             className="group flex shrink-0 items-center transition-transform hover:scale-105"
           >
             <Image
-              src="/images/LogoTransparent.png"
+              src="/images/LogoTransparent.webp"
               alt="Vesper Digitizing"
               width={805}
               height={310}
@@ -290,7 +290,7 @@ export default function Header() {
       >
         <div className="flex items-center justify-between border-b border-[#e5e7eb] px-5 py-4">
           <Image
-            src="/images/LogoTransparent.png"
+            src="/images/LogoTransparent.webp"
             alt="Vesper Digitizing"
             width={805}
             height={310}

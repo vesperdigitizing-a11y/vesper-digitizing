@@ -29,7 +29,7 @@ export default function AboutStory() {
           <ScrollReveal variant="left">
             <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-[#e5e7eb] transition-all duration-500 hover:ring-[#c8102e]/30 hover:shadow-2xl translate-y-0 hover:-translate-y-2">
               <Image
-                src="/images/aboutTeam.jpeg"
+                src="/images/aboutTeam.webp"
                 alt="Vesper Digitizing Team"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

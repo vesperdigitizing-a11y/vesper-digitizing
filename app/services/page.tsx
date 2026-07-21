@@ -28,7 +28,7 @@ export default function ServicesPage() {
           title={"Precision That Every Stitch Deserves"}
           titleHighlight="Stitch Deserves"
           description="We deliver exceptional embroidery digitizing with perfect stitch quality, fast turnaround and unmatched customer support trusted by clients worldwide."
-          image="/images/serviceHero.png"
+          image="/images/serviceHero.webp"
           imageAlt="Professional Digitizing Services"
           useBackgroundImage={false}
           ctaButtons={[

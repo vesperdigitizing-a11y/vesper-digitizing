@@ -84,7 +84,7 @@ export default function Footer() {
             {/* -mb-4 lagane se extra gap khatam ho jayega */}
             <div className="-mt-3 sm:-mt-4 -mb-3 sm:-mb-4">
               <Image
-                src="/images/LogoTransparent.png"
+                src="/images/LogoTransparent.webp"
                 alt="Vesper Digitizing"
                 width={805}
                 height={310}

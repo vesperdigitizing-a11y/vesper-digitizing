@@ -7,6 +7,7 @@ import {
   Star,
   User,
 } from "./icons";
+import Image from "next/image";
 
 const FEATURE_BADGES = [
   { icon: Download, label: "Instant", sub: "Download" },
@@ -24,12 +25,16 @@ const AVATAR_COLORS = [
 
 export default function StoreHero() {
   return (
-    <section
-      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat lg:bg-center"
-      style={{
-        backgroundImage: 'url("/images/HeroStore.png")',
-      }}
-    >
+    <section className="relative overflow-hidden bg-white">
+      <Image
+        src="/images/HeroStore.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-right z-0 lg:object-center"
+      />
+
       {/* Readability overlay: strong white wash on the left where text sits,
           softer fade to the right so the product image shows through as a
           cohesive background rather than a separate box. */}

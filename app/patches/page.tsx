@@ -176,7 +176,7 @@ export default function PatchesPage() {
           title="Patches That Stand Out"
           titleHighlight="Stand Out"
           description="From merrow borders to laser-cut, woven, chenille and PVC we digitize patches in any shape, size, or backing. Wash-tested up to 50 cycles, shipped worldwide."
-          image="/images/patchesHero.jpeg"
+          image="/images/patchesHero.webp"
           imageAlt="Custom Patches Design"
           useBackgroundImage={false}
           ctaButtons={[

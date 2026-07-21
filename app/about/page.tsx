@@ -23,21 +23,21 @@ const ABOUT_TESTIMONIALS: Testimonial[] = [
       "We have been partnering with Vesper for over two years now. Their consistency and attention to detail is unmatched in the industry.",
     name: "David M.",
     country: "Germany",
-    avatar: "/images/testimonials/david-m.jpg",
+    avatar: "/images/testimonials/david-m.webp",
   },
   {
     quote:
       "What sets Vesper apart is their team. Every project feels personal, and they always go the extra mile to get it right.",
     name: "Elena R.",
     country: "Australia",
-    avatar: "/images/testimonials/elena-r.jpg",
+    avatar: "/images/testimonials/elena-r.webp",
   },
   {
     quote:
       "From small logos to complex jacket-back designs, they handle everything with the same level of precision and care.",
     name: "Robert L.",
     country: "UAE",
-    avatar: "/images/testimonials/robert-l.jpg",
+    avatar: "/images/testimonials/robert-l.webp",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function AboutPage() {
           title={"Crafting Perfection One Stitch at a Time"}
           titleHighlight="Stitch"
           description="At Vesper Digitizing, we turn your ideas into flawless embroidery. With precision, passion, and technology, we deliver digitizing solutions that help your brand stand out."
-          image="/images/aboutHero.jpeg"
+          image="/images/aboutHero.webp"
           imageAlt="About Vesper Digitizing"
           useBackgroundImage={false}
           ctaButtons={[

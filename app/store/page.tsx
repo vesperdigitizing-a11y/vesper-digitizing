@@ -30,21 +30,21 @@ const STORE_TESTIMONIALS: Testimonial[] = [
       "Amazing quality designs and instant download. My go-to store for all embroidery files!",
     name: "Emily W.",
     country: "USA",
-    avatar: "/images/testimonials/emily-w.jpg",
+    avatar: "/images/testimonials/emily-w.webp",
   },
   {
     quote:
       "The font packs are incredible value. Commercial license included is a huge bonus!",
     name: "Chris P.",
     country: "UK",
-    avatar: "/images/testimonials/chris-p.jpg",
+    avatar: "/images/testimonials/chris-p.webp",
   },
   {
     quote:
       "Best embroidery design store I have used. Premium quality at fair prices.",
     name: "Anna S.",
     country: "Netherlands",
-    avatar: "/images/testimonials/anna-s.jpg",
+    avatar: "/images/testimonials/anna-s.webp",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function StorePage() {
           title={"Premium Designs for Every Stitch and Style"}
           titleHighlight="Stitch and Style"
           description="Explore our exclusive collection of embroidery designs, fonts, and patch packs. Perfect quality, instant download and commercial use included."
-          image="/images/HeroStore.png"
+          image="/images/HeroStore.webp"
           imageAlt="Vesper Store - Shop Designs"
           useBackgroundImage={false}
           ctaButtons={[

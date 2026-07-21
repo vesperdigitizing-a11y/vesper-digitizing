@@ -8,11 +8,11 @@ export default function AboutCTA() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/ctabg/aboutcta.jpeg"
+          src="/images/ctabg/aboutcta.webp"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover"
-          priority
           quality={90}
         />
       </div>

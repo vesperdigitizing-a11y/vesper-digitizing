@@ -34,7 +34,7 @@ export default function PortfolioPage() {
           title={"Stitching Your Ideas Into Perfection"}
           titleHighlight="Perfection"
           description="Explore our recent digitizing projects. Every design is crafted with precision, passion and perfection to make your brand stand out."
-          image="/images/HeroPorfolio.png"
+          image="/images/HeroPorfolio.webp"
           imageAlt="Portfolio - Our Work"
           useBackgroundImage={false}
           ctaButtons={[

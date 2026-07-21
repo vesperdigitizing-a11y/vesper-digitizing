@@ -1,5 +1,6 @@
 import { ArrowRight, Clock, Headset, ShieldCheck } from "./icons";
 import ScrollReveal from "./ScrollReveal";
+import Image from "next/image";
 
 const BADGES = [
   { icon: Clock, title: "Fast Response", sub: "We reply within 1 hour" },
@@ -9,12 +10,16 @@ const BADGES = [
 
 export default function ContactHero() {
   return (
-    <section
-      className="relative overflow-hidden bg-white bg-right bg-cover bg-no-repeat hero-mesh lg:bg-center"
-      style={{
-        backgroundImage: 'url("/images/HeroContact.png")',
-      }}
-    >
+    <section className="relative overflow-hidden bg-white hero-mesh">
+      <Image
+        src="/images/HeroContact.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-right z-0 lg:object-center"
+      />
+
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 -right-32 z-0 h-96 w-96 rounded-full bg-[#c8102e]/10 blur-3xl animate-float"
