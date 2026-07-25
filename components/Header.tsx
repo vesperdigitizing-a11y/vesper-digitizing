@@ -78,12 +78,23 @@ export default function Header() {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 20);
-      if (y > 200 && y > lastY + 8) {
-        setHidden(true);
-      } else if (y < lastY - 8 || y < 100) {
+      // Show near the top
+      if (y < 100) {
         setHidden(false);
+        lastY = y;
       }
-      lastY = y;
+      // Hide when scrolling DOWN past 200px (with 8px threshold to avoid jitter)
+      else if (y > 200 && y > lastY + 8) {
+        setHidden(true);
+        lastY = y;
+      }
+      // Show when scrolling UP past the threshold
+      else if (y < lastY - 8) {
+        setHidden(false);
+        lastY = y;
+      }
+      // Otherwise: don't move the reference point, so small per-event
+      // deltas accumulate until a threshold is actually crossed.
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
