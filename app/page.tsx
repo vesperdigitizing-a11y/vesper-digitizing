@@ -15,12 +15,66 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Vesper Digitizing | Premium Embroidery Digitizing Services",
   description:
-    "Professional embroidery digitizing services. Transform your artwork into flawless embroidery files with precision, quality and fast turnaround.",
+    "Professional embroidery digitizing and vector art services. Transform your artwork into flawless embroidery files with precision, 24h turnaround, and 100% quality guarantee.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Vesper Digitizing | Premium Embroidery Digitizing Services",
+    description:
+      "Transform your artwork into flawless embroidery files with precision, 24h turnaround, and 100% quality guarantee.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdHomeService = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Embroidery Digitizing & Vector Art Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "Vesper Digitizing",
+    "url": "https://vesperdigitizing.com",
+  },
+  "areaServed": "Worldwide",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Embroidery & Vector Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Embroidery Digitizing (Cap, Left-Chest, Jacket Back, 3D Puff)"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Patches Digitizing (Merrow, Laser Cut, Woven, PVC)"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vector Art Conversion (Raster to Vector, Logo Tracing)"
+        }
+      }
+    ]
+  }
 };
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdHomeService),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero
