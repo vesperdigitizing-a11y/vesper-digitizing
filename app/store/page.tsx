@@ -19,9 +19,37 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Store | Vesper Digitizing",
+  title: "Embroidery Store — Design Files, Font Packs & Patch Bundles",
   description:
-    "Shop premium embroidery designs, font packs, patch bundles and more. Instant download, commercial license included.",
+    "Shop premium embroidery design files, font packs, and patch bundles. Instant download, commercial license included, DST, PES, EXP & major formats.",
+  alternates: {
+    canonical: "/store",
+  },
+  openGraph: {
+    title: "Embroidery Design Store | Vesper Digitizing",
+    description:
+      "Shop instant-download embroidery files and font packs with commercial license.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdStoreBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Store",
+      "item": "https://vesperdigitizing.com/store"
+    }
+  ]
 };
 
 const STORE_TESTIMONIALS: Testimonial[] = [
@@ -51,6 +79,12 @@ const STORE_TESTIMONIALS: Testimonial[] = [
 export default function StorePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdStoreBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero

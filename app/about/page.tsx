@@ -12,9 +12,37 @@ import Footer from "@/components/Footer";
 import { Clock, Trophy, Globe, BadgeCheck } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "About Us | Vesper Digitizing",
+  title: "About Us — Premium Embroidery Digitizing Specialists",
   description:
-    "Learn about Vesper Digitizing — our story, mission, values, and the expert team behind every stitch. Premium embroidery digitizing services trusted worldwide.",
+    "Learn about Vesper Digitizing — our story, mission, and expert team of digitizers delivering precision embroidery files trusted by clients worldwide.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Vesper Digitizing — Crafting Perfection One Stitch at a Time",
+    description:
+      "Our story, mission, and the expert team behind every stitch. Trusted embroidery digitizing worldwide.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdAboutBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": "https://vesperdigitizing.com/about"
+    }
+  ]
 };
 
 const ABOUT_TESTIMONIALS: Testimonial[] = [
@@ -44,6 +72,12 @@ const ABOUT_TESTIMONIALS: Testimonial[] = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdAboutBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero

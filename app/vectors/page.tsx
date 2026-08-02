@@ -18,9 +18,37 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Vector Art | Vesper Digitizing",
+  title: "Raster to Vector Art Conversion Services — Print-Ready Vector Files",
   description:
-    "Raster to Vector Art logo vectorization, clip art, illustrations, and custom vector art. Scalable, print-ready vector files in any format.",
+    "Professional Raster to Vector Art conversion: logo vectorization, clip art, hand drawings, and custom vector artwork. Scalable AI, EPS, SVG, and PDF vector files.",
+  alternates: {
+    canonical: "/vectors",
+  },
+  openGraph: {
+    title: "Raster to Vector Art Conversion Services | Vesper Digitizing",
+    description:
+      "Hand-traced crisp vector files for print, apparel, and signage. AI, EPS, SVG, and PDF formats included.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdVectorsBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Vectors",
+      "item": "https://vesperdigitizing.com/vectors"
+    }
+  ]
 };
 
 const VECTOR_TYPES = [
@@ -170,6 +198,12 @@ const FAQS = [
 export default function VectorsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdVectorsBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         {/* HERO - Using Hero.tsx component */}

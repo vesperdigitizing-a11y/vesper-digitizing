@@ -1,8 +1,7 @@
 // Server component for /product/[slug].
 //
 // Looks the product up in the shared catalog, generates static params +
-// metadata, then renders the client sub-component with the qty selector and
-// Add to Cart button.
+// metadata, then renders the client sub-component with Product JSON-LD.
 
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -34,9 +33,24 @@ export async function generateMetadata({
     };
   }
   return {
-    title: `${product.name} | Vesper Digitizing Store`,
-    description: product.tagline,
+    title: `${product.name} — Embroidery Design File`,
+    description: product.description.slice(0, 160),
+    alternates: {
+      canonical: `/product/${product.slug}`,
+    },
     openGraph: {
+      title: `${product.name} | Vesper Digitizing`,
+      description: product.tagline,
+      url: `https://vesperdigitizing.com/product/${product.slug}`,
+      images: [
+        {
+          url: product.image,
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${product.name} | Vesper Digitizing`,
       description: product.tagline,
       images: [product.image],
@@ -56,8 +70,40 @@ export default async function ProductPage({
     notFound();
   }
 
+  const jsonLdProduct = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": `https://vesperdigitizing.com${product.image}`,
+    "description": product.description,
+    "sku": product.slug,
+    "brand": {
+      "@type": "Brand",
+      "name": "Vesper Digitizing"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://vesperdigitizing.com/product/${product.slug}`,
+      "priceCurrency": "USD",
+      "price": product.price.toFixed(2),
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": product.rating,
+      "reviewCount": product.reviewCount
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdProduct),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <ProductDetailClient product={product} />

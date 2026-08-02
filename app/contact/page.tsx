@@ -10,14 +10,48 @@ import Footer from "@/components/Footer";
 import { Clock, Headset, Refresh, ShieldCheck, Star } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Vesper Digitizing",
+  title: "Contact Us — Get a Fast Digitizing Quote",
   description:
-    "Get in touch with Vesper Digitizing for premium embroidery digitizing services. Send us a message, call us, or start a live chat. We reply within 1 hour.",
+    "Get in touch with Vesper Digitizing for premium embroidery digitizing and vector art quotes. 24/7 customer support, fast 30-60 minute quote response.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Vesper Digitizing — Get a Free Digitizing Quote",
+    description:
+      "Send your design for a free quote. We reply within 30-60 minutes.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdContactBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact Us",
+      "item": "https://vesperdigitizing.com/contact"
+    }
+  ]
 };
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdContactBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero

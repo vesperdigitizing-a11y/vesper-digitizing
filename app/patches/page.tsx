@@ -18,9 +18,37 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Patches | Vesper Digitizing",
+  title: "Custom Patches Digitizing Services — Merrow, Woven, PVC & Leather",
   description:
-    "Custom Patches merrow border, laser cut, woven, chenille, PVC and iron-on patches in any shape or size. Fast turnaround, unlimited revisions.",
+    "Custom Patches digitizing: merrow border, laser cut, woven, chenille, PVC, and iron-on patches in any shape or size. Fast 24h turnaround, unlimited revisions.",
+  alternates: {
+    canonical: "/patches",
+  },
+  openGraph: {
+    title: "Custom Patches Digitizing Services | Vesper Digitizing",
+    description:
+      "Merrow borders, laser cut, woven, chenille & PVC patches digitized with precision. Free unlimited revisions.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdPatchesBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Patches",
+      "item": "https://vesperdigitizing.com/patches"
+    }
+  ]
 };
 
 const PATCH_TYPES = [
@@ -167,6 +195,12 @@ const FAQS = [
 export default function PatchesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdPatchesBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         {/* HERO - Using Hero.tsx component */}

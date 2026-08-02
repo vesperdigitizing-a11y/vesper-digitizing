@@ -18,14 +18,48 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Our Portfolio | Vesper Digitizing",
+  title: "Portfolio — Embroidery Digitizing & Vector Work",
   description:
-    "Explore our featured embroidery digitizing work — caps, left chest logos, jacket backs, patches, 3D puff, applique and more. Quality that speaks for itself.",
+    "Explore our featured embroidery digitizing portfolio: caps, left chest logos, jacket backs, patches, 3D puff, applique, and vector conversions.",
+  alternates: {
+    canonical: "/portfolio",
+  },
+  openGraph: {
+    title: "Embroidery Digitizing & Vector Work Portfolio | Vesper Digitizing",
+    description:
+      "Explore real digitizing projects crafted with precision and stitch quality trusted by global brands.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdPortfolioBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portfolio",
+      "item": "https://vesperdigitizing.com/portfolio"
+    }
+  ]
 };
 
 export default function PortfolioPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdPortfolioBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Terms & Conditions | Vesper Digitizing",
   description:
     "Terms and Conditions for Vesper Digitizing — the terms governing your use of our embroidery digitizing services and online store.",
+  alternates: {
+    canonical: "/terms-and-conditions",
+  },
 };
 
 const SECTIONS = [

@@ -12,14 +12,48 @@ import ServicesContent from "@/components/ServicesContent";
 import { Clock, Refresh, ShieldCheck, Globe, Star } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Our Services | Vesper Digitizing",
+  title: "Professional Embroidery Digitizing Services",
   description:
-    "Professional embroidery digitizing services — left chest logos, cap digitizing, jacket back, 3D puff, applique, patches, vector art and custom embroidery.",
+    "Explore our full range of embroidery digitizing services: cap digitizing, left chest logos, jacket back designs, 3D puff embroidery, and applique. 8-24h turnaround.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Professional Embroidery Digitizing Services | Vesper Digitizing",
+    description:
+      "Precision digitizing for cap, left chest, jacket back, 3D puff, and applique embroidery. All formats included.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLdServicesBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vesperdigitizing.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://vesperdigitizing.com/services"
+    }
+  ]
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdServicesBreadcrumb),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero

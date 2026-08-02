@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Vesper Digitizing",
   description:
     "Privacy Policy for Vesper Digitizing — how we collect, use, and protect your personal information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 const SECTIONS = [
