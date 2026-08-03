@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { ToastProvider } from "@/lib/toast-context";
-import CartDrawer from "@/components/CartDrawer";
 import ScrollProgress from "@/components/ScrollProgress";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import FloatingCTA from "@/components/FloatingCTA";
+
+// Chrome that isn't needed for first paint — split into their own chunks
+// so they don't add to the initial hydration payload on every page.
+const CartDrawer = dynamic(() => import("@/components/CartDrawer"));
+const AnnouncementBar = dynamic(() => import("@/components/AnnouncementBar"));
+const FloatingCTA = dynamic(() => import("@/components/FloatingCTA"));
 
 const inter = Inter({
   variable: "--font-inter",

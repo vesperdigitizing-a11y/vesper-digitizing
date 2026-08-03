@@ -1,9 +1,9 @@
-"use client";
-
 import { IconByName, type IconName, Plus } from "./icons";
 import TiltCard from "./TiltCard";
 import ScrollReveal from "./ScrollReveal";
 import { PRODUCTS, BUNDLES } from "@/lib/products";
+import Link from "next/link";
+import { ITEMS as PORTFOLIO_ITEMS } from "@/lib/portfolio";
 
 type Category = { 
   icon: IconName; 
@@ -12,23 +12,42 @@ type Category = {
   slug: string;
 };
 
-// Calculate real counts from actual product data
+// Map store category slug to portfolio category slug
+const getPortfolioCategorySlug = (storeSlug: string): string => {
+  switch (storeSlug) {
+    case "cap-digitizing":
+      return "cap";
+    case "patch-digitizing":
+      return "patches";
+    case "vector-conversion":
+      return "vector";
+    case "towel-digitizing":
+      return "towel";
+    case "sleeve-logos":
+      return "shirt-sleeve";
+    default:
+      return storeSlug;
+  }
+};
+
+// Calculate real counts from actual portfolio data
 const getRealCounts = (): Category[] => {
-  // Count products by their actual categories
-  const patchProducts = PRODUCTS.filter(p => p.category === "patches").length;
-  const patchBundles = BUNDLES.filter(b => b.category === "patches").length;
-  
+  const getCount = (slug: string) => {
+    const portfolioSlug = getPortfolioCategorySlug(slug);
+    return PORTFOLIO_ITEMS.filter((item) => item.category === portfolioSlug).length;
+  };
+
   return [
-    { icon: "penTool", title: "Embroidery Fonts", count: 142, slug: "fonts" },
-    { icon: "sparkles", title: "Logo Designs", count: 256, slug: "animal" },
-    { icon: "shirt", title: "Left Chest Logos", count: 338, slug: "patches" },
-    { icon: "cap", title: "Cap Designs", count: 768, slug: "sports" },
-    { icon: "jacket", title: "Jacket Back Designs", count: 778, slug: "floral" },
-    { icon: "cube", title: "3D Puff Designs", count: 96, slug: "mascot" },
-    { icon: "patch", title: "Patch Collections", count: patchProducts + patchBundles, slug: "patches" }, // Real count!
-    { icon: "layers", title: "Applique Designs", count: 112, slug: "vintage" },
-    { icon: "users", title: "Mascot Designs", count: 201, slug: "monogram" },
-    { icon: "globe", title: "Vector Files", count: 87, slug: "vectors" },
+    { icon: "shirt", title: "Left Chest Logos", count: getCount("left-chest"), slug: "left-chest" },
+    { icon: "cap", title: "Cap Digitizing", count: getCount("cap-digitizing"), slug: "cap-digitizing" },
+    { icon: "jacket", title: "Jacket Back", count: getCount("jacket-back"), slug: "jacket-back" },
+    { icon: "cube", title: "3D Puff Digitizing", count: getCount("3d-puff"), slug: "3d-puff" },
+    { icon: "layers", title: "Applique Digitizing", count: getCount("applique"), slug: "applique" },
+    { icon: "patch", title: "Patches", count: getCount("patch-digitizing"), slug: "patch-digitizing" },
+    { icon: "penTool", title: "Vector Art", count: getCount("vector-conversion"), slug: "vector-conversion" },
+    { icon: "sparkles", title: "Chenille Patches", count: getCount("chenille"), slug: "chenille" },
+    { icon: "towel", title: "Towel Digitizing", count: getCount("towel-digitizing"), slug: "towel-digitizing" },
+    { icon: "sleeve", title: "Sleeve Logo Digitizing", count: getCount("sleeve-logos"), slug: "sleeve-logos" },
   ];
 };
 
@@ -56,9 +75,13 @@ export default function StoreCategories() {
             const Icon = IconByName[cat.icon];
             return (
               <TiltCard key={cat.title} max={10}>
-                <a
-                  href="#products"
-                  className="group relative flex h-full flex-col items-center overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-5 text-center shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl cursor-pointer"
+                <Link
+                  href={
+                    cat.slug === "patch-digitizing"
+                      ? "/store?category=patch-digitizing#products"
+                      : `/services?category=${cat.slug}`
+                  }
+                  className="group relative flex h-full flex-col items-center overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 text-center shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#c8102e]/40 hover:shadow-2xl cursor-pointer"
                 >
                   {/* Gradient overlay on hover */}
                   <div
@@ -66,26 +89,26 @@ export default function StoreCategories() {
                     className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#c8102e]/0 to-[#c8102e]/0 transition-all duration-500 group-hover:from-[#c8102e]/5 group-hover:to-transparent"
                   />
                   
-                  <span className="relative mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 text-[#c8102e] ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c8102e] group-hover:text-white group-hover:shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]">
-                    <Icon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
+                  <span className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#c8102e]/10 ring-1 ring-[#c8102e]/20 transition-all duration-500 group-hover:scale-105 group-hover:bg-[#c8102e]/15 group-hover:ring-[#c8102e]/40 group-hover:shadow-[0_8px_24px_-4px_rgba(200,16,46,0.45)]">
+                    <Icon className="h-10 w-10 transition-transform duration-500 group-hover:scale-105" />
                   </span>
                   
-                  <h3 className="relative text-sm font-bold text-[#1a1a1a] transition-colors group-hover:text-[#c8102e]">
+                  <h3 className="relative text-sm font-bold text-[#1a1a1a]">
                     {cat.title}
                   </h3>
                   
-                  <p className="relative mt-1 text-xs text-[#6b7280]">
+                  <p className="relative mt-2 text-xs text-[#6b7280]">
                     {cat.count} Products
                   </p>
 
                   {/* Plus icon that rotates on hover */}
                   <span
                     aria-label={`View ${cat.title}`}
-                    className="relative mt-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
+                    className="relative mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e5e7eb] text-[#1a1a1a] transition-all duration-300 group-hover:border-[#c8102e] hover:bg-[#c8102e] hover:text-white hover:rotate-90"
                   >
                     <Plus className="h-4 w-4" />
                   </span>
-                </a>
+                </Link>
               </TiltCard>
             );
           })}

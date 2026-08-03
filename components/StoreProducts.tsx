@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Search } from "./icons";
 import AddToCartButton from "./AddToCartButton";
 import ScrollReveal from "./ScrollReveal";
@@ -26,14 +27,38 @@ const TABS: { label: string; value: Tab }[] = [
 export default function StoreProducts() {
   const [activeTab, setActiveTab] = useState<Tab>("all");
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("all");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const category = searchParams.get("category") || "all";
   const [maxPrice, setMaxPrice] = useState(50);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+
+  const handleTypeChange = (type: string) => {
+    setSelectedTypes((prev) =>
+      prev.includes(type)
+        ? prev.filter((t) => t !== type)
+        : [...prev, type]
+    );
+  };
+
+  const setCategory = (newCat: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (newCat === "all") {
+      params.delete("category");
+    } else {
+      params.set("category", newCat);
+    }
+    router.replace(`${pathname}?${params.toString()}#products`, { scroll: false });
+  };
 
   const filtered = PRODUCTS.filter((p) => {
     if (activeTab !== "all" && p.badge !== activeTab) return false;
     if (query && !p.name.toLowerCase().includes(query.toLowerCase())) return false;
     if (category !== "all" && p.category !== category) return false;
     if (p.price > maxPrice) return false;
+    if (selectedTypes.length > 0 && (!p.embroideryType || !selectedTypes.includes(p.embroideryType))) return false;
     return true;
   });
 
@@ -57,11 +82,10 @@ export default function StoreProducts() {
             <button
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${
-                activeTab === tab.value
+              className={`relative overflow-hidden rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 sm:text-sm ${activeTab === tab.value
                   ? "bg-[#c8102e] text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)]"
                   : "border border-[#e5e7eb] bg-white text-[#6b7280] hover:border-[#c8102e] hover:text-[#c8102e]"
-              }`}
+                }`}
             >
               {/* Shine sweep on active */}
               {activeTab === tab.value && (
@@ -102,14 +126,7 @@ export default function StoreProducts() {
                   className="mt-2 h-10 w-full rounded-md border border-[#e5e7eb] px-3 text-sm text-[#6b7280] outline-none transition-colors focus:border-[#c8102e]"
                 >
                   <option value="all">All Categories</option>
-                  <option value="fonts">Embroidery Fonts</option>
-                  <option value="animal">Animal Designs</option>
-                  <option value="patches">Patch Collections</option>
-                  <option value="sports">Sports Logos</option>
-                  <option value="floral">Floral Designs</option>
-                  <option value="mascot">Mascot Characters</option>
-                  <option value="vintage">Vintage Logos</option>
-                  <option value="monogram">Monogram Sets</option>
+                  <option value="patch-digitizing">Patches</option>
                 </select>
               </div>
 
@@ -139,7 +156,12 @@ export default function StoreProducts() {
                 <div className="mt-2 flex flex-col gap-2">
                   {["Flat", "3D Puff", "Applique", "Chenille"].map((t) => (
                     <label key={t} className="flex cursor-pointer items-center gap-2 text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">
-                      <input type="checkbox" className="h-4 w-4 accent-[#c8102e]" />
+                      <input
+                        type="checkbox"
+                        className="h-4 w-4 accent-[#c8102e]"
+                        checked={selectedTypes.includes(t)}
+                        onChange={() => handleTypeChange(t)}
+                      />
                       {t}
                     </label>
                   ))}
@@ -152,6 +174,7 @@ export default function StoreProducts() {
                   setQuery("");
                   setCategory("all");
                   setMaxPrice(50);
+                  setSelectedTypes([]);
                 }}
                 className="mt-6 w-full rounded-md border border-[#c8102e] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#c8102e] transition-all hover:bg-[#c8102e] hover:text-white"
               >

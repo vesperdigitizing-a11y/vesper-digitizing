@@ -24,6 +24,7 @@ export type Product = {
   fileSize: string;
   isBundle?: boolean;
   bundleDiscount?: number; // integer percent, e.g. 50 for "50% off"
+  embroideryType?: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -31,7 +32,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "certified-locally-grown-patch",
     name: "Certified Locally Grown Patch",
-    category: "patches",
+    embroideryType: "Applique",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -64,7 +66,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "classic-pikachu-1996-patch",
     name: "Classic Pikachu 1996 Patch",
-    category: "patches",
+    embroideryType: "Flat",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -96,7 +99,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "dont-hassle-me-shuckle-patch",
     name: "Don't Hassle Me Shuckle Patch",
-    category: "patches",
+    embroideryType: "Flat",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -128,7 +132,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "dragonite-delivery-service-patch",
     name: "Dragonite Delivery Service Patch",
-    category: "patches",
+    embroideryType: "Flat",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -161,7 +166,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "error-404-patch",
     name: "Error 404 Patch",
-    category: "patches",
+    embroideryType: "Chenille",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -192,7 +198,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "kanto-fire-department-patch",
     name: "Kanto Fire Department Patch",
-    category: "patches",
+    embroideryType: "Flat",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -224,7 +231,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "licensed-nursing-assistant-patch",
     name: "Licensed Nursing Assistant Patch",
-    category: "patches",
+    embroideryType: "Applique",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -256,7 +264,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "official-bean-of-the-year-patch",
     name: "Official Bean of the Year Patch",
-    category: "patches",
+    embroideryType: "Chenille",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -289,7 +298,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "professional-dragon-slayer-patch",
     name: "Professional Dragon Slayer Patch",
-    category: "patches",
+    embroideryType: "3D Puff",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -322,7 +332,8 @@ export const PRODUCTS: Product[] = [
   {
     slug: "squirtle-squad-patch",
     name: "Squirtle Squad Patch",
-    category: "patches",
+    embroideryType: "3D Puff",
+    category: "patch-digitizing",
     categoryLabel: "Custom Patches",
     price: 2.99,
     originalPrice: 4.0,
@@ -357,13 +368,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "font-mega-pack",
     name: "50 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 200,
     image: "/images/products/bundles/bundle-1.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "50 premium patch designs — curated collection at an unbeatable price.",
@@ -392,13 +404,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "patch-bundle-pro",
     name: "50 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 200,
     image: "/images/products/bundles/bundle-2.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "50 premium patch designs — curated collection at an unbeatable price.",
@@ -427,13 +440,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "animal-design-mega-pack",
     name: "70 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 209.99,
     originalPrice: 280,
     image: "/images/products/bundles/bundle-3.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "70 premium patch designs — expanded collection for growing shops.",
@@ -461,13 +475,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "sports-logo-bundle",
     name: "70 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 209.99,
     originalPrice: 280,
     image: "/images/products/bundles/bundle-4.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "70 premium patch designs — expanded collection for growing shops.",
@@ -495,13 +510,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "floral-design-collection",
     name: "100 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 299.99,
     originalPrice: 400,
     image: "/images/products/bundles/bundle-5.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "100 premium patch designs — the ultimate collection for serious shops.",
@@ -529,13 +545,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "mascot-character-pack",
     name: "100 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 299.99,
     originalPrice: 400,
     image: "/images/products/bundles/bundle-6.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "100 premium patch designs — the ultimate collection for serious shops.",
@@ -563,13 +580,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "vintage-logo-bundle",
     name: "50 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-7.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "50 premium patch designs — curated selection across multiple themes.",
@@ -598,13 +616,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "monogram-initials-set",
     name: "50 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-8.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "50 premium patch designs — curated selection across multiple themes.",
@@ -632,13 +651,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "logo-starter-kit",
     name: "50 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-9.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "50 premium patch designs — curated selection across multiple themes.",
@@ -666,13 +686,14 @@ export const BUNDLES: Product[] = [
   {
     slug: "premium-patch-collection",
     name: "50 Patches Pack",
-    category: "patches",
+    category: "patch-digitizing",
     categoryLabel: "Patch Bundles",
     price: 149.99,
     originalPrice: 186.67,
     image: "/images/products/bundles/bundle-10.webp",
     badge: "sale",
     isBundle: true,
+    embroideryType: "Flat",
     bundleDiscount: 25,
     tagline:
       "50 premium patch designs — curated selection across multiple themes.",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -99,7 +100,9 @@ export default function StorePage() {
           statsCardLabel="Completed Projects"
         />
         <StoreCategories />
-        <StoreProducts />
+        <Suspense fallback={<div className="py-12 text-center text-[#6b7280]">Loading products...</div>}>
+          <StoreProducts />
+        </Suspense>
         <StoreBundles />
         <StoreWhyShop />
         <Testimonials testimonials={STORE_TESTIMONIALS} />
