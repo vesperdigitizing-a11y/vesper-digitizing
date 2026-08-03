@@ -257,7 +257,7 @@ export default function Hero({
 
         {/* STATS ROW (if provided) */}
         {stats && stats.length > 0 && (
-          <ScrollReveal stagger delay={400} className="mt-8 w-full">
+          <div className="mt-8 w-full">
             <div className="flex flex-wrap gap-x-4 gap-y-2 max-w-md sm:gap-x-6">
               {stats.map((s) => (
                 <div
@@ -276,13 +276,13 @@ export default function Hero({
                 </div>
               ))}
             </div>
-          </ScrollReveal>
+          </div>
         )}
 
         {/* BADGES - PURE TRANSPARENT WITH HIGH-CONTRAST TEXT SHADOWS */}
         {/* BADGES - PURE TRANSPARENT WITH MAXIMUM TEXT VISIBILITY */}
         {!stats && badges && badges.length > 0 && (
-          <ScrollReveal delay={400} className="mt-8 w-full max-w-xl">
+          <div className="mt-8 w-full max-w-xl">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {badges.map((b) => (
                 <div
@@ -319,7 +319,7 @@ export default function Hero({
                 </div>
               ))}
             </div>
-          </ScrollReveal>
+          </div>
         )}
       </>
     );
