@@ -60,45 +60,37 @@ export default function AboutHero() {
       {/* ✅ FIXED: Same padding as ServicesHero */}
       <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-8 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-20 lg:pb-28 lg:px-8">
         <div className="flex flex-col items-start">
-          <ScrollReveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
-              About Vesper Digitizing
-            </span>
-          </ScrollReveal>
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6b7280]">
+            About Vesper Digitizing
+          </span>
 
-          <ScrollReveal delay={100}>
-            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
-              Crafting Perfection <br className="hidden sm:block" />
-              One <span className="text-gradient">Stitch</span> at a Time
-            </h1>
-          </ScrollReveal>
+          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
+            Crafting Perfection <br className="hidden sm:block" />
+            One <span className="text-gradient">Stitch</span> at a Time
+          </h1>
 
-          <ScrollReveal delay={200}>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
-              At Vesper Digitizing, we turn your ideas into flawless embroidery.
-              With precision, passion, and technology, we deliver digitizing
-              solutions that help your brand stand out.
-            </p>
-          </ScrollReveal>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
+            At Vesper Digitizing, we turn your ideas into flawless embroidery.
+            With precision, passion, and technology, we deliver digitizing
+            solutions that help your brand stand out.
+          </p>
 
-          <ScrollReveal delay={300}>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href="/services"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
-              >
-                Our Services
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="/portfolio"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-[#c8102e] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#c8102e] transition-all hover:bg-[#c8102e] hover:text-white"
-              >
-                View Portfolio
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </ScrollReveal>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="/services"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c8102e] px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(200,16,46,0.5)] transition-all hover:bg-[#a30d24] hover:shadow-[0_12px_28px_-6px_rgba(200,16,46,0.6)]"
+            >
+              Our Services
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="/portfolio"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border-2 border-[#c8102e] bg-white px-6 text-sm font-semibold uppercase tracking-wide text-[#c8102e] transition-all hover:bg-[#c8102e] hover:text-white"
+            >
+              View Portfolio
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
 
           {/* Stats row with animated counters — equal-width columns + short,
               nowrap labels keep every badge's icon/number/label aligned. */}

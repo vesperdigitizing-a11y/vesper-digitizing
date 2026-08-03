@@ -168,99 +168,91 @@ export default function Hero({
     return (
       <>
         {/* BADGE */}
-        <ScrollReveal>
-          {badgeType === "dot" && (
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e]">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8102e] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#c8102e]" />
-              </span>
-              {badge}
+        {badgeType === "dot" && (
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#c8102e]/20 bg-[#c8102e]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c8102e]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8102e] opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#c8102e]" />
             </span>
-          )}
-          {badgeType === "line" && (
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
-              {badge}
-              <span className="h-px w-6 bg-current opacity-60" />
-            </span>
-          )}
-          {(badgeType === "breadcrumb" || badgeType === "plain") && (
-            <span
-              className={`text-xs font-semibold uppercase tracking-[0.25em] ${badgeType === "breadcrumb" ? "text-[#6b7280]" : "text-[#6b7280]"}`}
-            >
-              {badge}
-            </span>
-          )}
-        </ScrollReveal>
+            {badge}
+          </span>
+        )}
+        {badgeType === "line" && (
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#c8102e]">
+            {badge}
+            <span className="h-px w-6 bg-current opacity-60" />
+          </span>
+        )}
+        {(badgeType === "breadcrumb" || badgeType === "plain") && (
+          <span
+            className={`text-xs font-semibold uppercase tracking-[0.25em] ${badgeType === "breadcrumb" ? "text-[#6b7280]" : "text-[#6b7280]"}`}
+          >
+            {badge}
+          </span>
+        )}
 
         {/* TITLE/HEADING */}
-        <ScrollReveal delay={100}>
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
-            {title.split("<br/>").map((line, i, arr) => (
-              <span key={i}>
-                {i > 0 && <br className="hidden sm:block" />}
-                {i === arr.length - 1 &&
+        <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-[#1a1a1a] text-balance sm:text-5xl lg:text-5xl">
+          {title.split("<br/>").map((line, i, arr) => (
+            <span key={i}>
+              {i > 0 && <br className="hidden sm:block" />}
+              {i === arr.length - 1 &&
+              titleHighlight &&
+              line.includes(titleHighlight) ? (
+                <>
+                  {line.replace(titleHighlight, "")}{" "}
+                  <span className="text-gradient">{titleHighlight}</span>
+                </>
+              ) : (
+                line
+              )}
+              {i === arr.length - 1 &&
                 titleHighlight &&
-                line.includes(titleHighlight) ? (
+                !line.includes(titleHighlight) && (
                   <>
-                    {line.replace(titleHighlight, "")}{" "}
+                    {" "}
+                    <br className="hidden sm:block" />
                     <span className="text-gradient">{titleHighlight}</span>
                   </>
-                ) : (
-                  line
                 )}
-                {i === arr.length - 1 &&
-                  titleHighlight &&
-                  !line.includes(titleHighlight) && (
-                    <>
-                      {" "}
-                      <br className="hidden sm:block" />
-                      <span className="text-gradient">{titleHighlight}</span>
-                    </>
-                  )}
-              </span>
-            ))}
-          </h1>
-        </ScrollReveal>
+            </span>
+          ))}
+        </h1>
 
         {/* DESCRIPTION */}
         {description && (
-          <ScrollReveal delay={200}>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
-              {description}
-            </p>
-          </ScrollReveal>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#1a1a1a]/75 sm:text-lg">
+            {description}
+          </p>
         )}
 
         {/* CTA BUTTONS */}
         {ctaButtons && ctaButtons.length > 0 && (
-          <ScrollReveal delay={300}>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              {ctaButtons.map((btn, idx) =>
-                btn.variant === "outline" ? (
-                  <MagneticButton
-                    key={idx}
-                    href={btn.href}
-                    size="md"
-                    variant="outline"
-                  >
-                    {btn.text}
-                    <ArrowRight className="h-4 w-4" />
-                  </MagneticButton>
-                ) : (
-                  <MagneticButton
-                    key={idx}
-                    href={btn.href}
-                    size="md"
-                    variant="solid"
-                  >
-                    {btn.text}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </MagneticButton>
-                ),
-              )}
-            </div>
-          </ScrollReveal>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            {ctaButtons.map((btn, idx) =>
+              btn.variant === "outline" ? (
+                <MagneticButton
+                  key={idx}
+                  href={btn.href}
+                  size="md"
+                  variant="outline"
+                >
+                  {btn.text}
+                  <ArrowRight className="h-4 w-4" />
+                </MagneticButton>
+              ) : (
+                <MagneticButton
+                  key={idx}
+                  href={btn.href}
+                  size="md"
+                  variant="solid"
+                >
+                  {btn.text}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </MagneticButton>
+              ),
+            )}
+          </div>
         )}
 
         {/* STATS ROW (if provided) */}
