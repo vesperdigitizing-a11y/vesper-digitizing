@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import StoreCategories from "@/components/StoreCategories";
 import StoreProducts from "@/components/StoreProducts";
-import StoreBundles from "@/components/StoreBundles";
-import StoreWhyShop from "@/components/StoreWhyShop";
-import Testimonials, { type Testimonial } from "@/components/Testimonials";
-import StoreNewsletter from "@/components/StoreNewsletter";
+import { type Testimonial } from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import {
   Download,
@@ -17,6 +15,13 @@ import {
   Refresh,
   Globe,
 } from "@/components/icons";
+
+// Below-the-fold sections — split into their own chunks so the initial
+// hydration payload for the store page stays smaller.
+const StoreBundles = dynamic(() => import("@/components/StoreBundles"));
+const StoreWhyShop = dynamic(() => import("@/components/StoreWhyShop"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const StoreNewsletter = dynamic(() => import("@/components/StoreNewsletter"));
 
 export const metadata: Metadata = {
   title: "Store | Vesper Digitizing",
