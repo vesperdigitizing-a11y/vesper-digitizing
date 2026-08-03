@@ -148,32 +148,32 @@ const imgIcon = (src: string, alt: string) =>
   };
 
 export const Shirt = imgIcon(
-  "/icons/embroidered-shirt-check.png",
+  "/icons/embroidered-shirt-check.webp",
   "Left chest logo embroidery",
 );
 
 export const Cap = imgIcon(
-  "/icons/embroidered-cap-front.png",
+  "/icons/embroidered-cap-front.webp",
   "Cap digitizing",
 );
 
 export const Jacket = imgIcon(
-  "/icons/embroidered-jacket.png",
+  "/icons/embroidered-jacket.webp",
   "Jacket back embroidery",
 );
 
 export const Cube = imgIcon(
-  "/icons/embroidery-digitizing-box.png",
+  "/icons/embroidery-digitizing-box.webp",
   "3D puff digitizing",
 );
 
 export const Layers = imgIcon(
-  "/icons/smiley-face-patch.png",
+  "/icons/smiley-face-patch.webp",
   "Applique digitizing",
 );
 
 export const Patch = imgIcon(
-  "/icons/embroidered-shield-patch.png",
+  "/icons/embroidered-shield-patch.webp",
   "Patch digitizing",
 );
 
@@ -208,17 +208,17 @@ export const Chenille = (props: IconProps) => (
 
 /* RE-ENGINEERED: Sleeve Placement (Shoulder line, Arm outline, Cuff & Circular Logo Target) */
 export const Sleeve = imgIcon(
-  "/icons/embroidery-hoop.png",
+  "/icons/embroidery-hoop.webp",
   "Sleeve logo digitizing",
 );
 
 export const PenTool = imgIcon(
-  "/icons/vector-pen-tool.png",
+  "/icons/vector-pen-tool.webp",
   "Vector art digitizing",
 );
 
 export const Sparkles = imgIcon(
-  "/icons/heart-needle-thread.png",
+  "/icons/heart-needle-thread.webp",
   "Chenille patch embroidery",
 );
 
@@ -397,7 +397,7 @@ export const Heart = (props: IconProps) => (
 );
 
 export const Towel = imgIcon(
-  "/icons/embroidered-towel.png",
+  "/icons/embroidered-towel.webp",
   "Towel digitizing",
 );
 
