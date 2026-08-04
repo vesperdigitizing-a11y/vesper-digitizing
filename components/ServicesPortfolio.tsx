@@ -7,7 +7,6 @@ import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
-import ImagePreviewModal, { type PreviewImage } from "./ImagePreviewModal";
 
 type Category = {
   id: string;
@@ -108,11 +107,10 @@ function Tab({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300 sm:px-5 sm:text-sm ${
-        active
+      className={`rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300 sm:px-5 sm:text-sm ${active
           ? "bg-[#c8102e] text-white shadow-[0_6px_18px_-6px_rgba(200,16,46,.45)]"
           : "bg-white text-[#6b7280] ring-1 ring-[#e5e7eb] hover:text-[#c8102e] hover:ring-[#c8102e]"
-      }`}
+        }`}
     >
       {label}
     </button>
@@ -127,7 +125,6 @@ export default function ServicesPortfolio() {
   const validIds = useMemo(() => new Set(CATEGORIES.map((c) => c.id)), []);
 
   const [activeTab, setActiveTab] = useState<string | null>(null);
-  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (categoryParam && validIds.has(categoryParam)) {
@@ -155,14 +152,6 @@ export default function ServicesPortfolio() {
       ? CATEGORIES.filter((c) => c.id === activeTab)
       : CATEGORIES;
   }, [activeTab]);
-
-  const previewImages: PreviewImage[] = useMemo(() => {
-    return filtered.map((c) => ({
-      src: c.image,
-      title: c.tag,
-      category: c.label,
-    }));
-  }, [filtered]);
 
   return (
     <section className="bg-[#f5f5f5] py-16 sm:py-24 scroll-mt-24">
@@ -206,12 +195,10 @@ export default function ServicesPortfolio() {
           {filtered.map((cat, index) => (
             <article
               key={cat.id}
-              onClick={() => setPreviewIndex(index)}
-              className={`group relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl cursor-pointer ${
-                filtered.length % 3 === 1 && index === filtered.length - 1
+              className={`group relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl ${filtered.length % 3 === 1 && index === filtered.length - 1
                   ? "lg:col-start-2"
                   : ""
-              }`}
+                }`}
             >
               <Image
                 src={cat.image}
@@ -235,12 +222,8 @@ export default function ServicesPortfolio() {
                 </p>
               </div>
 
-              {/* Eye icon instead of arrow for preview */}
-              <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur transition-all duration-500 group-hover:opacity-100 hover:bg-[#c8102e] hover:scale-105">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
+              <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur transition-all duration-500 group-hover:opacity-100">
+                <ArrowRight className="h-4 w-4" />
               </span>
 
               <div className="absolute left-0 right-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
@@ -266,13 +249,6 @@ export default function ServicesPortfolio() {
           </div>
         </ScrollReveal>
       </div>
-
-      <ImagePreviewModal
-        isOpen={previewIndex !== null}
-        onClose={() => setPreviewIndex(null)}
-        images={previewImages}
-        initialIndex={previewIndex ?? 0}
-      />
     </section>
   );
 }
