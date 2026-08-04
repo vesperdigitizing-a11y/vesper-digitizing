@@ -7,6 +7,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Search } from "./icons";
 import AddToCartButton from "./AddToCartButton";
 import ScrollReveal from "./ScrollReveal";
+import ImagePreviewModal, { type PreviewImage } from "./ImagePreviewModal";
 import {
   PRODUCTS,
   BADGE_STYLES,
@@ -27,6 +28,7 @@ const TABS: { label: string; value: Tab }[] = [
 export default function StoreProducts() {
   const [activeTab, setActiveTab] = useState<Tab>("all");
   const [query, setQuery] = useState("");
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -191,31 +193,48 @@ export default function StoreProducts() {
                   key={p.slug}
                   className="group flex flex-col overflow-hidden rounded-xl border border-[#e5e7eb] bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#c8102e]/30 hover:shadow-2xl"
                 >
-                  <Link
-                    href={`/product/${p.slug}`}
-                    className="relative aspect-square w-full overflow-hidden bg-[#f5f5f5]"
-                    aria-label={p.name}
-                  >
-                    <Image
-                      src={p.image}
-                      alt={p.name}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                  <div className="relative aspect-square w-full overflow-hidden bg-[#f5f5f5]">
+                    <Link
+                      href={`/product/${p.slug}`}
+                      className="absolute inset-0 z-0"
+                      aria-label={p.name}
+                    >
+                      <Image
+                        src={p.image}
+                        alt={p.name}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </Link>
                     {p.badge && (
                       <span className={`absolute left-3 top-3 z-10 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider shadow-md ${BADGE_STYLES[p.badge]}`}>
                         {BADGE_LABELS[p.badge]}
                       </span>
                     )}
 
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <span className="mb-4 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1a1a1a] shadow-md backdrop-blur">
-                        View Details
-                      </span>
+                    {/* Hover overlay with modern actions */}
+                    <div className="absolute inset-0 z-10 pointer-events-none flex items-end justify-center bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <div className="pointer-events-auto mb-4 flex gap-2">
+                        <Link
+                          href={`/product/${p.slug}`}
+                          className="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#1a1a1a] shadow-md backdrop-blur transition hover:bg-[#c8102e] hover:text-white"
+                        >
+                          Details
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const idx = filtered.indexOf(p);
+                            setPreviewIndex(idx);
+                          }}
+                          className="inline-flex items-center gap-1 rounded-full bg-[#c8102e]/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md backdrop-blur transition hover:bg-[#a30d24]"
+                        >
+                          Preview
+                        </button>
+                      </div>
                     </div>
-                  </Link>
+                  </div>
 
                   <div className="flex flex-1 flex-col p-4">
                     <Link
@@ -253,6 +272,17 @@ export default function StoreProducts() {
           </div>
         </div>
       </div>
+
+      <ImagePreviewModal
+        isOpen={previewIndex !== null}
+        onClose={() => setPreviewIndex(null)}
+        images={filtered.map((p) => ({
+          src: p.image,
+          title: p.name,
+          category: p.categoryLabel,
+        }))}
+        initialIndex={previewIndex ?? 0}
+      />
     </section>
   );
 }

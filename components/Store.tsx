@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "./SectionHeading";
@@ -6,10 +9,13 @@ import { PRODUCTS, formatPrice } from "@/lib/products";
 import AddToCartButton from "./AddToCartButton";
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
+import ImagePreviewModal, { type PreviewImage } from "./ImagePreviewModal";
 
 const FEATURED = PRODUCTS.slice(0, 4);
 
 export default function Store() {
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
+
   return (
     <section id="store" className="relative bg-[#f5f5f5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,36 +48,52 @@ export default function Store() {
             </div>
 
             <ScrollReveal stagger className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
-              {FEATURED.map((p) => (
+              {FEATURED.map((p, idx) => (
                 <article
                   key={p.slug}
                   className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <Link
-                    href={`/product/${p.slug}`}
-                    className="relative aspect-square w-full overflow-hidden bg-[#f5f5f5]"
-                    aria-label={p.name}
-                  >
-                    <Image
-                      src={p.image}
-                      alt={p.name}
-                      fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                  <div className="relative aspect-square w-full overflow-hidden bg-[#f5f5f5]">
+                    <Link
+                      href={`/product/${p.slug}`}
+                      className="absolute inset-0 z-0"
+                      aria-label={p.name}
+                    >
+                      <Image
+                        src={p.image}
+                        alt={p.name}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </Link>
                     {p.badge === "sale" && p.originalPrice && (
                       <span className="absolute left-3 top-3 z-10 rounded-md bg-[#c8102e] px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
                         Sale
                       </span>
                     )}
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <span className="mb-4 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1a1a1a] shadow-md backdrop-blur">
-                        View Details
-                        <ArrowRight className="h-3 w-3" />
-                      </span>
+
+                    {/* Hover overlay with modern actions */}
+                    <div className="absolute inset-0 z-10 pointer-events-none flex items-end justify-center bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <div className="pointer-events-auto mb-4 flex gap-2">
+                        <Link
+                          href={`/product/${p.slug}`}
+                          className="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#1a1a1a] shadow-md backdrop-blur transition hover:bg-[#c8102e] hover:text-white"
+                        >
+                          Details
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setPreviewIndex(idx);
+                          }}
+                          className="inline-flex items-center gap-1 rounded-full bg-[#c8102e]/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md backdrop-blur transition hover:bg-[#a30d24]"
+                        >
+                          Preview
+                        </button>
+                      </div>
                     </div>
-                  </Link>
+                  </div>
 
                   <div className="flex flex-1 flex-col p-3 sm:p-4">
                     <div className="text-[10px] font-medium uppercase tracking-wider text-[#9ca3af]">
@@ -107,6 +129,17 @@ export default function Store() {
           </div>
         </div>
       </div>
+
+      <ImagePreviewModal
+        isOpen={previewIndex !== null}
+        onClose={() => setPreviewIndex(null)}
+        images={FEATURED.map((p) => ({
+          src: p.image,
+          title: p.name,
+          category: p.categoryLabel,
+        }))}
+        initialIndex={previewIndex ?? 0}
+      />
     </section>
   );
 }

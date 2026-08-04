@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { ArrowRight } from "./icons";
 import ScrollReveal from "./ScrollReveal";
+import ImagePreviewModal, { type PreviewImage } from "./ImagePreviewModal";
 
 import { ITEMS, type PortfolioItem } from "@/lib/portfolio";
 
@@ -35,6 +36,7 @@ export default function PortfolioGallery() {
 
   const [active, setActive] = useState(initialFilter);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
   const hasScrolledFromUrl = useRef(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -78,6 +80,12 @@ export default function PortfolioGallery() {
   const visibleItems = filtered.slice(0, visibleCount);
   const hasMore = filtered.length > visibleCount;
 
+  const previewImages: PreviewImage[] = filtered.map((item) => ({
+    src: item.image,
+    title: item.title,
+    category: item.category,
+  }));
+
   return (
     <section
       id="portfolio-gallery"
@@ -120,7 +128,8 @@ export default function PortfolioGallery() {
           {visibleItems.map((item, i) => (
             <article
               key={item.title}
-              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-500"
+              onClick={() => setPreviewIndex(i)}
+              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[#e5e7eb] transition-all duration-500 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-500 cursor-pointer"
               style={{
                 animationDelay: `${(i % LOAD_MORE_COUNT) * 60}ms`,
                 animationFillMode: "backwards",
@@ -134,7 +143,16 @@ export default function PortfolioGallery() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#c8102e]/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Hover overlay with modern glassmorphism + red accent */}
+                <div className="absolute inset-0 bg-[#c8102e]/25 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 backdrop-blur-[2px] transition-all duration-300 group-hover:opacity-100">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#c8102e] shadow-lg transition-all duration-300 scale-75 group-hover:scale-100 hover:bg-[#c8102e] hover:text-white">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </span>
+                </div>
                 <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#c8102e] transition-transform duration-500 group-hover:scale-x-100" />
               </div>
 
@@ -175,6 +193,13 @@ export default function PortfolioGallery() {
           </p>
         )}
       </div>
+
+      <ImagePreviewModal
+        isOpen={previewIndex !== null}
+        onClose={() => setPreviewIndex(null)}
+        images={previewImages}
+        initialIndex={previewIndex ?? 0}
+      />
     </section>
   );
 }
